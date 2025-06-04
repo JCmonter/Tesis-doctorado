@@ -1,1 +1,78 @@
 \chapter{Marcos arreglados vs Axiomas tipo Hausdorff}\label{Relación MA y AH}
+
+Notemos que la Definición \ref{Definición8.2.1} identifica a un tipo especifico de marcos. El Teorema \ref{Teorema8.4.4} caracteriza a los marcos arreglados por medio de una condición especial, de manera especifica con el axioma de separación $T_2$.
+Con esto en mente, resulta natural el preguntarse: \emph{¿se pueden enunciar caracterizaciones para los marcos arreglados que sean meramente de marcos?}, es decir, que no se haga mención a la topología de un espacio. Un ejemplo no tan exitos de lo que 
+que acabamos de preguntar lo tenemos en el siguiente resultado.
+
+\begin{cor}\label{TadyHausdorff}
+Para $A$ un marco espacial se cumple lo siguiente: $\mathcal{O}S$ es un marco Hausdorff si y solo si $A$ es $1$-arreglado. 
+\end{cor}
+La prueba se sigue del hecho de que la propiedad $\mathbf{(H)}$ es conservativa.\\
+
+De esta manera, hemos relacionado la condición de arreglo con uno de los axiomas de separación. Veamos cual es la relación de esta con las otras propiedades.\\
+
+\section{Arreglado y su relación con los propiedades de separación en $\Frm$}
+
+El Lema \ref{Lema8.4.1} nos dice que arreglado implica $T_1$. ¿Qué pasa con las propiedades más fuertes que $T_1$?
+
+\begin{lem}\label{TadyFHausdorff}
+    Todo marco fuertemente Hausdorff es arreglado.
+\end{lem}
+
+\begin{proof}
+    Consideremos $A\in \Frm$ fuertemente Hausdorff. Si $A$ cumple $\mathbf{(fH)}$, entonces todo sublocal compacto es cerrado. Por teoría de marcos, para $j\in NA$ arbitrario, $A_j$ es compacto si y solo si $\nabla(j)\in A^\wedge$. De aquí que, al ser compacto y por $\mathbf{(fH)}$ $A_j=A_{u_d}$, para algún $d\in A$, es decir, $j=u_d$ y $\nabla(j)=\nabla(u_d)$ para algún $d\in A$, en particular, por H-M, para todo $F\in A^\wedge$, $v_F\in NA$. Así $\nabla(v_F)=\nabla(u_d)$, es decir, para $x\in F$ se cumple que $u_d(x)=1=d\vee x$. Por lo tanto $A$ es arreglado.
+\end{proof}
+
+Con esto tenemos las implicaciones
+\[
+\mathbf{(fH)} \Rightarrow \mbox{ Arreglado }\Rightarrow T_1
+\]
+
+Resulta natural el pensar que la propiedad $\mathbf{(H)}$ este metida entre ellas. La realidad es que hasta el dia de hoy no hemos logrado demostrar que 
+\[
+\mbox{\emph{Todo marco Hausdorff es arreglado.}}
+\]
+
+Aunque no lo menciona, Sexton prueba en su tesis doctoral que si un marco es $T_3$, entonces este es parche trivial. Además, tenemos que parche trivial si y solo si arreglado. Por lo tanto, tenemos que
+\[
+T_3\Rightarrow \mbox{ Arreglado.}
+\] 
+Por otro la
+do, Simmons en su artículo (citar regular and fitness), prueba que 
+\[
+\mathbf{(aju)}\Rightarrow \mbox{ Arreglado.}
+\]
+
+Las pruebas que ellos realizan nos llevan a pensar que existe cierto comportamiento en algo que nosotros llamamos \emph{intervalos de admisibilidad}. Este tema los trataremos más adelante.\\
+
+Por el momento, solo podemos suponer que alguna relación debe existir entre la propiedad $\mathbf{(H)}$ y la condición de arreglo. Hasta que no tengamos una prueba exitosa de este hecho (porque vaya que lo hemos intentado) o exista un ejemplo que exhiba información relevante,
+lo anterior seguirá siendo una duda.\\
+
+Lo que sigue ahora es analizar el comportamiento del marco $PA$ (el marco de parches de un marco $A$), con los axiomas de separación
+
+\subsection{¿Qué propiedades de separación cumple el marco de parches?}\label{Parchesyseparación}
+
+Aunque al final de esta pequeña subsección pueda sentirse que es innecesaria, este análisis nos hace pensar que el marco $P^2A$ es en el que debemos enfocar en mayor parte nuestro interés. Recordemos que el marco de parches viene inspirado por la definición de espacio de parches.
+La noción de que un marco sea parche trivial (o equivalentemente arreglado), se basa en imitar lo que se conoce como espacio empaquetado. En el Capítulo \ref{Parches} se prueba que la construcción del espacio de parches se estaviliza en el tercer paso, es decir,
+\[
+^{pp}S=\,^{ppp}S,
+\]
+de esta manera, la sospecha que tenemos es que $P^2A$ debe actuar de manera similar. Veamos que ocurre que el parche antecesor.\\
+
+\begin{itemize}
+\item Observemos que si un marco es regular, entonces es arreglado. Si el marco es arreglado, entonces este es parche trivial. Por definición, un marco $A$ es parche trivial si $A\simeq PA$. Por lo tanto, si $PA$ fuera regular, siempre se cumpliria que $A$ es parche trivial, lo cual no es cierto siempre.
+\item Similar al punto anterior, no puede cumplirse que $PA$ cumpla $\mathbf{(H)}$, pues de ser así, también implicaría que todos el marco $A$ es parche trivial y en general, esto no es cierto.
+\item Si $PA$ es $T_1$, entonces para todo $j\in \pt PA$ se cumple que $j$ es máximo. Además, si $j\in \pt PA$, entonces $j$ es un punto salvaje o $j$ es un punto ordinario, es decir,
+\[
+j=w_p\quad \mbox{ o }\quad j\neq w_p
+\]
+para algún $p\in \pt A$. Si $j$ es salvaje, entonces para $a\in A$ se cumple que 
+\[
+u_a\leq j\leq w_a
+\]
+donde $a=j(0)$. Lo anterior nos dice que $j\in \pt PA$ no siempre es máximo y con ello no necesariamente será un marco $T_1$.
+\end{itemize}
+
+Como mencionamos al principio, puede resultar desepcionante el darse cuenta que $PA$ no cumple ninguna de las propiedades que teniamos en mente. Por tal motivo habrá que investigar que ocurre con $P^2A$.
+
+\section{Intervalos de admisibilidad}
