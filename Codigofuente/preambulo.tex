@@ -7,13 +7,16 @@
 \parindent=0cm
 \usepackage{amsmath}
 \usepackage{amssymb,amsfonts,latexsym,cancel}
+\usepackage{enumerate}
 \usepackage{array}
 \usepackage{bm}
 \usepackage{float}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{epstopdf}
+\usepackage{tikz}
 \usepackage{tikz-cd}
+\usetikzlibrary{decorations.pathmorphing}
 \usepackage[colorlinks = true, linkcolor = blue, citecolor = black, urlcolor = blue]{hyperref}
 \usepackage{longtable}
 \usepackage{booktabs}
@@ -24,14 +27,14 @@
 \usepackage{titlesec}
 \usepackage{pdfpages}
 \newcolumntype{E}{>{$}c<{$}}
-\newtheorem{teo}{Teorema}[section]
-\newtheorem{defi}[teo]{Definición}
-\newtheorem{lem}[teo]{Lema}
-\newtheorem{ejem}[teo]{Ejemplo}
-\newtheorem{cor}[teo]{Corolario}
-\newtheorem{obs}[teo]{Observación}
-\newtheorem{con}[teo]{Conjetura}
-\newtheorem{prop}[teo]{Proposición}
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{dfn}[thm]{Definición}
+\newtheorem{lem}[thm]{Lema}
+\newtheorem{ej}[thm]{Ejemplo}
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{obs}[thm]{Observación}
+\newtheorem{con}[thm]{Conjetura}
+\newtheorem{prop}[thm]{Proposición}
 \newenvironment{proof}{\noindent{\textbf{\it Demostraci\'on.}}}{\hfill$\blacksquare$}
 %\renewcommand{\theenumi}{\roman{enumi}}
 
@@ -59,3 +62,4 @@
 \newcommand{\ins}{\mathrm{ins}}
 \newcommand{\coht}{\mathrm{coht}}
 \newcommand{\dep}{\mathrm{dp}}
+\newcommand{\sob}{\mathrm{sob}}
