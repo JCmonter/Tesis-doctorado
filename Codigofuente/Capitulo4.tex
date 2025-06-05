@@ -73,6 +73,166 @@ u_a\leq j\leq w_a
 donde $a=j(0)$. Lo anterior nos dice que $j\in \pt PA$ no siempre es máximo y con ello no necesariamente será un marco $T_1$.
 \end{itemize}
 
-Como mencionamos al principio, puede resultar desepcionante el darse cuenta que $PA$ no cumple ninguna de las propiedades que teniamos en mente. Por tal motivo habrá que investigar que ocurre con $P^2A$.
+Como mencionamos al principio, puede resultar decepcionante el darse cuenta que $PA$ no cumple ninguna de las propiedades que teniamos en mente. Por tal motivo habrá que investigar que ocurre con $P^2A$.
 
 \section{Intervalos de admisibilidad}
+
+Recordemos que, por el Lema \ref{Lema5.5.4}, si $F\in A^\wedge$, entonces $F$ es admisible, es decir, $F=\nabla(j)$ para algún $j\in NA$. Además, el filtro abierto $F$ está asociado al núcleo ajustado $v_F$ y al núcleo $w_F$. De tal manera que obtenemos un intervalo de elementos en $NA$. Al intervalo $[v_F, w_F]$, cuando $F\in A^\wedge$, lo llamamos intervalo de admisibilidad.\\
+
+Notemos que la construcción anterior está hecha para un marco $A$ arbitrario. De tal manera que podemos hacer lo mismo para el marco $\mathcal{O}S$, es decir, considerar un filtro abierto $\nabla=\nabla(Q)\in \mathcal{O}S^\wedge$, donde $Q\in \mathcal{Q}S$ es el correspondiente conjunto compacto saturado al filtro abierto $\nabla$. Entonces, el intervalo de admisibilidad asociado a $\nabla$ es $[v_Q, w_Q]$. 
+Así, obtenemos un intervalo en $N\mathcal{O}S$ y el subíndice $Q$ solo indica que este es determinado por $Q$. Veamos cual es la relación que existe entre ambos intervalos.
+
+\begin{prop}
+    Para $F\in A^\wedge$ y $Q\in \mathcal{Q}S$, si $j\in [V_Q, W_Q]$, entonces 
+    \[
+    \nabla(U_* j U^*)=F.
+    \]
+    En otras palabras, $U_*jU^*\in [V_F,W_F]$, donde $U^*$ es la reflexión espacial y $U_*$ es su adjunto derecho.
+\end{prop}
+
+\begin{proof}
+    Debemos verificar que $F\subseteq \nabla(U_*jU^*)$ y $\nabla(U_*jU^*)\subseteq F$.\\
+
+    Primero, sabemos que $N$ es un funtor, así para $U^*\colon A\to \mathcal{O}S$ obtenemos la siguiente asignación
+   \[\begin{tikzcd}
+	A & NA \\
+	\\
+	{\mathcal{O}S} & {N\mathcal{O}S}
+	\arrow[""{name=0, anchor=center, inner sep=0}, "U"', from=1-1, to=3-1]
+	\arrow[""{name=1, anchor=center, inner sep=0}, "{N(U)}", from=1-2, to=3-2]
+	\arrow["{N(\_)}", shorten <=7pt, shorten >=7pt, maps to, from=0, to=1]
+\end{tikzcd}\]
+Además, $N(U)_*$ es el adjunto derecho de $N(U)$.\\
+
+Por teoría general de marcos tenemos lo siguiente:
+\begin{enumerate}
+    \item $N(U)(j)\leq k\Leftrightarrow j\leq N(U)_*(k)$.
+    \item Si $k\in N\mathcal{O}S$ se cumple que 
+    \[
+    N(U)(j)\leq k\Leftrightarrow Uj\leq kU
+    \]
+    \item $N(U)_*(k)=U_*kU^*$, de hecho $UN(U)_*(k)=kU$ (C-Assembly, Corolario 6.7).
+    \item Por la correspondencia biyectiva entre filtros abiertos y compactos saturados sabemos que 
+    \[
+    x\in F\Leftrightarrow Q\subseteq U(x)\Leftrightarrow U(x)\in \nabla(Q),
+    \]
+    donde $Q=S\setminus F$.
+\end{enumerate}
+De esta manera, para $k=j$, por 3), tenemos que 
+\[
+N(U)_*(j)=U_*jU^* \quad\mbox{ y }\quad UN(U)_*j=jU.
+\] 
+Así, para $x\in F$
+\[\begin{tikzcd}
+	x\in A & {\mathcal{O}S} & {\mathcal{O}S} & A
+	\arrow["{U^*}", from=1-1, to=1-2]
+	\arrow["j", from=1-2, to=1-3]
+	\arrow["{U_*}", from=1-3, to=1-4]
+\end{tikzcd}\]
+y $U_*(j(U(x))=\bigwedge(S\setminus j(U(x)))$. Notemos que $U_*(j(U^*(x)))\subseteq \pt A$. Luego,
+\[
+x\in F \Leftrightarrow U(x)\in \nabla(j)=\nabla(Q)\Leftrightarrow S\setminus j(U(x))=\emptyset
+\]
+Además, evaluando $j(U^*(x))$ en $U_*$ tenemos que 
+\[
+(U_*jU^*)(x)=\bigwedge (S\setminus j(U(x)))=\bigwedge\emptyset=1
+\]
+es decir, $x\in \nabla(U_*jU^*)$. Por lo tanto $F=\nabla(U_*jU^*)$.
+\end{proof}
+
+Lo anterior define una función 
+\[
+\mho\colon [V_Q, W_Q]\to [V_F, W_F].
+\]
+Por lo visto en la Subsección \ref{Estructura de bloques}, para $Q\in \mathcal{Q}S$, el intervalo $[v_Q, w_Q]$ siempre tiene un elemento intermedio
+\[
+v_Q\leq [Q']\leq w_Q=[M']
+\]
+donde $M=\{m\in \mathcal{O}S\setminus \nabla(Q)\mid a\leq m\neq S\}$ y $a\in \mathcal{O}S\setminus \nabla(Q)$. De está manera, al evaluar a $[Q']$ en la función $\mho$, obtenemos
+un elemento en $NA$, en este caso la pregunta es, ¿cómo es este elemento?, es decir, ¿cúal es el comportamiendo de $U_*[Q']U^*$ dentro del intervalo $[V_F, W_F]$?\\
+
+Notemos que si $U_*[Q']U^*$ es un $u$-núcleo, recuperamos una condición similar a la que proporciona la Definición \ref{Definición8.2.1}. Además, si esto ocurre, ¿bajo que circunstancias 
+sucede?. La tarea ahora será responder esto.\\
+
+Si empezamos con un espacio Huasdorff, entonces tenemos que... (falta escribir bien está parte).
+
+\section{El $Q$-cuadrado}\label{Qcuadrado}
+
+Con lo visto hasta este momento, sabemos que para los marcos $A$ y $\mathcal{O}S$, si consideremos filtros $F\in A^\wedge$ y $\nabla\in \mathcal{O}S^\wedge$, estos están en correspondencia con su respectivo núcleo ajustado
+$v_F$ y $v_\nabla$. Estos producen los cocientes $A_{v_F}$ y $\mathcal{O}S_{v_\nabla}$ de los marcos principales $A$ y $\mathcal{O}S$, respectivamente. Para simplificar la notación, denotaremos por $A_F$ al cociente $A_{v_F}$ 
+y por $\mathcal{O}S_\nabla$ al cociente $\mathcal{O}S_{v_\nabla}$. Con todo lo anterior tenemos el siguiente diagrama
+\[
+\begin{tikzcd}
+	A && {A_F} \\
+	&&& {\mathcal{O}Q} \\
+	{\mathcal{O}S} && {\mathcal{O}S_\nabla}
+	\arrow["{v_F}", from=1-1, to=1-3]
+	\arrow["{U_A}"', from=1-1, to=3-1]
+	\arrow[from=1-3, to=2-4]
+	\arrow["g", from=1-3, to=3-3]
+	\arrow["{v_\nabla}"', from=3-1, to=3-3]
+	\arrow[from=3-3, to=2-4]
+\end{tikzcd}
+\]
+El diagrama anterior es presentado por Simmons (citar Vietoris). Nosotros lo llamamos el \emph{$Q$-cuadrado}.\\
+
+Recordemos que los núcleos $v_F$ y $v_\nabla$ son las cerraduras idempotentes de sus prenúcleos correspondientes (ver Definición \ref{Definición8.2.1}). Así, $v_F$ y $v_\nabla$ son mapeos de $A$ en $A$ y de $\mathcal{O}S$ en $\mathcal{O}S$, respectivamente.\\
+
+De esta manera, tenemos el siguiente cuadrado, que en (citar el Vietoris y los resultados) prueban que el diagrama
+\[\begin{tikzcd}
+	A & A \\
+	{\mathcal{O}S} & {\mathcal{O}S}
+	\arrow["{f^\infty}", from=1-1, to=1-2]
+	\arrow["{U_A}"', from=1-1, to=2-1]
+	\arrow["{U_A}", from=1-2, to=2-2]
+	\arrow["{F^\infty}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+conmuta laxamente, es decir, $U_A\circ f^\infty\leq F^\infty \circ U_A$.\\
+
+En este diagrama $U_A$ es el morfismo reflexión espacial, $f^\infty$ y $F^\infty$ representan los núcleos asociados a los filtros $F\in A^\wedge$ y $\nabla\in \mathcal{O}S^\wedge$.\\
+
+Lo que probaremos aquí es más general, pues consideramos el cuadrado 
+\[\begin{tikzcd}
+	A & A \\
+	{A_j} & {A_j}
+	\arrow["{\hat{f}^\infty}", from=1-1, to=1-2]
+	\arrow["j"', from=1-1, to=2-1]
+	\arrow["j", from=1-2, to=2-2]
+	\arrow["{f^\infty}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+
+\begin{lem}
+    Para $j$, $f$ y $\hat{f}$ como antes, se cumple que $j\circ \hat{f}\leq f\circ j$.
+\end{lem}
+
+\begin{proof}\label{f1f}
+    Por la Proposición \ref{F=jF} se cumple que
+    \[
+    \hat{f}=\dot{\bigvee}\{v_y\mid y\in \hat{F}=j_*F\}\quad  \mbox{ y} \quad f=\dot{\bigvee}\{v_{j(y)}\mid j(y)\in F\}. 
+    \]
+Luego, para $a\in A$ se cumple que
+\[
+v_y(a)=(y\succ a)\leq \hat{f}(a)\leq j(\hat{f}(a))\leq (j(y)\succ j(a))=v_{j(y)}(j(a))\leq f(j(a)).
+\]
+Por lo tanto $j\circ \hat{f}\leq f\circ j$.
+\end{proof}
+
+Para que $\hat{f}$ y $f$ sean núcleos, necesitamos sus cerraduras idempotentes.
+
+\begin{cor}\label{finftyf}
+    Para $j$, $f$ y $\hat{f}$ como antes, se cumple que $j\circ \hat{f}^\infty\leq f^\infty\circ j$
+\end{cor}
+
+\begin{proof}
+    Para $\alpha$ un ordinal, verificaremos que $j\circ \hat{f}^\alpha\leq f^\alpha\circ j$. Para ello, lo haremos por inducción.\\
+
+    Si $\alpha=0$, el resultado es trivial.\\
+
+    Para el paso de inducción, supongamos que para $\alpha$ es cierto. Luego
+    \[
+    j\circ \hat{f}^{\alpha+1}=j\circ \hat{f}\circ \hat{f}^{\alpha}\leq  f\circ j\circ \hat{f}^\alpha\leq f\circ f^\alpha\circ j=f^{\alpha+1}\circ j,
+    \]
+    donde la primera desigualdad es el Lema \ref{f1f} y la segunda se obtiene por la hipótesis de inducción.\\
+
+    Si $\lambda$ es un ordinal límite, también es sencillo verificar que $j\circ \hat{f}^\lambda\leq f^\lambda\circ j$ (HAZLO)
+\end{proof}
