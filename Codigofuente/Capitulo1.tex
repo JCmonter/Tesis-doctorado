@@ -266,3 +266,21 @@ En la sección anterior mencionamos que los filtros completamente primos estaban
     \end{itemize}
     están en correspondencia biyectiva por pares.
 \end{lem}
+
+Si $f^*\colon A\to B$ es un morfismo de marcos y $F\subseteq A$, $G\subseteq B$ filtros en $A$, $B$, respectivamente, podemos producir nuevos filtros como sigue
+\begin{equation}\label{Imagenfiltros}
+b\in f^*F \Leftrightarrow f_*(b)\in F\quad \mbox{ y }\quad a\in f_*G \Leftrightarrow f^*(a)\in G
+\end{equation}
+donde $a\in A, b\in B$ y $f_*$ es el adjunto derecho de $f^*$. Aquí $f^*F\subseteq B$ y $f_*G\subseteq A$ son filtros en $B$ y $A$, respectivamente.\\
+
+\begin{prop}\label{fF}
+    Para $f=f^*\colon A\to B$ un morfismo de marcos y $G\in B^\wedge$, se cumple que $f_*G\in A^\wedge$.
+\end{prop}
+
+\begin{proof}
+Por (\ref{Imagenfiltros}), $f_*G$ es un filtro en $A$. Necesitamos que $f_*G$ satisfaga la condición de filtro abierto. Sea $X\subseteq A$ tal que $\bigvee X\in f_*G$, con $X$ dirigido. Entonces
+\[
+Y=\{f(x)\mid x\in X\}
+\] 
+es dirigido y $f(\bigvee X)=\bigvee f[X]=\bigvee Y\in G$. Como $G$ es un filtro abierto, existe $y=f(x)\in Y$ tal que $y\in G$. Así $x\in f_*G$, de modo que, $f_*G\in A^\wedge$.
+\end{proof}

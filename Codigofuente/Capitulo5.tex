@@ -1,1 +1,88 @@
 \chapter{Marcos arreglados vs cocientes compactos}\label{MarcosKC}
+
+Mientras
+
+\begin{dfn}\label{KOMPACT}
+	Un marco $A$ tiene la propiedad $\mathrm{KC}$ si cada cociente compacto de $A$ es cerrado. En otras palabras, cada sublocal compacto es cerrado.
+\end{dfn}
+
+\begin{dfn}\label{ccquotien}
+    Consideremos $A$ un marco y $F\in A^\wedge$. El cociente compacto $A_F$ es cerrado si $A_F=A_{u_d}$ para algún $d\in A$..
+\end{dfn}
+
+Si $A$ es un marco arreglado, quisiéramos saber si el marco cociente, es decir, el marco $A_j$ para $j\in NA$, es arreglado.
+Con lo anterior, queremos trasladar la Definición \ref{Definición8.2.1} para $A_j$ cuando $j\in NA$, de modo que, para todo $F\in A_j^\wedge$, si
+\[
+x\in F \Rightarrow d\vee x=1
+\]
+con $d$ similar al de la definición, pero para este caso tenemos que $v_y\in NA_j$ y $0_{A_j}=j(0)$.
+
+\begin{prop}\label{tidyquout}
+    Si $A$ es un marco arreglado, entonces $A_j$ es arreglado.
+\end{prop}
+
+\begin{proof}
+Es fácil verificar que $F\subseteq j_*F$. Como $A$ es arreglado y $F\in A^\wedge$, es cierto que 
+\[
+x\in F\Rightarrow \hat{d}\vee x=1,
+\]
+donde $\hat{d}=d(\alpha)=f^\alpha(0)$.\\
+Si $\hat{d}\leq d$, entonces $d\vee x=1$, para $d=d(\alpha)=f^\alpha(j(0))$.\\
+
+Así, por el Corolario \ref{finftyf}
+\[
+\hat{d}=\hat{d}(\alpha)\leq j(\hat{d}(\alpha))=j(\hat{f}^\alpha(0))\leq f^\alpha(j(0))=d(\alpha)=d.
+\]
+
+Por lo tanto, si $x\in F$, entonces $d\vee x=1$ y $A_j$ es arreglado.
+\end{proof}
+
+\begin{prop}\label{KCquout}
+    Si $A$ cumple $KC$, entonces $A_j$ cumple $KC$ para cada $j\in N(A).$
+\end{prop}
+
+\begin{proof}
+Consideremos $k\in NA_j$ tal que $(A_j)_k$ es compacto. 
+Como todo filtro abierto es admisible, tenemos que $\nabla(k)\in A_j^\wedge$ 
+y, por la Proposición \ref{fF}, $j_*\nabla(K)\in A^\wedge$.\\
+
+Sea $l=j_*\circ  k\circ j^*\in NA$, entonces $A_l$ es un cociente compacto de $A$ y existe $a\in A$ tal que $l=u_a$. Así, tenemos el siguiente diagrama 
+\[
+\begin{tikzcd}
+	A \arrow[r, "j^*"'] \arrow[rrr, "l", bend left] & A_j \arrow[r, "k"'] & (A_j)_k \arrow[r, "j_*"'] & A_j\subseteq A
+	\end{tikzcd}\]
+y $a\vee x=k(j(x))$. Por lo tanto, si $x=a$, $k(j(x))=a$.\\
+
+Necesitamos que $k=u_b$ para algún $b\in A_j$. Si $x\in A_j$ y $b=j(a)$
+\[
+\begin{split}
+u_b(x)= b\vee x= b\vee j(x)& =j(j(a)\vee j(x))\\
+& =j(k(j(a))\vee x)\\
+& =j(u_a(x))\\
+& =j(k(x))\\	
+&=k(x).
+\end{split}
+\]
+Por lo tanto $u_b=k$.
+\end{proof}
+
+\begin{prop}\label{KCT1}
+    Si $A$ es un marco $KC$, entonces $A$ es un marco $T_1$.
+\end{prop}
+
+\begin{proof}
+Sabemos que $A$ es $T_1$ si y solo si para todo $p\in \pt A$, $p$ es máximo. Sean $p\in \pt A$ y $a\in A$ tales que $p\leq a\leq 1$. Consideremos 
+\[
+w_p(x)=\left\{\begin{array}{lcc}
+1 & \mbox{ si } & x\nleq p\\
+\\
+p & \mbox{ si } & x\leq p
+\end{array}\right.
+\]
+para $x\in A$. $P=\nabla(w_p)=\{x\in A\mid x\nleq p\}$ es un filtro completamente primo (en particular, $P\in A^\wedge$). Como $A$ es $KC$, entonces $A_{w_p}$ es un cociente compacto cerrado. Luego $u_p=w_p$, también
+\[
+u_p(a)=a\quad \mbox{ y }\quad w_p(a)=1.
+\]
+es decir, $a=1$. Por lo tanto $p$ es máximo. 
+\end{proof}
+

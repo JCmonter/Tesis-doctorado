@@ -91,9 +91,7 @@ Así, obtenemos un intervalo en $N\mathcal{O}S$ y el subíndice $Q$ solo indica 
 \end{prop}
 
 \begin{proof}
-    Debemos verificar que $F\subseteq \nabla(U_*jU^*)$ y $\nabla(U_*jU^*)\subseteq F$.\\
-
-    Primero, sabemos que $N$ es un funtor, así para $U^*\colon A\to \mathcal{O}S$ obtenemos la siguiente asignación
+    Como $N$ es un funtor, tenemos
    \[\begin{tikzcd}
 	A & NA \\
 	\\
@@ -102,23 +100,18 @@ Así, obtenemos un intervalo en $N\mathcal{O}S$ y el subíndice $Q$ solo indica 
 	\arrow[""{name=1, anchor=center, inner sep=0}, "{N(U)}", from=1-2, to=3-2]
 	\arrow["{N(\_)}", shorten <=7pt, shorten >=7pt, maps to, from=0, to=1]
 \end{tikzcd}\]
-Además, $N(U)_*$ es el adjunto derecho de $N(U)$.\\
+y $N(U)_*$ es el adjunto derecho de $N(U)$.\\
 
-Por teoría general de marcos tenemos lo siguiente:
+Por propiedades del adjunto se cumple lo siguiente:
 \begin{enumerate}
     \item $N(U)(j)\leq k\Leftrightarrow j\leq N(U)_*(k)$.
     \item Si $k\in N\mathcal{O}S$ se cumple que 
     \[
     N(U)(j)\leq k\Leftrightarrow Uj\leq kU
     \]
-    \item $N(U)_*(k)=U_*kU^*$, de hecho $UN(U)_*(k)=kU$ (C-Assembly, Corolario 6.7).
-    \item Por la correspondencia biyectiva entre filtros abiertos y compactos saturados sabemos que 
-    \[
-    x\in F\Leftrightarrow Q\subseteq U(x)\Leftrightarrow U(x)\in \nabla(Q),
-    \]
-    donde $Q=S\setminus F$.
+    \item $N(U)_*(k)=U_*kU^*$ y $UN(U)_*(k)=kU$ (C-Assembly, Corolario 6.7).
 \end{enumerate}
-De esta manera, para $k=j$, por 3), tenemos que 
+En $3)$, sustituyendo $k=j$,  
 \[
 N(U)_*(j)=U_*jU^* \quad\mbox{ y }\quad UN(U)_*j=jU.
 \] 
@@ -199,20 +192,33 @@ Lo que probaremos aquí es más general, pues consideramos el cuadrado
 	\arrow["j"', from=1-1, to=2-1]
 	\arrow["j", from=1-2, to=2-2]
 	\arrow["{f^\infty}"', from=2-1, to=2-2]
-\end{tikzcd}\]
+\end{tikzcd}
+\]
+donde $\hat{f}^\infty$ es el núcleo asociado al filtro $j_*F\in A^\wedge$ y $j\in NA$.  
 
-\begin{lem}
+\begin{lem}\label{f1f}
     Para $j$, $f$ y $\hat{f}$ como antes, se cumple que $j\circ \hat{f}\leq f\circ j$.
 \end{lem}
 
-\begin{proof}\label{f1f}
-    Por la Proposición \ref{F=jF} se cumple que
+\begin{proof}
+    Por la Proposición \ref{fF} se cumple que
     \[
     \hat{f}=\dot{\bigvee}\{v_y\mid y\in \hat{F}=j_*F\}\quad  \mbox{ y} \quad f=\dot{\bigvee}\{v_{j(y)}\mid j(y)\in F\}. 
     \]
 Luego, para $a\in A$ se cumple que
 \[
-v_y(a)=(y\succ a)\leq \hat{f}(a)\leq j(\hat{f}(a))\leq (j(y)\succ j(a))=v_{j(y)}(j(a))\leq f(j(a)).
+v_y(a)=(y\succ a)\leq \hat{f}(a)\leq j(\hat{f}(a)).
+\]
+También, para todo $a,y\in A$, $(y\succ a)\wedge y=y\wedge a$ y
+\[
+\begin{split}
+j((y\succ a)\wedge y)\leq j(a) & \Leftrightarrow j(y\succ a)\wedge j(y)\leq j(a)\\
+& \Leftrightarrow j(y\succ a)\leq (j(y)\succ j(a)).
+\end{split}
+\]
+Así
+\[
+v_y(a)\leq j(\hat{f}(a))\leq (j(y)\succ j(a))=v_{j(y)}(j(a))\leq f(j(a)).
 \]
 Por lo tanto $j\circ \hat{f}\leq f\circ j$.
 \end{proof}
@@ -234,5 +240,79 @@ Para que $\hat{f}$ y $f$ sean núcleos, necesitamos sus cerraduras idempotentes.
     \]
     donde la primera desigualdad es el Lema \ref{f1f} y la segunda se obtiene por la hipótesis de inducción.\\
 
-    Si $\lambda$ es un ordinal límite, también es sencillo verificar que $j\circ \hat{f}^\lambda\leq f^\lambda\circ j$ (HAZLO)
+    Si $\lambda$ es un ordinal límite, entonces
+	\[
+	\hat{f}^\lambda=\bigvee\{\hat{f}^\alpha\mid \alpha<\lambda\}, \quad f^\lambda=\bigvee\{f^\alpha\mid \alpha<\lambda\} 
+	\]
+	y
+	\[
+		j\circ \hat{f}^\lambda=j\circ \bigvee_{\alpha<\lambda}\hat{f}^\alpha\leq\bigvee_{\alpha<\lambda}j\circ \hat{f}^\alpha.
+	\]
+	Así, por la hipótesis de inducción, tenemos que
+	\[
+	j\circ \hat{f}^\alpha\leq f^\alpha\circ j\Rightarrow \bigvee_{\alpha<\lambda}j\circ \hat{f}^\alpha\leq \bigvee_{\alpha<\lambda} f^\alpha\circ j.
+	\]
+	Por lo tanto $j\circ \hat{f}^\lambda\leq f^\lambda\circ j$.
 \end{proof}
+
+Por el Corolario \ref{finftyf} tenemos que $j\circ \hat{f}^\infty\leq f^\infty\circ j$ se cumple. Además, por el Teorema H-M, $f^\infty=v_F$ y $\hat{f}^\infty=v_{j_*F}$. Con esto en mente, tenemos el siguiente diagrama
+\[\begin{tikzcd}
+	A && {A_{j_*F}} \\
+	\\
+	{A_j} && {A_F}
+	\arrow["{(v_{j_*F})^*}", shift left, from=1-1, to=1-3]
+	\arrow["j"', from=1-1, to=3-1]
+	\arrow["H"', from=1-1, to=3-3]
+	\arrow["{(v_{j_*F})_*}", shift left, from=1-3, to=1-1]
+	\arrow["{(v_F)^*}"', shift right, from=3-1, to=3-3]
+	\arrow["{(v_F)_*}"', shift right, from=3-3, to=3-1]
+\end{tikzcd}\]
+Aquí, $A_F$ y $A_{j_*F}$ los cocientes producidos por $v_F$ y $v_{j_*F}$, respectivamente. El morfismo $H\colon A\to A_F$ está definido por $H=v_F\circ j$. Además, $(v_F)_*$ y $(v_{j_*F})_*$ son inclusiones.\\
+
+Consideremos $h\colon A_{j_*F}\to A_j$ tal que, para $x\in A_{j_*F}$, $h(x)=H(x)$. Por lo tanto, si $h=H_{\mid{A_{j_*F}}}$, entonces el diagrama anterior conmuta.\\
+
+Necesitamos que $h$ sea un morfismo de marcos. Primero, por la definición de $h$, este es un $\wedge$-morphism. Resta ver que $h$ es un $\bigvee$-morfismo.\\
+
+Los supremos en $A_{j_*F}$ y $A_F$ son calculados de manera diferente. Por ello, consideremos $\hat{\bigvee}$ por el supremo en $A_{j_*F}$ y por $\tilde{\bigvee}$ el supremo en $A_F$. Por lo tanto
+\[
+\hat{\bigvee}=v_{j_*F}\circ \bigvee\quad\mbox{ y }\quad \tilde{\bigvee}=v_{F}\circ \bigvee,
+\] 
+es decir, para $X\subseteq A$, $Y\subseteq A_j$,
+\[
+	\hat{\bigvee}X=v_{j_*F}(\bigvee X)\quad\mbox{ y }\quad \tilde{\bigvee}Y=v_{F}(\bigvee Y).
+\]
+
+Ya que $H$ es un morfismo de marcos, $H\circ \bigvee=\tilde{\bigvee}\circ H$. Esto establece algo similar para $h$.
+
+\begin{lem}\label{bigvee g}
+$h\circ \hat{\bigvee}=\tilde{\bigvee}\circ h$.
+\end{lem}
+
+\begin{proof}
+Para esto, solo es necesario probar la comparación $h\circ \hat{\bigvee}\leq \tilde{\bigvee}\circ h$. Así
+\[
+h\circ \hat{\bigvee}=H\circ v_{j_*F}\circ \bigvee=v_F\circ j\circ v_{j_*F}\circ \bigvee\leq v_F\circ v_F\circ j\circ \bigvee
+\]
+donde la desigualdad es el Corolario \ref{finftyf}. Además, $v_F\circ v_F=v_F$, luego
+\[
+h\circ\hat{\bigvee}\leq v_F\circ j\circ \bigvee =H\circ \bigvee=\tilde{\bigvee}\circ H=\tilde{\bigvee}\circ h.
+\]
+Por lo tanto $h\circ\hat{\bigvee}=\tilde{\bigvee}\circ h$.
+\end{proof}
+
+Todo lo anterior demuestra el siguiente resultado.
+
+\begin{prop}\label{VFsquare}
+El diagrama
+\[\begin{tikzcd}
+	A & {A_{j_*F}} \\
+	{A_j} & {A_F}
+	\arrow["{v_{j_*F}}", from=1-1, to=1-2]
+	\arrow["j"', from=1-1, to=2-1]
+	\arrow["h", from=1-2, to=2-2]
+	\arrow["{v_F}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+es conmutativo.
+\end{prop}
+
+Con el diagrama anterior podriamos analizar más a fondo algunos casos particulares de cocientes, por ejemplo los \emph{cocientes compactos}, los cuales serán abordados en el Capítulo \ref{MarcosKC}.
