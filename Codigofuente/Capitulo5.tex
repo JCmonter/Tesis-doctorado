@@ -1,17 +1,70 @@
 \chapter{Marcos arreglados vs cocientes compactos}\label{MarcosKC}
 
-Mientras
+Mientras buscábamos alternativas para estudiar el comportamiento de los marcos arreglados, nos sugirieron consultar el artículo \emph{``Between $T_1$ and $T_2$''} de Albert Wilansky (ver \cite{A.W.}). Como su título lo sugiere, en el presentan propiedades espaciales que se ubican 
+entre los axiomas clásicos de separación $T_1$ y $T_2$. Hasta este momento, nos interesamos un poco más en la propiedad $\mathrm{KC}$. 
+
+\begin{dfn}\label{KCEspacial}
+Un espacio topológico es llamada $\mathrm{KC}$ si cada conjunto compacto es cerrado y un espacio es llamada $\mathrm{US}$ si cada sucesión convergente tiene exactamente un límite al cual converge.
+\end{dfn}
+
+En \cite{A.W.}, prueban que 
+\[
+T_2\Rightarrow \mathrm{KC} \Rightarrow \mathrm{US} \Rightarrow T_1
+\]
+y además, dan ejemplos para mostrar que las flechas de regreso no siempre se cumplen.\\
+
+Notemos que la Definición \ref{KCEspacial} es muy parecida a la Definición \ref{empaquetado}, con la omisión de los conjuntos compactos saturados. Como nuestro interés está puesto principalmente en los marcos, lo ideal es trasladar 
+la noción $\mathrm{KC}$ hacía este lenguaje.
+
+\section{Marcos $\mathrm{KC}$}\label{Marcoskc}
+    
+Sabemos que la noción de subespacio está en correspondencia biyectiva con la de sublocal. A su vez, los sublocales están en correspondencia biyectiva con los núcleos por medio de los cocientes que estos producen. De esta manera, parece ser que el 
+camino adecuado que necesitamos para establecer la definición es a través de los núcleos $j\in NA$ y los cocientes $A_j$. La siguiente respuesta que necesitamos contestar es ¿qué sería lo equivalente a cociente compacto?
+
+Primero. recordemos que es un marco compacto.
+
+\begin{dfn}\label{marcocompacto}
+Consideremos $A$ un marco. 
+\begin{enumerate}
+\item Una \emph{cubierta} de $A$ es un subconjunto $X\subseteq A$ tal que $\bigvee X=1$. 
+\item Una \emph{subcubierta} de $X$ es un subconjunto $Y\subseteq X$ tal que $\bigvee Y=1$.
+\item $A$ es \emph{compacto} si cada cubierta tiene una subcubierta finita.
+\end{enumerate}
+\end{dfn}
+
+Podemos producir algunos cocientes especiales por medio de algunos núcleos, por ejemplo: para $a\in A$, los núcleos $u_a$ y $v_a$ proporcionan los cocientes $A_{u_a}$ y $A_{v_a}$, respectivamente. A estos cocientes podriamos llamarlos \emph{cociente cerrado} y \emph{cociente abierto}, debido al núcleo que los produce (el núcleo cerrado y el núcleo abierto, respectivamente). 
+Lo anterior nos lleva a pensar que necesitamos un núcleo especial para definir el cociente compacto. 
+
+\begin{prop}\label{cocientecompacto}
+Sean $A$ un marco y $j\in NA$. $A_j$ es compacto si y solo si $\nabla(j)\in A^\wedge$, es decir, si todo filtro admisible es abierto.
+\end{prop}
+
+De esta manera, podemos dar nuestra definición de que un marco sea $\mathrm{KC}$.
 
 \begin{dfn}\label{KOMPACT}
 	Un marco $A$ tiene la propiedad $\mathrm{KC}$ si cada cociente compacto de $A$ es cerrado. En otras palabras, cada sublocal compacto es cerrado.
 \end{dfn}
 
+Notemos que todo lo anterior es equivalente a decir que para $F\in A^\wedge$,
+\[
+A_F=A_{u_d}
+\]
+para algún $d\in A$.
+
 \begin{dfn}\label{ccquotien}
-    Consideremos $A$ un marco y $F\in A^\wedge$. El cociente compacto $A_F$ es cerrado si $A_F=A_{u_d}$ para algún $d\in A$..
+    Consideremos $A$ un marco y $F\in A^\wedge$. El cociente compacto $A_F$ es cerrado si $A_F=A_{u_d}$ para algún $d\in A$.
 \end{dfn}
 
-Si $A$ es un marco arreglado, quisiéramos saber si el marco cociente, es decir, el marco $A_j$ para $j\in NA$, es arreglado.
-Con lo anterior, queremos trasladar la Definición \ref{Definición8.2.1} para $A_j$ cuando $j\in NA$, de modo que, para todo $F\in A_j^\wedge$, si
+El filtro $F\in A^\wedge$ produce un intervalo $[v_F, w_F]$ y que a su vez proporciona una familia de cocientes compactos. Si el marco principal es $KC$, entonces para todo $j\in [v_F, w_F]$, $A_j$ es un cociente compacto cerrado. Con esto en mente, es fácil darse cuenta de que 
+\[
+\mathrm{KC} \Rightarrow \mbox{ Arreglado}.
+\]
+Veamos cual es la relación de la propiedad $\mathrm{KC}$ con las diferentes propiedades en marcos que conocemos.\\
+
+Cuando trabajamos con el marco cociente, lo ideal es que este herede algunas de las propiedades del marco principal. En este caso, queremos ver si para $A$ arreglado o $\mathrm{KC}$, $A_j$ hereda este par de 
+propiedades. Comenzaremos con arreglado.\\
+
+Si $A$ es un marco arreglado, queremos trasladar la Definición \ref{Definición8.2.1} para $A_j$ cuando $j\in NA$, de modo que, para todo $F\in A_j^\wedge$, si
 \[
 x\in F \Rightarrow d\vee x=1
 \]
@@ -37,6 +90,7 @@ Así, por el Corolario \ref{finftyf}
 Por lo tanto, si $x\in F$, entonces $d\vee x=1$ y $A_j$ es arreglado.
 \end{proof}
 
+Ahora es el turno de $\mathrm{KC}$.
 \begin{prop}\label{KCquout}
     Si $A$ cumple $KC$, entonces $A_j$ cumple $KC$ para cada $j\in N(A).$
 \end{prop}
@@ -66,6 +120,8 @@ u_b(x)= b\vee x= b\vee j(x)& =j(j(a)\vee j(x))\\
 Por lo tanto $u_b=k$.
 \end{proof}
 
+No hay mucho que hacer con las propiedades de separación. Si se cumple la propiedad $\mathbf{(H)}$, por la naturaleza de $\mathrm{KC}$, esta también se cumple. Con $T_1$ requerimos un poco más de trabajo.
+
 \begin{prop}\label{KCT1}
     Si $A$ es un marco $KC$, entonces $A$ es un marco $T_1$.
 \end{prop}
@@ -85,4 +141,9 @@ u_p(a)=a\quad \mbox{ y }\quad w_p(a)=1.
 \]
 es decir, $a=1$. Por lo tanto $p$ es máximo. 
 \end{proof}
+
+De esta manera tenemos que $\mathrm{KC}$ tiene un comportamiento parecido a la propiedad espacial puesto
+\[
+\mathbf{(H)} \Rightarrow \mathrm{KC} \Rightarrow \mbox{ Arreglado }\Rightarrow T_1.
+\]
 

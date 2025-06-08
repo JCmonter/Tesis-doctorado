@@ -1,17 +1,20 @@
 \chapter{Marcos arreglados vs Axiomas tipo Hausdorff}\label{Relación MA y AH}
 
 Notemos que la Definición \ref{Definición8.2.1} identifica a un tipo especifico de marcos. El Teorema \ref{Teorema8.4.4} caracteriza a los marcos arreglados por medio de una condición especial, de manera especifica con el axioma de separación $T_2$.
-Con esto en mente, resulta natural el preguntarse: \emph{¿se pueden enunciar caracterizaciones para los marcos arreglados que sean meramente de marcos?}, es decir, que no se haga mención a la topología de un espacio. Un ejemplo no tan exitos de lo que 
+Con esto en mente, resulta natural el preguntarse: \emph{¿se pueden enunciar caracterizaciones para los marcos arreglados que sean meramente de marcos?}, es decir, que no se haga mención a la topología de un espacio. Un ejemplo no tan exitoso de lo que 
 que acabamos de preguntar lo tenemos en el siguiente resultado.
 
 \begin{cor}\label{TadyHausdorff}
 Para $A$ un marco espacial se cumple lo siguiente: $\mathcal{O}S$ es un marco Hausdorff si y solo si $A$ es $1$-arreglado. 
 \end{cor}
-La prueba se sigue del hecho de que la propiedad $\mathbf{(H)}$ es conservativa.\\
+
+\begin{proof}
+Se sigue del hecho de que la propiedad $\mathbf{(H)}$ es conservativa.\\
+\end{proof}
 
 De esta manera, hemos relacionado la condición de arreglo con uno de los axiomas de separación. Veamos cual es la relación de esta con las otras propiedades.\\
 
-\section{Arreglado y su relación con los propiedades de separación en $\Frm$}
+\section{Arreglado y su relación con los propiedades en $\Frm$}
 
 El Lema \ref{Lema8.4.1} nos dice que arreglado implica $T_1$. ¿Qué pasa con las propiedades más fuertes que $T_1$?
 
@@ -33,12 +36,11 @@ Resulta natural el pensar que la propiedad $\mathbf{(H)}$ este metida entre ella
 \mbox{\emph{Todo marco Hausdorff es arreglado.}}
 \]
 
-Aunque no lo menciona, Sexton prueba en su tesis doctoral que si un marco es $T_3$, entonces este es parche trivial. Además, tenemos que parche trivial si y solo si arreglado. Por lo tanto, tenemos que
+Aunque no lo menciona, Sexton prueba en su tesis doctoral que si un marco es regular, entonces este es parche trivial. Además, tenemos que parche trivial si y solo si arreglado. Por lo tanto
 \[
-T_3\Rightarrow \mbox{ Arreglado.}
+\mathbf{(reg)}\Rightarrow \mbox{ Arreglado.}
 \] 
-Por otro la
-do, Simmons en su artículo (citar regular and fitness), prueba que 
+Por otro lado, Simmons en su artículo \cite{H.S.R}, prueba que 
 \[
 \mathbf{(aju)}\Rightarrow \mbox{ Arreglado.}
 \]
@@ -52,16 +54,16 @@ Lo que sigue ahora es analizar el comportamiento del marco $PA$ (el marco de par
 
 \subsection{¿Qué propiedades de separación cumple el marco de parches?}\label{Parchesyseparación}
 
-Aunque al final de esta pequeña subsección pueda sentirse que es innecesaria, este análisis nos hace pensar que el marco $P^2A$ es en el que debemos enfocar en mayor parte nuestro interés. Recordemos que el marco de parches viene inspirado por la definición de espacio de parches.
+Aunque al final de esta pequeña subsección pueda sentirse que es innecesaria, este análisis nos hace pensar que el marco $P^2A$ (el marco de parches del marco de parches) es en el que debemos enfocar en mayor parte nuestro interés. Recordemos que el marco de parches viene inspirado por la definición de espacio de parches.
 La noción de que un marco sea parche trivial (o equivalentemente arreglado), se basa en imitar lo que se conoce como espacio empaquetado. En el Capítulo \ref{Parches} se prueba que la construcción del espacio de parches se estaviliza en el tercer paso, es decir,
 \[
 ^{pp}S=\,^{ppp}S,
 \]
-de esta manera, la sospecha que tenemos es que $P^2A$ debe actuar de manera similar. Veamos que ocurre que el parche antecesor.\\
+de esta manera, la sospecha que tenemos es que $P^2A$ debe actuar de manera similar. Veamos que ocurre con el parche antecesor.\\
 
 \begin{itemize}
 \item Observemos que si un marco es regular, entonces es arreglado. Si el marco es arreglado, entonces este es parche trivial. Por definición, un marco $A$ es parche trivial si $A\simeq PA$. Por lo tanto, si $PA$ fuera regular, siempre se cumpliria que $A$ es parche trivial, lo cual no es cierto siempre.
-\item Similar al punto anterior, no puede cumplirse que $PA$ cumpla $\mathbf{(H)}$, pues de ser así, también implicaría que todos el marco $A$ es parche trivial y en general, esto no es cierto.
+\item Similar al punto anterior, no puede cumplirse que $PA$ cumpla $\mathbf{(H)}$, pues de ser así, también implicaría que cualquier marco $A$ es parche trivial y en general, esto no es cierto.
 \item Si $PA$ es $T_1$, entonces para todo $j\in \pt PA$ se cumple que $j$ es máximo. Además, si $j\in \pt PA$, entonces $j$ es un punto salvaje o $j$ es un punto ordinario, es decir,
 \[
 j=w_p\quad \mbox{ o }\quad j\neq w_p
@@ -77,9 +79,9 @@ Como mencionamos al principio, puede resultar decepcionante el darse cuenta que 
 
 \section{Intervalos de admisibilidad}
 
-Recordemos que, por el Lema \ref{Lema5.5.4}, si $F\in A^\wedge$, entonces $F$ es admisible, es decir, $F=\nabla(j)$ para algún $j\in NA$. Además, el filtro abierto $F$ está asociado al núcleo ajustado $v_F$ y al núcleo $w_F$. De tal manera que obtenemos un intervalo de elementos en $NA$. Al intervalo $[v_F, w_F]$, cuando $F\in A^\wedge$, lo llamamos intervalo de admisibilidad.\\
+Recordemos que, por el Lema \ref{Lema5.5.4}, si $F\in A^\wedge$, entonces $F$ es admisible, es decir, $F=\nabla(j)$ para algún $j\in NA$. Además, el filtro abierto $F$ está asociado al núcleo ajustado $v_F$ y al núcleo $w_F$. De tal manera que obtenemos un intervalo de elementos en $NA$. Al intervalo $[v_F, w_F]$, cuando $F\in A^\wedge$, lo llamamos \emph{intervalo de admisibilidad}.\\
 
-Notemos que la construcción anterior está hecha para un marco $A$ arbitrario. De tal manera que podemos hacer lo mismo para el marco $\mathcal{O}S$, es decir, considerar un filtro abierto $\nabla=\nabla(Q)\in \mathcal{O}S^\wedge$, donde $Q\in \mathcal{Q}S$ es el correspondiente conjunto compacto saturado al filtro abierto $\nabla$. Entonces, el intervalo de admisibilidad asociado a $\nabla$ es $[v_Q, w_Q]$. 
+Notemos que la construcción anterior está hecha para un marco $A$ arbitrario. De tal manera que podemos hacer lo mismo para el marco $\mathcal{O}S$, es decir, considerar un filtro $\nabla=\nabla(Q)\in \mathcal{O}S^\wedge$, donde $Q\in \mathcal{Q}S$ es el correspondiente conjunto compacto saturado al filtro abierto $\nabla$. Entonces, el intervalo de admisibilidad asociado a $\nabla$ es $[v_Q, w_Q]$. 
 Así, obtenemos un intervalo en $N\mathcal{O}S$ y el subíndice $Q$ solo indica que este es determinado por $Q$. Veamos cual es la relación que existe entre ambos intervalos.
 
 \begin{prop}
@@ -167,11 +169,11 @@ y por $\mathcal{O}S_\nabla$ al cociente $\mathcal{O}S_{v_\nabla}$. Con todo lo a
 	\arrow[from=3-3, to=2-4]
 \end{tikzcd}
 \]
-El diagrama anterior es presentado por Simmons (citar Vietoris). Nosotros lo llamamos el \emph{$Q$-cuadrado}.\\
+El diagrama anterior es presentado por Simmons en \cite{H.S.V}. Nosotros lo llamamos el \emph{$Q$-cuadrado}.\\
 
 Recordemos que los núcleos $v_F$ y $v_\nabla$ son las cerraduras idempotentes de sus prenúcleos correspondientes (ver Definición \ref{Definición8.2.1}). Así, $v_F$ y $v_\nabla$ son mapeos de $A$ en $A$ y de $\mathcal{O}S$ en $\mathcal{O}S$, respectivamente.\\
 
-De esta manera, tenemos el siguiente cuadrado, que en (citar el Vietoris y los resultados) prueban que el diagrama
+De esta manera, tenemos el siguiente cuadrado, que en \cite{H.S.V} prueban que el diagrama
 \[\begin{tikzcd}
 	A & A \\
 	{\mathcal{O}S} & {\mathcal{O}S}
