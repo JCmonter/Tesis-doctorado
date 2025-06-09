@@ -3,7 +3,11 @@
 El desarrollo de esta investigación gira en torno de dos conceptos principales: la teoría de marcos y la topología de un espacio. 
 Por tal motivo, en este capítulo nos encargamos de presentar toda la información necesaria para su desarrollo y comprensión.
 Para consultar información adicional de la que aquí mencionaremos, recomendamos consultar \cite{P.T.} o \cite{J.P.}. 
-Algunas de las cuestiones espaciales que aquí serán mencionadas pueden encontrarse también en \cite{R.S.} y \cite{R.S.3}.  
+Algunas de las cuestiones espaciales que aquí serán mencionadas pueden encontrarse también en \cite{R.S.} y \cite{R.S.3}.\\
+
+Algunos de los resultados que se muestran en este capítulo son muy conocidos, por tal motivo, los presentamos si prueba. 
+Los que van acompañados de su demostración es porque consideramos que son más relevantes o simplemente porque no encontramos la prueba 
+en la literatura (por ejemplo, la Proposición \ref{fF}).
 
 \section{Teoría de marcos}\label{marcos}
 
@@ -277,8 +281,8 @@ Y=\{f(x)\mid x\in X\}
 es dirigido y $f(\bigvee X)=\bigvee f[X]=\bigvee Y\in G$. Como $G$ es un filtro abierto, existe $y=f(x)\in Y$ tal que $y\in G$. Así $x\in f_*G$, de modo que, $f_*G\in A^\wedge$.
 \end{proof}
 
-Este último proposición será de gran utilidad para probar algunos otros resultados en los Capitulos \ref{Relación MA y AH} y \ref{MarcosKC}
-\subsection{Estudio algebraico de los marcos}
+Este última proposición será de gran utilidad para probar algunos otros resultados en los Capitulos \ref{Relación MA y AH} y \ref{MarcosKC}
+\subsection{Estudio algebraico de los marcos}\label{E. algebraico}
 
 Como en toda estructura algebraica, en ocasiones es más sencillo obtener información de la estructura si ponemos nuestra atención en sus \emph{cocientes}. Esto mismo ocurre en la categoría $\Frm$. 
 De manera similar a cualquier otra estructura, podemos obtener lo cocientes a través de una relación de equivalencia. Con esta, definir ciertas congruencias y por medio de las congruencias obtener 
@@ -310,13 +314,245 @@ tales congruencias pueden usarse como representaciones de subespacio.\\
 Un \emph{cociente de un marco} $A$ es un morfismo suprayectivo $$f:A\to B$$
 \end{dfn}
 
-\section{El ensamble de un marco}
+\begin{dfn}
+Sea $f:A\to B$ un morfismo de $\bigvee-$retículas, el \emph{kernel} de $f$ es la relación de equivalencia dada por $x\sim y\Leftrightarrow f(x)=f(y)$
+\end{dfn}
 
-\textbf{Aquí va la información preliminar con respecto al ensamble}.
+Sabemos que si $f=f^*$ es un morfismo de marcos, entonces este tiene adjunto derecho $f_*$. El siguiente resultado relaciona a mabos para obtener el kernel. 
+\begin{lem}
+Sea $f:A\to B$ un morfismo de $\bigvee-$retículas, el kernel $k$ de $f$ es 
+$$k=f_* \circ f^*$$
+\end{lem}
+
+\begin{dfn}
+Sea $A$ una $\bigvee-$retícula. Decimos que $F\subseteq A$ es \emph{$\bigwedge-$cerrado} o \emph{cerrado bajo ínfimos} si $\bigwedge X\in F$ para cualquier $X\subseteq F$.
+\end{dfn}
+
+\begin{dfn}\label{Implicativo}
+Sea $A\in \Frm$. Decimos que $F\subseteq A$ es un \emph{conjunto implicativo} de $A$ si éste es $\bigwedge-$cerrado y cumple que para $a\in F$, $(x\succ a)\in F$, donde $x\in A$.
+\end{dfn}
+
+El cociente adecuado para un marco $A$ es cierto conjunto de puntos fijos. Por el momento dejaremos los detalles importantes de esta afirmación para la 
+siguiente sección. 
+
+\begin{dfn}
+Sea $A\in \Frm$ y $j\colon A\to A$. $A_j$ es el \emph{conjunto de puntos fijos} y se define como $$A_j=\{a\in A|a=j(a)\}.$$
+\end{dfn}
+
+\section{El ensamble de un marco}
+Si $A$ es un marco, podemos definir operadores $j\colon A\to A$ y al solicitarles algunas condiciones especificas, estos pueden permitirnos construir nuevos marcos.
+Los detalles de esta sección pueden consultarse en \cite{J.M.}, \cite{A.Z.} o en el compendio de notas sobre toería de marcos de Simmons (ver \cite{H.S.}).
+\subsection{Operadores en $A$}
+\begin{dfn}\label{Operadores}
+Sea $A\in\Frm$. Decimos que:
+\begin{enumerate}
+\item Una \emph{derivada} en $A$ es una función $j:A\to A$ tal que 
+\begin{enumerate}
+\item $a\leq j(a)$ para cualquier $a\in A$, (el operador infla).
+\item Si $a\leq b\Rightarrow j(a)\leq j(b)$ para cualesquiera $a,b\in A$, (el operador es monótono).
+\end{enumerate}
+$DA$ denotará al conjunto de todos los operadores derivada sobre $A$.
+
+\item $j$ es un \emph{operador cerradura} si $j\in DA$ y $j^2=j$.\\
+$CA$ denotará al conjunto de todos los operadores cerradura sobre $A$.
+\item $j$ es un \emph{núcleo} si $j\in CA$ y $j(a)\wedge j(b)\leq j(a\wedge b)$.\\
+$NA$ denotará al conjunto de todos los núcleos sobre $A$.
+\end{enumerate}
+\end{dfn}
+
+Notemos que por la forma en que definimos estos tres operadores tenemos la siguiente relación entre ellos
+$$NA\subseteq CA\subseteq DA.$$
+
+\begin{ej}\label{ua,va,wa}
+Si $A\in \Frm$ para cualquier $a\in A$ definimos las funciones
+\begin{itemize}
+\item $u_a\colon A\to A, \, u_a(x)=a\vee x, \mbox{    }\forall x\in A$ \emph{(núcleo cerrado)}
+\item $v_a\colon A\to A, \, v_a(x)=(a\succ x), \mbox{    }\forall x\in A$ \emph{(núcleo abierto)}
+\item $w_a\colon A\to A, \, w_a(x)=((x\succ a)\succ a), \mbox{    }\forall x\in A$ \emph{(núcleo regular)}
+\end{itemize}
+Es sencillo verificar que los tres operadores definidos son núcleos.
+\end{ej}
+
+Si $j\in NA$ es un núcleo arbitrario, este puede obtenerse por medio de los núcleos del Ejemplo \ref{ua,va,wa}. 
+
+\begin{lem}\label{Lemaadecuado}
+Para cada marco $A$, núcleo $j\in NA$ y $a\in A$, donde $b=j(0)$, se cumple lo siguiente
+\begin{enumerate}
+    \item $u_a\leq j \Longleftrightarrow a\leq j(0)$.
+    \item $v_a\leq j \Longleftrightarrow j(a)=1$.
+    \item $j\leq w_a \Longleftrightarrow j(a)=a$.
+    \item $w_a\leq j \Longleftrightarrow j=w_b$.
+    \item $u_a$ y $v_a$ son complementados en $NA$.
+\end{enumerate}
+\end{lem}
+
+\begin{lem}\label{Rgnucleos}
+Para cada marco $A$ tenemos que 
+\[
+\bigvee\{u_{j(a)}\wedge v_a\mid a\in A\}=j=\bigwedge\{w_a\mid a\in A_j\}
+\]
+donde $j\in NA$.
+\end{lem}
+
+\begin{lem}\label{Composicionnucleos}
+Para cada marco $A$ tenemos lo siguiente
+\[
+v_b\vee j\vee u_a= v_b \circ j\circ u_a\qquad\mbox{ y }\qquad w_a \vee j= w_a \circ j \circ w_a 
+\]
+para cada $a,b\in A$ y $j\in NA$.
+\end{lem}
+
+\begin{thm}\label{Teorema5.10}
+Para cada marco $A$ consideremos cualquier elemento $a\in A$ y núcleo $k\in NA$ con $u_a\leq k\leq w_a$. Entonces 
+\[
+j\vee w_a=w_a\circ j\circ k=w_d
+\]
+donde $d=w_a(j(a))$.
+\end{thm}
+
+\begin{lem}\label{Lema3.0.4}
+Para cada marco $A$ tenemos que 
+\[
+w_{(b\succ a)}=v_b\vee w_a
+\]
+para cada $a,b\in A$.
+\end{lem}
+
+Haciendo uso de las definiciones presentadas en la Subsección \ref{E. algebraico} podemos enunciar el siguiente resultado. 
+
+\begin{lem}
+Para cualesquiera $A\in\Frm$ y $j\in CA$, $A_j$ es un conjunto implicativo si y solo si $j\in NA$. Además, si $j\in NA$, $A_j$ es un marco y $j^*:A\to A_j$, $j^*(x)=j(x)$ es un morfismo de marcos.
+\end{lem}
+
+Notemos que $j^*$ no es mas que la restricción del morfismo $j$ en $A_j$. Además, el conjunto de puntos fijos nos permite factorizar cualquier morfismo de marcos a través del morfismo $j^*$.
+
+\begin{thm}
+Sean $A\in\Frm$, $j\in NA$. Si $f:A\to B$ es un morfismo de marcos y $j\leq k$, donde $k$ es el kernel de $f$, entonces existe un único morfismo de marcos $f^\#:A_j\to B$ tal que hace conmutar el siguiente diagrama
+\[\begin{tikzcd}
+	A && B \\
+	\\
+	{A_j}
+	\arrow["f", from=1-1, to=1-3]
+	\arrow["{j^*}"', from=1-1, to=3-1]
+	\arrow["{f^\#}"', dashed, from=3-1, to=1-3]
+\end{tikzcd}\]
+\end{thm}
+
+Sabemos que un operador derivada es un morfismo monótono y que infla. Ahora, si además de estas dos condiciones le pedimos que cumpla lo que se menciona en la siguiente definición, obtenemos nuevos operadores. A estos les llamaremos operadores estables y prenúcleos.
+
+\begin{dfn}
+Sea $j\in DA$. Para cualesquiera $a,b\in A$ tenemos que
+\begin{enumerate}
+\item $j$ es un \emph{operador estable} si $j(a)\wedge b\leq j(a \wedge b)$.\\
+$SA$ denotará al conjunto de todos los operadores estables sobre $A$.
+
+\item $j$ es un \emph{prenúcleo} si $j(a\wedge b)=j(a) \wedge j(b)$.\\
+$PA$ denotará al conjunto de todos los prenúcleos sobre $A$.
+\end{enumerate}
+\end{dfn}
+
+\begin{obs}
+\noindent
+\begin{enumerate}
+\item Todo prenúcleo es un operador estable.
+\item Si una derivada es estable e idempotente, entonces es un núcleo.
+\item Los operadores $\id, \tp\in DA$. Donde $\tp(x)=1$ para todo $x\in A$ e $\id$ es el operador identidad.
+\end{enumerate}
+Así para cualquier $A\in \Frm$ tenemos está nueva relación entre los operadores definidos hasta este momento $$NA\subseteq PA\subseteq SA\subseteq DA.$$
+\end{obs}
+
+\begin{dfn}\label{OrdenDA}
+Sea $A\in \Frm$ definimos un orden para los elementos de $DA$ de la siguiente manera
+$$j\leq k\Leftrightarrow j(a)\leq k(a), \mbox{ para cualquier }j,k\in DA\mbox{  y  }\forall a\in A.$$
+\end{dfn}
+
+\begin{dfn}\label{InfSupPuntual}
+Sea $A\in \Frm$. Para cada $F\subseteq DA$ definimos
+\begin{enumerate}
+\item El \emph{ínfimo puntual} como $\bigwedge F:A\to A$,
+$$(\bigwedge F)(x)=\bigwedge\{f(x)|x\in X\}.$$
+\item El \emph{supremo puntual} como $\dot{\bigvee} F:A\to A$,
+$$(\dot{\bigvee} F)(x)=\bigvee\{f(x)|x\in X\}.$$
+\end{enumerate}
+\end{dfn}
+
+\begin{obs}
+\noindent
+\begin{enumerate}
+\item $CA$, $NA$, $PA$, $SA$, al ser subconjuntos de $DA$, podemos dotarlos del mismo orden presentado en la Definición \ref{OrdenDA} para sus elementos, es decir, junto con $DA$ son conjuntos parcialmente ordenados. De manera particular los operadores $\id$ y $\tp$ son los elementos distinguidos 0 y 1 respectivamente en estos conjuntos ordenados.
+\item $DA$, $SA$, $PA$, $CA$ y $NA$ son cerrados bajo ínfimos puntuales. Además, $SA$ y $DA$ son cerrados bajo supremos puntuales.
+\item $SA$ es un marco. En consecuencia $(f\succ g)\in SA$, con $f,g\in SA$.  
+\end{enumerate}
+\end{obs}
+
+En otras palabras la observación anterior nos dice que podemos dotar de una estructura de retícula completa a los operadores derivada y a los operadores estables. Además, podemos definir la implicación sobre $SA$. En consecuencia $SA$ es un marco, sin embargo, ¿esta implicación sólo se puede calcular en $SA$? La respuesta la encontramos en el siguiente lema.
+
+\begin{lem}\label{MarcoNA}
+Sean $A\in \Frm$, $f\in SA$ y $k\in NA$, entonces $(f\succ k)\in NA$. Donde la implicación es la que existe en $SA$.
+\end{lem}
+
+Observemos que hemos dotado al conjunto $NA$ de una implicación. De esta manera, lo dicho en el Lema \ref{MarcoNA} y por el comentario del párrafo anterior tenemos un esbozo de la demostración de un teorema importante de la teoría de marcos.
+
+\begin{thm}[Teorema fundamental de la teoría de marcos]\label{TeoEnsamble}
+Sea $A\in \Frm$, entonces $NA$ es un marco.
+\end{thm}
+
+Al marco $NA$ también se le conoce como \emph{el ensamble} de $A$.\\
+
+Es momento de ver como se compartan los diferentes operadores difinidos hasta este momento bajo composiciones.
+
+\begin{dfn}
+Sean $A\in \Frm$ y $f\in DA$, definimos recursivamente sobre los ordinales 
+\[
+f^0=\id, \quad f^{\alpha +}=f\circ f^\alpha,\quad f^\alpha=\dot{\bigvee}\{f^\beta\mid \beta< \alpha\}
+\]
+cuando $\alpha$ es un ordinal límite y $\alpha +$ denota al ordinal sucesor de $\alpha$.
+\end{dfn}
+
+De esta manera producimos una cadena de derivadas 
+
+\[
+\id\leq f\leq f^2\leq f^3\leq\ldots \leq f^\alpha\leq \ldots
+\]
+Esta cadena se detiene en algún punto, es decir, hay un ordinal $\delta$ tal que $f^\theta=f^{\theta +}$ para cualquier $\delta\leq \theta$. Al mínimo ordinal para el cual se detiene la cadena lo denotamos por $\infty$. Por como construimos la cadena $f^\infty$ es idempotente.
+
+\begin{lem}\label{finfinito}
+Sean $A\in \Frm$ y $f\in DA$, entonces $f^\infty$ es el menor operador cerradura mayor que $f$.
+\end{lem}
+
+El siguiente resultado nos dice que, cuando consideramos al operador $f\in SA$, entonces $f^\infty\in NA$. De hecho, cuando esto ocurra, a $f^\infty$ lo llamaremos \emph{la cerradura idempotente}.\\
+
+\begin{thm}\label{Cerraduraidempotente}
+Sea $A\in \Frm$. La asignación $-^\infty\colon SA\to SA$ es un núcleo en $SA$. Además, el conjunto de puntos fijos de $-^\infty$ es $NA$.
+\end{thm}
+
+Si tomamos un elemento $a\in A$, podemos asignarle un único elemento del marco $NA$. La forma de hacerlo se explica en la siguiente definición. 
+
+\begin{dfn}\label{Morfismoeta}
+Para cualquier $A\in \Frm$,  la \emph{función $\eta_A$} se define como  
+\begin{equation*}
+\begin{split}
+\eta_A\colon & A\to NA\\
+& a\mapsto u_a
+\end{split}
+\end{equation*}
+\end{dfn}
+
+Este morfismo es epimorfismo y en general no es suprayectivo, de hecho:
+
+\begin{lem}
+Sea $A\in \Frm$, el morfismo $\eta_A\colon A\to NA$ es suprayectivo si y sólo si $A$ es booleano.
+\end{lem}
+
+\begin{dfn}
+Decimos que un morfismo de marcos $f\colon A\to B$ resuelve \emph{el problema de la complementación booleana} en $A$ si para cualquier $a\in A$, $f(a)\in B$ tiene complemento.
+\end{dfn}
+
+Para cualquier $A\in \Frm$, $\eta_A$ resuelve el problema de la complementación booleana en $A$, pues $u_a$ es un elemento del marco $NA$.
 
 \subsection{Núcleos espacialmente inducidos}
 
-Para un marco espacial $A=\mathcal{O}S$ existe una clase de núcleos que contiene todos los núcleos $u$ y $v$ descritos en el Capítulo \ref{Antecedentes} y también muchos más. Estos capturan el ``contenido espacial'' de $\mathcal{O}S$ en un sentido que veremos a continuación.
+Para un marco espacial $A=\mathcal{O}S$ existe una clase de núcleos que contiene todos los núcleos $u_\circ$ y $v_\circ$ descritos en la subsección anterior (además de estos, contiene muchos más). Estos capturan el ``contenido espacial'' de $\mathcal{O}S$ en un sentido que veremos a continuación.
 
 \begin{dfn}\label{Definicion5.3.1}
     Sea $S$ un espacio topológico. Para cada $E\in \mathcal{P}S$ definimos 

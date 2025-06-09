@@ -8,9 +8,26 @@ Todo lo que aquí se muestra es parte del trabajo de Sexton y Simmons. La fuente
 
 \section{Filtros admisibles y núcleos ajustados}
 Este será nuestro primer contacto con propiedades de separación traducidas al lenguaje sin puntos. El siguiente capítulo abardora de manera 
-más profunda este tema.\\ 
+más profunda este tema.
 
-\textbf{Agregar las definiciones de regular y ajustado de Rosy.}
+\begin{dfn}
+Consideremos $A$ un marco. Decimos que 
+\begin{enumerate}
+\item $A$ es \emph{regular} si para cada $a,b\in A$ con $a\nleq b$, existen $x,y\in A$ tales que 
+\[
+a\vee x=1, \quad y\nleq b, \quad x\wedge y=0
+\]
+se cumplen.
+\item $A$ es \emph{ajustado} si para cada $a, b\in A$, con $a\nleq b$ existen $x, y\in A$ tales que
+\[
+a\vee x=1,\quad y\nleq b, \quad x\wedge y=0
+\]
+se cumplen.
+\end{enumerate}
+\end{dfn}
+
+Estas nociones vuelven a ser abordadas en el Capítulo \ref{Axiomas de separacion}. Aunque el enfoque puede parecer distinto, estas definiciones terminan siendo equivalentes a las que ahí se presentan. Por el momento, solo enunciaremos aquellas propiedades que no serán presentadas en el siguiente 
+capítulo. Las pruebas pueden consultarse en \cite{R.S.}.
 
 \begin{lem}
     Sea $A$ un marco ajustado. Los puntos (vistos como elementos $\wedge-$irreducibles) de $A$ son elementos máximos.
@@ -682,7 +699,7 @@ Como hemos visto en este capítulo, existen dos construcciones que tratan de imi
 
 \subsection{Marco parche trivial}
 
-Recordemos que el espacio de parches produce una construcción en la cual todo conjunto compacto (en particular, saturado), resulta ser cerrado. Cuando comenzamos a trabajar con un espacio que es empaquetado, dicho construcción no hace nada. El objetivo principal de la construcción del marco de parches es mimetizar el comportamiento de los espacios de empaquetados, pero brindando una variante libre de puntos. La pregunta que podría surgir al plantearnos lo anterior es, ¿el marco de parche cumple con las expectativas?\\
+Recordemos que el espacio de parches produce una construcción en la cual todo conjunto compacto (en particular, saturado), resulta ser cerrado. Cuando comenzamos a trabajar con un espacio que es empaquetado, dicho construcción no hace nada. El objetivo principal de la construcción del marco de parches es mimetizar el comportamiento del espacio de parches, pero brindando una variante libre de puntos. La pregunta que podría surgir al plantearnos lo anterior es, ¿el marco de parche cumple con las expectativas?\\
 
 Sabemos que para $A\in \Frm$ podemos asignar de manera canónica a cada elemento $a\in A$ un elemento $u_a\in PA$. ¿Existe la posibilidad de que este sea un isomorfismo? Para ir avanzando en la respuesta de esto, se da la siguiente definición.
 
@@ -724,7 +741,7 @@ El siguiente lema enriquece aun más la información espacial.
 
 \begin{proof}
     \begin{enumerate}[a)]
-        \item Se verá más adelante (\textbf{Una vez escrito el Teorema 8.4.4,referenciarlo.)}
+        \item Se verá más adelante (Teorema \ref{Teorema8.4.4}).
         \item Consideremos cualquier $v_F$ para $F\in A^\wedge$. Por el Teorema \ref{TeoremaHM}, $F$ está determinado por algún $Q\in \mathcal{Q}S$. Además, también sabemos que los núcleos $v_F$ y $[Q']$ producen el mismo filtro de admisibilidad y al ser ajustado, se cumple que $v_F=[Q']$. Luego, al ser $T_1$, se cumple que $Q=M$, es decir $[Q']=[M']=w_F$, por lo tanto, el intervalo de admisibilidad colapsa.
     \end{enumerate}
 \end{proof}
@@ -1272,21 +1289,14 @@ Esta información genera las siguientes preguntas:
     \item ¿Son diferentes estos espacios de puntos?
 \end{itemize}
 
-\subsection{Dos spoilers}
 
-Para el espacio $S$ el espacio de Skula $^fS$ es el espacio de puntos de $N\mathcal{O}S$ y de $NA$. Nuestra intuición nos podría llevar a pensar que el espacio de parches $^pS$ es el espacio de puntos de $P\mathcal{O}S$ o de $PA$ o de ambos.\\
 
-\begin{ej}\label{Ejemplo9.2.1}
-    El espacio de parches $^pS$ de un espacio $S$ que es sobrio no necesariamente es sobrio. Por ejemplo, este es el caso cuando $S$ es la reflexión  sobria de la topología cofinita. \textbf{Citar ejemplos una vez que esten escritos}
-\end{ej}
+Para el espacio $S$ el espacio de Skula $^fS$ es el espacio de puntos de $N\mathcal{O}S$ y de $NA$. Nuestra intuición nos podría llevar a pensar que el espacio de parches $^pS$ es el espacio de puntos de $P\mathcal{O}S$ o de $PA$ o de ambos. Esto se aclarara más adelante con algunos ejemplos.\\
 
 Existen casos donde $^pS$ es el espacio de puntos $P\mathcal{O}S$. Por ejemplo, si $S$ es $T_2$, entonces $^pS=S$ y $\mathcal{O}S\to P\mathcal{O}S$ es un isomorfismo. Sin embargo, en general tenemos que buscar un poco más para encontrar el espacio de puntos.\\
 
 Otra pregunta que podríamos hacernos es ¿$P\mathcal{O}S$ es siempre espacial?
-
-\begin{ej}\label{Ejemplo9.2.2}
-    Existe un espacio sobrio $S$ tal que $P\mathcal{O}S$ no es espacial. \textbf{Citar ejemplo cuando ya este escrito}. En la Sección \ref{a} se da una colección de tales ejemplos.
-\end{ej}
+La respuesta a esto no es afirmativa, pues existe una colección de ejemplos que lo contradice (estos ejemplos también se presentaran después).
 
 \begin{lem}\label{Lema9.2.3}
     Sea $S$ un espacio sobrio. Si el encaje $\pi\colon P\mathcal{O}S\to \mathcal{O}^pS$ es un isomorfismo, entonces $S$ es fuertemente apilado
@@ -1296,7 +1306,7 @@ Otra pregunta que podríamos hacernos es ¿$P\mathcal{O}S$ es siempre espacial?
     Consideremos $Q\in \mathcal{Q}S$. Por el Lema \ref{Lema8.5.11} es suficiente verificar que $v_F=[Q']$ donde $F\in \mathcal{O}S^\wedge$ es el filtro correspondiente a $Q$. Por el Lema \ref{Lema7.3.1} tenemos que $\pi(v_F)=Q'=\pi([Q'])$ y, por hipótesis, $\pi$ es inyectiva, es decir, $v_F=[Q']$.
 \end{proof}
 
-El recíproco no es cierto, pues es posible tener un espacio fuertemente apilado donde $\pi$ no es un isomorfismo. En \textbf{Referenciar cuando ya este escrito} se verá esto
+El recíproco no es cierto, pues es posible tener un espacio fuertemente apilado donde $\pi$ no es un isomorfismo.
 
 \subsection{Los puntos ``ordinarios'' del marco de parches}
 
