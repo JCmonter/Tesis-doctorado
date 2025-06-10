@@ -32,12 +32,16 @@ Consideremos $A$ un marco.
 \end{enumerate}
 \end{dfn}
 
+Una manera sencilla de comprender la definición anterior es \emph{el marco $A$ es compacto si $1_A$ es compacto}. En ocasiones verificar que $1$ es compacto puede resultar más sencillo.\\
+
 Podemos producir algunos cocientes especiales por medio de algunos núcleos, por ejemplo: para $a\in A$, los núcleos $u_a$ y $v_a$ proporcionan los cocientes $A_{u_a}$ y $A_{v_a}$, respectivamente. A estos cocientes podriamos llamarlos \emph{cociente cerrado} y \emph{cociente abierto}, debido al núcleo que los produce (el núcleo cerrado y el núcleo abierto, respectivamente). 
 Lo anterior nos lleva a pensar que necesitamos un núcleo especial para definir el cociente compacto. 
 
 \begin{prop}\label{cocientecompacto}
-Sean $A$ un marco y $j\in NA$. $A_j$ es compacto si y solo si $\nabla(j)\in A^\wedge$, es decir, si todo filtro admisible es abierto.
+Sean $A$ un marco y $j\in NA$. $A_j$ es compacto si y solo si $\nabla(j)\in A^\wedge$.
 \end{prop}
+
+Sabemos que no necesariamente todo filtro admisible es abierto, pero en este caso, cuando $j\in NA$ produce un cociente compacto, se cumple que $\nabla(j)\in A^\wedge$.\\
 
 De esta manera, podemos dar nuestra definición de que un marco sea $\mathrm{KC}$.
 
@@ -96,11 +100,12 @@ Ahora es el turno de $\mathrm{KC}$.
 \end{prop}
 
 \begin{proof}
-Consideremos $k\in NA_j$ tal que $(A_j)_k$ es compacto. 
-Como todo filtro abierto es admisible, tenemos que $\nabla(k)\in A_j^\wedge$ 
-y, por la Proposición \ref{fF}, $j_*\nabla(K)\in A^\wedge$.\\
-
-Sea $l=j_*\circ  k\circ j^*\in NA$, entonces $A_l$ es un cociente compacto de $A$ y existe $a\in A$ tal que $l=u_a$. Así, tenemos el siguiente diagrama 
+Consideremos $k\in NA_j$ tal que $(A_j)_k$ es compacto. Notemos que necesitamos $l\in NA$ tal que $\nabla(l)\in A^\wedge$. Para ello, tomemos $F=\nabla(k)\in A_j^\wedge$. 
+Por la Proposición \ref{fF}, $j_*\nabla(k)\in A^\wedge$ y al ser un filtro abierto, este es admisible. De esta manera, sea 
+\[
+j_*\nabla(k)=\nabla(l)=\{x\in A\mid (j_*kj^*)(x)=1\}
+\]
+donde $l=j_*\circ  k\circ j^*\in NA$. Entonces $A_l$ es un cociente compacto de $A$ y por hipótesis existe $a\in A$ tal que $l=u_a$. Así, tenemos el siguiente diagrama 
 \[
 \begin{tikzcd}
 	A \arrow[r, "j^*"'] \arrow[rrr, "l", bend left] & A_j \arrow[r, "k"'] & (A_j)_k \arrow[r, "j_*"'] & A_j\subseteq A
@@ -120,7 +125,11 @@ u_b(x)= b\vee x= b\vee j(x)& =j(j(a)\vee j(x))\\
 Por lo tanto $u_b=k$.
 \end{proof}
 
-No hay mucho que hacer con las propiedades de separación. Si se cumple la propiedad $\mathbf{(H)}$, por la naturaleza de $\mathrm{KC}$, esta también se cumple. Con $T_1$ requerimos un poco más de trabajo.
+Lo ideal es que $KC$ se comporte de manera similar a su variante espacial, es decir, queremos que 
+\[
+\mathbf{(H)} \Rightarrow \mathrm{KC} \Rightarrow T_1.
+\]
+Comencemos por ver la relación entre $\mathrm{KC}$ y $T_1$.
 
 \begin{prop}\label{KCT1}
     Si $A$ es un marco $KC$, entonces $A$ es un marco $T_1$.
@@ -142,8 +151,9 @@ u_p(a)=a\quad \mbox{ y }\quad w_p(a)=1.
 es decir, $a=1$. Por lo tanto $p$ es máximo. 
 \end{proof}
 
-De esta manera tenemos que $\mathrm{KC}$ tiene un comportamiento parecido a la propiedad espacial puesto
+Ahora verifiquemos que $\mathbf{(H)} \Rightarrow \mathrm{KC}$. Notemos que si esto se cumple, entonces tendríamos que
 \[
 \mathbf{(H)} \Rightarrow \mathrm{KC} \Rightarrow \mbox{ Arreglado }\Rightarrow T_1.
 \]
+es decir, probaríamos que $\mathbf{(H)}$ implica arreglado. 
 
