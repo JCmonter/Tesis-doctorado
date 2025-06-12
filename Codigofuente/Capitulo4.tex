@@ -1,5 +1,9 @@
 \chapter{Marcos arreglados vs Axiomas tipo Hausdorff}\label{Relación MA y AH}
 
+Queremos hacer notar que tanto en este capítulo como en el Capitulo \ref{MarcosKC} se recopilan los resultados obtenidos hasta este momento de la investigación. En caso de que en estos se incluya 
+algún resultado que no es de nuestra autoría, entonces únicamente haremos referencia de donde puede ser encontrada su respectiva demostración. Esto lo hacemos con la finalidad de poder distinguir 
+cuales si son de nosotros y cuales no.\\
+
 Notemos que la Definición \ref{Definición8.2.1} identifica a un tipo especifico de marcos. El Teorema \ref{Teorema8.4.4} caracteriza a los marcos arreglados por medio de una condición especial, de manera especifica con el axioma de separación $T_2$.
 Con esto en mente, resulta natural el preguntarse: \emph{¿se pueden enunciar caracterizaciones para los marcos arreglados que sean meramente de marcos?}, es decir, que no se haga mención a la topología de un espacio. Un ejemplo no tan exitoso de lo que 
 que acabamos de preguntar lo tenemos en el siguiente resultado.
@@ -9,10 +13,10 @@ Para $A$ un marco espacial se cumple lo siguiente: $\mathcal{O}S$ es un marco Ha
 \end{cor}
 
 \begin{proof}
-Se sigue del hecho de que la propiedad $\mathbf{(H)}$ es conservativa.\\
+Se sigue del Teorema \ref{Teorema8.4.4} y del hecho de que la propiedad $\mathbf{(H)}$ es conservativa.
 \end{proof}
 
-De esta manera, hemos relacionado la condición de arreglo con uno de los axiomas de separación. Veamos cual es la relación de esta con las otras propiedades.\\
+De esta manera, hemos relacionado la condición de arreglo con uno de los axiomas de separación libres de puntos. Veamos cual es la relación de esta noción con las otras propiedades.\\
 
 \section{Arreglado y su relación con las propiedades en $\Frm$}
 
@@ -273,7 +277,7 @@ Aquí, $A_F$ y $A_{j_*F}$ los cocientes producidos por $v_F$ y $v_{j_*F}$, respe
 
 Consideremos $h\colon A_{j_*F}\to A_j$ tal que, para $x\in A_{j_*F}$, $h(x)=H(x)$. Por lo tanto, si $h=H_{\mid{A_{j_*F}}}$, entonces el diagrama anterior conmuta.\\
 
-Necesitamos que $h$ sea un morfismo de marcos. Primero, por la definición de $h$, este es un $\wedge$-morphism. Resta ver que $h$ es un $\bigvee$-morfismo.\\
+Necesitamos que $h$ sea un morfismo de marcos. Primero, por la definición de $h$, este es un $\wedge$-morfismo. Resta ver que $h$ es un $\bigvee$-morfismo.\\
 
 Los supremos en $A_{j_*F}$ y $A_F$ son calculados de manera diferente. Por ello, consideremos $\hat{\bigvee}$ por el supremo en $A_{j_*F}$ y por $\tilde{\bigvee}$ el supremo en $A_F$. Por lo tanto
 \[
@@ -284,7 +288,7 @@ es decir, para $X\subseteq A$, $Y\subseteq A_j$,
 	\hat{\bigvee}X=v_{j_*F}(\bigvee X)\quad\mbox{ y }\quad \tilde{\bigvee}Y=v_{F}(\bigvee Y).
 \]
 
-Ya que $H$ es un morfismo de marcos, $H\circ \bigvee=\tilde{\bigvee}\circ H$. Esto establece algo similar para $h$.
+Ya que $H$ es un morfismo de marcos, $H\circ \bigvee=\tilde{\bigvee}\circ H$. Esto establece algo similar para $h$:
 
 \begin{lem}\label{bigvee g}
 $h\circ \hat{\bigvee}=\tilde{\bigvee}\circ h$.

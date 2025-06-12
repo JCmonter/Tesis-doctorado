@@ -1,10 +1,10 @@
 \chapter{Marcos arreglados}\label{Parches}
 
-El objetivo de este capítulo es obtener una versión libre de puntos de la construcción presentada en la Subsección \ref{Parche puntos}. 
-Todo lo que hemos visto hasta este momento es suficiente como para establecer las respectivas correspondencias y encontrar algo similar 
-a la \emph{pbase}. Para hacer esto, primero necesitamos algo de información adicional.\\
+Este capítulo muestra una recopilación del trabajo hecho por Sexton en su tesis doctoral (ver \cite{R.S.}). 
+Algunas consecuencias espaciales también pueden consultarse en el artículo \cite{R.S.3}.\\
 
-Todo lo que aquí se muestra es parte del trabajo de Sexton y Simmons. La fuente original es la tesis doctoral \cite{R.S.}
+Parte de los objetivos de nuestra investigación es comprender la teoría que muestra Sexton sobre construcciones de parches 
+y constrastarla con los axiomas de separación libres de puntos que se presentaran en el Capítulo \ref{Axiomas de separacion}.
 
 \section{Filtros admisibles y núcleos ajustados}
 Este será nuestro primer contacto con propiedades de separación traducidas al lenguaje sin puntos. El siguiente capítulo abardora de manera 
@@ -219,7 +219,7 @@ Existe una relación entre la propiedad de separación ajustado y núcleo ajusta
     \end{description}
 \end{proof}
 
-El resultado anterior nos dice que ajustado es una propiedad que simplifica enormemente la estructura del conjunto.
+El resultado anterior nos dice que ajustado es una propiedad que simplifica enormemente la estructura del bloque.
 
 \subsection{Núcleos asociados a filtros abiertos}
 
@@ -315,15 +315,19 @@ Consideremos el cociente de $A$ dado por el conjunto de puntos fijos de $v_F$, d
 
 Lo anterior nos proporciona el siguiente diagrama
 
-\[\begin{tikzcd}
-	A & {\mathcal{O}S} \\
-	{A_F} & {\mathcal{O}Q}
+
+\begin{equation}
+    \begin{tikzcd}
+	A & {A_F} \\
+	{\mathcal{O}S} & {\mathcal{O}\pt(A_F)=\mathcal{O}Q}
 	\arrow[from=1-1, to=1-2]
 	\arrow[from=1-1, to=2-1]
 	\arrow[from=1-2, to=2-2]
 	\arrow[from=2-1, to=2-2]
-\end{tikzcd}\]
-el cual será extendido.\\
+\end{tikzcd}
+\end{equation}
+
+el cual será extendido y en el Capítulo \ref{Relación MA y AH} presentaremos como el $Q$-cuadrado.\\
 
 Cada subconjunto $T\subseteq S$, visto como subespacio nos da el siguiente cociente.
 \[
@@ -335,10 +339,10 @@ Por el Lema \ref{Lema3.4.1}, el conjunto $Q$ tiene un conjunto de generadores m�
 \[
 A\to A_F \to \mathcal{O}Q \to \mathcal{O}M
 \]
-con kernel dado por $W_F(a)=\bigwedge \{p\in m\mid a\leq o\}$, donde $a\in A$. 
+con kernel dado por $w_F(a)=\bigwedge \{p\in m\mid a\leq o\}$, donde $a\in A$. 
 
 \begin{lem}
-    El núcleo $W_F$ es el núcleo máximo que admite a $F$. 
+    El núcleo $w_F$ es el núcleo máximo que admite a $F$. 
 \end{lem}
 
 \begin{proof}
@@ -346,36 +350,36 @@ con kernel dado por $W_F(a)=\bigwedge \{p\in m\mid a\leq o\}$, donde $a\in A$.
     \[
     j(a)=1\Leftrightarrow (\forall \, m\in M)[j(a)\nleq m] 
     \]
-    (ver Lema \ref{Lema3.4.1}). Como $j\sim W_F$, entonces $j(a)=(W_F(a)=1$ para $a\in F$. Supongamos que $a\notin F$, entonces $a\leq m$ para algún $m\in M$ y $j(a)\leq j(m)=m$, de modo que 
+    (ver Lema \ref{Lema3.4.1}). Como $j\sim w_F$, entonces $j(a)=(w_F)(a)=1$ para $a\in F$. Supongamos que $a\notin F$, entonces $a\leq m$ para algún $m\in M$ y $j(a)\leq j(m)=m$, de modo que 
     \[
-    j(a)\leq \bigwedge \{p\in M\mid a\leq p\}=W_F(a).
+    j(a)\leq \bigwedge \{p\in M\mid a\leq p\}=w_F(a).
     \]
-    Por lo tanto $j\leq W_F$.
+    Por lo tanto $j\leq w_F$.
 \end{proof}
 
-Cada bloque en $NA$ tiene un menor elemento (el núcleo ajustado correspondiente). Tal bloque no necesita tener mayor elemento, o incluso elementos máximos. Sin embargo, para un filtro abierto $F$ el bloque correspondiente $[V_F, W_F]$ es un intervalo acotado en $NA$. Esto nos da un intervalo acotado $I_F=[V_F(0), W_F(0)]$ de $A$. La estructura de este bloque está íntimamente relacionada con las propiedades del parche de $A$ (y otras propiedades).\\
+Cada bloque en $NA$ tiene un menor elemento (el núcleo ajustado correspondiente). Tal bloque no necesita tener mayor elemento, o incluso elementos máximos. Sin embargo, para un filtro abierto $F$ el bloque correspondiente $[v_F, w_F]$ es un intervalo acotado en $NA$. Esto nos da un intervalo acotado $I_F=[v_F(0), w_F(0)]$ de $A$. La estructura de este bloque está íntimamente relacionada con las propiedades del parche de $A$ (y otras propiedades).\\
 
-Para cada $a\in I_F$ sea $j_a(V_F\vee u_a$ para producir un núcleo $V_F\leq j_a\leq W_F$. Además, $a\leq b$ si y solo si $j_a\leq j_b$ para cada $a, b\in I_F$. La implicación $j_a\leq j\Rightarrow a\leq b$ se cumple debido a que $I_F\subseteq A_F$ y por lo tanto $a=j_a(0)$ para cada $a\in I_F$. Esto nos da un encaje de marcos 
+Para cada $a\in I_F$ sea $j_a=(v_F\vee u_a)$ para producir un núcleo $v_F\leq j_a\leq w_F$. Además, $a\leq b$ si y solo si $j_a\leq j_b$ para cada $a, b\in I_F$. La implicación $j_a\leq j_j\Rightarrow a\leq b$ se cumple debido a que $I_F\subseteq A_F$ y por lo tanto $a=j_a(0)$ para cada $a\in I_F$. Esto nos da un encaje de marcos 
 \[
 \begin{split}
-    I_F &\to [V_F, W_F]\\
+    I_F &\to [v_F, w_F]\\
     a & \mapsto j_a
 \end{split}
 \]
 y por lo tanto $I_F$ nos da una indicación de la complejidad del bloque.\\
 
-Notemos que puede suceder que $V_F=W_F$ en cuyo caso $I_F$ es solo un punto. Sin embargo, se producirá un ejemplo donde $I_F$ es bastante complejo. De hecho se produce un ejemplo espacial.\\
+Notemos que puede suceder que $v_F=w_F$ en cuyo caso $I_F$ es solo un punto. Sin embargo, se producirá un ejemplo donde $I_F$ es bastante complejo. De hecho se produce un ejemplo espacial.\\
 
 Supongamos que $A$ es espacial, de modo que $A=\mathcal{O}S$ para algún espacio sobrio $S$. Para $Q\in \mathcal{Q}S$ tenemos cocientes 
 \[
 \mathcal{O}S\to (\mathcal{O}S)_F\to \mathcal{O}Q\to \mathcal{O}M
 \]
-que determinan el menor y el mayor elemento del bloque ($V_F$ y $W_F$, respectivamente) y un elemento intermedio. En este caso tenemos que $W_F=[M']$ el núcleo espacialmente inducido. De manera similar, $[Q']$ es el elemento intermedio del bloque. Así tenemos un intervalo $V_F\leq [Q']\leq W_F$ de $N\mathcal{O}S$ con un elemento espacial $[Q']$. Parece que, en general, $[Q']$ puede estar en cualquier extremo o en algún punto intermedio. La observación de que $V_F\leq [Q']$ y que estos dos núcleos son compañeros es una observación importante a lo que se verá más adelante.\\
+que determinan el menor y el mayor elemento del bloque ($v_F$ y $w_F$, respectivamente) y un elemento intermedio. En este caso tenemos que $w_F=[M']$ el núcleo espacialmente inducido. De manera similar, $[Q']$ es el elemento intermedio del bloque. Así tenemos un intervalo $v_F\leq [Q']\leq w_F$ de $N\mathcal{O}S$ con un elemento espacial $[Q']$. Parece que, en general, $[Q']$ puede estar en cualquier extremo o en algún punto intermedio. La observación de que $v_F\leq [Q']$ y que estos dos núcleos son compañeros es una observación importante a lo que se verá más adelante.\\
 
 Si $S$ es $T_1$, entonces $Q=M$, pero esto no asegura que el intervalo sea simple.\\
 
 \begin{ej}
-    Hay un espacio $S$ que es $T_1$, sobrio y estrechamente empaquetado. Este espacio tiene un punto especial $*$ que controla gran parte de la estructura. El conjunto $\mathbb{S}=S\setminus \{*\}$ es un árbol grande con varios subárboles grandes. Sea $F$ el filtro sobre $\mathcal{O}S$ dado por $Q=\{*\}$, que es un filtro de vecindad abierto del punto. Entonces cada subárbol grande produce un elemento de $I_F$.\\
+    Hay un espacio $S$ que es $T_1$, sobrio y estrechamente empaquetado. Este espacio tiene un punto especial $*$ que controla gran parte de la estructura. El conjunto $\mathbb{S}=S\setminus \{*\}$ es un árbol grande con varios subárboles grandes. Sea $F$ el filtro sobre $\mathcal{O}S$ dado por $Q=\{*\}$, que es un filtro de vecindad abierto del punto. Entonces cada subárbol grande produce un elemento de $I_F$.
 \end{ej}
 
 Este ejemplo se tratará más adelante, donde se dará el significado preciso de ``grande''.
@@ -404,7 +408,7 @@ La primera es una copia isomorfa de $A$ en $NA$, lo cual es un análogo de $\mat
     la cual es una familia $\wedge-$cerrada de elementos en $NA$.
 \end{dfn}
 
-Notemos que si consideramos $F=A$ y $a=1$, podemos probar que la Pbase contiene cada $u_a$, para cada $a\in A$, y cada $v_F$ para $F^\in A^\wedge$.
+Notemos que si consideramos $F=A$ y $a=1$, podemos probar que la Pbase contiene cada $u_a$, para cada $a\in A$, y cada $v_F$ para $F\in A^\wedge$.
 
 \begin{dfn}\label{Definicion7.1.2}
     Para cada $A\in \Frm$, definimos el \emph{marco de parches}, denotado por $PA$ por el conjunto supremos de todas las subfamilias de la Pbase donde estos supremos son calculados en $NA$.
@@ -432,7 +436,7 @@ donde $\iota$ es un encaje e $i$ es una inclusión. Está construcción nos llev
     \item ¿Qué es $\pt (PA)$? ¿Coinciden con $^p\pt A$?
 \end{enumerate}
 
-El siguiente resultado da una manera de responder P2). Como veremos más adelante, existen otras manera de obtener $A\cong PA$.
+El siguiente resultado da una manera de responder P2). Como veremos más adelante, existen otras manera de obtener $A\simeq PA$.
 
 \begin{thm}\label{Teorema7.1.4}
     Para $A$ un marco regular y $j\in NA$ un núcleo tal que $\nabla(j)\in A^\wedge$. Se cumple que $j=u_d$, donde $d=j(0)$. 
@@ -456,7 +460,7 @@ El siguiente resultado da una manera de responder P2). Como veremos más adelant
     Por lo tanto $\nabla(j)=\nabla(u_d)$.
 \end{proof}
 
-Sabemos que $A\cong NA$ ocurre cuando $A$ es booleano (lo cual provocaría que $A\cong PA$, lamentablemente que $A$ sea booleano es una condición bastante fuerte). El Teorema \ref{Teorema7.1.4}, de manera indirecta nos dice que, bajo las hipótesis convenientes, la regularidad implica que $A\cong PA$, pues solo nos restringimos a algunos $j\in NA$.
+Sabemos que $A\simeq NA$ ocurre cuando $A$ es booleano (lo cual provocaría que $A\simeq PA$, lamentablemente que $A$ sea booleano es una condición bastante fuerte). El Teorema \ref{Teorema7.1.4}, de manera indirecta nos dice que, bajo las hipótesis convenientes, la regularidad implica que $A\simeq PA$, pues solo nos restringimos a algunos $j\in NA$.
 
 \subsection{¿Es $P( \_ )$ un funtor?}
 
@@ -491,7 +495,7 @@ Para un filtro $F$ en $A$, la imagen $f(F)$ no necesariamente es un filtro en $B
     \]
 \end{ej}
 
-En espacios, una función continua no necesariamente debe respetar conjuntos compactos saturados. Necesitamos imponer una condición para lograr la funtorialidad. El ejemplo anterior nos dice que un morfismo de marcos no necesariamente debe respetar filtros abiertos, de manera similar al caso espacial, necesitamos imponer condiciones adicionales.\\
+En espacios, una función continua no debe respetar conjuntos compactos saturados. Necesitamos imponer una condición para lograr la funtorialidad. El ejemplo anterior nos dice que un morfismo de marcos no necesariamente debe respetar filtros abiertos, de manera similar al caso espacial, necesitamos imponer condiciones adicionales.\\
 
 \begin{dfn}\label{Definicion7.2.2}
     Un morfismo de marcos $f\colon A\to B$ decimos que \emph{convierte filtros abiertos} si para cada $F\in A^\wedge$, la imagen $f(F)\in B^\wedge$.
@@ -1389,7 +1393,7 @@ Ciertamente la reflexión sobria de $^pS$ debe estar dentro de $\pt(PA)$. Sabemo
 Comenzamos con un ejemplo de punto salvaje.
 
 \begin{ej}\label{Ejemplo9.4.1}
-    El ensamble de parches de la reflexión sobria de la topología cofinita contiene un punto salvaje. Ver subsección \ref{cofcon}.
+    El ensamble de parches de la reflexión sobria de la topología cofinita contiene un punto salvaje. Ver subsección \ref{Ejemplos Rosy}.
 \end{ej}
 
 Cada punto salvaje se adjunta a uno de los puntos $w_p$ de forma canónica.
@@ -1414,7 +1418,7 @@ Cada punto salvaje se adjunta a uno de los puntos $w_p$ de forma canónica.
 
 Esto muestra que cualquiera que sean los puntos de $PA$, cada uno tiene un padre $p$ el cual es un punto de $A$ y la imagen de un punto de $PA$.\\
 
-¿Qué tiene un punto de un marco que permite asociarlo con puntos salvajes del parche? Recordemos que cada elemento máximo es automáticamente un punto, pero hay puntos que no son máximos.
+¿Qué tiene un punto de un marco que permite asociarlo con puntos salvajes? Recordemos que cada elemento máximo es automáticamente un punto, pero hay puntos que no son máximos.
 
 \begin{lem}\label{Lema9.4.3}
     Si el punto $p$ del marco $A$ es máximo, entonces $u_p=w_p$ y $p$ no tiene puntos salvajes asociados.
@@ -1481,7 +1485,7 @@ Sea $A$ un marco arbitrario con espacio de puntos $S$. Consideremos el encaje to
 
 Es posible que sea así, pero aun no se ha encontrado una prueba o contraejemplo.
 
-\section{Ejemplos}
+\section{Ejemplos}\label{Ejemplos Rosy}
 
 En las siguientes secciones se reúnen varios ejemplos que han llevado a comprender de mejor manera las construcciones de parches. 
 

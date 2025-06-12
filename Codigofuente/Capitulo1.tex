@@ -1,9 +1,9 @@
 \chapter{Preliminares}\label{Preliminares}
 
-El desarrollo de esta investigación gira en torno de dos conceptos principales: la teoría de marcos y la topología de un espacio. 
+El desarrollo de esta investigación gira en torno de dos ejes principales: la teoría de marcos y la topología de un espacio. 
 Por tal motivo, en este capítulo nos encargamos de presentar toda la información necesaria para su desarrollo y comprensión.
 Para consultar información adicional de la que aquí mencionaremos, recomendamos consultar \cite{P.T.} o \cite{J.P.}. 
-Algunas de las cuestiones espaciales que aquí serán mencionadas pueden encontrarse también en \cite{R.S.} y \cite{R.S.3}.\\
+Algunas de las cuestiones espaciales que aquí serán mencionadas pueden encontrarse también en \cite{R.S.}, \cite{R.S.2} y \cite{R.S.3}.\\
 
 Algunos de los resultados que se muestran en este capítulo son muy conocidos, por tal motivo, los presentamos si prueba. 
 Los que van acompañados de su demostración es porque consideramos que son más relevantes o simplemente porque no encontramos la prueba 
@@ -142,7 +142,7 @@ De esta manera $\mathcal{O}(f)\colon \mathcal{O}S\to \mathcal{O}T$ es un morfism
 
 Sabemos que si $S$ es un espacio topológico, entonces la familia de todos los conjuntos abiertos, $\mathcal{O}S$, es un marco. Y la asignación $S\mapsto \mathcal{O}S$ está dada por un funtor contravariante.\\
 
-Como mencionamos en la sección anterior el funtor $\mathcal{O}$ tiene un adjunto que lleva a cada marco a un espacio topológico. Esta es la construcción del espacio de puntos.
+Como mencionamos antes de comenzar esta subsección, el funtor $\mathcal{O}$ tiene un adjunto que lleva a cada marco a un espacio topológico. Esta es la construcción del \emph{espacio de puntos}.
 
 \begin{dfn}
     Sea $A$ un marco. Un \emph{caracter} de $A$ es un morfismo de marcos $h\colon A\to \mathbf{2}$, donde $\mathbf{2}$ es el marco de dos elementos.
@@ -210,17 +210,17 @@ elementos del espacio de puntos.
 Decimos que un filtro es \emph{propio} si $0\notin F$. Si agregamos ciertas propiedades particulares obtenemos otros tipos de filtros.
 
 \begin{dfn}\label{Tfiltros}
-    Sea $A$ un marco. Decimos que un filtro propio $F$ en $A$ es:
+    Sea $A$ un marco. Decimos que un filtro $F$ en $A$ es:
     \begin{itemize}
-        \item \emph{Primo} si $x\vee y\in F$, entonces $x\in F$ o $y\in F$.
-        \item \emph{Completamente primo} si $\bigvee X\in F$, entonces $X\cap F\neq \emptyset$, para cada $X\subseteq A$.
+        \item \emph{Primo} si $x\vee y\in F$, entonces $x\in F$ o $y\in F$. Además, $F$ requiere ser propio.
+        \item \emph{Completamente primo} si $\bigvee X\in F$, entonces $X\cap F\neq \emptyset$, para cada $X\subseteq A$. Además. requiere ser propio.
         \item \emph{Abierto} (o de \emph{Scott}) si $\bigvee X\in F$, entonces $X\cap F\neq \emptyset$, para cada  conjunto dirigido $X\subseteq A$.
     \end{itemize}
 \end{dfn}
 
-A manera de notación, agrupamos a los distintos filtros en los siguientes conjuntos
+A manera de notación, agrupamos a los distintos filtros en los siguientes conjuntos:
 \[
-Fil(A)=\{\mbox{Filtros en $A$}\}, \quad A^\wedge=\{\mbox{F. abiertos en $A$}\}, \quad CFil=\{\mbox{F. c. primos en $A$}\}
+Fil(A)=\{\mbox{Filtros en $A$}\}, \quad A^\wedge=\{\mbox{F. abiertos en $A$}\}, \quad CFil=\{\mbox{F. c. primos en $A$}\}.
 \]
 Los filtros mencionados en la Definición \ref{Tfiltros} están relacionados de la siguiente manera. 
 
@@ -235,7 +235,7 @@ Además, de manera equivalente podemos decir que un filtro es completamente prim
 \]
 Notemos que esta noción está dada para los abiertos del espacio de puntos, es decir, elementos de $\mathcal{O}S$.\\
 
-Para un espacio $S$ si consideramos $x\in S$ tenemos el filtro completamente primo de vecindades abiertas de $x$
+Para un espacio $S$ si consideramos $x\in S$, tenemos el filtro completamente primo de vecindades abiertas de $x$
 
 \[
 F(x)=\{U\in \mathcal{O}S\mid x\in U\}.
@@ -281,7 +281,8 @@ Y=\{f(x)\mid x\in X\}
 es dirigido y $f(\bigvee X)=\bigvee f[X]=\bigvee Y\in G$. Como $G$ es un filtro abierto, existe $y=f(x)\in Y$ tal que $y\in G$. Así $x\in f_*G$, de modo que, $f_*G\in A^\wedge$.
 \end{proof}
 
-Este última proposición será de gran utilidad para probar algunos otros resultados en los Capitulos \ref{Relación MA y AH} y \ref{MarcosKC}
+Este última proposición será de gran utilidad para probar algunos otros resultados en los Capitulos \ref{Relación MA y AH} y \ref{MarcosKC}.
+
 \subsection{Estudio algebraico de los marcos}\label{E. algebraico}
 
 Como en toda estructura algebraica, en ocasiones es más sencillo obtener información de la estructura si ponemos nuestra atención en sus \emph{cocientes}. Esto mismo ocurre en la categoría $\Frm$. 
@@ -559,10 +560,10 @@ Para un marco espacial $A=\mathcal{O}S$ existe una clase de núcleos que contien
     \[
     [E](U)=(E\cup U)^\circ
     \]
-    para cada $U\in \mathcal{O}S$ para obtener una función en $\mathcal{O}S$.
+    donde $U\in \mathcal{O}S$.
 \end{dfn}
 
-No es complicado verificar que $[E]$ es un núcleo en el marco $\mathcal{O}S$.
+La definición anterior nos permite obtener una función $[ \_ ]\colon \mathcal{O}S\to \mathcal{O}S$. No es complicado verificar que $[E]$ es un núcleo en el marco $\mathcal{O}S$.
 
 \begin{dfn}\label{Definicon5.3.2}
     Para un espacio topológico $S$, un núcleo en $\mathcal{O}S$ es \emph{espacialmente inducido} si este tiene la forma $[E]$ para algún $E\subseteq S$.
@@ -632,46 +633,6 @@ Cada marco lleva sus núcleos distinguidos $u$ y $v$, ¿qué son estos para una 
 \end{proof}
 
 Cada subconjunto $E$ de un espacio $S$ determina un núcleo $[E]$ en la topología. Sin embargo, los núcleos $[E]$ no necesitan determinar al subconjunto $E$.\\
-
-Recordemos que además del interior $E^\circ$ y la clausura $E^-$ de $E$ tenemos también el interior frontal $E^\Box$ y la clausura frontal $E^=$.\\
-
-El siguiente resultado muestra que para cada espacio $S$ existe un encaje 
-\[
-\begin{split}
-    \mathcal{O}^fS& \to N\mathcal{O}S\\
-    E& \mapsto [E]
-\end{split}
-\]
-desde la topología frontal al ensamble de la topología principal.
-
-\begin{lem}
-    Sea $S$ un espacio topológico. Para subconjuntos arbitrarios $D, E\subseteq S$, tenemos que $[D]=[E]$ si y solo si $D$ y $E$ tienen el mismo interior frontal. En otras palabras
-    \[
-    [D]=[E]\Leftrightarrow D^\Box =E^\Box
-    \]
-    para todo $D, E\in \mathcal{P}S$.
-\end{lem}
-
-\begin{proof}
-    \begin{itemize}
-        \item[$\Rightarrow )$] Debemos probar que si $[D]\leq [E]$ entonces $D^\Box\subseteq E^\Box$. Supongamos que $[D]\leq [E]$. Sabemos que los conjuntos $U\cap p^-$, donde $U\in \mathcal{O}S$ y $p\in S$, forman una base para la topología frontal. Por lo tanto 
-        \[
-        \begin{split}
-            p\in D^\Box & (\exists U\in \mathcal{O}S)[p\in U\cap p^-\subseteq D]\\
-            & \Rightarrow (\exists U\in \mathcal{O}S)[p\in U\subseteq D\cup (p-)']\\
-            & \Rightarrow p\in [D](p^{-'})\subseteq [E](p^{-'})\subseteq E\cup p^{-'}\\
-            & \Rightarrow p\in E.
-        \end{split}
-        \]
-        De aquí que $D^\Box\subseteq E$ y como $D^\Box$ es abierto frontal, tenemos que $D^\Box\subseteq E^\Box$.\\
-
-        La otra contención se prueba de manera similar.
-        
-        \item[$\Leftarrow )$] Veamos que $[D]=[D^\Box]$. La desigualdad $[D^\Box]\leq [D]$ es inmediata de $D^\Box \subseteq D$.\\
-        
-        Para la otra desigualdad supongamos que $V\subseteq (D\cup U)$ para abiertos $U, V\in \mathcal{O}S$. Mostraremos que $V\subseteq (D^\Box\cup U)$. Como $V\subseteq (D\cup U)$ vemos que $V\cap U'\subseteq D$. Luego $V\cap U'$ es un abierto frontal, de aquí que $V\cap U'\subseteq U^\Box$ y por lo tanto $V\subseteq D^\Box\cup U$.De aquí que $[D]=[D^\Box]$.
-    \end{itemize}
-\end{proof}
 
 \subsection{El funtor $N( \_ )$}
 
@@ -980,8 +941,8 @@ En cualquier conjunto parcialmente ordenado, la familia de conjuntos saturados (
     se cumple.
 
     \begin{itemize}
-        \item Una subcubierta de una cubierta abierta $\mathcal{U}$ para $A$ es una subcolección de $\mathcal{U}$ $\mathcal{V}\subseteq \mathcal{U}$ la cual forma una cubierta abierta para $A$.
-        \item Una cubierta $\mathcal{U}$ es dirigida si esta es $\subseteq-$dirigida, es decir, para cada $U,V\in \mathcal{U}$, existe algún $W\in \mathcal{U}$ tal que $U\cup V\subseteq W$.
+        \item Una subcubierta de una cubierta abierta $\mathcal{U}$ para $A$ es una subcolección $\mathcal{V}\subseteq \mathcal{U}$ la cual forma una cubierta abierta para $A$.
+        \item Una cubierta $\mathcal{U}$ es dirigida si esta es $\subseteq$-dirigida, es decir, para cada $U,V\in \mathcal{U}$, existe algún $W\in \mathcal{U}$ tal que $U\cup V\subseteq W$.
         \item Un conjunto $X$ de un espacio topológico $S$ es compacto si cada cubierta abierta de $X$ tiene una subcubierta abierta finita.
     \end{itemize}
 \end{dfn}
@@ -1205,7 +1166,7 @@ Podemos tener espacios empaquetados que no son $T_0$, estos no serán abordados 
 Algunos espacios tienen una propiedad aún más fuerte que empaquetado. Es útil tener un nombre para esto.
 
 \begin{dfn}
-    En espacio $S$ es \emph{estrictamente empaquetado} si todo conjunto compacto saturado es finito. 
+    $S$ es \emph{estrictamente empaquetado} si todo conjunto compacto saturado es finito. 
 \end{dfn}
 
 De esta manera un espacio no es empaquetado si tiene al menos un conjunto compacto saturado que no es cerrado. En otras palabras, no tiene suficientes conjuntos cerrados, o equivalentemente, suficientes conjuntos abiertos. Podemos corregir este defecto agregando a la topología nuevos conjuntos abiertos para formar un topología más grande. \\
@@ -1216,7 +1177,7 @@ pbase=\{U\cap Q'\mid U\in \mathcal{O}S, Q\in \mathcal{Q}S\}
 \]
 que por el Lema \ref{Union compactosaturado} es cerrada bajo intersecciones binarias y por lo tanto forman una base para una nueva topología.\\
 
-Al considerar $Q=\emptyset$ tenemos que la $pbase$ contiene a la topología original y al dejar $U=S$ vemos que la $pbase$ contiene a los complementos de cada conjunto compacto saturado.\\
+Al considerar $Q=\emptyset$ tenemos que la $pbase$ contiene a la topología original y al dejar $U=S$ vemos que la $pbase$ contiene a los complementos de cada conjunto compacto saturado.
 
 \begin{dfn}
     Para un espacio topológico $S$, consideramos $^PS$ el espacio con los mismos puntos que $S$ y la topología $\mathcal{O}^PS$ generada por la $pbase$.
@@ -1297,7 +1258,11 @@ El Teorema \ref{Sobriofrontal} nos dice que si un espacio es sobrio, entonces su
     \]
     y por lo tanto $p\in F^=$. .De esta manera tenemos que $F^-=F^=$ y como $F$ es cerrado frontal $F^= =F$ y en consecuencia $p\in F$.\\
 
-    Supongamos que $F\neq \{p\}$ y, por contradicción, supongamos que $F$ finito. Así $F=\{p, q_0, q_1, \dots , q_n\}$ para algunos puntos $q_0, \dots q_n$ distintos de $p$. Para cada $q_i$ tenemos que $q_i\in F\subseteq p^-$, es decir, $q_i\sqsubseteq p$ en el orden de especialización. Luego $p\in F\cap q_i^-$, pues de lo contrario $p\sqsubseteq q_i$ y eso implicaría que $p=q_i$ lo cual no es posible. De esta manera los conjuntos 
+    Supongamos que $F\neq \{p\}$ y, por contradicción, supongamos que $F$ finito. Así 
+    \[
+    F=\{p, q_0, q_1, \dots , q_n\}
+    \] 
+    para algunos puntos $q_0, \dots q_n$ distintos de $p$. Para cada $q_i$ tenemos que $q_i\in F\subseteq p^-$, es decir, $q_i\sqsubseteq p$ en el orden de especialización. Luego $p\in F\cap q_i^-$, pues de lo contrario $p\sqsubseteq q_i$ y eso implicaría que $p=q_i$ lo cual no es posible. De esta manera los conjuntos 
     \[
     F\cap (\uparrow p)', F\cap (q_0^-)', \dots , F\cap (q_n^-)'\neq \emptyset.
     \]
@@ -1531,9 +1496,7 @@ Para terminar esta subsección retomamos lo dicho en el Lema \ref{Lema6.3.1} y v
 
 \subsection{El espacio de puntos del ensamble}
 
-Esta parte de las notas veremos la relación que existe entre el ensamble de la topología de un espacio ($N\mathcal{O}S$ y la topología de Skula. 
-
-El siguiente Teorema resulta de juntar el Teorema \ref{Teorema6.2.3} y el Lema \ref{Lema6.3.1}.
+Es momento de ver la relación entre el ensamble de la topología de un espacio ($N\mathcal{O}S$ y la topología de Skula. El siguiente Teorema resulta de juntar el Teorema \ref{Teorema6.2.3} y el Lema \ref{Lema6.3.1}.
 
 \begin{thm}\label{Teorema6.4.1}
     Para $A\in \Frm$ y $S=\pt A$ el siguiente diagrama conmuta.

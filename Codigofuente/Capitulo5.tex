@@ -1,13 +1,13 @@
 \chapter{Marcos arreglados vs cocientes compactos}\label{MarcosKC}
 
-Mientras buscábamos alternativas para estudiar el comportamiento de los marcos arreglados, nos sugirieron consultar el artículo \emph{``Between $T_1$ and $T_2$''} de Albert Wilansky (ver \cite{A.W.}). Como su título lo sugiere, en el presentan propiedades espaciales que se ubican 
+Mientras buscábamos alternativas para estudiar el comportamiento de los marcos arreglados, la dra. Ana Belén Avilez nos sugirió consultar el artículo \emph{``Between $T_1$ and $T_2$''} de Albert Wilansky (ver \cite{A.W.}). Como su título lo sugiere, en el presentan propiedades espaciales que se ubican 
 entre los axiomas clásicos de separación $T_1$ y $T_2$. Hasta este momento, nos interesamos un poco más en la propiedad $\mathrm{KC}$. 
 
 \begin{dfn}\label{KCEspacial}
-Un espacio topológico es llamada $\mathrm{KC}$ si cada conjunto compacto es cerrado y un espacio es llamada $\mathrm{US}$ si cada sucesión convergente tiene exactamente un límite al cual converge.
+Un espacio topológico es llamado $\mathrm{KC}$ si cada conjunto compacto es cerrado y un espacio es llamado $\mathrm{US}$ si cada sucesión convergente tiene exactamente un límite al cual converge.
 \end{dfn}
 
-En \cite{A.W.}, prueban que 
+En \cite{A.W.} prueban que 
 \[
 T_2\Rightarrow \mathrm{KC} \Rightarrow \mathrm{US} \Rightarrow T_1
 \]
@@ -32,7 +32,7 @@ Consideremos $A$ un marco.
 \end{enumerate}
 \end{dfn}
 
-Una manera sencilla de comprender la definición anterior es \emph{el marco $A$ es compacto si $1_A$ es compacto}. En ocasiones verificar que $1$ es compacto puede resultar más sencillo.\\
+Una manera sencilla de comprender la definición anterior es la siguiente: \emph{el marco $A$ es compacto si $1_A$ es compacto}. En ocasiones verificar que $1$ es compacto puede resultar más sencillo.\\
 
 Podemos producir algunos cocientes especiales por medio de algunos núcleos, por ejemplo: para $a\in A$, los núcleos $u_a$ y $v_a$ proporcionan los cocientes $A_{u_a}$ y $A_{v_a}$, respectivamente. A estos cocientes podriamos llamarlos \emph{cociente cerrado} y \emph{cociente abierto}, debido al núcleo que los produce (el núcleo cerrado y el núcleo abierto, respectivamente). 
 Lo anterior nos lleva a pensar que necesitamos un núcleo especial para definir el cociente compacto. 
@@ -40,6 +40,8 @@ Lo anterior nos lleva a pensar que necesitamos un núcleo especial para definir 
 \begin{prop}\label{cocientecompacto}
 Sean $A$ un marco y $j\in NA$. $A_j$ es compacto si y solo si $\nabla(j)\in A^\wedge$.
 \end{prop}
+
+La proposición anterior es el Lema 5.17 de \cite{R.S.2}. La prueba puede ser consultada en la misma referencia.\\
 
 Sabemos que no necesariamente todo filtro admisible es abierto, pero en este caso, cuando $j\in NA$ produce un cociente compacto, se cumple que $\nabla(j)\in A^\wedge$.\\
 
@@ -65,7 +67,7 @@ El filtro $F\in A^\wedge$ produce un intervalo $[v_F, w_F]$ y que a su vez propo
 \]
 Veamos cual es la relación de la propiedad $\mathrm{KC}$ con las diferentes propiedades en marcos que conocemos.\\
 
-Cuando trabajamos con el marco cociente, lo ideal es que este herede algunas de las propiedades del marco principal. En este caso, queremos ver si para $A$ arreglado o $\mathrm{KC}$, $A_j$ hereda este par de 
+Cuando trabajamos con el marco cociente (el marco $A_j$), lo ideal es que este herede algunas de las propiedades del marco principal. En este caso, queremos ver si para $A$ arreglado o $\mathrm{KC}$, $A_j$ hereda este par de 
 propiedades. Comenzaremos con arreglado.\\
 
 Si $A$ es un marco arreglado, queremos trasladar la Definición \ref{Definición8.2.1} para $A_j$ cuando $j\in NA$, de modo que, para todo $F\in A_j^\wedge$, si
@@ -156,4 +158,6 @@ Ahora verifiquemos que $\mathbf{(H)} \Rightarrow \mathrm{KC}$. Notemos que si es
 \mathbf{(H)} \Rightarrow \mathrm{KC} \Rightarrow \mbox{ Arreglado }\Rightarrow T_1.
 \]
 es decir, probaríamos que $\mathbf{(H)}$ implica arreglado. 
+
+\section{El $Q$-cuadra bajo cocientes compactos}\label{Qcociente}
 

@@ -1,6 +1,12 @@
-\chapter{Axiomas de separación en $\mathcal{O}S$}\label{Axiomas de separacion}
+\chapter{Axiomas de separación en $\Frm$}\label{Axiomas de separacion}
 
-En este capítulo hablaremos sobre los axiomas de separación clásicos conocidos en topología. Primero veremos las nociones dadas para la topología sensible a puntos y después las ``traduciremos'' al lenguaje de retículas, que para nuestro caso será la retícula de conjuntos abiertos $\mathcal{O}S$.\\
+Como el título lo menciona, en esta parte hablaremos sobre axiomas de separación. Primero daremos un vistazo a los axiomas clásicos conocidos en Topología. 
+Después se dará la versión al lenguaje de retículas, que para nuestro caso será la retícula de conjuntos abiertos ($\mathcal{O}S$). Por último se generalizará para 
+$A$ un marco arbitrario. También, hablaremos de las propiedades \emph{ajustado} y \emph{subajustasdo} para un marco. Por último, se enunciaran las distintas 
+propiedades que existen para que un marco sea Hausdorff y mencionaremos la relación que existe entre las diferentes 
+propiedades de separación.La información contenida en este capítulo es extraída de \cite{J.P.2}.
+
+\section{Los axiomas de separación sensibles a puntos.}\label{Axiomas separacion}
 
 Para empezar, recordemos que un espacio topológico $S$ es un conjunto dotado de una topología la cual es una familia de subconjuntos de $S$ que, en la mayoría de los casos, se denota por $\tau$, donde para cada $U\subseteq S$, si $U\in \tau$, entonces decimos que $U$ es un conjunto abierto. Además, $\tau$ cumple ciertas condiciones:
 
@@ -11,31 +17,24 @@ Para empezar, recordemos que un espacio topológico $S$ es un conjunto dotado de
 \end{enumerate}
 
 De manera habitual, si consideramos $U\subseteq S$ denotamos por 
-
 \[
 U^-,\qquad U^\circ,\qquad U'
 \]
-
-\noindent
 la cerradura, el interior y el complemento del subconjunto $U$, respectivamente.\\
 
-Si $S$ es un espacio topológico, entonces denotaremos por $\mathcal{O}S$ a la colección de todos los conjuntos abiertos de $S$. Ahora, si $U\in \mathcal{O}S$, entonces $U'$ es un conjunto cerrado. Además, denotaremos por $\mathcal{C}S$ a la colección de todos los conjuntos cerrados del espacio $S$. De esta manera tenemos dos familias distinguidas de subconjuntos de $S$ (que conforme vayamos avanzando, agregaremos más).\\
+Además, si $S$ es un espacio topológico, $\mathcal{O}S$ y $\mathcal{C}S$ denotan la colección de conjuntos abiertos y la de conjuntos cerrados de $S$, respectivamente. Así, si $U\in \mathcal{O}S$, entonces $U'\in \mathcal{C}S$.\\
 
-Se debe advertir que a lo largo de estas notas, cuando mencionemos espacio, no referiremos a espacio topológico y si en algunas partes de este texto hay necesidad de distinguir entre otro tipo de espacio, lo mencionaremos con anticipación. También, en ocasiones podremos usar $\Omega(S)$ en lugar de $\mathcal{O}S$, dependiendo el contexto sobre el cual estemos hablando, pero ambos casos nos referimos al los abiertos de un espacio topológico.\\
+Sabemos que si $S$ y $T$ son dos espacios topológicos, la manera de relacionarlos es por medio de una \textit{función continua}. En este caso si $f\colon S\to T$ decimos que $f$ es una función continua si para todo $V\in \mathcal{O}T$, $f^{-1}(V)\in \mathcal{O}S$.\\
 
-Consideremos $S$ y $T$ dos espacios topológicos, la manera de relacionar estos es por medio de una \textit{función continua}. En este caso si $f\colon S\to T$ decimos que $f$ es una función continua si para todo $V\in \mathcal{O}T$, $f^{-1}(V)\in \mathcal{O}S$.
+Con este breve repaso estamos listo para recordar cuales son los axiomas clásicos de separación. Empezamos con el axioma \textbf{$T_0$}, que es el más débil y el más general.\\ 
 
-\section{Los axiomas de separación sensibles a puntos.}\label{Axiomas separacion}
-
-Recordemos que los axiomas de separación nos proporcionan condiciones bajo las cuales, en un espacio $S$, podemos separar puntos diferentes por medio de elementos en $\mathcal{O}S$ y, en el caso de los axiomas $T_3$ y $T_4$, podemos separar también conjuntos cerrados.\\
-
-Comencemos con el axioma \textbf{$T_0$}, este es el primer axioma de separación y el más general. Para un espacio $S$ decimos que este es $T_0$ si:
+Para un espacio $S$ decimos que este es $T_0$ si:
 
 \begin{description}
-\item[$(\mathbf{T_0})$] $\forall x, y\in S, x\neq y,\; \exists\; U\in \Omega (S) \mbox{ tal que } x\notin U \ni y \mbox{ ó } y\notin U \ni x.$
+\item[$(\mathbf{T_0})$] $\forall x, y\in S, x\neq y,\; \exists\; U\in \mathcal{O}S \mbox{ tal que } x\notin U \ni y \mbox{ ó } y\notin U \ni x.$
 \end{description}
 
-Equivalentemente, el espacio $S$ es $T_0$ si y solo si $\forall x,y\in S$, si $\overline{\{x\}}=\overline{\{y\}}\Rightarrow x=y$.\\
+Equivalentemente, el espacio $S$ es $T_0$ si y solo si $\forall x,y\in S$, si $\overline{\{x\}}=\overline{\{y\}}\Rightarrow x=y$.
 
 \begin{obs}
 Para $T$ un espacio $T_0$ y $f,g\colon S\to T$ funciones continuas. Si $f^{-1}(U)=g^{-1}(U)$ para cada abierto $U$ en $T$, entonces $f=g$.
@@ -44,25 +43,24 @@ Para $T$ un espacio $T_0$ y $f,g\colon S\to T$ funciones continuas. Si $f^{-1}(U
 Para los espacios $T_1$ tenemos la siguiente suposición. 
 
 \begin{description}
-\item[$(\mathbf{T_1})$] $\forall x, y\in S, x\neq y,\; \exists\; U\in \Omega (S) \mbox{ tal que } y\notin U \ni x$.
+\item[$(\mathbf{T_1})$] $\forall x, y\in S, x\neq y,\; \exists\; U\in \mathcal{O}S \mbox{ tal que } y\notin U \ni x$.
 \end{description}
 
 También podemos decir que el espacio $S$ es $T_1$ si y solo si los conjuntos formados por un punto son cerrados, es decir, $\forall x\in S$, $\{x\}=\overline{\{x\}}$.\\
 
-Ahora enunciaremos el axioma de separación $T_2$ (o de Hausdorff). Este axioma es de los más usados en topología y nuestro objetivo dentro de este proyecto doctoral es conocer las distintas nociones que existen de este axioma en la teoría sin puntos, compararlas y, de ser posible, encontrar entre todas ellas cual es la mejor. Diremos que un espacio es Hausdorff, o $T_2$, si
+Ahora enunciaremos el axioma de separación $T_2$ (o de Hausdorff). Este axioma es de los más usados en topología y nuestro objetivo dentro de este proyecto doctoral es conocer las distintas nociones que existen de este axioma en la teoría sin puntos, compararlas y, de ser posible, encontrar entre todas ellas cual es la mejor.\\
 
+Decimos que un espacio es Hausdorff, o $T_2$, si
 \begin{description}
-\item[$(\mathbf{T_2})$] $\forall x, y\in S, x\neq y,\; \exists\; U, V\in \Omega (S) \mbox{ tal que } x\in U, y\in V \mbox{ y } U\cap V=\emptyset$.
+\item[$(\mathbf{T_2})$] $\forall x, y\in S, x\neq y,\; \exists\; U, V\in \mathcal{O}S \mbox{ tal que } x\in U, y\in V \mbox{ y } U\cap V=\emptyset$.
 \end{description}
-
-Este axioma es muy importante para nuestra investigación, pues los cosas que implica nos motiva a seguir estudiándolo. En el siguiente capítulo enunciaremos varios resultados que hacen uso del supuesto de que un espacio sea Hausdorff y de que manera podemos arreglar el espacio cuando este no es $T_2$.\\
 
 Para enunciar el siguiente axioma de separación necesitamos del concepto de espacio regular. Decimos que un espacio \emph{regular} si
 
 \begin{description}
-\item[$(\mbox{\textbf{reg}})$] $\forall x\in S, A\subseteq S \mbox{ cerrado tal que }x\notin A,\; \exists\; U, V\in \Omega (S) \mbox{ tales que }$
+\item[$(\mbox{\textbf{reg}})$] $\forall x\in S\,, X\in \mathcal{C}S \mbox{ con }x\notin X,\; \exists\; U, V\in \mathcal{O}S \mbox{ tales que }$
 \[
-x\in U,\quad A\subseteq V, \quad U\cap V=\emptyset.
+x\in U,\quad X\subseteq V, \quad U\cap V=\emptyset.
 \]
 \end{description}
 
@@ -80,17 +78,17 @@ Si consideramos la regularidad junto con $T_1$ obtenemos el axioma $T_3$, es dec
 T_3=(\mbox{\textbf{reg}}) + T_1.
 \]
 
-La siguiente noción que enunciaremos es la de completamente regular. Un espacio es completamente regular si
+Un espacio es \emph{completamente regular} si
 
 \begin{description}
-\item[$(\mbox{\textbf{creg}})$] $\forall x\in S, A\subseteq S \mbox{ cerrado tal que }x\notin A,\; \exists\; f\colon S\to \mathbb{I}  \mbox{ tal que }$
+\item[$(\mbox{\textbf{creg}})$] $\forall x\in S\,, X\in \mathcal{C}S \mbox{ con }x\notin A,\; \exists\; f\colon S\to \mathbb{I}  \mbox{ tal que }$
 \[
 f(x)=0,\quad f[A]=1
 \]
 \end{description}
 donde $\mathbb{I}$ es el intervalo cerrado $[0,1]\subseteq \mathbb{R}$.\\
 
-Si un espacio es completamente regular, entonces este también es regular. Además, si a un espacio completamente regular le pedimos que sea $T_1$, entonces obtenemos el axioma de separación $T_{3\frac{1}{2}}$, es decir,
+Si un espacio es completamente regular, entonces este también es regular. Además, si a un espacio completamente regular es $T_1$, entonces obtenemos el axioma de separación $T_{3\frac{1}{2}}$, es decir,
 
 \[
 T_{3\frac{1}{2}}=(\mbox{\textbf{reg}}) + T_1.
@@ -99,7 +97,7 @@ T_{3\frac{1}{2}}=(\mbox{\textbf{reg}}) + T_1.
 Para terminar con los axiomas clásicos de separación necesitamos definir la normalidad. Decimos que un espacio $S$ es \emph{normal} si 
 
 \begin{description}
-\item[$(\mbox{\textbf{norm}})$] $\forall\; A, B\subseteq S \mbox{ cerrados tales que } A\cap B=\emptyset,\; \exists\; U, V\in \Omega (S) \mbox{ tales que }$
+\item[$(\mbox{\textbf{norm}})$] $\forall\; A, B\in \mathcal{C}S \mbox{ con } A\cap B=\emptyset,\; \exists\; U, V\in \mathcal{O}S \mbox{ tales que }$
 \[
 A\subseteq U,\quad B\subseteq V, \quad U\cap V=\emptyset.
 \]
@@ -117,7 +115,7 @@ De esta manera tenemos la siguiente sucesión de axiomas
 T_4\Rightarrow  T_{3\frac{1}{2}} \Rightarrow T_3 \Rightarrow T_2 \Rightarrow T_1 \Rightarrow T_0
 \]
 
-Ya con estas nociones, lo que sigue es obtener su significado en el lenguaje de retículas de conjuntos abiertos, es decir, modificaremos aquello que sea necesario para que todas esas condiciones dadas para puntos o conjuntos cerrados queden en términos de conjuntos abiertos, pero esa es tarea para siguiente sección.\\
+Lo que sigue es obtener su significado en el lenguaje de retículas de conjuntos abiertos, es decir, modificaremos aquello que sea necesario para que todas esas condiciones dadas para puntos o conjuntos cerrados queden en términos de conjuntos abiertos. Esto lo haremos en la siguiente sección.\\
 
 Podemos definir nociones entre espacios que son $T_0$ y $T_1$ y también entre $T_1$ y $T_2$. A estos espacios, en la literatura, se les denotan por $R_0$ y $R_1$. 
 
@@ -170,13 +168,13 @@ De esta manera, denotando la regularidad y le regularidad completa por $R_2$ y $
 
 \section{Las ``traducciones'' de las nociones de separación}
 
-Cuando hacemos mención a ``traducción'' nos referimos a trasladar cada una de las distintas nociones dadas en el lenguaje sensible a puntos a lo que significan cada una de estas en el lenguaje de retículas de abiertos. Recordemos que en $\mathcal{O}S$, los objetos con los que trabajamos son los conjuntos abiertos. De esta manera, nuestro objetivo es trasladar los axiomas de separación en términos de los elementos de $\mathcal{O}S$.\\
+Cuando hacemos mención a ``traducción'' nos referimos a trasladar cada una de las distintas nociones dadas en el lenguaje sensible a puntos a lo que significan en el lenguaje de retículas de abiertos. Recordemos que en $\mathcal{O}S$, los objetos con los que trabajamos son los conjuntos abiertos. De esta manera, nuestro objetivo es trasladar los axiomas de separación en términos de los elementos de $\mathcal{O}S$.\\
 
-De manera similar a como fueron enunciados en la sección anterior, presentaremos los axiomas de separación en orden ascendente según la ``fuerza'' de estos. Comenzaremos con $T_0$ y terminaremos con la noción de normalidad. Aclaramos que en esta parte no se hará mención a la traducción de ser $T_2$. Esta recibirá un tratamiento especial más adelante.
+De manera similar a como fueron enunciados en la sección anterior, presentaremos los axiomas de separación en orden ascendente según la ``fuerza'' de estos. Comenzamos con $T_0$ y terminamos con $T_4$. Aclaramos que en esta parte no se hará mención a la traducción de ser $T_2$. Esta recibirá un tratamiento especial más adelante.
 
 \subsection{$T_0$ sin puntos}
 
-Primero, recordemos que la propiedad de separación $T_0$ nos menciona que si tenemos cualesquiera dos puntos de un espacio, estos pueden ser separados por un conjunto abierto de tal manera que un punto este en el abierto y el otro no. En el lenguaje de retículas, esta noción no aporta mucha información. Si $T_0$ no se cumple, entonces para $x, y\in S$ distintos se tiene que para todo abierto $U\in \mathcal{O}S$, $x\in U$ si y solo si $y\in U$.\\
+Primero, recordemos que el axioma $T_0$ nos menciona que para cualesquiera dos puntos de un espacio, estos pueden ser separados por un conjunto abierto de tal manera que un punto este en el abierto y el otro no. En el lenguaje de retículas, esta noción no aporta mucha información. Si $T_0$ no se cumple, entonces para $x, y\in S$ distintos se tiene que para todo abierto $U\in \mathcal{O}S$, $x\in U$ si y solo si $y\in U$.\\
 
 De esta manera, en el lenguaje de retículas de abiertos, estos dos puntos son indistinguibles. Por lo tanto, para evitar esta situación supondremos que el axioma $T_0$ se cumple para los distintos espacios con los que trabajaremos. Además, bajo este supuesto, no se buscará una equivalencia para esta noción.
 
@@ -193,7 +191,7 @@ Sabemos que en un espacio $T_1$, para todo $x\in S$, $\overline{\{x\}}=\{x\}$, e
 Para obtener la noción sin puntos de la regularidad necesitamos dar antes una definición.
 
 \begin{dfn}\label{Bdebajo}
-    Para $U, V\in \mathcal{O}S$ decimos que $V$ está \emph{bastante por debajo} de $U$, y lo denotamos por $V\prec U$, si $\overline{V}\subseteq U$.
+    Para $U, V\in \mathcal{O}S$ decimos que $V$ está \emph{bastante por debajo} de $U$, denotado por $V\prec U$, si $\overline{V}\subseteq U$.
 \end{dfn}
 
 Notemos que la definición no está aun en el lenguaje de retículas de abiertos, pero hay una manera de arreglarla pues en $\mathcal{O}S$ tenemos pseudocomplementos, es decir, tenemos un elemento $V$ tal que $U\cap V=\emptyset$. De esta manera, para $V^*=S\setminus \overline{V}$, tenemos
@@ -282,6 +280,7 @@ Así, usando la Definición \ref{Cdebajo}, tenemos
         pero $y\in A$, es decir, $y\notin U_d$ para $d\in D$, entonces $d\mid y\in U_d\}=\emptyset$, de aquí que $\Phi(y)=1$ y se cumple la definición de completamente regular.
     \end{description}
 \end{proof}
+
 Por lo tanto 
 \[
 T_{3\frac{1}{2}_S}=(\mathbf{creg_S})+T_{1_S}.
@@ -440,7 +439,7 @@ En la Definición \ref{infirre} mencionamos que un elemento $p\in A$ es $\wedge-
 En la Subsección \ref{T1s} vimos que para un espacio $S$ y $x\in S$, entonces $S\setminus \overline{\{x\}}$ es un elemento $\wedge-$irreducible en $\mathcal{O}S$.
 
 \begin{dfn}
-    Un espacio se dice que es \emph{sobrio} (en la formulación de Grothendieck y Dieudonné), si este es $T_0$ y si todos los elementos $\wedge-$irreducibles son de la forma $S\setminus \overline{\{x\}}$.
+    Un espacio es \emph{sobrio} (según Grothendieck y Dieudonné), si este es $T_0$ y si todos los elementos $\wedge-$irreducibles son de la forma $S\setminus \overline{\{x\}}$.
 \end{dfn}
 
 Notemos que bajo el supuesto de que todos los espacio con los que trabajaremos son $T_0$, la asignación $x\mapsto S\setminus \overline{\{x\}}$ es inyectiva. De esta manera, los elementos $\wedge-$irreducibles en los espacios sobrios están determinados de manera única.
