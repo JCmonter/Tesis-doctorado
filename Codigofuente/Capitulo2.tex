@@ -432,7 +432,7 @@ Una de las aplicaciones de la propiedad $T_D$ la podemos encontrar en la topolog
     \end{description}
 \end{proof}
 
-A lo largo de estas notas encontraremos distintas propiedades de separación. Cada una de estas utilizadas o presentadas para diferentes situaciones. La mayoría de ellas comparables entre si. La que presentamos ahora es la \emph{sobriedad}. La manera en la que la abordamos en esta sección es equivalente a la que presentaremos en el siguiente capítulo.\\
+A lo largo de este trabajo encontramos distintas propiedades de separación. Cada una de estas utilizadas o presentadas para diferentes situaciones. La mayoría de ellas comparables entre si. La que presentamos ahora es la \emph{sobriedad}. La manera en la que la abordamos en esta sección es equivalente a la que presentamos en el capítulo anterior.\\
 
 En la Definición \ref{infirre} mencionamos que un elemento $p\in A$ es $\wedge-$irreducible si $p\neq 1$ y si $a\wedge b\leq p$, entonces $a\leq p$ o $b\leq p$. En ocasiones, la noción anterior es presentada en la literatura como ser primo.\\
 
@@ -494,15 +494,13 @@ F(x)=\{U\in \mathcal{O}S\mid x\in U\}.
     U\in \mathcal{F}\Leftrightarrow U\nsubseteq U_0\Leftrightarrow U\nsubseteq S\setminus \overline{\{x\}}\Leftrightarrow x\in U,
     \]
     es decir, $\mathcal{F}(x)=\{U\in\mathcal{O}S\mid x\in U\}$.
-    \item[$\Leftarrow )$] Supongamos que la afirmación sobre los filtros completamente primos se cumple y consideremos $P\in\mathcal{O}S$ $\wedge-$irreducible. Sea 
-    \[
-    \mathcal{F}=\{u\in \mathcal{O}S\mid U\nsubseteq P\}.
-    \]
-    Notemos que $\mathcal{F}$ es un filtro. Primero, $\mathcal{F}$ es una sección superior. Además, si $U, V\nsubseteq P$, entonces $U\cap V\nsubseteq P$. Este también es un filtro completamente primo, pues si $U_i\subseteq P$ para todo $i\in \mathcal{J}$, se cumple que 
+    \item[$\Leftarrow )$]  Consideremos $P\in\mathcal{O}S$ $\wedge-$irreducible y sea $\mathcal{F}=\{u\in \mathcal{O}S\mid U\nsubseteq P\}$. Veamos que $\mathcal{F}$ es un filtro.\\
+    
+    Primero, $\mathcal{F}$ es una sección superior. Además, si $U, V\nsubseteq P$, entonces $U\cap V\nsubseteq P$. Este también es un filtro completamente primo, pues si $U_i\subseteq P$ para todo $i\in \mathcal{J}$, se cumple que 
     \[
     \bigcup_{i\in\mathcal{J}}U_i\subseteq P.
     \]
-    Por lo tanto $\mathcal{F}=\mathcal{F}(x)$ para algún $x$, es decir $U\nsubseteq P$ si y solo si $x\in U$. Luego
+    Por lo tanto, por hipótesis, $\mathcal{F}=\mathcal{F}(x)$ para algún $x$, es decir $U\nsubseteq P$ si y solo si $x\in U$. Luego
     \[
     U\subseteq P\Leftrightarrow \{x\}\cap U=\emptyset\Leftrightarrow \overline{\{x\}}\cap U=\emptyset\Leftrightarrow U\subseteq S\setminus \overline{\{x\}}.
     \]
@@ -510,7 +508,8 @@ F(x)=\{U\in \mathcal{O}S\mid x\in U\}.
 \end{description}    
 \end{proof}
 
-Si tenemos un espacio $S$ que no es sobrio, entonces podemos ``\emph{sobrificarlo}'' por medio de elementos en $\mathcal{O}S$. A este proceso se le conoce como la construcción de la reflexión sobria. Este será abordado en el siguiente capítulo. Para lo que haremos en esta sección lo llamaremos \emph{modificación sobria}.
+Si tenemos un espacio $S$ que no es sobrio, entonces podemos ``\emph{sobrificarlo}'' por medio de elementos en $\mathcal{O}S$. A este proceso se le conoce como la construcción de la reflexión sobria y fue presentado al principio del capítulo anterior. 
+Para lo que haremos en esta sección lo llamaremos \emph{modificación sobria}.
 
 \begin{cor}\label{Modsobria}
     Un espacio sobrio $S$ puede ser reconstruido a partir de los elementos de $\mathcal{O}S$.  
@@ -564,7 +563,7 @@ Si tenemos un espacio $S$ que no es sobrio, entonces podemos ``\emph{sobrificarl
         \[
         h(U)= \left\{ \begin{array}{lcc} P & \mbox{ si } & U\in \mathcal{F} \\ \\ \emptyset & \mbox{ si } & U\notin \mathcal{F} \end{array} \right.
         \]
-        Se puede verificar que el homomorfismo $h$ respeta intersecciones finitas y uniones arbitrarias. De aquí que $h$ es un morfismo de marcos. Por lo tanto $h=\mathcal{O}(f)$, donde $f\colon P\to S$. Sin embargo, existe un único $f$ tal que $p\mapsto x$ con $x\in S$. De aquí que
+        Se puede verificar que el $h$ respeta intersecciones finitas y uniones arbitrarias. De aquí que $h$ es un morfismo de marcos. Por lo tanto $h=\mathcal{O}(f)$, donde $f\colon P\to S$. Sin embargo, existe un único $f$ tal que $p\mapsto x$ con $x\in S$. De aquí que
         \[
         U\in \mathcal{F}\Leftrightarrow h(U)=f^{-1}(U)=P\Leftrightarrow x=f(p)\in U.
         \]
@@ -631,7 +630,7 @@ Con todo lo anterior, podemos concluir que la modificación sobria se comporta d
     Si $S$ es sobrio, por el Corolario \ref{Modsobria} tenemos que $\mathcal{O}S\cong \mathcal{O}\tilde{S}$, donde, por la construcción de la modificación sobria, $\tilde{S}$ es sobrio. Si $S$ no es sobrio, consideramos $\tilde{S}$ el cual es un espacio sobrio , pero no homeomorfo a $S$ y por la Observación \ref{Asobria} se cumple la condición de que $\mathcal{O}S\cong \mathcal{O}\tilde{S}$.
 \end{proof}
 
-Para terminar esta sección, recordemos que los funtores $\mathcal{O}$ y $\pt$ forman una adjunción. Los resultados anteriores proporcionan la información de cuando entre estos dos existe una equivalencia. Si nos restringimos a espacios sobrios y marcos espaciales tenemos 
+Para terminar esta sección, recordemos que los funtores $\mathcal{O}$ y $\pt$ forman una adjunción. Los resultados anteriores proporcionan la información de cuando esta es una equivalencia. Si nos restringimos a espacios sobrios y marcos espaciales tenemos 
 \[\begin{tikzcd}
 	\Top & \sob \\
 	\Frm & {\Frm_{sp}}
@@ -728,28 +727,29 @@ Notemos que la normalidad más $T_0$ no implican completamente regular (y en con
     
 El resultado anterior es válido para la normalidad y la regularidad sin puntos.\\
 
-Un marco $A$ es espacial si es isomorfo a $\mathcal{O}S$ que se cumple precisamente si cada elemento de $A$ es intersección de elementos $\wedge-$irreducibles. Una propiedad algo más fuerte es $T_1-$espacial, en la cual el marco $A$ es isomorfo a $\mathcal{O}S$, con $S$ un espacio $T_1$. Por lo tanto para $T_1-$espacial requerimos que cada elemento de $A$ es intersección de elementos máximos.
+Un marco $A$ es espacial si es isomorfo a $\mathcal{O}S$, lo que se cumple precisamente si cada elemento de $A$ es intersección de elementos $\wedge$-irreducibles. Una propiedad algo más fuerte es $T_1$-espacial, en la cual el marco $A$ es isomorfo a $\mathcal{O}S$, con $S$ un espacio $T_1$. Por lo tanto para $T_1$-espacial requerimos que cada elemento de $A$ es intersección de elementos máximos.
 
 \begin{dfn}\label{Maximoacotado}
     Decimos que un marco $A$ es \emph{máximo acotado} si para cada $1\neq x\in A$ existe un elemento máximo $p\in A$, con $p< 1$, tal que $x\leq p$.
 \end{dfn}
 
-Haciendo uso de la definición anterior podemos caracterizar los marcos subajustado y $T_1-$espacial.
+Haciendo uso de esta definición podemos caracterizar a los marcos subajustado y $T_1$-espacial.
 
 \begin{thm}\label{Maxacotado}
-    Un marco máximo acotado es $T_1-$espacial si y solo si este es subajustado.
+    Un marco máximo acotado es $T_1$-espacial si y solo si este es subajustado.
 \end{thm}
 
 \begin{proof}
     \begin{description}
         \item[$\Rightarrow )$] Consideremos $a\nleq b$. Elegimos un maximal $p$ tal que $a\nleq p \geq b$. Así $p< a\vee p$  y por la maximalidad de $p$ se cumple que $a\vee p=1$ y $b\vee p=p\neq 1$. 
+       
         \item[$\Leftarrow )$] Consideremos $a\nleq b$ y sea $c$ tal que $a\vee c=1\neq b\vee c$. Sea  
         $p< 1$ un elemento maximal tal que $p\geq b\vee c$. Así $p\ngeq a$. De modo que $a\nleq p \geq b$. Por lo tanto elementos maximales distinguen elementos distintos.
     \end{description}
 \end{proof}
 
 \begin{thm}\label{EspecializacionIsbell}
-    Un marco compacto y subajustado es $T_1-$espacial
+    Un marco compacto y subajustado es $T_1$-espacial
 \end{thm}
 
 \begin{proof}
@@ -798,9 +798,9 @@ Débilmente subajustado es más débil que subajustado.
 \end{proof}
 
 \begin{thm}\label{Pseudocomplemento}
-    Un marco $L$ es débilmente subajustado si y solo si para $a\in L$,, el pseudocomplemento de $a$ ($a^*$), se calcula por la fórmula 
+    Un marco $L$ es débilmente subajustado si y solo si para $a\in L$, la negación de $a$ ($\neg a$), se calcula por 
     \[
-    a^*=\{\bigwedge\{x\mid a\vee x=1\}.
+    \neg a=\{\bigwedge\{x\mid a\vee x=1\}.
     \]
 \end{thm}
 
@@ -808,17 +808,19 @@ Débilmente subajustado es más débil que subajustado.
     \begin{description}
         \item[$\Rightarrow )$] Sea $u=\bigwedge\{x\mid a\vee x=1\}$. Si $a\vee x=1$, entonces 
         \[
-        a^*=a^*\wedge(a\vee x)=(a^*\wedge a)\vee (a^*\wedge x)=a^*\wedge x,
+        \neg a=\neg a\wedge(a\vee x)=(\neg a\wedge a)\vee (\neg a\wedge x)=\neg a\wedge x,
         \]
-        de aquí que $a^*\leq u$.\\
+        de aquí que $\neg a\leq u$.\\
 
         \noindent
-        Supongamos que $a\wedge u\neq 0$, por $(\mathbf{dsaju})$, existe $c\neq 1$ tal que $(a\wedge u)\vee c=(a\vee c)\wedge (u\vee c)=1$. Por lo tanto, $a\vee c=1$, de modo que $c\leq u$ y en consecuencia $u\vee c=1$ implica que $c=1$, lo cual es una contradicción. Así $a\wedge u=0$ y $u\leq a^*$. Luego $a=u$.
+        Supongamos que $a\wedge u\neq 0$, por $(\mathbf{dsaju})$, existe $c\neq 1$ tal que $(a\wedge u)\vee c=(a\vee c)\wedge (u\vee c)=1$. Por lo tanto, $a\vee c=1$, de modo que $c\leq u$ y en consecuencia $u\vee c=1$ implica que $c=1$, lo cual es una contradicción. Así $a\wedge u=0$ y $u\leq \neg a$. Luego $\neg a=u$.
         \item[$\Leftarrow )$] Si $L$ no es débilmente subajustado existe $a\neq 0$ tal que $a\vee x=1$ solamente si $x=1$. Así consideramos $u=\bigwedge\{x\mid a\vee x=1\}=1$ y $a\wedge u=a\neq 0$. 
     \end{description}
 \end{proof}
 
-Notemos que para un elemento $a\in L$, con la fórmula anterior es como si estuviéramos calculando el suplemento de $a$ (el $b$ más pequeño tal que $a\vee b=1$), el cual, de manera general, no necesariamente existe, incluso para marcos subajustados generales. En esta situación concreta, $a^*$ no necesariamente cumple que $a\vee a^*=1$, para ello es necesario la propiedad distributiva de comarcos.
+Notemos que para un elemento $a\in L$, con la fórmula anterior es como si calculáramos el 
+suplemento de $a$ (el $b$ más pequeño tal que $a\vee b=1$), el cual no necesariamente existe, 
+incluso para marcos subajustados generales. En esta situación, $\neg a$ no debe cumplir que $a\vee \neg a=1$, para ello es necesario la propiedad distributiva de comarcos.
 \[
 a\vee \bigwedge b_i=\bigwedge (a\vee b_i).
 \]
@@ -828,7 +830,7 @@ Pero podemos concluir lo siguiente.
     Sea $L$ un marco débilmente subajustado que es también un comarco. Entonces $L$ es un álgebra booleana.
 \end{thm}
 
-En particular, una retícula distributiva finita es booleana si y solo si esta es débilmente subajustada.
+En particular, una retícula distributiva finita es booleana si y solo si es débilmente subajustada.
 
 \begin{prop}
     En un marco subajustado, un elemento es colineal si y solo si este es complementado.
@@ -838,7 +840,7 @@ La suposición de subajustado es esencial en un marco finito, todos los elemento
 
 Consideremos un sublocal $S\sqsubseteq L$, el calcular ínfimo e implicación en $S$ coincide con los cálculos en $L$. En particular, para un sublocal cerrado $c(b)=\uparrow b$, para $a\leq b$, los pseudocomplementos son 
 \[
-a^{*b}=(a\succ b).
+\neg_b a=(a\succ b).
 \]
 
 \begin{thm}\label{Fimplicación}
@@ -916,7 +918,7 @@ Es el momento de analizar esta noción que fue dada por Isbell para solucionar l
 \begin{proof}
     Por contrapositiva, consideremos $S\subseteq L$ disjunto de todo sublocal cerrado no vacío, es decir, 
     \[c(a)\cap S=\mathbf{0}\]
-    donde $\mathbf{0}=\{1\}$ es el sublocal correspondiente al elemento $1$ y $c(a)\neq \mathbf{0}$. Sea $j_s$ el núcleo asociado a $S$, es decir,
+    donde $\mathbf{0}=\{1\}$ es el sublocal correspondiente al elemento $1$ y $c(a)\neq \mathbf{0}$. Sea $j_S$ el núcleo asociado a $S$, es decir,
     \[
     j_S(x)=\bigwedge\{s\in S\mid x\leq s\}.
     \]
@@ -957,7 +959,7 @@ Es el momento de analizar esta noción que fue dada por Isbell para solucionar l
         \noindent
         Recíprocamente, supongamos $a\vee b=1$. Notemos que $c(a\vee b)=0$ y $c(a\vee b)=c(a)\cap c(b)=0$. Por lo tanto $c(a)\subseteq o(b)$.\\
 
-        Ahora, si $a\nleq b$, entonces $o(a)\nsubseteq o(b)$ y así existe $x\in L$ tal que $c(x)\subseteq o(a)$ y $c(x)\nsubseteq o(b), es decir, x\vee a=1$ y $x\vee b\neq 1$. Por lo tanto $L$ es subajustado
+        Ahora, si $a\nleq b$, entonces $o(a)\nsubseteq o(b)$ y así existe $x\in L$ tal que $c(x)\subseteq o(a)$ y $c(x)\nsubseteq o(b)$, es decir, $x\vee a=1$ y $x\vee b\neq 1$. Por lo tanto $L$ es subajustado
     \end{description}
 \end{proof}
 
@@ -1288,9 +1290,9 @@ Notemos que en la prueba de la implicación ``$\Leftarrow$" en la Proposición \
 
 Para el análisis sin puntos de los axiomas de separación, la propiedad de que un espacio sea Hausdorff (o $T_2$), necesita ser tratada con mayor detalle. Esto debido a que no existe solo una manera de que esta propiedad sea abordada, dependiendo el enfoque o el objeto de estudio, puede ser utilizada una ``traducción`" u otra.\\
 
-En esta sección presentamos las distintas nociones sin puntos de tipo Hausdorff que existen hasta el momento. Cabe mencionar que estas fueron enunciadas por diferentes matemáticos y algunas de ellas salieron a la luz casi al mismo tiempo. Para conocer un poco sobre la motivación de cada una de estas nociones, se puede consultar \cite{J.P.2}, donde su Capítulo 3 es de donde se extrae gran parte de la información de esta sección.\\
+En esta sección presentamos las distintas nociones sin puntos de tipo Hausdorff que existen hasta el momento. Cabe mencionar que estas fueron enunciadas por diferentes matemáticos y algunas de ellas salieron a la luz casi al mismo tiempo. Para conocer un poco sobre la motivación de cada una de estas nociones, se puede consultar \cite{J.P.2}, de manera especifica, el Capítulo 3.\\
 
-La razón por la cual se trabaja con diferentes nociones de que un marco sea Hausdorff se debe al comportamiento de cada una de ellas. Algunas son propiedades conservativas e incluso equivalentes entre si. En otras existe un buen comportamiento espacial. Dependiendo el uso que se les quiera dar podemos encontrar diferentes aplicaciones. Parte de nuestra análisis consiste en decidir (en caso de que se pueda), cual es la mejor de todas ellas y hacer uso de estas para caracterizar un fenómeno que será presentado en el Capítulo \ref{Parches}.
+La razón por la cual se trabaja con diferentes nociones de que un marco sea Hausdorff se debe al comportamiento de cada una de ellas. Algunas son propiedades conservativas e incluso equivalentes entre si. En otras existe un buen comportamiento espacial. Dependiendo el uso que se les quiera dar podemos encontrar diferentes aplicaciones. Parte de nuestra análisis consiste en decidir (en caso de que se pueda), cual es la mejor de todas ellas y hacer uso de estas para relacionarlas con las construcciones vistas en el Capítulo \ref{Parches}.
 
 \subsection{Marcos débilmente Hausdorff}
 
@@ -1319,7 +1321,7 @@ De esta manera tenemos lo siguiente
 Estas tres condiciones no son conservativas y sin \textbf{(saju)} no son suficientemente Hausdorff. Por ello, Dowker y Papert Strauss sugirieron como un axioma tipo Hausdorff conveniente la combinación \textbf{(dH)} + \textbf{(saju)}. De hecho, esta propiedad es conservativa. 
 
 \begin{prop}\label{Proposicion2.3.1}
-    Para un marco subajustado las condiciones $\mathbf{(dH)}$, $\mathbf{(dH')}$ y $\mathbf{(dH'')}$ son equivalentes.
+    Bajo subajustado, las condiciones $\mathbf{(dH)}$, $\mathbf{(dH')}$ y $\mathbf{(dH'')}$ son equivalentes.
 \end{prop}
 
 \begin{proof}
@@ -1380,10 +1382,10 @@ En 1987 Johnstone y Shu-Hao enunciaron la siguiente noción tipo Hausdorff y obs
     Pendiente.
 \end{proof}
 
-De esta manera tenemos dos nociones que son equivalentes y que fueran motivadas por direcciones muy diferentes. Así, podemos convenir en considerar la noción de Johnstone y Shu-Hao como la conveniente para decir que un marco es Hausdorff.
+Tenemos dos nociones equivalentes y que fueron motivadas por direcciones muy diferentes. Así, podemos convenir en considerar la noción de Johnstone y Shu-Hao como la conveniente para decir que un marco es Hausdorff.
 
 \begin{dfn}\label{MarcoHausdorff}
-    Decimos que un marco $L$ es un \emph{marco Hausdorff} si cumple la siguiente propiedad
+    Decimos que un marco $L$ es \emph{Hausdorff} si cumple la siguiente propiedad
     \begin{description}
         \item[$\mathbf{(H)}$] Para cualquier $1\neq a\nleq b\in L$ existen $u, v\in L$ tales que $u\nleq a$, $v\nleq b$ y $u\wedge v=0$. 
     \end{description}
@@ -1410,9 +1412,9 @@ Los marcos Hausdorff tienen un buen comportamiento conservativo, es decir, $S$ e
     Pendiente.
 \end{proof}
 
-\subsection{Marcos Hausdorff basados}
+\subsection{Marcos Hausdorff punteados}
 
-La motivación de la siguiente noción viene dada por la equivalente noción sin puntos de que un marco sea $T_1$. Recordemos que un marco cumple $T_{1_S}$ si todo elemento $\wedge-$irreducible (o elemento primo), es máximo. Veamos que algo similar pasa para lo que definiremos como marcos Hausdorff basados. Antes de hacer eso necesitamos un poco de información.
+La motivación de la siguiente noción viene dada por la equivalente noción sin puntos de que un marco sea $T_1$. Recordemos que un marco cumple $T_{1_S}$ si todo elemento $\wedge-$irreducible (o elemento primo), es máximo. Veamos que algo similar pasa para lo que definiremos como marcos Hausdorff punteados. Antes de hacer eso necesitamos un poco de información.
 
 \begin{dfn}\label{Semiprimo}
     Para un marco $L$ decimos que un elemento $p\in L$ es semiprimo si $a\wedge b=0$ implica que $a\leq p$ o $b\leq p$.
@@ -1421,7 +1423,7 @@ La motivación de la siguiente noción viene dada por la equivalente noción sin
 Obviamente cada elemento $\wedge-$irreducible es semiprimo. 
 
 \begin{prop}\label{Proposicion4.1.1}
-    Un espacio $S$ que es $T_0$ es Hausdorff si y solo si todos los elementos semiprimos $P\in \mathcal{O}S$ son maximales.
+    Un espacio $S$ que es $T_0$ es Hausdorff si y solo si los elementos semiprimos $P\in \mathcal{O}S$ son maximales.
 \end{prop}
 
 \begin{proof}
@@ -1431,13 +1433,13 @@ Obviamente cada elemento $\wedge-$irreducible es semiprimo.
 Este análisis fue hecho por Rosicky y Smarda. Ellos introducen la siguiente noción.
 
 \begin{dfn}
-    Decimos que un marco $L$ es \emph{Hausdorff basado} si cumple la siguiente propiedad
+    Decimos que un marco $L$ es \emph{Hausdorff punteado} si     
     \begin{description}
-        \item[$\mathbf{(Hb)}$] cada elemento semiprimo en $L$ es máximo. 
+        \item[$\mathbf{(Hp)}$] cada elemento semiprimo en $L$ es máximo. 
     \end{description}
 \end{dfn}
 
-De esta manera, como asumimos que se cumple $T_0$, por la Proposición \ref{Proposicion4.1.1}, $\mathbf{(Hb)}$ es conservativa.
+De esta manera, como se cumple $T_0$, por la Proposición \ref{Proposicion4.1.1}, $\mathbf{(Hp)}$ es conservativa.
 
 \begin{prop}\label{Proposición4.2}
     Cada marco Hausdorff es Hausdorff basado.
@@ -1445,26 +1447,30 @@ De esta manera, como asumimos que se cumple $T_0$, por la Proposición \ref{Prop
 
 Los marcos Hausdorff basados tienen un buen comportamiento categórico, lamentablemente no hay mucha información sobre estos marcos en la literatura.\\
 
-Considerando la siguiente relajación de $\mathbf{(Hb)}$ podemos ver que $\mathbf{(H)}$ y $\mathbf{(T_{1_S})}$ tienen un comportamiento similar que sus variantes sensibles a puntos.
+Considerando la siguiente relajación de $\mathbf{(Hp)}$ podemos ver que $\mathbf{(H)}$ y $\mathbf{(T_{1_S})}$ se comportan de manera similar a sus variantes sensibles a puntos.
 
 \begin{dfn}\label{DHausdorffbasado}
-    Decimos que un marco $L$ es \emph{débilmente Hausdorff basado} si cumple la siguiente propiedad
+    Decimos que un marco $L$ es \emph{débilmente Hausdorff punteado} si
     \begin{description}
-        \item[$\mathbf{(dHb)}$] cada elemento semiprimo en $L$ es $\wedge-$irreducible. 
+        \item[$\mathbf{(dHp)}$] cada elemento semiprimo en $L$ es $\wedge-$irreducible. 
     \end{description}
 \end{dfn}
 
 Por lo tanto, tenemos las siguientes implicaciones
 
 \[
-\mathbf{(H)}\Rightarrow \mathbf{(Hb)}\Rightarrow \mathbf{(dHb)}\Rightarrow \mathbf{(T_{1_S})}.
+\mathbf{(H)}\Rightarrow \mathbf{(Hp)}\Rightarrow \mathbf{(dHp)}\Rightarrow \mathbf{(T_{1_S})}.
 \]
 
 \subsection{Marcos fuertemente Hausdorff}
 
-Los espacios $T_2$ cumplen lo siguiente: \emph{Un espacio $S$ es $T_2$ si y solo si la diagonal $\Delta=\{(x,x)\in S\times S\mid x\in S\}$ es un subconjunto cerrado en $S\times S$.}\\
+Los espacios $T_2$ cumplen lo siguiente: \emph{Un espacio $S$ es $T_2$ si y solo si la diagonal 
+\[
+\Delta=\{(x,x)\in S\times S\mid x\in S\}
+\]
+es un subconjunto cerrado en $S\times S$.}\\
 
-Con esto en mente, Isbell da su noción tipo Hausdorff sin puntos, enunciada para el producto binario de sublocales. La desventaja de la variante presentada por Isbell es que esta propiedad no es conservativa, pero esto es compensado por otros méritos.\\
+Con esto en mente, Isbell da su noción tipo Hausdorff, enunciada para el producto binario de sublocales. La desventaja de la variante presentada por Isbell es que esta propiedad no es conservativa, pero esto es compensado por otros méritos.\\
 
 Para un local $L$ consideramos el coproducto binario $L\oplus L$. En particular, tomemos las inyecciones al coproducto
 \[
@@ -1538,15 +1544,17 @@ El marco $\mathcal{O}S$ de un espacio $S$ que es Hausdorff no necesariamente es 
 	\arrow["{\ref{Observacion3.4.1}}", Leftrightarrow, from=1-2, to=2-2]
 \end{tikzcd}\]
 
-\newpage
-Podemos tratar de extender la propiedad de simetría (presentada en el Capítulo 1 como simetría), que por la Proposición \ref{R0 y R1}, bajo $T_0$ es equivalente a $T_1$. Para este caso, si $h_1$ y $h_2$ son dos morfismos de marcos, decimos que $h_1\leq h_2$ si $h_1(a)\leq h_2(a)$ para todo $a\in A$, donde $A$ es el dominio de los respectivos morfismos. De esta manera diremos que un espacio es $T_U$ si se cumple
-\[
-(\mathbf{T_U})\quad \forall\, h_1, h_2\colon A\to B, \mbox{ con } h_1,h_2\in \Frm, \mbox{ si } h_1\leq h_2, \mbox{ tenemos que }
-h_1=h_2
-\]
-Haremos uso de esta propiedad más adelante.
 
-\[\begin{tikzcd}
+%Podemos tratar de extender la propiedad de simetría (presentada en el Capítulo 1 como simetría), que por la Proposición \ref{R0 y R1}, bajo $T_0$ es equivalente a $T_1$. Para este caso, si $h_1$ y $h_2$ son dos morfismos de marcos, decimos que $h_1\leq h_2$ si $h_1(a)\leq h_2(a)$ para todo $a\in A$, donde $A$ es el dominio de los respectivos morfismos. De esta manera diremos que un espacio es $T_U$ si se cumple
+%\[
+%(\mathbf{T_U})\quad \forall\, h_1, h_2\colon A\to B, \mbox{ con } h_1,h_2\in \Frm, \mbox{ si } h_1\leq h_2, \mbox{ tenemos que }
+%h_1=h_2
+%\]
+%Haremos uso de esta propiedad más adelante.
+Los siguientes diagramas muestran un resumen de la relación que existe entre las distintas propiedades 
+presentadas en este capítulo.
+\begin{equation}
+\begin{tikzcd}
 	&&& {\mathbf{(reg)}} \\
 	{\mathbf{(aju)}} &&& {\mathbf{(fH)}} &&& {\mathbf{(H)}+\mathbf{(saju)}} \\
 	{\mathbf{(saju)}} &&& {(T_U)} &&& {\mathbf{(H)}} \\
@@ -1570,9 +1578,11 @@ Haremos uso de esta propiedad más adelante.
 	\arrow[squiggly, no head, from=3-4, to=3-7]
 	\arrow[Rightarrow, from=3-4, to=4-4]
 	\arrow[Rightarrow, from=3-7, to=4-4]
-\end{tikzcd}\]
+\end{tikzcd}
+\end{equation}
 
-\[\begin{tikzcd}
+\begin{equation}
+\begin{tikzcd}
 	&&&& {\mathbf{(saju)}} \\
 	{\mathbf{(reg)}} && {\mathbf{(aju)}} && {(T_1)} \\
 	&&&& {(T_u)}
@@ -1580,22 +1590,27 @@ Haremos uso de esta propiedad más adelante.
 	\arrow[Rightarrow, from=2-3, to=1-5]
 	\arrow[Rightarrow, from=2-3, to=2-5]
 	\arrow[Rightarrow, from=2-3, to=3-5]
-\end{tikzcd}\]
+\end{tikzcd}
+\end{equation}
 
-\[\begin{tikzcd}
+\begin{equation}
+\begin{tikzcd}
 	&&&& {\mathbf{(H)}} \\
 	{\mathbf{(reg)}} && {\mathbf{(fH)}} && {(T_U)} && {(T_1)}
 	\arrow[Rightarrow, from=2-1, to=2-3]
 	\arrow[Rightarrow, from=2-3, to=1-5]
 	\arrow[Rightarrow, from=2-3, to=2-5]
 	\arrow[Rightarrow, from=2-5, to=2-7]
-\end{tikzcd}\]
+\end{tikzcd}
+\end{equation}
 
-\[\begin{tikzcd}
+\begin{equation}
+\begin{tikzcd}
 	&&&& {\mathbf{(saju)}} \\
 	{\mathbf{(reg)}} && {\mathbf{(H)}+\mathbf{(saju)}} && {\mathbf{(H)}} && {(T_1)}
 	\arrow[Rightarrow, from=2-1, to=2-3]
 	\arrow[Rightarrow, from=2-3, to=1-5]
 	\arrow[Rightarrow, from=2-3, to=2-5]
 	\arrow[Rightarrow, from=2-5, to=2-7]
-\end{tikzcd}\]
+\end{tikzcd}
+\end{equation}
