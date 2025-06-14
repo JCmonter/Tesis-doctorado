@@ -719,7 +719,7 @@ Un morfismo $f\colon A\to B$ \emph{resuelve el problema de complementación} par
 La prueba del Teorema \ref{Teorema6.2.2}, de manera indirecta, proporciona un funtor. En este punto es importante mencionar lo siguiente: \textbf{Toda propiedad universal define un funtor}.
 
 \begin{thm}\label{Teorema6.2.3}
-    La asignación $A\mapsto NA$ es la relación entre objetos por el funtor $N( \_ )\colon \Frm \to\Frm$ y el morfismo $\eta_A\colon A\to NA$ es una transformación natural. En otras palabras, para todo $A, B\in \Frm$ y cada morfismo $f\in \Frm$, el siguiente diagrama conmuta para un único morfismo $Nf$.
+    La asignación $A\mapsto NA$ es la relación entre objetos del funtor $N( \_ )\colon \Frm \to\Frm$ y el morfismo $\eta_A\colon A\to NA$ es una transformación natural. En otras palabras, para todo $A, B\in \Frm$ y cada morfismo $f\in \Frm$, el siguiente diagrama conmuta para un único morfismo $Nf$.
     \[\begin{tikzcd}
 	A & NA \\
 	B & NB
@@ -784,9 +784,13 @@ Si $S$ es un espacio topológico, entonces este puede cumplir distintas propieda
 Lo primero que podemos preguntarnos es: ¿qué pasa si el espacio no es $T_2$? El espacio de parches, como veremos más adelante, soluciona este ``defecto''.\\
     
 En esta sección se mencionan los antecedentes topológicos que se necesitan para comprender que es el espacio parches. 
-De igual manera mencionamos algunas otras propiedades topológicas y la relación que existe entre todas estas.
+De igual manera mencionamos algunas otras propiedades topológicas y la relación que existe entre todas estas. La información aquí presentada es parte de la tesis 
+doctoral de Sexton (ver \cite{R.S.}).
 
 \subsection{Espacios sobrios}\label{Espacios sobrios}
+
+Las cuestiones de la sobriedad la veremos desde dos enfoques. Primero veremos la versión que se presenta en la 
+tesis de Sexton. La segunda será presentada brevemente en el Capítlo \ref{Axiomas de separacion}.
 
 \begin{dfn}\label{irreducible}
     Un conjunto cerrado $X$ no vacío es \emph{irreducible} en $S$ si para cada $U, V$ abiertos disjuntos se cumple que 
@@ -872,18 +876,17 @@ es el mapeo que da la reflexión.
 
 \subsection{Conjuntos saturados}\label{Conjuntos saturados}
 
-Cada espacio topológico tiene un preorden para sus puntos. Este es un orden de especialización y se define de la siguiente manera.
+Si consideramos $p, q\in S$ puntos en el espacio $S$, no tenemos manera de compararlos. Para solucionar esto, se define el ``orden de especialización''.
 
 \begin{dfn}\label{O. especializacion}
-    Sea $S$ un espacio topológico. El \emph{orden de especialización} en $S$ es la comparación ``$\sqsubseteq$'' dado por 
-
+    Sea $S$ un espacio topológico. El \emph{orden de especialización} en $S$ es la relación ``$\sqsubseteq$'' dada por 
     \[
     p\sqsubseteq q \Leftrightarrow p^- \subseteq q^-
     \]
     donde $p, q\in S$. De manera equivalente tenemos que $ p\sqsubseteq q \Leftrightarrow p\in q^-$.
 \end{dfn}
 
-La comparación definida es un preorden y este es un orden parcial precisamente cuando el espacio es $T_0$. Si el espacio es $T_1$, entonces el orden está dado por la igualdad.\\
+Esta comparación es un preorden y esta es un orden parcial precisamente cuando el espacio es $T_0$. Si el espacio es $T_1$, entonces el orden está dado por la igualdad.\\
 
 Recordemos que si tenemos un marco arbitrario, por lo visto en \ref{Epuntos}, podemos asignarle a este un espacio topológico por medio de su espacio de puntos.
 
@@ -902,11 +905,11 @@ Usando este orden parcial en un espacio $T_0$, podemos introducir el concepto de
     respectivamente. Decimos que $\uparrow{E}$ es la \emph{saturación} de $E$ y $E$ es \emph{saturado} si $E=\uparrow{E}$.
 \end{dfn}
 
-Para $p\in S$ escribimos $\downarrow{p}$ para $\downarrow{\{p\}}$ y $\uparrow{p}$ para $\uparrow{\{p\}}$. Trivialmente $\uparrow\uparrow{E}=\uparrow{E}$, por lo que la saturación de $E$ es saturada.\\
+Para $p\in S$ denotamos $\downarrow{p}$ por $\downarrow{\{p\}}$ y $\uparrow{p}$ por $\uparrow{\{p\}}$. Se puede verificar que $\uparrow\uparrow{E}=\uparrow{E}$ y de esta manera la saturación de $E$ es un conjunto saturado.\\
 
 Si $S$ es cualquier espacio topológico y $p\in S$, tenemos que $\downarrow{p}=p^-$. Sin embargo, esto no es cierto para subconjuntos arbitrarios de $S$. Usualmente $\downarrow{E}\neq E^-$ aunque hay una clase de topologías para las cuales $\downarrow{(\_)}$ y $(\_)^-$ coinciden (las topologías de Alexandorff).\\
 
-En un espacio topológico, la saturación de un subconjunto se puede obtener sin referencia al orden de especialización.
+En un espacio topológico, la saturación de un subconjunto se puede obtener sin hacer referencia al orden de especialización.
 
 \begin{lem}\label{LemSup}
     Sea $S$ un espacio topológico. Para cada subconjunto $E\subseteq S$ tenemos que
@@ -925,9 +928,9 @@ En un espacio topológico, la saturación de un subconjunto se puede obtener sin
     Para la otra contención, consideremos $x\in \bigcap\{U\in \mathcal{O}S\mid E\subseteq U\}$. Notemos que si $E\subseteq U$, entonces $x\in U$ para todo $U\in \mathcal{O}S$. De aquí que al menos existe algún $e\in E$ tal que $e^-\subseteq x^-$, es decir, $e\sqsubseteq x$. 
 \end{proof}
 
-De esta manera cada subconjunto abierto es saturado. Sin embargo, el reciproco no necesariamente ocurre, por lo general, hay muchos conjuntos saturados que no son abiertos. Por ejemplo, en un espacio $T_1$ todos los conjuntos son saturados. En un espacio de Alexandroff ocurre lo contrario, cada saturado es abierto.\\
+De esta manera cada subconjunto abierto es saturado. Sin embargo, el reciproco no siempre ocurre, por lo general, hay muchos conjuntos saturados que no son abiertos. Por ejemplo, en un espacio $T_1$ todos los conjuntos son saturados. En un espacio de Alexandroff ocurre lo contrario, cada saturado es abierto.\\
 
-En cualquier conjunto parcialmente ordenado, la familia de conjuntos saturados (secciones superiores), es cerrada bajo uniones e intersecciones arbitrarias. En particular, los conjuntos saturados forman la topología de Alexandroff.
+En cualquier conjunto parcialmente ordenado, la familia de conjuntos saturados es cerrada bajo uniones e intersecciones arbitrarias. En particular, los conjuntos saturados forman la topología de Alexandroff.
 
 \begin{dfn}\label{Alexandroff}
     Sea $(S, \leq)$ un orden parcial. La \emph{topología de Alexandroff} en $S$ es la topología que consta de todos los conjuntos saturados
@@ -963,7 +966,7 @@ A veces es conveniente usar una formulación equivalente de compacidad. Reescrib
     \end{proof}
     
 \begin{dfn}\label{Csaturado}
-    Para un espacio topológico $S$, consideramos $\mathcal{Q}S$ como la colección de conjuntos compactos saturados de $S$.
+    Para un espacio topológico $S$, denotamos por $\mathcal{Q}S$ a la colección de conjuntos compactos saturados de $S$.
 \end{dfn}
 
 El conjunto vacío está en $\mathcal{Q}S$. De igual manera para $p\in S$, la saturación $\uparrow{p}$ está en $\mathcal{Q}S$. Esto puede ser generalizado.
@@ -1006,7 +1009,7 @@ El siguiente resultado es el que nos motiva a estudiar lo que en la Sección \re
     De aquí que $\{V_q\mid q\in Q\}$ forma una cubierta abierta para $Q$ y, por la compacidad, podemos extraer una subcubierta finita $\{V_i\mid i\in \mathcal{I}\}$, donde $\mathcal{I}$ es un subconjunto finito de $Q$. Considerando $\mathcal{U}(p)=\{U_i\mid i\in \mathcal{I}\}$ tenemos la vecindad de $p$ que buscábamos.
 \end{proof}
 
-El siguiente resultado nos da una caracterización similar a la regularidad definida para espacios topológicos. 
+El siguiente resultado nos da una caracterización similar a la regularidad definida para espacios topológicos, pero en lugar de considerar conjuntos en $\mathcal{C}S$ los consideramos en $\mathcal{Q}S$. 
 
 \begin{cor}
     Sea $S$ un espacio $T_2$. Para un punto $p$ y conjunto $Q$ compacto (saturado), que no contiene a $p$ existe conjuntos abiertos $U, V$ tales que
@@ -1028,15 +1031,13 @@ La topología frontal de un espacio $S$ es la topología más fina que hace a to
 
 Se puede verificar que $\{U\cap p^-\mid U\in \mathcal{O}S, p^-\in \mathcal{C}S\}$ es también una base para la topología frontal en $S$. De hecho los conjuntos $U\cap p^-$ para $U\in \mathcal{O}S$ forman las vecindades abiertas frontales de $p\in S$.\\
 
-Para $E\subseteq S$, escribimos $E^\Box$ y $E^=$ para el interior frontal y la clausura frontal de $E$, respectivamente. Estos están relacionados por 
+Para $E\subseteq S$, escribimos $E^\Box$ y $E^=$ para el interior y la clausura frontal de $E$, respectivamente. Estos están relacionados como sigue 
 \[
 E^\circ\subseteq E^\Box \subseteq E\subseteq E^=\subseteq E^-
 \]
-y pueden ser distintos.\\
+además, pueden ser distintos.\\
 
-Notemos que $p\in E^=$ si y solo si para todo $U\in \mathcal{O}S$, si $p\in U$, entonces $E\cap U\cap p^-\neq \emptyset$ se cumple.\\
-
-Notemos que $^fS$ no es el espacio discreto. Para complementar esto tenemos el siguiente resultado.
+Notemos que $p\in E^=$ si y solo si para todo $U\in \mathcal{O}S$, si $p\in U$, entonces $E\cap U\cap p^-\neq \emptyset$ se cumple. Además, $^fS$ no es el espacio discreto. Para complementar esto tenemos el siguiente resultado.
 
 \begin{lem}
     Sea $S$ un espacio topológico
@@ -1078,7 +1079,7 @@ En particular, si tenemos $T\subseteq S$ para algún espacio sobrio $S$, entonce
 
 \begin{proof}
 \begin{description}
-    \item[$\Rightarrow )$] Primero, supongamos que $T$ es cerrado frontal. Notemos que, como subespacio, los subconjuntos cerrados de $T$ son de la forma $T\cap X$, donde $X\in \mathcal{C}S$. Además dicho conjunto es la clausura de un punto si y solo si $T\cap X=T\cap p^-$ para algún $p\in T$.\\
+    \item[$\Rightarrow )$] Primero, supongamos que $T$ es cerrado frontal. Notemos que, como subespacio, los cerrados de $T$ son de la forma $T\cap X$, donde $X\in \mathcal{C}S$. Además dicho conjunto es la clausura de un punto si y solo si $T\cap X=T\cap p^-$ para algún $p\in T$.\\
 
     Supongamos que $T\cap X$ es cerrado irreducible en $T$. De esta manera, para $U, V\in \mathcal{O}S$ se cumple que 
     \[
@@ -1126,7 +1127,7 @@ En particular, si tenemos $T\subseteq S$ para algún espacio sobrio $S$, entonce
 \end{proof}
 
 \begin{cor}
-    Consideremos $T$ un espacio $T_0$ y supongamos que $T\subseteq S$ para algún espacio sobrio $S$. Entonces la reflexión sobria $^+T$ de $T$ es la clausura frontal de $T$ en $S$.
+    Sea $T$ un espacio $T_0$ y supongamos que $T\subseteq S$ para algún espacio sobrio $S$. Entonces la reflexión sobria $^+T$ de $T$ es la clausura frontal de $T$ en $S$.
 \end{cor}
 
 \begin{proof}
@@ -1138,7 +1139,7 @@ En particular, si tenemos $T\subseteq S$ para algún espacio sobrio $S$, entonce
 Como vimos en el Lema \ref{compacto saturado}, los espacios $T_2$ cumplen que todo conjunto compacto saturado es cerrado, pero el regreso no se cumple.  En esta sección daremos el nombre de \emph{empaquetados} a los espacios que cumplen con esta propiedad. Nuestro objetivo será el encontrar una manera de empaquetar cualquier espacio arbitrario.
 
 \begin{dfn}\label{empaquetado}
-    Decimos que un espacio topológico $S$ es \emph{empaquetado} si todo conjunto compacto saturado es cerrado. 
+    Un espacio topológico $S$ es \emph{empaquetado} si todo conjunto compacto saturado es cerrado. 
 \end{dfn}
 
 Observemos que la propiedad de ser empaquetado es más débil que ser $T_2$, la pregunta que surge es ¿qué relación existe entre empaquetado y $T_1$?
@@ -1180,15 +1181,15 @@ que por el Lema \ref{Union compactosaturado} es cerrada bajo intersecciones bina
 Al considerar $Q=\emptyset$ tenemos que la $pbase$ contiene a la topología original y al dejar $U=S$ vemos que la $pbase$ contiene a los complementos de cada conjunto compacto saturado.
 
 \begin{dfn}
-    Para un espacio topológico $S$, consideramos $^PS$ el espacio con los mismos puntos que $S$ y la topología $\mathcal{O}^PS$ generada por la $pbase$.
+    Para un espacio topológico $S$, consideramos $^pS$ el espacio con los mismos puntos que $S$ y la topología $\mathcal{O}^PS$ generada por la $pbase$.
 \end{dfn}
 
-En otras palabras, $\mathcal{O}^PS$ es la topología más pequeña que contiene todos los conjuntos abiertos originales y también el complemento de todos los conjuntos compactos saturados de $S$. Notemos que hacer esto puede crear nuevos conjuntos compactos saturados que no son cerrados en $S$.\\
+En otras palabras, $\mathcal{O}^pS$ es la topología más pequeña que contiene todos los conjuntos abiertos originales y también el complemento de todos los conjuntos compactos saturados de $S$. Notemos que hacer esto puede crear nuevos conjuntos compactos saturados que no son cerrados en $S$.\\
 
-Usando esta construcción tenemos que $S$ es empaquetado si y solo si $^PS=S$.
+Usando esta construcción tenemos que $S$ es empaquetado si y solo si $^pS=S$.
 
 \begin{lem}
-    Sea $S$ un espacio topológico. Si $U\in \mathcal{O}^PS$ entonces $U\in\mathcal{O}^fS$.
+    Sea $S$ un espacio topológico. Si $U\in \mathcal{O}^pS$ entonces $U\in\mathcal{O}^fS$.
 \end{lem}
 
 \begin{proof}
@@ -1200,7 +1201,7 @@ Usando esta construcción tenemos que $S$ es empaquetado si y solo si $^PS=S$.
     \]
 \end{proof}
 
-El resultado anterior muestra que la topología de parches es intermedia entre la topología original y la topología frontal. En otras palabra tenemos 
+El resultado anterior no dice que la topología de parches es intermedia entre la topología original y la topología frontal. En otras palabra tenemos que
 
 \[
 \mathcal{O}S \hookrightarrow \mathcal{O}^PS \hookrightarrow \mathcal{O}^fS
@@ -1222,7 +1223,7 @@ Es momento de saber como se comporta el espacio de parches con las propiedades d
 \end{proof}
 
 \begin{lem}\label{Parcheidem}
-    En un espacio $T_1$ la operación de parches es idempotente, es decir, $^{PP}S=^PS$.
+    Si $S$ es un espacio $T_1$, entonces $^{PP}S=^PS$.
 \end{lem}
 
 \begin{proof}
@@ -1245,7 +1246,7 @@ Es momento de saber como se comporta el espacio de parches con las propiedades d
     Sea $S$ un espacio $T_2$. Por el Lema \ref{compacto saturado} tenemos que todo conjunto compacto saturado es cerrado, es decir, $S$ es empaquetado. Si $S$ es empaquetado, $^PS=S$ que es lo que queríamos probar.
 \end{proof}
 
-El Teorema \ref{Sobriofrontal} nos dice que si un espacio es sobrio, entonces su espacio frontal también lo es. Para el espacio de parches sensible a puntos no ocurre lo mismo, es decir, si el espacio es sobrio, el parche del espacio no es necesariamente sobrio.
+El Teorema \ref{Sobriofrontal} nos dice que si un espacio es sobrio, entonces su espacio frontal también lo es. Para el espacio de parches no ocurre lo mismo, es decir, si el espacio es sobrio, el espacio de parches no necesariamente es sobrio.
 
 \begin{lem}\label{Lem4.3.1}
     Sean $S$ un espacio sobrio y $F$ un subconjunto cerrado irreducible de $^PS$ (es decir, $F\in \mathcal{C}^PS$ y es cerrado irreducible en  $^PS$). Entonces $F$ está conformado por un único punto o es infinito.
@@ -1285,45 +1286,45 @@ Este argumento se puede refinar de diferentes maneras para obtener más informac
 
 \subsection{Propiedades funtoriales del espacio de parches}\label{P. funtoriales spuntos}
 
-Las preguntas naturales que surgen sobre la funtorialidad de la construcción de parches sensible a puntos son las siguientes:
+Para ver la funtorialidad de la construcción de parches, debemos preguntarnos lo siguiente:
 
 \begin{enumerate}
-    \item ¿Es posible ver la construcción de parches sensible a puntos 
+    \item ¿Es posible ver la construcción de parches 
     \[
     S\mapsto\, ^PS
     \]
     como la asignación de objetos de un funtor en la categoría de espacios topológicos o en alguna subcategoría adecuada?
 
-    \item ¿Es posible ver el mapeo continuo 
+    \item ¿Es posible ver la función continua 
     \[
     ^PS\to S
     \]
-    como natural en la relación con este funtor y el funtor identidad?
+    como una transformación natural entre este funtor y el funtor identidad?
 \end{enumerate}
-
-Estas dos preguntas se pueden plantear de una forma más concreta.\\
 
 Supongamos que $\phi \colon T\to S$ es una función continua entre espacios topológicos. Esto da tres lados de un cuadrado
 \[\begin{tikzcd}
 	T & S \\
-	{^PT} & {^PS}
+	{^pT} & {^pS}
 	\arrow["\phi", from=1-1, to=1-2]
 	\arrow[from=2-1, to=1-1]
 	\arrow[from=2-2, to=1-2]
 \end{tikzcd}\]
-donde cada lado es continuo. ¿Bajo que circunstancias existe un mapeo continuo $^P\phi \colon \,^PT\to \,^PS$ que hace que el cuadrado conmute?\\
+donde cada lado es continuo.\\ 
 
-Como funciones, ambas aplicaciones verticales son funciones identidad. Por lo tanto, si existe un mapeo $^P\phi$, entonces como función es solo $\phi$.\\
+¿Bajo que circunstancias existe una función continua $^p\phi \colon \,^pT\to \,^pS$ que hace que el cuadrado conmute?\\
 
-Así se puede plantear la siguiente pregunta: \emph{¿Bajo que circunstancias una función continua $\phi\colon T\to S$ es también ``\textbf{parche continua}'', es decir, es continua en relación con las topologías de parches?}
+Como funciones, ambas aplicaciones verticales son funciones identidad. Por lo tanto, si existe una función $^p\phi$, entonces como función es solo $\phi$.\\
+
+Así se puede plantear la siguiente pregunta: \emph{¿Cuándo una función continua $\phi\colon T\to S$ es también ``\textbf{parche continua}''?, es decir, es continua en relación con las topologías de parches}.
 
 \begin{dfn}\label{Parchecontinua}
     Decimos que una función continua $\phi\colon T\to S$ es \emph{parche continua} si envía conjuntos compactos saturados a conjuntos compactos saturados, es decir, si $\phi ^{-1}(Q)\in \mathcal{Q}T$ siempre que $Q\in \mathcal{Q}S$. 
 \end{dfn}
 
-Por lo tanto, si $\phi$ convierte conjuntos compactos saturados, entonces ciertamente es parche continuo. Pero presumiblemente esta condición suficiente para la continuidad del parche no es necesaria.\\
+Por lo tanto, si $\phi$ convierte conjuntos compactos saturados, entonces ciertamente es parche continuo. Pero se peude sospechar que esta condición que es suficiente para la continuidad del parche no sea necesaria.\\
 
-Sea $f^*\colon A\to B$ un morfismo de marcos y $f_*$ su adjunto derecho. En general, $f_*$ preserva ínfimos arbitrarios, pero no necesariamente preserva supremos. Nos fijaremos en aquellos morfismos para los que $f_*$ preserva ciertos supremos.\\
+Sea $f^*\colon A\to B$ un morfismo de marcos y $f_*$ su adjunto derecho. En general, $f_*$ preserva ínfimos arbitrarios, pero no necesariamente preserva supremos. Nos fijaremos en aquellos morfismos para los que $f_*$ preserva ciertos supremos.
 
 \begin{dfn}\label{Scottcontino}
     Para un morfismo de marcos $f^*$ y su adjunto derecho $f_*$ dados como antes, decimos que el adjunto derecho $f_*$ es \emph{Scott-continuo} si 
@@ -1343,11 +1344,11 @@ Sabemos que cada función continua $\phi\colon T\to S$ da un morfismo de marcos
 entre las topologías. Podemos imponer la condición extra de Scott-continuidad en $\phi_*$. Donde esta no debe confundirse con la continuidad dada por $\phi$.
 
 \begin{lem}\label{Pcontinua y Scontinua}
-    Sea $\phi$ una función continua como la dada antes y supongamos que el espacio $T$ es sobrio. Si $\phi_*$ es Scott-continua, entonces $\phi$ convierte conjuntos compactos saturados y por lo tanto $\phi$ es parche continua.
+    Sea $\phi$ una función continua como la de antes y supongamos que el espacio $T$ es sobrio. Si $\phi_*$ es Scott-continua, entonces $\phi$ convierte conjuntos compactos saturados y por lo tanto $\phi$ es parche continua.
 \end{lem}
 
 \begin{thm}
-    Sea $\phi$ una función continua como la dada antes y supongamos que ambos espacios, $S$ y $T$ son sobrios. Entonces $\phi_*$ es Scott-continua si y solo si las siguientes condiciones se cumplen
+    Sea $\phi$ una función continua como la de antes y supongamos que ambos espacios, $S$ y $T$ son sobrios. Entonces $\phi_*$ es Scott-continua si y solo si las siguientes condiciones se cumplen
     \begin{itemize}
         \item $\phi$ convierte conjuntos compactos saturados.
         \item Si $Y\in \mathcal{C}T$, entonces $\downarrow \phi(Y)\in \mathcal{C}S$.
@@ -1378,7 +1379,7 @@ El resultado anterior es cierto para cualquier espacio $S$. En la practica, es m
 Observemos que el morfismo $\sigma$ actúa como una transformación natural cuando el espacio $S$ varia. Nuestro objetivo es encontrar una descripción especifica para el morfismo $\sigma$.
 
 \begin{dfn}\label{Definicion6.3.2}
-    Sean $S\in \Top$ y consideremos el morfismo $\sigma\colon N\mathcal{O}S\to \mathcal{O}^fS$ dado por 
+    Sea $S\in \Top$. Definimos $\sigma\colon N\mathcal{O}S\to \mathcal{O}^fS$ al morfismo dado por 
     \[
     \sigma(j)=\bigcup\{j(W)\setminus W\mid W\in \mathcal{O}S\}
     \]
@@ -1465,7 +1466,7 @@ forman un par adjunto. Además, $\sigma$ es un morfismo de marcos.
 
     Por lo tanto $[ \_ ]$ es el adjunto derecho de $\sigma$.\\
 
-    Para ver que es un morfismo de marcos debemos primero recordar que cualquier función monótona con adjunto derecho respeta supremos arbitrarios. Resta verificar el comportamiento de $\sigma$ a través de los núcleos $\id$ y $tp$.
+    Para ver que es un morfismo de marcos debemos recordar que cualquier función monótona con adjunto derecho respeta supremos arbitrarios. Resta verificar el comportamiento de $\sigma$ a través de los núcleos $\id$ y $tp$.
     \[
     \begin{split}
     \sigma(\id)& =\bigcup\{\id(W)\setminus W\mid W\in \mathcal{O}S\}=\bigcup\{W\setminus W\mid W\in \mathcal{O}S\}=\emptyset\\
