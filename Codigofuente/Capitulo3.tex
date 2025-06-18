@@ -1,13 +1,13 @@
 \chapter{Marcos arreglados}\label{Parches}
 
 Este capítulo muestra una recopilación del trabajo hecho por Sexton en su tesis doctoral (ver \cite{R.S.}). 
-Algunas consecuencias espaciales también pueden consultarse en el artículo \cite{R.S.3}.\\
+Algunas consecuencias espaciales también pueden ser encontradas en \cite{R.S.3}.\\
 
 Parte de los objetivos de nuestra investigación es comprender la teoría que muestra Sexton sobre construcciones de parches 
 y constrastarla con los axiomas de separación libres de puntos que se presentaran en el Capítulo \ref{Axiomas de separacion}.
 
 \section{Filtros admisibles y núcleos ajustados}
-Este será nuestro primer contacto con propiedades de separación traducidas al lenguaje sin puntos. El siguiente capítulo abardora de manera 
+Este será nuestro primer contacto con propiedades de separación traducidas al lenguaje de la teoría de marcos. El siguiente capítulo abardora de manera 
 más profunda este tema.
 
 \begin{dfn}
@@ -26,7 +26,7 @@ se cumplen.
 \end{enumerate}
 \end{dfn}
 
-Estas nociones vuelven a ser abordadas en el Capítulo \ref{Axiomas de separacion}. Aunque el enfoque puede parecer distinto, estas definiciones terminan siendo equivalentes a las que ahí se presentan. Por el momento, solo enunciaremos aquellas propiedades que no serán presentadas en el siguiente 
+Como lo mencionamos antes, estas nociones vuelven a ser abordadas en el Capítulo \ref{Axiomas de separacion}. Aunque el enfoque proviene de diferentes autores, estas definiciones terminan siendo equivalentes a las que ahí se presentan. Por el momento, solo enunciaremos aquellas propiedades que no serán presentadas en el siguiente 
 capítulo. Las pruebas pueden consultarse en \cite{R.S.}.
 
 \begin{lem}
@@ -45,7 +45,7 @@ capítulo. Las pruebas pueden consultarse en \cite{R.S.}.
     Un espacio $T_0$ con topología ajustada es $T_1$ y sobrio.
 \end{cor}
 
-Para un marco $A$, si $j\in NA$, entonces $j$ nos permite construir un filtro, pero no necesariamente cualquier filtro nos permite obtener un núcleo.
+En el Capítulo \ref{Preliminares}, para un marco $A$, definimos diferentes tipos de filtros. De manera particular, existe un filtro especial que está en relación con los filtros abiertos. 
 
 \begin{dfn}\label{Filtroadmisible}
     \begin{enumerate}
@@ -53,7 +53,7 @@ Para un marco $A$, si $j\in NA$, entonces $j$ nos permite construir un filtro, p
 
         \item Sea $\nabla (j)$ el conjunto de elementos admitidos por el núcleo $j$. $\nabla(j)$ es un filtro en $A$.
 
-        \item Para un marco $A$, un filtro en $A$ es \emph{admisible} si tiene la forma $\nabla(j)$ para algún $j\in NA$.
+        \item Para un marco $A$, un filtro en $A$ es \emph{de admisibilidad} si tiene la forma $\nabla(j)$ para algún $j\in NA$.
 
         \item La relación $j\sim k$ si y solo si $\nabla(j)=\nabla(k)$ es una relación de equivalencia. A las clases de equivalencia las llamamos \emph{bloques}.
 
@@ -61,7 +61,10 @@ Para un marco $A$, si $j\in NA$, entonces $j$ nos permite construir un filtro, p
     \end{enumerate}
 \end{dfn}
 
-Existe una correspondencia uno a uno entre bloques y núcleos ajustados, como se muestra en el siguiente resultado.
+El Teorema \ref{TeoremaHM} proporciona una correspondencia 
+biyectiva entre filtros abiertos y conjuntos compactos saturados. 
+Los filtros de admisibilidad permiten extender esta correspondencia por medio de los núcleos ajustados. 
+Para ver esto necesitamos primero unos cuantos resultados más.
 
 \begin{lem}\label{Menorelemento}
     Sea $A$ un marco. Cada bloque de un núcleo tiene un menor elemento.
@@ -81,26 +84,27 @@ Existe una correspondencia uno a uno entre bloques y núcleos ajustados, como se
     Consideremos el filtro principal $F=\{x\in A\mid x\geq a\}$ para algún $a\in A$. Notemos que para $j=v_a$, $\nabla(j)=F$, pues si $x\geq a$, $(a\succ x)=1$. 
 \end{proof}
 
-No todos los filtros son admisibles. Por ejemplo, supongamos que $A$ es booleano. Entonces cada núcleo $j$ tiene la forma $u_a$ para algún $a\in A$, o equivalentemente $v_a$ para algún $a\in A$ (diferente). Entonces cada filtro admisible $\nabla(j)$ es principal y cuando $A$ es infinito no hay filtros principales.
+No todos los filtros son admisibles. Por ejemplo, supongamos que $A$ es booleano. Entonces cada núcleo $j$ tiene la forma $u_a$ para algún $a\in A$. De igual manera podría tener la forma $v_{a'}$ para algún $a'\in A$. Entonces cada filtro admisible $\nabla(j)$ es principal, pero cuando $A$ es infinito no hay filtros principales.\\
 
+Aunque no todos los filtros son admisibles, existe una manera de obtener filtros de admisibilidad.
 \begin{lem}\label{Lema5.5.4}
-    Sea $A$ un marco. Todo filtro abierto en $A$ es admisible.
+    Sea $A$ un marco. Para todo $F\in A^\wedge$, $F=\nabla(j)$ para algún $j\in NA$.
 \end{lem}
 
 \begin{proof}
-    Sea $F\in A^{\wedge}$ y sea $f=\dot{\bigvee}\{v_a\mid a\in F\}$ de modo que para algún ordinal $\infty$ tenemos $V_F=f^\infty$, y este es el menor núcleo que admite a $F$. Así, $F\subseteq \nabla(f^\infty)$. Debemos probar que $\nabla(f^\infty)\subseteq F$. Comencemos por mostrar que si 
+    Sean $F\in A^{\wedge}$ y $f=\dot{\bigvee}\{v_a\mid a\in F\}$ de modo que para algún ordinal $\infty$ tenemos $Vv_F=f^\infty\in NA$, y este es el menor núcleo que admite a $F$. Así, $F\subseteq \nabla(f^\infty)$. Debemos probar que $\nabla(f^\infty)\subseteq F$. Comencemos por mostrar que si 
     \begin{equation}\label{H.induccion}
         f(x)\in F \Rightarrow x\in F,
     \end{equation}
     para cada $x\in A$.\\
 
-    El supremo $f(x)=\bigvee\{v_a(x)\mid a\in F\}$ es dirigido y como $F\in A^\wedge$ si $f(x)\in F$, se cumple que $v_a(x)\in F$ para algún $a\in F$. De aquí que si $x\in F$, pues al ser $F$ un filtro, se cumple que 
+    El supremo $f(x)=\bigvee\{v_a(x)\mid a\in F\}$ es dirigido y como $F\in A^\wedge$, si $f(x)\in F$, entonces se cumple que $v_a(x)\in F$ para algún $a\in F$, es decir, para $a\in F$, $v_a(x)\in F$. Luego
     \[
-    x\geq a\wedge x=a\wedge (a\wedge x)\in F.
+    x\geq a\wedge x=a\wedge (a\succ x)\in F.
     \]
-    Ahora probamos por inducción sobre los ordinales que si $f^\alpha(x)\in F$, entonces $x\in F$ se cumple para cada ordinal $\alpha$.\\
+    Por lo tanto $x\in F$ como queriamos. Ahora probamos por inducción sobre los ordinales que si $f^\alpha(x)\in F$, entonces $x\in F$ se cumple para cada ordinal $\alpha$.\\
 
-    El caso $\alpha =0$ es trivial pues obtenemos $v_a(x)$ y estos corresponden a filtros admisibles. El paso de inducción de $\alpha$ a $\alpha +1$ se sigue de \ref{H.induccion}, pues si suponemos que $f^\alpha (x)\in F$, entonces $x\in F$. De aquí que 
+    El caso $\alpha =0$ es trivial. El paso de inducción de $\alpha$ a $\alpha +1$ se sigue de \ref{H.induccion}, pues si suponemos que $f^\alpha (x)\in F$, entonces $x\in F$. De aquí que 
     \[
     f^{\alpha +1}(x)=f(f^\alpha(x))\in F\Rightarrow f^\alpha(x)\in F\Rightarrow x\in F.
     \]
@@ -146,7 +150,7 @@ Los núcleos ajustados se comportan de manera similar a los $v-$núcleos. El sig
     \end{enumerate}
 \end{lem}
 
-Además de un elemento mínimo, algunos bloques también tienen un elemento máximo.
+Además de un menor elemento mínimo, algunos bloques también tienen un mayor elemento.
 
 \begin{lem}\label{Lema5.5.8}
     Para cada $a\in A$ el núcleo $w_a$ es el mayor elemento de su bloque.
@@ -169,7 +173,7 @@ Además de un elemento mínimo, algunos bloques también tienen un elemento máx
     de aquí que $w_a(y\vee a)=1$. Pero $(x\succ a)=y=w_a(y)=w_a(y\vee a)=1$. Por lo tanto $j(a)=x\leq a$, es decir, $j(a)=a$.
 \end{proof}
 
-Se puede hacer una comparación con un núcleo ajustado a través de su filtro. La afirmación $j\leq k\Rightarrow \nabla(j)\subseteq \nabla(k)$ es trivial. Cuando $j$ es ajustado se puede fortalecer esto.
+Cuando $j\in NA$ es ajustado, entonces el filtro de admisibilidad proporciona un poco más de información.
 
 \begin{lem}\label{Lema5.5.9}
     Sea $A$ un marco. Supongamos que $j\in NA$ es ajustado. Entonces 
@@ -187,8 +191,7 @@ Se puede hacer una comparación con un núcleo ajustado a través de su filtro. 
     Lo cual muestra que $v_a\leq k$ y como $j$ es ajustado $j=\bigvee\{v_a\mid a\in \nabla(j)\}\leq k$.
 \end{proof}
 
-Existe una relación entre la propiedad de separación ajustado y núcleo ajustado.
-
+Una de las últimás propiedades que abordaremos aquí sobre los núcleos ajustados está en relación con los marcos que son ajustados.
 \begin{thm}\label{Teorema5.5.10}
     Para cada marco $A$ las siguientes condiciones son equivalentes.
     \begin{enumerate}[$i) $]
@@ -219,19 +222,28 @@ Existe una relación entre la propiedad de separación ajustado y núcleo ajusta
     \end{description}
 \end{proof}
 
-El resultado anterior nos dice que ajustado es una propiedad que simplifica enormemente la estructura del bloque.
+En otras palabras, el resultado anterior nos dice que si $A$ es ajustado, se simplifica la estructura del bloque de admisibilidad. En el Capítulo \ref{Relación MA y AH} profundisaremos un poco más sobre esta cuestión.
 
-\subsection{Núcleos asociados a filtros abiertos}
+\section{La extensión de Teorema de Hoffman-Mislove}
 
-Sabemos que cada filtro admisible en un marco $A$ está asociado con un núcleo 
+Una de las aportaciones más importantes de Sexton es que da el analogo a la construcción del espacio de parches. Para hacer esto, 
+ella proporcina los objetos necesarios en marcos para construir una $pbase$. Por el Teorema \ref{TeoremaHM} tenemos la correspondencia 
+entre filtros abiertos y conjuntos compactos saturados. Por otro lado, todo filtro abierto está asociado a un núcleo ajustado  
 \[
-v_F=\bigvee\{v_a\mid a\in F\}
+v_F=\bigvee\{v_a\mid a\in F\}.
 \]
-y que cada núcleo está asociado a su filtro admisible. En el Lema \ref{Lema5.5.4} vimos que todo filtro abierto es admisible.\\
+y viceversa. Por lo tanto, podemos extender el Teorema de Hoffman-Mislove de la siguiente manera.
+\begin{thm}\label{HM extendido}
+Para $A\in \Frm$ y $S=\pt A$ existe una correspondencia biyectiva entre: 
+\begin{enumerate}[$i) $]
+    \item Filtros abiertos en $A$.
+    \item Conjuntos compactos saturados en $S$.
+    \item Núcleos ajustados en $NA$.
+\end{enumerate}
+\end{thm}
 
-En esta subsección echamos un vistazo más a fondo a los núcleos asociados con los filtros abiertos. Recordemos también que en un marco espacial existe una correspondencia entre conjuntos saturados y filtros abiertos.\\
-
-Uno de nuestros objetivos es obtener la construcción de parches para el ensamble de un marco. Para hacer esto necesitamos un dispositivo sin puntos que ocupe el lugar de los conjuntos compactos saturado. Los filtros abiertos son el principal candidato.
+En esta sección exploramos las propiedades que cumplen los núcleos asociados a los filtros abiertos. Tembién, veremos la relación que 
+existe entre todos estos objetos cuando interactuan entre si.
 
 \begin{lem}
     Sea $A$ un marco. Entonces para todos los filtros abiertos $F, G$ y familias dirigidas de filtros abiertos $\mathcal{F}$ tenemos
@@ -268,7 +280,7 @@ v_F=\bigvee\{v_a\mid a\in F\}=\bigvee\{[U']\mid Q\subseteq U\}
 \]
 donde $Q=\cap F$ es el conjunto compacto saturado correspondiente a $F$.\\
 
-Esta vez, en lugar de considerar la sucesión de abiertos, es más fácil concentrarse en los conjuntos cerrados complementarios. Para $Q\in \mathcal{Q}S$ usamos la operación $\hat{Q}$ en $\mathcal{C}S$ dada por 
+En lugar de considerar la sucesión de abiertos, resulta más sencillo el hacerlo en sus complementos. Para $Q\in \mathcal{Q}S$ usamos la operación $\hat{Q}$ en $\mathcal{C}S$ dada por 
 \[
 \hat{Q}(X)=\bigcap\{(X\cap U)^-\mid Q\subseteq U\}
 \]
@@ -276,24 +288,23 @@ para cada $X\in \mathcal{C}S$. Establecemos
 \[
 Q(0)=S,\quad Q(\alpha +1)=\hat{Q}(Q(\alpha)), \quad Q(\lambda)=\bigcap\{Q(\alpha)\mid \alpha\leq \lambda\}
 \]
-para obtener una sucesión descendente de conjuntos cerrados. Por razones de cardinalidad, esta sucesión eventualmente se estabiliza en algún conjunto cerrado $Q(\alpha)$. Sabemos que $Q^\subseteq Q(\infty)$ ya que cada conjunto cerrado $Q(\alpha)$ contiene a $Q$. Más adelante nos cuestionaremos si podemos encontrar condiciones que hagan que la diferencia entre $Q^-$ y $Q(\infty)$ sea grande o pequeña y las consecuencias que esto tiene para un marco y su ensamble de parches.
+para obtener una sucesión descendente de conjuntos cerrados. Por razones de cardinalidad, esta sucesión eventualmente se estabiliza en algún conjunto cerrado $Q(\alpha)$. Sabemos que $Q\subseteq Q(\infty)$ ya que cada conjunto cerrado $Q(\alpha)$ contiene a $Q$. 
+Después se darán condiciones que hagan notar la diferencia entre $Q^-$ y $Q(\infty)$ y las consecuencias que esto tiene para un marco y lo que en la siguiente sección denominaremos como su \emph{marco de parches}.
 
 \subsection{Estructura de bloques}\label{Estructura de bloques}
 
-Sabemos que para todo marco $A$ podemos construir un nuevo marco formado por todos los núcleos en $A$ (el ensamble de $A$). Por si mismo, $NA$ puede ser un marco difícil de estudiar. En $NA$ pueden existir bloques bastante complicados.\\
+Si $A$ es un marco, podemos construir un nuevo marco formado por todos sus núcleos ($NA$). Por si mismo, $NA$ puede ser un marco difícil de estudiar, incluso si solo nos restringimos a los núcleos que producen el mismo filtro de admisibilidad.\\
 
-En esta sección veremos que para el caso donde $A=\mathcal{O}S$, analizar los bloques de $NA$ puede resultar algo mucho más agradable.\\
+En esta subsección veremos una primera construcción de lo que más adelante llamaremos \emph{el $Q$-cuadrado}.\\
 
-Consideremos nuestro marco $A$ y $S=\pt(A)$. Sea $F$ un filtro abierto en $A$ y $Q$ el compacto saturado correspondiente para $F$. Así 
+Consideremos $A\in \Frm$, $S=\pt(A)$, $F\in A^\wedge$ y $Q$ el compacto saturado correspondiente para $F$. Así, por el Teorema \ref{HM extendido}
 \[
-a\in F\Leftrightarrow Q\subseteq U(a)
+F=\nabla(v_F)\Leftrightarrow a\in F\Leftrightarrow Q\subseteq U(a)
 \]
-para $a\in A$. Por el Lema \ref{Lema5.5.4} tenemos que $F$ es admisible y por lo tanto obtenemos un bloque en $NA$ que tiene un menor elemento $(v_F)$. Veremos que también tenemos otros elementos especiales.\\
-
-Consideremos el cociente de $A$ dado por el conjunto de puntos fijos de $v_F$, de decir, $A_F=A_{v_F}$. Este tiene un espacio de puntos fácil de localizar.
+donde $v_F\in NA$. Consideremos el cociente de $A$ dado por $v_F$, de decir, $A_F=A_{v_F}$. El marco $A_F$ tiene un espacio de puntos fácil de localizar.
 
 \begin{lem}\label{Lema5.7.1}
-    Consideremos un marco $A$ y los conjuntos $F$, $Q$ como se mencionan antes. Entonces $Q=\pt(A_F)$.
+    Sean $A$ un marco y $F$, $Q$ los conjuntos antes considerados. Entonces $Q=\pt(A_F)$.
 \end{lem}
 
 \begin{proof}
@@ -314,8 +325,6 @@ Consideremos el cociente de $A$ dado por el conjunto de puntos fijos de $v_F$, d
 \end{proof}
 
 Lo anterior nos proporciona el siguiente diagrama
-
-
 \begin{equation}
     \begin{tikzcd}
 	A & {A_F} \\
@@ -326,19 +335,18 @@ Lo anterior nos proporciona el siguiente diagrama
 	\arrow[from=2-1, to=2-2]
 \end{tikzcd}
 \end{equation}
+el cual será extendido y estudiado en el Capítulo \ref{Relación MA y AH}.\\
 
-el cual será extendido y en el Capítulo \ref{Relación MA y AH} presentaremos como el $Q$-cuadrado.\\
-
-Cada subconjunto $T\subseteq S$, visto como subespacio nos da el siguiente cociente.
+Para un subespacio $T\subseteq S$, tenemos el siguiente cociente
 \[
 A\to \mathcal{O}S\to \mathcal{O}T
 \]
-En el cual se puede comprobar que $a\mapsto \bigwedge \{p\in T\mid a\leq p\}$ es el kernel del cociente anterior. En particular, el conjunto $Q\subseteq S$ da un ejemplo de esto.\\
+donde $a\mapsto \bigwedge \{p\in T\mid a\leq p\}$ es el kernel de dicho cociente. En particular, podemos hacer lo anterior para $Q\in \mathcal{Q}S$.\\
 
-Por el Lema \ref{Lema3.4.1}, el conjunto $Q$ tiene un conjunto de generadores mínimos $M\subseteq Q$, es decir, el conjunto de elementos máximos de $A\setminus F$. Vemos a $M$ como un subespacio de $Q$ para obtener el siguiente cociente
-\[
+Por el Lema \ref{Lema3.4.1}, el conjunto $Q$ tiene un conjunto de generadores mínimos $M\subseteq Q$, es decir, el conjunto de elementos máximos de $A\setminus F$. Ahora, si extendemos el mismo razonamiento para $M$ visto como un subespacio de $Q$ tenemos
+\begin{equation}\label{Cociente a M}
 A\to A_F \to \mathcal{O}Q \to \mathcal{O}M
-\]
+\end{equation}
 con kernel dado por $w_F(a)=\bigwedge \{p\in m\mid a\leq o\}$, donde $a\in A$. 
 
 \begin{lem}
@@ -357,48 +365,45 @@ con kernel dado por $w_F(a)=\bigwedge \{p\in m\mid a\leq o\}$, donde $a\in A$.
     Por lo tanto $j\leq w_F$.
 \end{proof}
 
-Cada bloque en $NA$ tiene un menor elemento (el núcleo ajustado correspondiente). Tal bloque no necesita tener mayor elemento, o incluso elementos máximos. Sin embargo, para un filtro abierto $F$ el bloque correspondiente $[v_F, w_F]$ es un intervalo acotado en $NA$. Esto nos da un intervalo acotado $I_F=[v_F(0), w_F(0)]$ de $A$. La estructura de este bloque está íntimamente relacionada con las propiedades del parche de $A$ (y otras propiedades).\\
+De esta manera, si $F\in A^\wedge$, obtenemos bloques en $NA$ de la forma $[v_F, w_F]$ (los cuales serán llamados \emph{intervalos de admisibilidad} más adelante).\\
 
-Para cada $a\in I_F$ sea $j_a=(v_F\vee u_a)$ para producir un núcleo $v_F\leq j_a\leq w_F$. Además, $a\leq b$ si y solo si $j_a\leq j_b$ para cada $a, b\in I_F$. La implicación $j_a\leq j_j\Rightarrow a\leq b$ se cumple debido a que $I_F\subseteq A_F$ y por lo tanto $a=j_a(0)$ para cada $a\in I_F$. Esto nos da un encaje de marcos 
+Notemos que $I_F=[v_F(0), w_F(0)]$ es un intervalo de $A$. Para cada $a\in I_F$ consideremos $j_a=(v_F\vee u_a)$ para producir un núcleo $v_F\leq j_a\leq w_F$. Además, $a\leq b$ si y solo si $j_a\leq j_b$ para cada $a, b\in I_F$. Esto nos da un encaje de marcos 
 \[
 \begin{split}
     I_F &\to [v_F, w_F]\\
     a & \mapsto j_a
 \end{split}
 \]
-y por lo tanto $I_F$ nos da una indicación de la complejidad del bloque.\\
+y por lo tanto, el intervalo $I_F$ da una idea de lo complejo que puede ser el intervalo $[v_F, w_F]$. Existen formas de asegurar que $v_F=w_F$, (algunas de ellas serán vista en el Capítulo \ref{Relación MA y AH}), en cuyo caso $I_F$ es solo un punto.\\
 
-Notemos que puede suceder que $v_F=w_F$ en cuyo caso $I_F$ es solo un punto. Sin embargo, se producirá un ejemplo donde $I_F$ es bastante complejo. De hecho se produce un ejemplo espacial.\\
-
-Supongamos que $A$ es espacial, de modo que $A=\mathcal{O}S$ para algún espacio sobrio $S$. Para $Q\in \mathcal{Q}S$ tenemos cocientes 
-\[
+Supongamos que $A=\mathcal{O}S$ para algún espacio sobrio $S$. Si $Q\in \mathcal{Q}S$ tenemos el siguiente caso del cociente \ref{Cociente a M} 
+\begin{equation}\label{Cociente espacial a M}
 \mathcal{O}S\to (\mathcal{O}S)_F\to \mathcal{O}Q\to \mathcal{O}M
+\end{equation}
+que determinan al menor y al mayor elemento del intervalo ($v_F$ y $w_F$, respectivamente) y un elemento intermedio. En este caso tenemos que $w_F=[M']$ y, de manera similar, $[Q']$ es el elemento intermedio del intervalo. Así tenemos un intervalo 
+\[
+v_F\leq [Q']\leq w_F\in N\mathcal{O}S
 \]
-que determinan el menor y el mayor elemento del bloque ($v_F$ y $w_F$, respectivamente) y un elemento intermedio. En este caso tenemos que $w_F=[M']$ el núcleo espacialmente inducido. De manera similar, $[Q']$ es el elemento intermedio del bloque. Así tenemos un intervalo $v_F\leq [Q']\leq w_F$ de $N\mathcal{O}S$ con un elemento espacial $[Q']$. Parece que, en general, $[Q']$ puede estar en cualquier extremo o en algún punto intermedio. La observación de que $v_F\leq [Q']$ y que estos dos núcleos son compañeros es una observación importante a lo que se verá más adelante.\\
+En general, $[Q']$ puede estar en cualquier extremo o en algún punto intermedio. La observación de que $v_F\leq [Q']$. El estudio de este intervalo espacial también se verá más adelante.\\
 
-Si $S$ es $T_1$, entonces $Q=M$, pero esto no asegura que el intervalo sea simple.\\
-
-\begin{ej}
-    Hay un espacio $S$ que es $T_1$, sobrio y estrechamente empaquetado. Este espacio tiene un punto especial $*$ que controla gran parte de la estructura. El conjunto $\mathbb{S}=S\setminus \{*\}$ es un árbol grande con varios subárboles grandes. Sea $F$ el filtro sobre $\mathcal{O}S$ dado por $Q=\{*\}$, que es un filtro de vecindad abierto del punto. Entonces cada subárbol grande produce un elemento de $I_F$.
-\end{ej}
-
-Este ejemplo se tratará más adelante, donde se dará el significado preciso de ``grande''.
+Si $S$ es $T_1$, entonces $Q=M$, pero esto no asegura que el intervalo sea simple. De esta manera, tenemos condiciones que rigen al cociente \ref{Cociente espacial a M}. La idea es hacer algo similar, pero para 
+el caso general \ref{Cociente a M}.
 
 \section{El marco de parches}\label{Marco de parche}
 
-En esta sección veremos la construcción libre de puntos del espacio de parches $^pS$. Daremos el análogo de la pbase introducida en la Sección \ref{Parche puntos}, pero para $a\in \Frm$. A dicha construcción la llamaremos \emph{el marco de parches}. Dicho marco resultará ser un submarco del ensamble $NA$.\\
+En esta sección veremos la construcción libre de puntos del espacio de parches $^pS$. Daremos el análogo de la pbase dada en la Sección \ref{Parche puntos}, pero para $A\in \Frm$. A esta construcción la llamaremos \emph{el marco de parches}. Dicho marco resultará ser un submarco del ensamble $NA$.\\
 
-Recordemos que para un espacio $S$, el espacio se construye a través de los abiertos de $S$ ($\mathcal{O}S$) y los conjuntos compactos saturados de $S$ ($\mathcal{Q}S$). Con estos dimos 
+Recordemos que para un espacio $S$, el espacio de parches se construye a través de sus abiertos y sus conjuntos compactos saturados. Así 
 \[
 \mbox{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, Q\in \mathcal{Q}S\}
 \]
-para obtener una familia $\cap-$cerrada de subconjuntos de $S$. Esta es la base para una nueva topología en $S$ y $\mathcal{O}^pS$ es el conjunto de uniones de todas las subfamilias de la pbase. Una construcción similar es la que nos permite obtener el marco de parches. \\
+Esta es la base para una nueva topología en $S$ y $\mathcal{O}^pS$ es el conjunto de uniones de todas las subfamilias de la pbase. Una construcción similar es la que nos permite obtener el marco de parches. \\
 
 Consideremos $A\in \Frm$ un marco arbitrario y $NA$ su ensamble. Sabemos que dentro de $NA$ podemos considerar las familias
 \[
 \{u_a\mid a\in A\}\quad\mbox{ y }\quad\{v_F\mid F\in A^\wedge\}.
 \]
-La primera es una copia isomorfa de $A$ en $NA$, lo cual es un análogo de $\mathcal{O}S$. Por el Teorema \ref{TeoremaHM}, la segunda es un análogo de $\mathcal{Q}S$.
+La primera es una copia isomorfa de $A$ en $NA$, la cual corresponderia a $\mathcal{O}S$. Por el Teorema \ref{HM extendido}, la segunda es un análogo de $\mathcal{Q}S$.
 
 \begin{dfn}\label{Definición7.1.1}
     Para $A\in\Frm$ definimos
@@ -432,7 +437,6 @@ donde $\iota$ es un encaje e $i$ es una inclusión. Está construcción nos llev
     \item ¿Puede $A\to PA$ ser un isomorfismo de manera no trivial?
     \item ¿Puede ocurrir $PA=NA$ de una manera no trivial?
     \item ¿Cuál es la relación, si la hay, entre la construcción sin puntos y la construcción sensible a puntos?
-
     \item ¿Qué es $\pt (PA)$? ¿Coinciden con $^p\pt A$?
 \end{enumerate}
 
@@ -464,7 +468,7 @@ Sabemos que $A\simeq NA$ ocurre cuando $A$ es booleano (lo cual provocaría que 
 
 \subsection{¿Es $P( \_ )$ un funtor?}
 
-En la subsección \ref{P. funtoriales spuntos} se discuten las propiedades funtoriales de la construcción de parches sensible a puntos. Allí se menciona que una función continua $\phi\colon T\to S$ es parche continua si la imagen inversa $\phi^{-1}$ envía conjuntos compactos saturados $Q\in \mathcal{Q}S$ a conjuntos compactos saturados $\phi^{-1}(Q)\in \mathcal{Q}T$ (ver Definición \ref{Parchecontinua}). La restricción de estás imágenes inversas producen un morfismo de marcos $\phi^*$ entre las topologías y estos tienen adjunto derecho $\phi_*$, es decir,
+En la subsección \ref{P. funtoriales spuntos} se discuten las propiedades funtoriales de la construcción del espacio de parches. Ahí se menciona que una función continua $\phi\colon T\to S$ es parche continua si la imagen inversa $\phi^{-1}$ envía conjuntos compactos saturados $Q\in \mathcal{Q}S$ a conjuntos compactos saturados $\phi^{-1}(Q)\in \mathcal{Q}T$ (ver Definición \ref{Parchecontinua}). La restricción de estás imágenes inversas producen un morfismo de marcos $\phi^*$ entre las topologías y estos tienen adjunto derecho $\phi_*$, es decir,
 \[\begin{tikzcd}
 	{\mathcal{O}S} & {\mathcal{O}T}
 	\arrow["{\phi^*}", shift left=2, from=1-1, to=1-2]
@@ -484,18 +488,11 @@ Por el Lema \ref{Pcontinua y Scontinua}, al ser $\phi_*$ una función Scott-cont
 	\arrow[from=2-2, to=2-3]
 \end{tikzcd}\]
 
-El objetivo de esta subsección es obtener un morfismo $Pf\colon PA\to PB$ entre los marcos de parches. Para que esto sea posible, necesitamos imponer algunas condiciones adicionales sobre $f$.\\
+El objetivo de esta subsección es obtener un morfismo $Pf\colon PA\to PB$ entre los marcos de parches.\\
 
-Para un filtro $F$ en $A$, la imagen $f(F)$ no necesariamente es un filtro en $B$, sino es la clausura de la sección superior $f(F)=\uparrow f(F)$. Sin embargo, cunado $F\in A^\wedge$ no necesita serlo.
+Para un filtro $F$ en $A$, la imagen $f(F)$ no necesariamente es un filtro en $B$, sino es la clausura de la sección superior $f(F)=\uparrow f(F)$. Sin embargo, cunado $F\in A^\wedge$ no necesita serlo.\\
 
-\begin{ej}\label{Ejemplo7.2.1}
-    Consideremos el intervalo real $B=[0,1]$ como un marco linealmente ordenado y sea $0< * < 1$ (por ejemplo, $*=1/2$), tomando $A=\{0, *, 1\}$ como un submarco y $f\colon A\to B$ la inclusión. Notemos que el filtro $F=\{*, 1\}$ es completamente primo, y por lo tanto, abierto. Además,la imagen $f(F)=[*, 1]$ no es abierto en $B$, pues 
-    \[
-    f(F)\ni \bigvee [0, *)\quad \mbox{ y }\quad[0, *)\cap f(F)=\emptyset.
-    \]
-\end{ej}
-
-En espacios, una función continua no debe respetar conjuntos compactos saturados. Necesitamos imponer una condición para lograr la funtorialidad. El ejemplo anterior nos dice que un morfismo de marcos no necesariamente debe respetar filtros abiertos, de manera similar al caso espacial, necesitamos imponer condiciones adicionales.\\
+Recordemos que en espacios, una función continua no necesariamente respeta conjuntos compactos saturados y de manera, se pide una condición para lograr la funtorialidad. Algo similar ocurre para los morfismos de marcos, no necesariamente deben respetar filtros abiertos.
 
 \begin{dfn}\label{Definicion7.2.2}
     Un morfismo de marcos $f\colon A\to B$ decimos que \emph{convierte filtros abiertos} si para cada $F\in A^\wedge$, la imagen $f(F)\in B^\wedge$.
@@ -503,9 +500,9 @@ En espacios, una función continua no debe respetar conjuntos compactos saturado
 
 La definición anterior proporciona la condición que queremos, pues recordemos que 
 \[
-N(u_a)=u_{f(a)},\quad N(v_a)=v_{f(a)},\quad N(v_F)=N(v_{f(F)}
+N(u_a)=u_{f(a)},\quad N(v_a)=v_{f(a)},\quad N(v_F)=N(v_{f(F)})
 \]
-para cada $a\in A$ y $F\in A^\wedge$. En particular, si $f$ convierte filtros abiertos se cumple que $F\in A^\wedge$ implica $f(F)\in B^\wedge$, por definición. En consecuencia, si $j\in \mbox{Pbase}(A)$ implica que $Nf(j)\in \mbox{Pbase}B$.\\
+para cada $a\in A$ y $F\in A^\wedge$. En particular, si $f$ convierte filtros abiertos se cumple que $F\in A^\wedge$ implica $f(F)\in B^\wedge$, por definición. En consecuencia, si $j\in \mbox{Pbase}(A)$ implica que $Nf(j)\in \mbox{Pbase}B$.
 
 \begin{lem}\label{Lema7.2.3}
     Sea $f\colon a\to B$ tal que convierte filtros abiertos. Entonces $j\in PA$ implica que $Nf(j)\in PB$ y por lo tanto, $P$ actúa funtorialmente sobre esta clase de flechas.
@@ -529,8 +526,8 @@ Requerimos descubrir cual es la relación que existe entre ambas construcciones 
 
 \begin{thm}\label{Teorema7.2.4}
     \begin{enumerate}
-        \item Para un morfimos de marcos como se menciona antes, si el adjunto derecho $f_*$ es Scott-continuo, entonces $f^*$ convierte filtros abiertos.
-        \item Para una función continua $\phi$ como se menciona antes, el adjunto derecho $\phi_*$ es Scott-continuo si y solo si $\phi^*$ convierte filtros abiertos.
+        \item Para un morfimos de marcos como el de antes, si el adjunto derecho $f_*$ es Scott-continuo, entonces $f^*$ convierte filtros abiertos.
+        \item Para una función continua $\phi$ como la de antes, el adjunto derecho $\phi_*$ es Scott-continuo si y solo si $\phi^*$ convierte filtros abiertos.
     \end{enumerate}
 \end{thm}
 
@@ -552,11 +549,13 @@ Requerimos descubrir cual es la relación que existe entre ambas construcciones 
     \end{enumerate}
 \end{proof}
 
-Consideremos una función continua como antes y supongamos que los espacios $S$ y $T$ son sobrios. Tenemos un morfismo de marcos asociado $\phi^*\mapsto \phi_*$ entre las topologías. Supongamos que el adjunto derecho $\phi_*$ es Scott-continuo. De esta manera $\phi$ convierte conjuntos compactos saturados, y por lo tanto es parche continuo. También, por el Teorema \ref{Teorema7.2.4} el morfismo $\phi^*$ convierte filtros abiertos. Con esto se obtiene un par de morfismos de marcos 
+Consideremos una función continua como antes y supongamos que los espacios $S$ y $T$ son sobrios. Tenemos un morfismo de marcos asociado $\phi^*\mapsto \phi_*$ 
+entre las topologías. Supongamos que el adjunto derecho $\phi_*$ es Scott-continuo. De esta manera $\phi$ convierte conjuntos compactos saturados, y por lo tanto 
+es parche continuo. También, por el Teorema \ref{Teorema7.2.4}, el morfismo $\phi^*$ convierte filtros abiertos. Con esto se obtiene un par de morfismos de marcos 
 \[
-P(\phi^*)\colon P\mathcal{O}S\to P\mathcal{O}T\quad \mbox{ y } \quad \phi^*\colon \mathcal{O}^PS\to \mathcal{O}^PT
+P(\phi^*)\colon P\mathcal{O}S\to P\mathcal{O}T\quad \mbox{ y } \quad \phi^*\colon \mathcal{O}^pS\to \mathcal{O}^pT
 \]
-relacionando las construcciones libre de puntos y sensible a puntos. Más adelante se verá de manera más amplia esta conexión.
+que relacionan a ambas construcciones de parches.
 
 \begin{thm}\label{Teorema7.2.5}
     Sea $A\in \Frm$ y $S=\pt A$. La reflexión espacial $U_A\colon A\to \mathcal{O}S$ convierte filtros abiertos, pero su adjunto derecho $U_A)_*$ no necesariamente es un morfismo continuo.
@@ -581,43 +580,8 @@ relacionando las construcciones libre de puntos y sensible a puntos. Más adelan
     
     Ahora $sp(a)=s(b)\in F$ y como $U(sp(x))=U(x)$ tenemos que $sp(x)\in X\Leftrightarrow x\in X$. Así $\bigvee X=a\in F$ y al ser $F$ un filtro abierto se cumple que $x\in X\cap F$. Por lo tanto $U(x)\in \mathcal{U}\cap \nabla$.\\
 
-    En el siguiente ejemplo se proporcionara un marco $A$ donde el adjunto derecho de $U_A$ no es continuo.
+   En \cite{R.S.} se puede consultar un ejemplo donde el adjunto derecho de $U_A$ no es continuo (Ejemplo 7.2.7).
 \end{proof}
-
-Necesitamos un marco no trivial sin puntos. Existen algunos marcos complicados de este tipo, pero aquí está una manera simple de producir uno.
-
-\begin{lem}\label{Lema7.2.6}
-    Sea $S$ cualquier espacio sobrio, $T_1$, sin puntos aislados. Sea $(\mathcal{O}S)_{\neg\neg}$ el álgebra booleana de conjuntos abiertos de $S$ (el cociente del marco $\mathcal{O}S$ bajo los núcleos dados por la doble negación). El marco $(\mathcal{O}S)_{\neg\neg}$ no tiene puntos.
-\end{lem}
-
-\begin{proof}
-    Veremos los puntos de $(\mathcal{O}S)_{\neg\neg}$ como caracteres, es decir,
-    \[\begin{tikzcd}
-	{(\mathcal{O}S)_{\neg\neg}} & {\mathbf{2}}
-	\arrow["p", from=1-1, to=1-2]
-\end{tikzcd}\]
-    y supongamos que existe tal punto (caracter) $p$. entonces podemos llevarlo de vuelta a un punto de $\mathcal{O}S$ por medio de 
-    \[\begin{tikzcd}
-	{\mathcal{O}S} & {(\mathcal{O}S)_{\neg\neg}} & {\mathbf{2}}
-	\arrow["{\neg\neg}", from=1-1, to=1-2]
-	\arrow["p", from=1-2, to=1-3]
-\end{tikzcd}\]
-
-Por lo tanto, para algún $p\in S$ se tiene que $\overline{p}'\in \pt(\mathcal{O}S$ y así $\neg\neg (\overline{p}')=\overline{\{({p}^\circ)\}}'$ es un punto de $(\mathcal{O}S)_{\neg\neg}$, pero $\{p\}^\circ=\emptyset$ al no tener $S$ puntos aislados y así $\neg\neg(\overline{p}'=S$ y $S$ no es irreducible en $(\mathcal{O}S)_{\neg\neg}$.
-\end{proof}
-
-Para el siguiente ejemplo se necesita un marco no trivial sin puntos. Para conseguir esto, aplicamos el lema anterior al espacio $S=\mathbb{R}$ con la topología métrica.
-
-\begin{ej}\label{Ejemplo7.2.7}
-    Sea $B$ un marco no trivial sin puntos. Agregamos una copia de $\mathbb{N}$ debajo de $B$, así tenemos una cola $X$ que consta de $\omega$ elementos. Lo anterior forma un marco que denotamos por $A$. 
-
-    \noindent
-    \emph{Afirmación:} Para el marco $A$ definido antes, $U_A$ no tiene adjunto derecho continuo.\\
-
-    Para mostrar esto, sea $sp$ el kernel del morfismo $U_A$. Notemos que $U(x)\subseteq U(a)\Leftrightarrow x\leq sp(a)$ para $x, a\in A$. El morfismo $sp$ lleva a cada elemento de $A$ al ínfimo (en $A$) de los puntos por encima de el.\\
-
-    Supongamos, por contradicción, que $U$ tiene adjunto derecho continuo. Entonce, su kernel $sp$ es continuo (ya que $sp$ es la composición de $U$ con su adjunto derecho). En otras palabras $sp(\bigvee X)=\bigvee sp(X)$ para cada subconjunto dirigido $X$ de $A$. De esta manera, consideremos la cola $X$ de $A$, entonces $\bigvee X=b$, donde $b$ es el menor elemento de $B$. Así, $sp(\bigvee X)=sp(b)=1$, pues no hay puntos en $A$ encima de $b$. Pero cada elemento de $X$ es un punto de $A$, por lo tanto $\bigvee sp(X)=\bigvee X=b$ lo cual es una contradicción.
-\end{ej}
 
 El Teorema \ref{Teorema7.2.5} tiene un lado positivo: nos permite llegar a $U_A$ con el funtor $P$ y así obtener un morfismo 
 \[\begin{tikzcd}
@@ -628,7 +592,7 @@ entre el marco de parches asociado.
 
 \subsection{El diagrama completo del marco de parches}
 
-Con toda la información recopilada hasta este momento podemos construir el siguiente diagrama.
+La información recopilada hasta este momento nos permite construir el siguiente diagrama.
 \[\begin{tikzcd}
 	A & PA & NA \\
 	{\mathcal{O}S} & {P\mathcal{O}S} & {N\mathcal{O}S} \\
@@ -649,10 +613,9 @@ El rectángulo superior de este diagrama se presenta en el Lema \ref{Lema7.2.3}.
 \[
 \mathcal{O}S\hookrightarrow \mathcal{O}^PS\hookrightarrow \mathcal{O}^fS
 \]
-es la relación que tiene una topología con las topologías de parches y Skulla. El morfismo $\sigma_S\colon N\mathcal{O}S\to \mathcal{o}^fS$ es el morfismo del espacio de puntos del ensamble a la topología de su espacio de puntos ($\pt N\mathcal{O}S=\mathcal{O}^fS$.\\
+es la relación que tiene una topología con las topologías de parches y Skulla. El morfismo $\sigma_S\colon N\mathcal{O}S\to \mathcal{O}^fS$ es el morfismo del espacio de puntos del ensamble a la topología de su espacio de puntos ($\pt N\mathcal{O}S=\mathcal{O}^fS$.\\
 
-La pregunta natural que surge es si existe un morfismo entre $P\mathcal{O}S$ y $\mathcal{O}^PS$ que haga que las celdas resultantes conmuten. La restricción de $\sigma_S$ a $P\mathcal{O}S$ es el morfismo que buscamos.
-
+Para completar el diagrama y conseguir que todas las partes conmuten necesitamos los siguientes resultados.
 \begin{lem}\label{Lema7.3.1}
     Sea $S$ un espacio con topología $\mathcal{O}S$. Para cada filtro $F$ en $\mathcal{O}S$ tenemos $Q$ con $F=\nabla(Q)$ y $\sigma(v_F)=Q'$ donde $Q$ es el correspondiente conjunto compacto saturado.
 \end{lem}
@@ -689,51 +652,38 @@ Lo anterior nos proporciona el diagrama completo del marco de parches.
 	\arrow[hook, from=3-2, to=3-3]
 \end{tikzcd}\]
 
-El morfismo de marco $\pi$ no necesariamente debe ser un isomorfismo aunque parece serlo en la mayoría de ejemplos naturales. Sin embargo, $\pi$ no es inyectivo para algunos de los ejemplos que se veran más adelante, \textbf{de hecho, si $S$ es empaquetado, entonces $^pS=P$ así}
+El morfismo de marco $\pi$ no necesariamente debe ser un isomorfismo. Notemos que si $S$ es empaquetado, entonces $^pS=P$ así las composición
 \[\begin{tikzcd}
 	{\mathcal{O}S} & {P\mathcal{O}S}
 	\arrow[shift left=2, from=1-1, to=1-2]
 	\arrow[shift left=2, from=1-2, to=1-1]
 \end{tikzcd}\]
-\textbf{se componen para dar la identidad en $\mathcal{O}S$. pero $\pi$ no necesita ser un isomorfismo.}
+dan la identidad en $\mathcal{O}S$, pero $\pi$ no necesita ser un isomorfismo.
 
 \section{Jerarquía de propiedades de separación}\label{Marcos arreglados}
 
 Como hemos visto en este capítulo, existen dos construcciones que tratan de imitar una propiedad similar a la que cumplen los espacios $T_2$, la construcción del espacio de parches y la del marco de parches (una sensible a puntos y la otra libre de puntos). La primera sirve para caracterizar a los espacios empaquetados. La segunda, como mostraremos más adelante, caracteriza a los espacios cuya topología cumple ser ``arreglada''. De manera similar a los espacios empaquetados, los marcos arreglados produce una propiedad de separación entre los axiomas $T_1$ y $T_2$.
 
 \subsection{Marco parche trivial}
-
-Recordemos que el espacio de parches produce una construcción en la cual todo conjunto compacto (en particular, saturado), resulta ser cerrado. Cuando comenzamos a trabajar con un espacio que es empaquetado, dicho construcción no hace nada. El objetivo principal de la construcción del marco de parches es mimetizar el comportamiento del espacio de parches, pero brindando una variante libre de puntos. La pregunta que podría surgir al plantearnos lo anterior es, ¿el marco de parche cumple con las expectativas?\\
-
-Sabemos que para $A\in \Frm$ podemos asignar de manera canónica a cada elemento $a\in A$ un elemento $u_a\in PA$. ¿Existe la posibilidad de que este sea un isomorfismo? Para ir avanzando en la respuesta de esto, se da la siguiente definición.
+Cuando se traslada una noción sensible a puntos a su variante libre de puntos, lo que se busca es que la nueva nueva 
+noción tenga un comportamiento parecido al de su variante espacial. En este caso, las propiedades que se busca imitar son las que 
+satisface el espacio de parches, de manera especifica 
+\[
+\mbox{Empaquetado} \Leftrightarrow S\,=\,^pS.
+\]
 
 \begin{dfn}\label{Parche trivial}
     Para $A\in \Frm$ decimos que este es \emph{parche trivial} si el encaje $\iota\colon A\to PA$ es un isomorfismo.
 \end{dfn}
-
-La teoría de marcos nos dice que un marco $A$ es isomorfo a su ensamble $NA$ siempre que $A$ es booleano. Lo anterior podría darnos una respuesta de cuando ocurre la trivialidad del parche, pero esto se puede mejorar de muy buena manera. Para hacer esto lo ideal sería dar respuesta a la siguiente pregunta: \textbf{¿Bajo que circunstancias es un marco $A$ parche trivial?}\\
-
-La prueba del Teorema \ref{Teorema7.1.4} da una idea de como con algunas condiciones particulares, algunos $j\in NA$ cumplen que $j=u_d$ donde $d=j(0)$. Para  restringirnos únicamente al marco $PA$ debemos observar que para algún $u\in A$ y cualquier $F\in A^\wedge$ se cumple que $u_d=v_F$. Lo anterior daría una condición necesaria y suficiente para obtener la trivialidad del parche. Antes de seguir analizando esta caracterización, tratemos de entender un poco sobre el comportamiento de ambas construcciones de parches.\\
-
-Para un espacio $S$ que es sobrio y empaquetado tenemos que $S$ es $T_1$. Además, por la relación 
-\[\begin{tikzcd}
-	{\mathcal{O}S} & {P\mathcal{O}S}
-	\arrow["\iota", shift left=2, from=1-1, to=1-2]
-	\arrow["{\pi_S}", shift left=2, from=1-2, to=1-1]
-\end{tikzcd}\]
-donde la composición $\pi_S\circ\iota$ da el morfismo identidad en $\mathcal{O}S$. Notemos que si $\iota\circ \pi_S$ resultara ser la identidad en $P\mathcal{O}S$ podríamos concluir que $\mathcal{O}S$ es parche trivial.
-
-\begin{ej}\label{Ejemplo8.1.3}
-    Existen espacios $S$ que son sobrios y empaquetados pero donde la topología $\mathcal{O}S$ no es parche trivial. Se verá una colección de estos ejemplos más adelante.
-\end{ej}
-
-El ejemplo anterior nos menciona parte de la relación que existe entre la noción parche trivial y algunos de los axiomas clásicos de separación. En otras palabras
+De esta manera la propiedad libre de puntos sería 
 \[
-T_1\nRightarrow \mbox{ Parche trivial} \quad \mbox{ y }\quad T_3\Rightarrow \mbox{ Parche trivial}.
+\mbox{Parche trivial}\Leftrightarrow A\simeq PA.
 \]
+La prueba del Teorema \ref{Teorema7.1.4} da una idea de como, con algunas condiciones particulares, algunos $j\in NA$ cumplen que $j=u_d$ donde $d=j(0)$. 
+Para restringirnos únicamente al marco $PA$ debemos observar que para algún $u\in A$ y cualquier $F\in A^\wedge$ se cumple que $u_d=v_F$. Lo anterior daría 
+una condición necesaria y suficiente para obtener la trivialidad del parche.\\
 
-El siguiente lema enriquece aun más la información espacial.
-
+Veamos como se comporta la trivialidad del parche con algunas propiedades espaciales.
 \begin{lem}\label{Lema8.1.4}
     Consideremos $S\in \Top$ si:
     \begin{enumerate}[a)]
@@ -750,23 +700,9 @@ El siguiente lema enriquece aun más la información espacial.
     \end{enumerate}
 \end{proof}
 
-Observemos que la parte $b)$ de la prueba anterior nos da un criterio un poco distinto para verificar la trivialidad del parche (cuando el marco en cuestión es la topología de un espacio). En este caso, basto verificar que los intervalos de admisibilidad son solo un punto, siempre que $F\in \mathcal{O}S^\wedge$. \\
+La parte $b)$ de la prueba anterior nos da un criterio un poco distinto para verificar la trivialidad del parche (cuando el marco en cuestión es la topología de un espacio). En este caso, basto verificar que los intervalos de admisibilidad son solo un punto, siempre que $F\in \mathcal{O}S^\wedge$. \\
 
 Ambos ejemplos proporcionan una condición necesaria, pero no suficiente. Existen espacios $T_2$ y espacios $T_1+$sobrios que no son parche trivial.
-
-
-
-\begin{ej}\label{Ejemplo8.1.5}
-    \begin{enumerate}[a)]
-        \item La topología subregular sobre los números reales que se discutirá más adelante (\textbf{Citar ejemplo cuando ya sea escrito)} es un espacio $T_2$ (por lo tanto, empaquetado y sobrio), el cual no es ajustado. En particular, a condición
-        \[
-        T_0+\mbox{ Ajustado }+ \mbox{ empaquetado}
-        \]
-        no es necesaria para lograr una topología parche trivial.
-
-        \item La topología máxima compacta es un es un espacio $T_0$, empaquetado, ajustado y compacto pero no es $T_2$. En particular, $T_2$ no es necesario para asegurar un topología parche trivial.
-    \end{enumerate}
-\end{ej}
 
 \subsection{Marcos arreglados}
 
@@ -1487,176 +1423,14 @@ Es posible que sea así, pero aun no se ha encontrado una prueba o contraejemplo
 
 \section{Ejemplos}\label{Ejemplos Rosy}
 
-En las siguientes secciones se reúnen varios ejemplos que han llevado a comprender de mejor manera las construcciones de parches. 
+En esta sección se presenta un resumen de los diferentes ejemplos que incluye Sexton en \cite{R.S.} así como el objetivo de cada uno de estos.
 
-\subsection{La topología cofinita y conumerable}
+\subsection{La topología cofinita y la topología conumerable}
 
-Como lo anuncia el titulo de la subsección, lo primero que haremos es trabajar con espacios dotados de la topología cofinita y conumerable.
+\subsection{La topología subregular de $\mathbb{R}$}
 
-\begin{dfn}\label{Coficonu}
-    \begin{enumerate}[a)]
-        \item Sea $S$ un conjunto infinito. La topología cofinita en $S$ es la siguiente:
-        \[
-        \mathcal{O}S=\{\emptyset\}\cup\{U\subseteq S\mid U' \mbox{ es finito}\}.
-        \]
-        \item Sea $S$ un conjunto no numerable. La topología conumerable en $S$ es la siguiente:
-        \[
-        \mathcal{O}S=\{\emptyset\}\cup\{U\subseteq S\mid U' \mbox{ es numerable}\}.
-        \]
-    \end{enumerate}
-\end{dfn}
+\subsection{La topología máxima compacta}
 
-Los espacios topológicos anteriores cumplen que
-\begin{itemize}
-    \item Si $U, V\in \mathcal{O}S$, con $U, V\neq \emptyset$, entonces $U\cap V\neq \emptyset$.
-    \item Si $U\subseteq V$, con $U\in \mathcal{O}S$, entonces $V\in \mathcal{O}S$.
-\end{itemize}
-En otras palabras, la topología cofinita y conumerable, sin considerar al conjunto vacío, definen un par de filtros en $S$. De esta manera incluimos la notación
-\[
-\mathcal{O}S=\{\emptyset\}\cup \mathcal{F}S
-\]
-donde $\mathcal{F}S$ es el filtro correspondiente a la topología cofinita y conumerable, respectivamente. Es decir,
-\[
-\mbox{a) }\mathcal{F}S=\mathcal{P}_{\mbox{cof}}S\quad\mbox{ y }\quad\mbox{b) }\mathcal{F}S=\mathcal{P}_{\mbox{con}}S.
-\]
+\subsection{Una construcción de pegado}
 
-Cuando sea necesario, haremos la diferencia entre las distintas construcciones que vayamos haciendo para cada uno de los espacios topológicos. Comenzaremos con las propiedades sensibles a los puntos.\\
-
-Ambos espacios son $T_1$ (los conjuntos formados por un punto son cerrados). Además al ser $\mathcal{F}S$ un filtro, se cumple que $S$ es un conjunto cerrado irreducible, pero por definición, $S$ no es unipuntual. En otras palabras, estos espacios no son sobrios.
-
-\begin{lem}\label{Lema10.1.2}
-    Consideremos los espacios dados en la Definición \ref{Coficonu}. En cada caso, si $X\subsetneq S$, entonces $X=\{x\}$, para $x\in S$. 
-\end{lem}
-
-\begin{proof}
-    Sea $X$ un subconjunto cerrado irreducible con $X\neq S$, en particular, $X\neq \emptyset$ (por definición de irreducibilidad). Por contradicción, supongamos que $X$ esta conformado por al menos dos elementos, digamos $x, y$. Como $X$ es cerrado, los conjuntos
-    \[
-    U_x=X'\cup \{x\}\quad\mbox{ y }\quad U_y=X'\cup \{y\}
-    \]
-    son abiertos, pues $X'\subseteq U_x, U_y$ y $\mathcal{F}S$ es un filtro.\\
-
-    Notemos que $U_x\cap X\neq \emptyset \neq U_y\cap X$ y al ser $X$ irreducible, $U_x\cap U_y\cap X\neq \emptyset$, pero $U_x\cap U_y=X'$ y esto daría una contradicción. Por lo tanto, $X$ debe estar conformado por un único punto.
-\end{proof}
-
-Con esto, los dos espacios mencionados ``casi'' son sobrios. Unicamente necesitamos reparar el defecto para el cerrado $S$. Para ello hacemos lo siguiente.
-
-\begin{dfn}\label{Definición10.1.3}
-    Sea $S$ cualquiera de los espacios de la Definición \ref{Coficonu}. Consideremos $^+S=S\cup \{\omega\}$, donde $\omega$ es un nuevo punto. De manera similar, sea $^+E=E\cup \{w\}$ para cada $E\subseteq S$. De esta manera
-    \[
-    ^+\mathcal{F}S=\{^+U\mid U\mid \mathcal{F}S\}\quad \mbox{ y }\quad \mathcal{O}^+S=\{\emptyset\}\cup \,^+\mathcal{F}S
-    \]
-    producen un filtro y una topología en $^+S$.
-\end{dfn}
-
-Se puede verificar que $\mathcal{O}^+S$ es una topología en $^+S$ y que $S$ es un subespacio de $^+S$. De hecho, se tiene más información.
-
-\begin{lem}\label{Lema10.1.4}
-    En  los espacios $S$ de la Definición \ref{Coficonu}, la inclusión $\iota\colon S\to \,^+S$ es la reflexión sobria de $S$.
-\end{lem}
-
-\begin{proof}
-    Suponiendo que $\mathcal{O}^+S$ es una topología en $^+S$ (no es complicado verificarlo), solo debemos probar que $^+S$ es un espacio sobrio.\\
-
-    Para todo $^+U\in \mathcal{O}^+S$, con $^+U\neq \emptyset$, se cumple que $^+U=U\cup \{\omega\}$. Además,
-    \[
-    (^+U)'=(U\cup \{\omega\})'=U'\cap \{\omega\}',
-    \]
-    es decir, el único cerrado que contiene a $\{\omega\}$ es $^+S$. De aquí que $\overline{\{\omega\}}=\,^+S$.\\
-
-    Consideremos $X\subsetneq \,^+S$ un cerrado irreducible. Supongamos que $X=\{x, y\}$, entonces
-    \[
-    ^+U_x=X'\cup \{x\}\quad\mbox{ y }\quad ^+U_y=X'\cup \{y\}.
-    \]
-    Además, $^+U_x\cap X\,\neq \emptyset\neq\, ^+U_y\cap X$, pero $^+U_x\cap\, ^+U_y\cap X=\emptyset$, lo cual es una contradicción.\\
-
-    Por lo tanto, todos los conjuntos cerrados irreducibles son un único punto, es decir, $^+S$ es sobrio.
-\end{proof}
-
-La topología de un espacio y su reflexión sobria son canónicamente isomorfos. En estos casos vemos que para $W\in \mathcal{F}S$
-\[
-\begin{split}
-    \mathcal{O}S\,& \to \mathcal{O}^+S\\
-    W\,&\mapsto\, ^+W\\
-    \emptyset\,& \mapsto\,^+\emptyset
-\end{split}
-\]
-es el isomorfismo.\\
-
-Ahora vamos a construir la topología de Skulla.
-
-\begin{lem}\label{Lema10.1.5}
-    Para cada espacio de la Definición \ref{Coficonu} tenemos 
-    \[
-    \mathcal{O}^{f+}S=\mathcal{P}S\,\cup \,^+\mathcal{F}S,
-    \]
-    es decir, cada subconjunto abierto de Skulla de $^+S$ es un subconjunto de $S$ o de $^+\mathcal{F}S$.
-\end{lem}
-
-\begin{proof}
-    La topología de Skulla tiene como base a los subconjuntos de la forma $U\cap X$ para $U\in \mathcal{O}S$ y $X\in \mathcal{C}S$. Como cada $s\in S$ es un conjunto cerrado de $^+S$. Además, si $^+U\in \mathcal{O}^+S$, entonces $^+U\in \mathcal{O}^{f+}S$. Por lo tanto 
-    \[
-    \mathcal{P}S\,\cup\,\mathcal{F}S\,\cup \,\mathcal{O^{f+}S}
-    \]
-    y así solo resta probar la otra contención.\\
-
-    Consideremos cualquier conjunto abierto básico $U\cap X$ de $^{f+}S$. Si $U=\emptyset$, entonces $U\cap X=\emptyset\subseteq S$. De lo contrario, $U=\,^+F$ para algún $F\in \mathcal{F}S$.\\
-    
-    Si $X'\in \mathcal{F}S$, entonces $U\cap X\subseteq S$, de lo contrario $X=\,^+S$ y entonces $U\cap X=\,^+F\in\, ^+\mathcal{F}S$.
-\end{proof}
-
-Con esto tenemos la forma de dos de las construcciones presentadas en este capitulo (la reflexión sobria y la topología de Skulla). La otra construcción espacial que abordamos en este capítulo fue el espacio de parches.\\
-
-La principal diferencia entre la topología cofinita y la conumerable (y la razón por la que se encuentra a la topología numerable más útil para nuestros propósitos), radica en los conjuntos compactos saturados. Sabemos que ambos espacios son $T_1$, por lo que cada subconjunto es saturado. Sin embargo, los conjuntos compactos son muy diferentes.
-
-\begin{lem}\label{Lema10.1.6}
-    \begin{enumerate}[a)]
-        \item Para el espacio cofinito tenemos que $\mathcal{Q}S=\mathcal{P}S$.
-        \item Para el espacio conumerable tenemos que $\mathcal{Q}S=\mathcal{P}_{\mbox{fin}}S$ y esta es la colección de subconjuntos finitos.
-    \end{enumerate}
-\end{lem}
-
-\begin{proof}
-    \begin{enumerate}[a)]
-        \item Sea $Q$ cualquier subconjunto no vacío y sea $\mathcal{U}$ cualquier cubierta abierta de $Q$. Como $Q\neq \emptyset$, existe al menos un $U\in \mathcal{U}$ no vacío. Luego $Q\setminus U$ es finito por lo que puede cubrirse por un número finito de elementos de $\mathcal{U}$. Al ser $Q$ arbitrario podemos decir que $\mathcal{Q}S=\mathcal{P}S$.
-
-        \item Consideremos cualquier $Q\in \mathcal{Q}S$ y, a manera de contradicción, supongamos que $Q$ es infinito. Sea $X$ cualquier subconjunto infinito numerable de $Q$. Notemos que $X'$ es abierto. Para cada $y\in Q$, sea $U_y=X'\cup \{y\}$ para obtener un conjunto abierto. Entonces $\mathcal{U}=\{U_y\mid y\in Q\}$ cubre a $Q$ y por la compacidad 
-        \[
-        Q\subseteq U_{y_1}\cup \ldots \cup U_{y_n}=X'\cup \{y_1,\ldots , y_n\}
-        \]
-        para algunos $y_1, \ldots , y_n\in Q$. Así $X=Q\cap X\subseteq \{y_1,\ldots , y_n\}$, lo cual es una contradicción ya que $X$ es infinito.
-    \end{enumerate}
-\end{proof}
-
-Con este resultado podemos describir la topología de parches tanto para $S$ como para $^+S$. Para hacer esto introducimos algo de notación.
-
-\begin{dfn}\label{Definicion10.1.7}
-    Para los espacios de la Definición \ref{Coficonu}, sea $GS$ la colección de todos los subconjuntos $U\cap (S\setminus H)$ para $U\in \mathcal{F}S$ y $H\in \mathcal{Q}S$. 
-\end{dfn}
-
-La colección $GS$ es un filtro en $S$. De hecho se tiene que 
-\[
-\mbox{a) }GS=\mathcal{P}S\quad \mbox{y}\quad \mbox{b) }GS=\mathcal{P}_{\mbox{con}}S=\mathcal{F}S,
-\]
-para ambos casos.\\
-
-Usando esta notación tenemos lo siguiente.
-
-\begin{thm}\label{Teorema10.1.8}
-    Para cada uno de los espacios $S$ de la Definición \ref{Coficonu}, tenemos
-    \[
-    \mathcal{O}^pS=\{\emptyset\}\cup GS\quad \mbox{ y }\mathcal{O}^{p+}S=\{\emptyset\}\cup \,^+\mathcal{F}S\,\cup GS,
-    \]
-    donde $GS$ es como en la Definición \ref{Definicion10.1.7}.
-\end{thm}
-
-\begin{proof}
-    La topología en $^pS$ es generada por los conjuntos $U\cap Q'$ para $U\in \mathcal{O}S$ y $Q\in \mathcal{Q}S$, pero esta familia es generada solo por $\{\emptyset\}\cup GS$, la cual es una topología.\\
-
-    Para la descripción de $\mathcal{O}^{p+}S$ se verifican varias inclusiones. Las inclusiones
-    \[
-    \{\emptyset\}\,\cup\, ^+\mathcal{F}S\subseteq\mathcal{O}^+S\subseteq\mathcal{O}^{p+}S
-    \]
-    son inmediatas.\\
-
-    Consideremos cualquier $Q\in \mathcal{Q}^+S$ no vacío. El orden de especialización de $^+S$ es el conjunto discreto $S$ con el punto $\omega$ en la parte superior. Así, $Q=\{\omega\}\cup H$ para algún $H\subseteq S$. 
-\end{proof}
+\subsection{La topología lider para árboles}
