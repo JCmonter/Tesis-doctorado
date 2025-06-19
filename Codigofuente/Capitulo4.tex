@@ -1,5 +1,9 @@
 \chapter{Marcos arreglados vs Axiomas tipo Hausdorff}\label{Relación MA y AH}
 
+Queremos hacer notar que tanto en este capítulo como en el Capitulo \ref{MarcosKC} se recopilan los resultados obtenidos hasta este momento de la investigación. En caso de que en estos se incluya 
+algún resultado que no es de nuestra autoría, entonces únicamente haremos referencia de donde puede ser encontrada su respectiva demostración. Esto lo hacemos con la finalidad de poder distinguir 
+cuales si son de nosotros y cuales no.\\
+
 Notemos que la Definición \ref{Definición8.2.1} identifica a un tipo especifico de marcos. El Teorema \ref{Teorema8.4.4} caracteriza a los marcos arreglados por medio de una condición especial, de manera especifica con el axioma de separación $T_2$.
 Con esto en mente, resulta natural el preguntarse: \emph{¿se pueden enunciar caracterizaciones para los marcos arreglados que sean meramente de marcos?}, es decir, que no se haga mención a la topología de un espacio. Un ejemplo no tan exitoso de lo que 
 que acabamos de preguntar lo tenemos en el siguiente resultado.
@@ -9,12 +13,12 @@ Para $A$ un marco espacial se cumple lo siguiente: $\mathcal{O}S$ es un marco Ha
 \end{cor}
 
 \begin{proof}
-Se sigue del hecho de que la propiedad $\mathbf{(H)}$ es conservativa.\\
+Se sigue del Teorema \ref{Teorema8.4.4} y del hecho de que la propiedad $\mathbf{(H)}$ es conservativa.
 \end{proof}
 
-De esta manera, hemos relacionado la condición de arreglo con uno de los axiomas de separación. Veamos cual es la relación de esta con las otras propiedades.\\
+De esta manera, hemos relacionado la condición de arreglo con uno de los axiomas de separación libres de puntos. Veamos cual es la relación de esta noción con las otras propiedades.\\
 
-\section{Arreglado y su relación con los propiedades en $\Frm$}
+\section{Arreglado y su relación con las propiedades en $\Frm$}
 
 El Lema \ref{Lema8.4.1} nos dice que arreglado implica $T_1$. ¿Qué pasa con las propiedades más fuertes que $T_1$?
 
@@ -36,19 +40,36 @@ Resulta natural el pensar que la propiedad $\mathbf{(H)}$ este metida entre ella
 \mbox{\emph{Todo marco Hausdorff es arreglado.}}
 \]
 
-Aunque no lo menciona, Sexton prueba en su tesis doctoral que si un marco es regular, entonces este es parche trivial. Además, tenemos que parche trivial si y solo si arreglado. Por lo tanto
+\begin{obs}\label{Relacion arreglado}
+Sexton prueba en su tesis doctoral que si un marco es regular, entonces este es parche trivial (ver Teorema \ref{Teorema7.1.4}). Además, tenemos que parche trivial si y solo si arreglado. Por lo tanto
 \[
 \mathbf{(reg)}\Rightarrow \mbox{ Arreglado.}
 \] 
-Por otro lado, Simmons en su artículo \cite{H.S.R}, prueba que 
+Por otro lado, Simmons en su artículo \cite{H.S.R} (ver Teorema \ref{Teorema5.5.10}), aunque ni el ni Sexton lo mencionan, prueba que 
 \[
 \mathbf{(aju)}\Rightarrow \mbox{ Arreglado.}
 \]
+\end{obs}
 
 Las pruebas que ellos realizan nos llevan a pensar que existe cierto comportamiento en algo que nosotros llamamos \emph{intervalos de admisibilidad}. Este tema los trataremos más adelante.\\
 
 Por el momento, solo podemos suponer que alguna relación debe existir entre la propiedad $\mathbf{(H)}$ y la condición de arreglo. Hasta que no tengamos una prueba exitosa de este hecho (porque vaya que lo hemos intentado) o exista un ejemplo que exhiba información relevante,
 lo anterior seguirá siendo una duda.\\
+
+De esta manera, el siguiente diagrama reune la información proporcinada por el Lema \ref{TadyFHausdorff}, la Observación \ref{Relacion arreglado} y la pregunta abierta que aun existe sobre la relación que podria proporcionar la propiedad $\mathbf{(H)}$.
+\[\begin{tikzcd}
+	{\mathbf{(aju)}} \\
+	{\mathbf{(reg)}} && {\mbox{Arreglado}} \\
+	{\mathbf{(fH)}} \\
+	{\mathbf{(H)}}
+	\arrow[Rightarrow, from=1-1, to=2-3]
+	\arrow[Rightarrow, from=2-1, to=1-1]
+	\arrow[Rightarrow, from=2-1, to=2-3]
+	\arrow[Rightarrow, from=2-1, to=3-1]
+	\arrow[Rightarrow, from=3-1, to=2-3]
+	\arrow[Rightarrow, from=3-1, to=4-1]
+	\arrow["{?}"', Rightarrow, from=4-1, to=2-3]
+\end{tikzcd}\]
 
 Lo que sigue ahora es analizar el comportamiento del marco $PA$ (el marco de parches de un marco $A$), con los axiomas de separación
 
@@ -89,7 +110,7 @@ Así, obtenemos un intervalo en $N\mathcal{O}S$ y el subíndice $Q$ solo indica 
     \[
     \nabla(U_* j U^*)=F.
     \]
-    En otras palabras, $U_*jU^*\in [V_F,W_F]$, donde $U^*$ es la reflexión espacial y $U_*$ es su adjunto derecho.
+    En otras palabras, $U_*jU^*\in [V_F,W_F]$, donde $U^*$ es el morfismo reflexión espacial y $U_*$ es su adjunto derecho.
 \end{prop}
 
 \begin{proof}
@@ -146,10 +167,11 @@ v_Q\leq [Q']\leq w_Q=[M']
 donde $M=\{m\in \mathcal{O}S\setminus \nabla(Q)\mid a\leq m\neq S\}$ y $a\in \mathcal{O}S\setminus \nabla(Q)$. De está manera, al evaluar a $[Q']$ en la función $\mho$, obtenemos
 un elemento en $NA$, en este caso la pregunta es, ¿cómo es este elemento?, es decir, ¿cúal es el comportamiendo de $U_*[Q']U^*$ dentro del intervalo $[V_F, W_F]$?\\
 
-Notemos que si $U_*[Q']U^*$ es un $u$-núcleo, recuperamos una condición similar a la que proporciona la Definición \ref{Definición8.2.1}. Además, si esto ocurre, ¿bajo que circunstancias 
+Si $U_*[Q']U^*$ es un $u$-núcleo, recuperamos una condición similar a la que proporciona la Definición \ref{Definición8.2.1}. Además, si esto ocurre, ¿bajo que circunstancias 
 sucede?. La tarea ahora será responder esto.\\
 
 Si empezamos con un espacio Huasdorff, entonces tenemos que... (falta escribir bien está parte).
+\subsection{Condiciones de colapso}\label{Intervalos colapsados}
 
 \section{El $Q$-cuadrado}\label{Qcuadrado}
 
@@ -171,9 +193,9 @@ y por $\mathcal{O}S_\nabla$ al cociente $\mathcal{O}S_{v_\nabla}$. Con todo lo a
 \]
 El diagrama anterior es presentado por Simmons en \cite{H.S.V}. Nosotros lo llamamos el \emph{$Q$-cuadrado}.\\
 
-Recordemos que los núcleos $v_F$ y $v_\nabla$ son las cerraduras idempotentes de sus prenúcleos correspondientes (ver Definición \ref{Definición8.2.1}). Así, $v_F$ y $v_\nabla$ son mapeos de $A$ en $A$ y de $\mathcal{O}S$ en $\mathcal{O}S$, respectivamente.\\
+Recordemos que $v_F$ y $v_\nabla$ son las cerraduras idempotentes de sus prenúcleos correspondientes (ver Definición \ref{Definición8.2.1}). Así, $v_F$ y $v_\nabla$ son mapeos de $A$ en $A$ y de $\mathcal{O}S$ en $\mathcal{O}S$, respectivamente.\\
 
-De esta manera, tenemos el siguiente cuadrado, que en \cite{H.S.V} prueban que el diagrama
+De esta manera, tenemos el siguiente diagrama
 \[\begin{tikzcd}
 	A & A \\
 	{\mathcal{O}S} & {\mathcal{O}S}
@@ -182,7 +204,7 @@ De esta manera, tenemos el siguiente cuadrado, que en \cite{H.S.V} prueban que e
 	\arrow["{U_A}", from=1-2, to=2-2]
 	\arrow["{F^\infty}"', from=2-1, to=2-2]
 \end{tikzcd}\]
-conmuta laxamente, es decir, $U_A\circ f^\infty\leq F^\infty \circ U_A$.\\
+En \cite{H.S.V} prueban que el cuadrado anterior conmuta laxamente, es decir, $U_A\circ f^\infty\leq F^\infty \circ U_A$.\\
 
 En este diagrama $U_A$ es el morfismo reflexión espacial, $f^\infty$ y $F^\infty$ representan los núcleos asociados a los filtros $F\in A^\wedge$ y $\nabla\in \mathcal{O}S^\wedge$.\\
 
@@ -273,7 +295,7 @@ Aquí, $A_F$ y $A_{j_*F}$ los cocientes producidos por $v_F$ y $v_{j_*F}$, respe
 
 Consideremos $h\colon A_{j_*F}\to A_j$ tal que, para $x\in A_{j_*F}$, $h(x)=H(x)$. Por lo tanto, si $h=H_{\mid{A_{j_*F}}}$, entonces el diagrama anterior conmuta.\\
 
-Necesitamos que $h$ sea un morfismo de marcos. Primero, por la definición de $h$, este es un $\wedge$-morphism. Resta ver que $h$ es un $\bigvee$-morfismo.\\
+Necesitamos que $h$ sea un morfismo de marcos. Primero, por la definición de $h$, este es un $\wedge$-morfismo. Resta ver que $h$ es un $\bigvee$-morfismo.\\
 
 Los supremos en $A_{j_*F}$ y $A_F$ son calculados de manera diferente. Por ello, consideremos $\hat{\bigvee}$ por el supremo en $A_{j_*F}$ y por $\tilde{\bigvee}$ el supremo en $A_F$. Por lo tanto
 \[
@@ -284,7 +306,7 @@ es decir, para $X\subseteq A$, $Y\subseteq A_j$,
 	\hat{\bigvee}X=v_{j_*F}(\bigvee X)\quad\mbox{ y }\quad \tilde{\bigvee}Y=v_{F}(\bigvee Y).
 \]
 
-Ya que $H$ es un morfismo de marcos, $H\circ \bigvee=\tilde{\bigvee}\circ H$. Esto establece algo similar para $h$.
+Ya que $H$ es un morfismo de marcos, $H\circ \bigvee=\tilde{\bigvee}\circ H$. Esto establece algo similar para $h$:
 
 \begin{lem}\label{bigvee g}
 $h\circ \hat{\bigvee}=\tilde{\bigvee}\circ h$.
