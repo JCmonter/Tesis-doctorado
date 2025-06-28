@@ -110,10 +110,6 @@ La relación que existe entre los morfismos de marcos y el adjunto de un morfism
 Todo morfismo de marcos tiene adjunto derecho
 \end{prop}
 
-\begin{proof}
-Sea $f\colon A\rightarrow B$ un morfismo de marcos, definimos $f_{*}\colon B\to A$ como $f_{*}(b)=\bigvee\{a\in A\mid f(a)\leq b\}$, con esta definición es inmediato que $f(a)\leq b\Rightarrow a\leq f_{*}(b)$ para cualesquiera $a\in A$ y $b\in B$. Ahora, si $a\leq f_{*}(b)=\bigvee \{a\in A\mid f(a)\leq b\}$ al aplicar $f$, como este es un morfismo de marcos y respeta supremos arbitrarios, nos queda que $f(a)\leq f_{*}(b)=\bigvee \{f(a)|a\in A, f(a)\leq b\}\leq b$. Por lo tanto, $f\dashv f_{*}$.
-\end{proof}
-
 Podemos construir la categoría opuesta a $\Frm$, esta recibe el nombre de \emph{categoría de locales}. Por la Proposición \ref{Adjuntoder} tenemos que para cualesquiera $A, B\in \Frm$, si
 \[
 f\colon A\rightarrow B \Longrightarrow f_*\colon B\rightarrow A
@@ -124,7 +120,7 @@ f\colon B\rightarrow A
 \]
 tales que $f$ preserva los ínfimos y sus adjuntos izquierdos ($f^*$), son un morfismo de marcos. Así, invirtiendo la composición de los morfismos de marcos obtenemos la categoría $\Loc=\Frm^{\op}$.\\
 
-Recordemos que existe una adjunción entre $\Frm$ y $\Top$ (la categoría de espacios topológicos)
+Existe una adjunción entre $\Frm$ y $\Top$ (la categoría de espacios topológicos)
 
 \[\begin{tikzcd}
 	{\Top} \\
@@ -188,7 +184,7 @@ se cumplen para todo $a, b\in A$ y $X\subseteq A$. Con lo mencionado antes tenem
     \end{equation}
     es un morfismo suprayectivo de marcos.
 \end{lem}
-El morfismo presentado en (\ref{MorfismoRE}) es conocido como la \emph{reflexión espacial} y al conjunto $\mathcal{O}S$ se le conoce como \emph{el marco de abiertos}.\\
+El morfismo presentado en (\ref{MorfismoRE}) es conocido como la \emph{reflexión espacial} y al conjunto $\mathcal{O}S$ es \emph{el marco de abiertos}.\\
 
 Para agregar información adicional con respecto al espacio de puntos, enunciamos este último lema.
 
@@ -343,6 +339,7 @@ Sea $A\in \Frm$ y $j\colon A\to A$. $A_j$ es el \emph{conjunto de puntos fijos} 
 \section{El ensamble de un marco}
 Si $A$ es un marco, podemos definir operadores $j\colon A\to A$ y al solicitarles algunas condiciones especificas, estos pueden permitirnos construir nuevos marcos.
 Los detalles de esta sección pueden consultarse en \cite{J.M.}, \cite{A.Z.} o en el compendio de notas sobre toería de marcos de Simmons (ver \cite{H.S.}).
+
 \subsection{Operadores en $A$}
 \begin{dfn}\label{Operadores}
 Sea $A\in\Frm$. Decimos que:
@@ -419,7 +416,7 @@ w_{(b\succ a)}=v_b\vee w_a
 para cada $a,b\in A$.
 \end{lem}
 
-Haciendo uso de las definiciones presentadas en la Subsección \ref{E. algebraico} podemos enunciar el siguiente resultado. 
+Con las definiciones presentadas en la Subsección \ref{E. algebraico} podemos enunciar el siguiente resultado. 
 
 \begin{lem}
 Para cualesquiera $A\in\Frm$ y $j\in CA$, $A_j$ es un conjunto implicativo si y solo si $j\in NA$. Además, si $j\in NA$, $A_j$ es un marco y $j^*:A\to A_j$, $j^*(x)=j(x)$ es un morfismo de marcos.
@@ -452,47 +449,9 @@ $PA$ denotará al conjunto de todos los prenúcleos sobre $A$.
 \end{enumerate}
 \end{dfn}
 
-\begin{obs}
-\noindent
-\begin{enumerate}
-\item Todo prenúcleo es un operador estable.
-\item Si una derivada es estable e idempotente, entonces es un núcleo.
-\item Los operadores $\id, \tp\in DA$. Donde $\tp(x)=1$ para todo $x\in A$ e $\id$ es el operador identidad.
-\end{enumerate}
-Así para cualquier $A\in \Frm$ tenemos está nueva relación entre los operadores definidos hasta este momento $$NA\subseteq PA\subseteq SA\subseteq DA.$$
-\end{obs}
-
-\begin{dfn}\label{OrdenDA}
-Sea $A\in \Frm$ definimos un orden para los elementos de $DA$ de la siguiente manera
-$$j\leq k\Leftrightarrow j(a)\leq k(a), \mbox{ para cualquier }j,k\in DA\mbox{  y  }\forall a\in A.$$
-\end{dfn}
-
-\begin{dfn}\label{InfSupPuntual}
-Sea $A\in \Frm$. Para cada $F\subseteq DA$ definimos
-\begin{enumerate}
-\item El \emph{ínfimo puntual} como $\bigwedge F:A\to A$,
-$$(\bigwedge F)(x)=\bigwedge\{f(x)|x\in X\}.$$
-\item El \emph{supremo puntual} como $\dot{\bigvee} F:A\to A$,
-$$(\dot{\bigvee} F)(x)=\bigvee\{f(x)|x\in X\}.$$
-\end{enumerate}
-\end{dfn}
-
-\begin{obs}
-\noindent
-\begin{enumerate}
-\item $CA$, $NA$, $PA$, $SA$, al ser subconjuntos de $DA$, podemos dotarlos del mismo orden presentado en la Definición \ref{OrdenDA} para sus elementos, es decir, junto con $DA$ son conjuntos parcialmente ordenados. De manera particular los operadores $\id$ y $\tp$ son los elementos distinguidos 0 y 1 respectivamente en estos conjuntos ordenados.
-\item $DA$, $SA$, $PA$, $CA$ y $NA$ son cerrados bajo ínfimos puntuales. Además, $SA$ y $DA$ son cerrados bajo supremos puntuales.
-\item $SA$ es un marco. En consecuencia $(f\succ g)\in SA$, con $f,g\in SA$.  
-\end{enumerate}
-\end{obs}
-
-En otras palabras la observación anterior nos dice que podemos dotar de una estructura de retícula completa a los operadores derivada y a los operadores estables. Además, podemos definir la implicación sobre $SA$. En consecuencia $SA$ es un marco, sin embargo, ¿esta implicación sólo se puede calcular en $SA$? La respuesta la encontramos en el siguiente lema.
-
-\begin{lem}\label{MarcoNA}
-Sean $A\in \Frm$, $f\in SA$ y $k\in NA$, entonces $(f\succ k)\in NA$. Donde la implicación es la que existe en $SA$.
-\end{lem}
-
-Observemos que hemos dotado al conjunto $NA$ de una implicación. De esta manera, lo dicho en el Lema \ref{MarcoNA} y por el comentario del párrafo anterior tenemos un esbozo de la demostración de un teorema importante de la teoría de marcos.
+Se puede dotar de un orden parcial al conjunto $DA$ dado por el orden puntual. Este orden es heredado por los distintos operadores que hemos definido 
+hasta el momento. Con lo anterior, podemos darle estructura de retícula y bajo ciertas condicones, se prueba que el conjunto $NA$ es un marco. Esto da pie 
+a uno de los resultados más importantes de la teoría de marcos.
 
 \begin{thm}[Teorema fundamental de la teoría de marcos]\label{TeoEnsamble}
 Sea $A\in \Frm$, entonces $NA$ es un marco.
@@ -647,21 +606,6 @@ j=\bigvee\{u_{j(a)}\wedge v_a\mid a\in A\}.
     Para cada $A\in \Frm$ y morfismos de marcos $g, h\colon NA\to B$, si $g\circ \eta_A=h\circ \eta_A$, entonces $g=h$. En otras palabras, $\eta_A$ es un epimorfismo.
 \end{lem}
 
-\begin{proof}
-    Consideremos los morfismos $g, h$ tales que $g\circ \eta_A=h\circ \eta_A$. De esta manera $g(u_a)=h(u_a)$ para todo $a\in A$. Como $u_a$ es complementado por $v_a$, es decir, $u_a\wedge v_a=\id$ y $u_a\vee v_a=\tp$, se puede verificar que $g(v_a)=h(v_a)$.\\
-
-    Ahora, consideremos $j\in NA$, entonces 
-    $j=\bigvee\{u_{j(a)}\wedge v_a\mid a\in A\}$. Así
-    \[
-    \begin{split}
-    g(j)& =\bigvee\{g(u_{j(a)}\wedge g(v_a)\mid a\in A\}
-    \\
-    & =\bigvee\{h(u_{j(a)}\wedge h(v_a)\mid a\in A\}=h(j).
-    \end{split}
-    \]
-    Por lo tanto $g=h$.
-\end{proof}
-
 Un morfismo $f\colon A\to B$ \emph{resuelve el problema de complementación} para $A$ si para $a\in A$, $f(a)$ tiene complemento en $B$.
 
 \begin{thm}\label{Teorema6.2.2}
@@ -676,47 +620,7 @@ Un morfismo $f\colon A\to B$ \emph{resuelve el problema de complementación} par
 \end{tikzcd}\]
 \end{thm}
 
-\begin{proof}
-    Por el Lema \ref{Lema6.2.1}, $\eta_A$ es un epimorfismo, de esta manera, de existir el morfismo $f^\#$, este debe ser único.\\
-
-    Para cada $j\in NA$, consideremos 
-    \[
-    f^\#(j)=\bigvee\{f(j(x))\wedge f(x)'\mid x\in A\},
-    \]
-    donde $f(x)'$ es el complemento de $f(x)$ es $B$. Se puede verificar que el morfismo $f^\#\colon NA\to B$ es monótono y además es un $\wedge-$morfismo.\\
-
-    Para $b\in B$, consideremos la siguiente composición
-    \[
-    A\to B\to [b,1_B],
-    \]
-    donde $[b, 1_B]$ es un intervalo en $B$. Sea $\langle b\rangle$ el kernel de la composición anterior, de esta manera
-    \[
-    y\leq \langle b\rangle(x)\Leftrightarrow b\vee f(y)\leq b\vee f(x)\Leftrightarrow f(y)\leq b\vee f(x)
-    \]
-    para todo $x,y\in A$. Verifiquemos que el morfismo $f_b\colon B\to NA$, dado por la asignación $b\mapsto \langle b\rangle$ es el adjunto derecho de $f^\#$, es decir, debemos verificar que $f^\#(j)\leq b\Leftrightarrow j\leq \langle b\rangle$ para $j\in NA$ y $b\in B$.\\
-
-    Supongamos que $f^\#(j)\leq b$ y sea $x\in A$ tal que $y=j(x)$. De esta manera
-    \[
-    f(y)\wedge f(x)'\leq f^\#(j)\leq b\Leftrightarrow j(x)=y\leq f(y)\leq b\vee f(x),
-    \]
-    es decir $j(x)\leq \langle b\rangle(x)$.\\
-
-    De manera reciproca, supongamos que $j\leq \langle b\rangle$ y consideremos $x\in A$. De esta manera $j(x)\leq \langle b\rangle(x)$, de modo que $f(j(x))\leq b\vee f(x)$. Así $f(j(x))\wedge f(x)'\leq b$. Como lo anterior se cumple para todo $x\in A$, en particular se cumple para $f^\#$, es decir, $f^\#(j)\leq b$.\\
-
-    Lo anterior también muestra que $f^\#$ es un morfismo de marcos.\\
-
-    Por último, veamos que el diagrama conmuta. Sean $x, a\in A.$ Así
-    \[
-    f(a\vee x)\wedge f(x)'=(f(a)\vee f(x))\wedge f(x)'=f(a)\wedge f(x)'\leq f(a).
-    \]
-    Además, $f(a\vee 1)\wedge f(1)'=f(a)$. Por lo tanto 
-    \[
-    (f^\#\circ \eta_A)(a)=f^\#(u_a)=\bigvee\{f(a\vee x)\wedge f(x)'\mid x, a\in A\}=f(a)
-    \]
-    que es lo que queríamos.
-\end{proof}
-
-La prueba del Teorema \ref{Teorema6.2.2}, de manera indirecta, proporciona un funtor. En este punto es importante mencionar lo siguiente: \textbf{Toda propiedad universal define un funtor}.
+En este punto es importante mencionar lo siguiente: \textbf{Toda propiedad universal define un funtor}.
 
 \begin{thm}\label{Teorema6.2.3}
     La asignación $A\mapsto NA$ es la relación entre objetos del funtor $N( \_ )\colon \Frm \to\Frm$ y el morfismo $\eta_A\colon A\to NA$ es una transformación natural. En otras palabras, para todo $A, B\in \Frm$ y cada morfismo $f\in \Frm$, el siguiente diagrama conmuta para un único morfismo $Nf$.
@@ -763,20 +667,6 @@ De manera adicional, tenemos la siguiente relación entre el funtor $N$ y los n�
         \item $(Nf)v_a=v_{f(a)}$.
     \end{enumerate}
 \end{cor}
-
-\begin{proof}
-    \begin{enumerate}
-        \item Es la asignación del cuadro en el Teorema \ref{Teorema6.2.3}.
-        \item Sabemos que los núcleos $u_a$ y $v_a$ son complementos en $NA$. Además, $Nf$ es un morfismo de marcos. Así 
-        \[
-        \begin{split}
-        u_{f(a)}\wedge (Nf)(v_a)&=(Nf)(u_a\wedge v_a)=\id\\  u_{f(a)}\vee (Nf)(v_a)&=(Nf)(u_a\vee v_a)=\tp.
-        \end{split}
-        \]
-        de esta manera $(Nf)(v_a)$ es el complemento de $u_{f(a)}$ en $NA$, pero el complemento es único, es decir, $(Nf)(v_a)=v_{f(a)}$.
-    \end{enumerate}
-\end{proof}
-
 
 \section{Aspectos topológicos}\label{Topología}
 
@@ -918,16 +808,6 @@ En un espacio topológico, la saturación de un subconjunto se puede obtener sin
     \]
 \end{lem}
 
-\begin{proof}
-    Consideremos $x\in \uparrow{E}$, entonces $\exists\, e\in E$ tal que $e \sqsubseteq x$, es decir, $e^-\subseteq x^-$. De aquí que para $U\in\mathcal{O}S$, si $e\in U$ entonces $x\in U$. Por lo tanto
-    \[
-    x\in \bigcap \{U\in \mathcal{O}S\mid e\in U\}\subseteq \bigcap \{U\in \mathcal{O}S\mid E\subseteq U\},
-    \]
-    es decir, $\uparrow E\subseteq \bigcap \{U\in \mathcal{O}S\mid E\subseteq U\}$.\\
-
-    Para la otra contención, consideremos $x\in \bigcap\{U\in \mathcal{O}S\mid E\subseteq U\}$. Notemos que si $E\subseteq U$, entonces $x\in U$ para todo $U\in \mathcal{O}S$. De aquí que al menos existe algún $e\in E$ tal que $e^-\subseteq x^-$, es decir, $e\sqsubseteq x$. 
-\end{proof}
-
 De esta manera cada subconjunto abierto es saturado. Sin embargo, el reciproco no siempre ocurre, por lo general, hay muchos conjuntos saturados que no son abiertos. Por ejemplo, en un espacio $T_1$ todos los conjuntos son saturados. En un espacio de Alexandroff ocurre lo contrario, cada saturado es abierto.\\
 
 En cualquier conjunto parcialmente ordenado, la familia de conjuntos saturados es cerrada bajo uniones e intersecciones arbitrarias. En particular, los conjuntos saturados forman la topología de Alexandroff.
@@ -955,15 +835,6 @@ A veces es conveniente usar una formulación equivalente de compacidad. Reescrib
 \begin{lem}
     Sea $S$ un espacio topológico. Un conjunto $X\subseteq S$ es compacto si y solo si para cada cubierta abierta dirigida $\mathcal{W}$ existe algún $W\in \mathcal{W}$ tal que $X\subseteq W$.
 \end{lem}
-
-\begin{proof}
-\begin{description}
-    
-    \item[$\Rightarrow )$] Consideremos un subconjunto compacto $X$ y una cubierta dirigida de abiertos $\mathcal{W}$, es decir $X\subseteq\bigcup\mathcal{W}$. De aquí que debe existir una cubierta finita, digamos $\mathcal{V}$. Al ser $\mathcal{W}$ dirigida, tenemos que $\bigcup\mathcal{V}\in \mathcal{W}$ y al ser $X$ compacto se cumple que $X\subseteq \bigcup \mathcal{V}$.
-    
-    \item[$\Leftarrow )$] Consideremos $X\subseteq S$ tal que para cada cubierta abierta dirigida $\mathcal{W}$ existe $W\in \mathcal{W}$, con $X\subseteq W$. Notemos que si $\mathcal{U}$ es cualquier cubierta abierta, entonces agregando todas las uniones finitas obtenemos una cubierta abierta dirigida $\mathcal{U}_0$. Por hipótesis, existe $U\in\mathcal{U}_0$ tal que $X\subseteq U$. Luego, al ser $U$ solo uniones finitas de $\mathcal{U}$, esta es una subcubierta finita de $X$. Por lo tanto $X$ es compacto.
-    \end{description}
-    \end{proof}
     
 \begin{dfn}\label{Csaturado}
     Para un espacio topológico $S$, denotamos por $\mathcal{Q}S$ a la colección de conjuntos compactos saturados de $S$.
@@ -974,10 +845,6 @@ El conjunto vacío está en $\mathcal{Q}S$. De igual manera para $p\in S$, la sa
 \begin{lem}
     Sea $K$ un subconjunto compacto de un espacio $S$. La saturación $\uparrow{K}$ está en $\mathcal{Q}S.$
 \end{lem}
-
-\begin{proof}
-    Debemos probar que para $K\subseteq S$ un conjunto compacto se cumple que $\uparrow{K}$ también lo es. Consideremos $\mathcal{U}$ una cubierta abierta dirigida de $\uparrow K$. De aquí que $\mathcal{U}$ es también una cubierta abierta dirigida de $K$. Luego, como $K$ es compacto existe $U\in \mathcal{U}$ tal que $K\subseteq U$. Se puede verificar que $U$ es un conjunto saturado que contiene a $K$, de aquí que $\uparrow K\subseteq U$. Por lo tanto $\uparrow K$ es compacto.
-\end{proof}
 
 De esta manera tenemos tres familias distinguidas de subconjuntos de $S$, los abiertos $\mathcal{O}S$, los cerrados $\mathcal{C}S$ y los compactos saturados $\mathcal{Q}S$.\\
 
@@ -996,27 +863,6 @@ El siguiente resultado es el que nos motiva a estudiar lo que en la Sección \re
 \begin{lem}\label{compacto saturado}
     En un espacio $T_2$ cada conjunto compacto saturado es cerrado.
 \end{lem}
-
-\begin{proof}
-    Consideremos un espacio $S$ que es $T_2$, en consecuencia $S$ es $T_1$ y así todo conjunto del espacio es saturado. Consideremos $Q\subseteq S$ un conjunto compacto. veamos que $Q$ es cerrado. Para ello consideremos $p\notin Q$ y veamos que para $\mathcal{U}(p)$ una vecindad abierta de $p$ se cumple que 
-    \[
-    Q\cap \mathcal{U}(p)=\emptyset.
-    \]
-    Consideremos $q\in Q$ y al ser $S$ un espacio $T_2$ tenemos que existen $U_q, V_q\in \mathcal{O}S$ tales que 
-    \[
-    p\in U_q,\quad q\in V_q, \quad U_q\cap V_q=\emptyset.
-    \]
-    De aquí que $\{V_q\mid q\in Q\}$ forma una cubierta abierta para $Q$ y, por la compacidad, podemos extraer una subcubierta finita $\{V_i\mid i\in \mathcal{I}\}$, donde $\mathcal{I}$ es un subconjunto finito de $Q$. Considerando $\mathcal{U}(p)=\{U_i\mid i\in \mathcal{I}\}$ tenemos la vecindad de $p$ que buscábamos.
-\end{proof}
-
-El siguiente resultado nos da una caracterización similar a la regularidad definida para espacios topológicos, pero en lugar de considerar conjuntos en $\mathcal{C}S$ los consideramos en $\mathcal{Q}S$. 
-
-\begin{cor}
-    Sea $S$ un espacio $T_2$. Para un punto $p$ y conjunto $Q$ compacto (saturado), que no contiene a $p$ existe conjuntos abiertos $U, V$ tales que
-    \[
-    p\in U, \qquad Q\subseteq V, \qquad U\cap V=\emptyset.
-    \]
-\end{cor}
 
 \subsection{La topología frontal (topología de Skulla)}.
 
@@ -1054,18 +900,6 @@ En la tercera parte del lema anterior, se usa el segundo espacio frontal $^{ff}S
     Si $S$ es un espacio sobrio, entonces también lo es $^fS$.
 \end{thm}
 
-\begin{proof}
-    Observemos que al ser $S$ un espacio sobrio, este es $T_0$. De aquí que $^fS$ también es $T_0$. De está manera debemos probar que cada conjunto cerrado irreducible en $^fS$ es la cerradura de un punto.\\
-
-    Consideremos $F\subseteq S$ un conjunto cerrado tal que es irreducible en $^fS$. Entonces para cada $U, V\in \mathcal{O}S$ y $X, Y\in \mathcal{C}S$ se cumple
-    \[
-    F\cap X\cap U\neq \emptyset,\; F\cap Y\cap V\neq \emptyset\; \Rightarrow \; F\cap X\cap Y\cap U\cap V\neq \emptyset.
-    \]
-    Veamos ahora que $F^-$ es cerrado irreducible en $S$. Supongamos que $F^-\cap U\neq \emptyset$ y $F^-\cap V\neq \emptyset$. Por las propiedades de la clausura tenemos que $F\cap U\neq \emptyset$ y $F\cap V\neq \emptyset$ y así, por ser irreducible en $^fS$, se cumple que $F\cap U\cap V\neq\emptyset$. Por lo tanto $F^-\cap U\cap V\neq \emptyset$, es decir $F^-$ es cerrado irreducible en $S$.\\
-
-    Por hipótesis $S$ es sobrio, de aquí que $F^-=p^-$ para algún $p\in S$. Observemos que si $p\in F$ se cumple que $F^= =F$. Supongamos que $p\in U\in \mathcal{O}S$, entonces $F^-\cap U\neq \emptyset$ y por lo tanto $F\cap U\neq \emptyset$. Así cada vecindad abierta del punto $p$ de la forma $U\cap p^-$ también intersecta a $F$. Luego por la definición de la cerradura frontal tenemos que $p\in F^==F$.
-\end{proof}
-
 Recordando lo visto en la Sección \ref{Espacios sobrios}, si consideramos un espacio $T$ que es $T_0$, tenemos que 
 \[\begin{tikzcd}
 	T & {^+T}
@@ -1077,62 +911,9 @@ En particular, si tenemos $T\subseteq S$ para algún espacio sobrio $S$, entonce
     Sean $S$ un espacio sobrio y $T\subseteq S$ un subconjunto arbitrario. Entonces $T=T^=$ en $S$ precisamente cuando, como subespacio, $T$ es sobrio.
 \end{thm}
 
-\begin{proof}
-\begin{description}
-    \item[$\Rightarrow )$] Primero, supongamos que $T$ es cerrado frontal. Notemos que, como subespacio, los cerrados de $T$ son de la forma $T\cap X$, donde $X\in \mathcal{C}S$. Además dicho conjunto es la clausura de un punto si y solo si $T\cap X=T\cap p^-$ para algún $p\in T$.\\
-
-    Supongamos que $T\cap X$ es cerrado irreducible en $T$. De esta manera, para $U, V\in \mathcal{O}S$ se cumple que 
-    \[
-    T\cap X\cap U\neq \emptyset,\quad T\cap X\cap V\neq \emptyset \quad \Rightarrow \quad T\cap X\cap U\cap V\neq \emptyset
-    \]
-    Además, para los mismos $U, V$ se cumple que 
-    \[
-    \begin{split}
-    (T\cap X)^-\cap U\neq \emptyset & \Rightarrow T\cap X\cap U\neq \emptyset\\
-    (T\cap X)^-\cap V\neq \emptyset & \Rightarrow T\cap X\cap V\neq \emptyset
-        \end{split}
-    \]
-    lo cual implica que $(T\cap X)^-$ es cerrado irreducible en $S$. Por hipótesis $S$ es sobrio, de aquí que $(T\cap X)^-=p^-$ para un único $p\in (T\cap X)^-$. Notemos que $p\in (T\cap X)^-\subseteq X^-=X$, es decir, $p^-\subseteq X$. Luego 
-    \[
-    T\cap p^-\subseteq T\cap X\subseteq T\cap (T\cap X)^-= T\cap p^-,
-    \]
-    es decir, $T\cap X=T\cap p^-$. Por lo tanto, basta mostrar que $p\in T$.\\
-
-    Para cada $U\in \mathcal{O}S$, como $(T\cap X)^-=p^-$. tenemos 
-    \[
-    \begin{split}
-        p\in U\; &\Rightarrow \; (T\cap X)^-\cap U\neq \emptyset\\
-        & \Rightarrow \; T\cap X\cap U\neq \emptyset\\
-        &\Rightarrow \; T\cap U\cap p^-\neq \emptyset
-    \end{split}
-    \]
-    y así $p\in T^==T$.
-    \item[$\Leftarrow )$] Supongamos que, como subespacio, $T$ es sobrio. Demostraremos que $T^=\subseteq T$.\\
-
-    Consideremos cualquier punto $p\in T^=$, entonces $p\in U$ si y solo si $T\cap U\cap p^-\neq \emptyset$ para cada $U\in \mathcal{O}S$. En particular, para $U=S$ tenemos que $T\cap p^-\neq \emptyset$ y así este conjunto es cerrado en $T$. Veamos que  $T\cap p^-$ es iireducible. Consideremos $U, V\in \mathcal{O}S$, entonces
-    \[
-    T\cap p^-\cap U\neq \emptyset,\, T\cap p^-\cap V\neq \emptyset \Rightarrow p\in U\cap V,
-    \]
-    de modo que $T\cap p^-\cap U\cap V\neq \emptyset$ .Por hipótesis, $T$ es sobrio, entonces $T\cap p^-=T\cap q^-$ para algún $q\in T\cap p^-$. En particular, $q\in p^-$. Luego para cada $U\in \mathcal{O}S$ tenemos 
-    \[
-    \begin{split}
-        p\in U & \Rightarrow T\cap p^-\cap U\neq \emptyset\\
-        & T\cap q^- \cap U\neq \emptyset\\
-        & q^-\cap U\neq \emptyset\\
-        & q\in U,
-    \end{split}
-    \]
-    es decir, $p\in q^-$ y por lo tanto, $p^-=q^-$. Como $S$ es $T_0$, entonces $p=q\in T$. Luego $T^=\subseteq T$ lo cual implica que $T^==T$.
-\end{description}
-\end{proof}
-
 \begin{cor}
     Sea $T$ un espacio $T_0$ y supongamos que $T\subseteq S$ para algún espacio sobrio $S$. Entonces la reflexión sobria $^+T$ de $T$ es la clausura frontal de $T$ en $S$.
 \end{cor}
-
-\begin{proof}
-    Sabemos que $T\subseteq ^+ T\subseteq S$. Además, por el Teorema \ref{Frontalsobrio}, tenemos que $^+T$ es cerrado frontal. Así $T^=\subseteq\, ^+T$. Similarmente, sabemos que $T\subseteq T^=\subseteq S$, por el Teorema \ref{Frontalsobrio}, $T^=$ es sobrio. Así $^+T\subseteq T^=$.
-\end{proof}
 
 \subsection{El espacio de parches}\label{Parche puntos}
 
@@ -1148,29 +929,9 @@ Observemos que la propiedad de ser empaquetado es más débil que ser $T_2$, la 
     Un espacio topológico que es $T_0$ y empaquetado es $T_1$.
 \end{lem}
 
-\begin{proof}
-    Sabemos que $(\uparrow p)$ es saturado y para ver que $(\uparrow p)$ es compacto notemos que 
-    \[
-    (\uparrow p)=\bigcap\{U\in \mathcal{O}S\mid (p)\subseteq U\},
-    \]
-    además $(\uparrow p)\subseteq \bigcup U$ y se le puede extraer una cubierta finita. Por lo tanto $(\uparrow p)$ es compacto saturado.\\
+Por lo visto en el Lema \ref{Empaquetado y T1}, $T_0+$empaquetado se encuentra entre $T_2$ y $T_1$.\\
 
-    Al ser $(\uparrow p)$ compacto saturado, por hipótesis de empaquetado, $(\uparrow p)$ es cerrado. Ahora, consideremos dos puntos distintos $p, q$ tales que $p\sqsubseteq q$ no se cumple. Entonces, por la definición del orden de especialización tenemos que 
-    \[
-    p^-\nsubseteq q^- \Leftrightarrow p\in (q^-)'\mbox{ y } q\in (\uparrow p)',
-    \]
-    donde $(q^-)'$, $(\uparrow p)'$ son abiertos y $(q^-)' \cap (\uparrow p)'=\emptyset$. Por lo tanto tenemos una separación $T_1$ de $p$ y $q$.
-\end{proof}
-
-Podemos tener espacios empaquetados que no son $T_0$, estos no serán abordados aquí, pues suponemos que todos nuestros espacios son al menos $T_0$, pero por lo visto en el Lema \ref{Empaquetado y T1}, $T_0+$empaquetado se encuentra entre $T_2$ y $T_1$.\\
-
-Algunos espacios tienen una propiedad aún más fuerte que empaquetado. Es útil tener un nombre para esto.
-
-\begin{dfn}
-    $S$ es \emph{estrictamente empaquetado} si todo conjunto compacto saturado es finito. 
-\end{dfn}
-
-De esta manera un espacio no es empaquetado si tiene al menos un conjunto compacto saturado que no es cerrado. En otras palabras, no tiene suficientes conjuntos cerrados, o equivalentemente, suficientes conjuntos abiertos. Podemos corregir este defecto agregando a la topología nuevos conjuntos abiertos para formar un topología más grande. \\
+De esta manera un espacio no es empaquetado si tiene al menos un conjunto compacto saturado que no es cerrado. Podemos corregir este defecto agregando a la topología nuevos conjuntos abiertos para formar un topología más grande. \\
 
 Para un espacio $S$ consideremos la familia 
 \[
@@ -1192,15 +953,6 @@ Usando esta construcción tenemos que $S$ es empaquetado si y solo si $^pS=S$.
     Sea $S$ un espacio topológico. Si $U\in \mathcal{O}^pS$ entonces $U\in\mathcal{O}^fS$.
 \end{lem}
 
-\begin{proof}
-    Consideremos un conjunto $Q$ compacto saturado. Notemos que, por la Definición \ref{Frontal}, basta con verificar que $Q'=\bigcup\{q^-\mid q^-\in \mathcal{C}S\}$.\\
-
-    Como $Q$ es saturado, entonces $Q=\uparrow Q$, de aquí que $Q'=\downarrow Q$ en el orden de especialización. Luego si $q\in Q'$ entonces $p^-\subseteq Q'$ y por lo tanto 
-    \[
-    Q'=\bigcup\{q^-\mid p\notin Q\}=\bigcup\{q^-\mid q^-\in \mathcal{C}S\}
-    \]
-\end{proof}
-
 El resultado anterior no dice que la topología de parches es intermedia entre la topología original y la topología frontal. En otras palabra tenemos que
 
 \[
@@ -1214,37 +966,17 @@ Es momento de saber como se comporta el espacio de parches con las propiedades d
     El espacio de parches de un espacio $T_0$ es $T_1$.
 \end{lem}
 
-\begin{proof}
-    Sea $S$ un espacio $T_0$ y consideremos $p, q\in S$ tales que $p^-\nsubseteq q^-$, es decir, $p\notin q^-$. Como $S$ es $T_0$ tenemos que $\exists \,U\in \mathcal{O}S$ tal que $q\notin U\ni p$. Observemos que $q\notin \uparrow p$, donde $\uparrow p\in \mathcal{Q}S$. Entonces $(\uparrow p)'\in \mathcal{O}^PS$ y además 
-    \[
-    p \notin (\uparrow p)'\ni q,
-    \]
-    es decir, el espacio de parches es $T_1$.
-\end{proof}
-
 \begin{lem}\label{Parcheidem}
     Si $S$ es un espacio $T_1$, entonces $^{PP}S=^PS$.
 \end{lem}
-
-\begin{proof}
-    Recordemos que en un espacio $T_1$ todos los conjuntos son saturados. De esta manera, si $S$ es $T_1$, entonces todos los subconjuntos de $S$ y $^PS$ son saturados. Además cada conjunto compacto de $^PS$ es también compacto de $S$. Así cada subconjunto compacto saturado de $^PS$ es también compacto saturado y por lo tanto $^PS=\,^{PP}S$ como queríamos.  
-\end{proof}
 
 \begin{cor}
     Para cada espacio $S$ que es $T_0$ tenemos que $^{PPP}S=^{PP}S$.
 \end{cor}
 
-\begin{proof}
-    Sea $S$ un espacio $T_0$. Por el Lema \ref{ParcheT1} tenemos que $^PS$ es $T_1$ y así, al aplicar el Lema \ref{Parcheidem} para $^PS$ obtenemos $^{PP}(^PS)=\,^P(^PS)$.
-\end{proof}
-
 \begin{lem}\label{ParcheT2}
     El espacio de parches de un espacio $T_2$ es el mismo.
 \end{lem}
-
-\begin{proof}
-    Sea $S$ un espacio $T_2$. Por el Lema \ref{compacto saturado} tenemos que todo conjunto compacto saturado es cerrado, es decir, $S$ es empaquetado. Si $S$ es empaquetado, $^PS=S$ que es lo que queríamos probar.
-\end{proof}
 
 El Teorema \ref{Sobriofrontal} nos dice que si un espacio es sobrio, entonces su espacio frontal también lo es. Para el espacio de parches no ocurre lo mismo, es decir, si el espacio es sobrio, el espacio de parches no necesariamente es sobrio.
 
@@ -1252,37 +984,11 @@ El Teorema \ref{Sobriofrontal} nos dice que si un espacio es sobrio, entonces su
     Sean $S$ un espacio sobrio y $F$ un subconjunto cerrado irreducible de $^PS$ (es decir, $F\in \mathcal{C}^PS$ y es cerrado irreducible en  $^PS$). Entonces $F$ está conformado por un único punto o es infinito.
 \end{lem}
 
-\begin{proof}
-    Sea $F$ un conjunto cerrado e irreducible en $^PS$, entonces $F^-$ es cerrado e irreducible en $S$, pues si $\mathcal{O}S\subseteq \mathcal{O}^PS$ implica que $(\mathcal{O}S'\supseteq (\mathcal{O}^PS)'$. Por hipótesis $S$ es sobrio, y por lo tanto $F^-=p^-$ para un único $p\in S$. Como $p\in F^-$ tenemos que si 
-    \[
-    p\in U\in \mathcal{O}S\Rightarrow F\cap U\cap p^-=F\cap U\neq \emptyset
-    \]
-    y por lo tanto $p\in F^=$. .De esta manera tenemos que $F^-=F^=$ y como $F$ es cerrado frontal $F^= =F$ y en consecuencia $p\in F$.\\
-
-    Supongamos que $F\neq \{p\}$ y, por contradicción, supongamos que $F$ finito. Así 
-    \[
-    F=\{p, q_0, q_1, \dots , q_n\}
-    \] 
-    para algunos puntos $q_0, \dots q_n$ distintos de $p$. Para cada $q_i$ tenemos que $q_i\in F\subseteq p^-$, es decir, $q_i\sqsubseteq p$ en el orden de especialización. Luego $p\in F\cap q_i^-$, pues de lo contrario $p\sqsubseteq q_i$ y eso implicaría que $p=q_i$ lo cual no es posible. De esta manera los conjuntos 
-    \[
-    F\cap (\uparrow p)', F\cap (q_0^-)', \dots , F\cap (q_n^-)'\neq \emptyset.
-    \]
-    Pero $F\cap (\uparrow p)'\cap (q_0^-)'\cap \dots \cap (q_n^-)'= \emptyset$ lo cual contradice que $F$ es irreducible en $^PS$. Por lo tanto $F$ es infinito.
-\end{proof}
-
 Este argumento se puede refinar de diferentes maneras para obtener más información.
 
 \begin{lem}\label{Lem4.3.2}
     El espacio de parches de un espacio $T_1$ y sobrio es $T_1$ y sobrio.
 \end{lem}
-
-\begin{proof}
-    Sean $S$ un espacio $T_1$ y sobrio y $F$ un conjunto cerrado irreducible de $^PS$. Similar al Lema \ref{Lem4.3.1} tenemos $F^-=p^-$ para algún $p\in S$. Por hipótesis, $S$ es $T_1$, es decir
-    \[
-    p\in F\subseteq F^-=p^-=\{p\},
-    \]
-    es decir, $F=\{p\}$. Por lo tanto, como $F$ es un conjunto cerrado irreducible en $^PS$, entonces $^PS$ es $T_1$
-\end{proof}
 
 \subsection{Propiedades funtoriales del espacio de parches}\label{P. funtoriales spuntos}
 
@@ -1370,11 +1076,7 @@ La inclusión $\iota\colon \mathcal{O}S\to \mathcal{O}^fS$, en cierto modo, es u
 \end{tikzcd}\]
 \end{lem}
 
-\begin{proof}
-    Es un caso particular del Teorema \ref{Teorema6.2.2}.
-\end{proof}
-
-El resultado anterior es cierto para cualquier espacio $S$. En la practica, es más conveniente utilizar $S=\pt A$, donde $A\in \Frm$. Además, para este caso $S$ resulta ser sobrio.
+El resultado anterior es cierto para cualquier espacio $S$. En la practica, es más conveniente utilizar $S=\pt A$, donde $A\in \Frm$. Además, para este caso $S$ resulta ser sobrio.\\
 
 Observemos que el morfismo $\sigma$ actúa como una transformación natural cuando el espacio $S$ varia. Nuestro objetivo es encontrar una descripción especifica para el morfismo $\sigma$.
 
@@ -1396,45 +1098,11 @@ Para verificar que $\sigma$ es un morfismo de marcos usaremos una manera equival
     para cada $p\in S$. Además, $\sigma$ es un $\wedge-$morfismo.
 \end{lem}
 
-\begin{proof}
-    Consideremos $p\in S$ arbitrario. Si $p\in \sigma(j)$, entonces 
-    \[
-    p\in \bigcup\{j(W)\setminus W\mid W\in \mathcal{O}S\}.
-    \]
-    Así, $p\in j(W)$ y $p\notin W$ para algún abierto $W$. De aquí que 
-    \[
-    W\subseteq \overline{p}' \quad \mbox{ y }\quad p\in j(W)\subseteq j(\overline{p}')
-    \]
-    que es lo que queríamos.\\
-
-    Recíprocamente, supongamos que $p\in j(\overline{p}')$. Estableciendo $W=\overline{p}'$ tenemos que $p\in j(W)$ y $p\notin W$. Por lo tanto $p\in \sigma(j)$.\\
-
-    Por último, de manera general, consideremos $j, k\in NA$. Entonces
-    \[
-    p\in \sigma (j\wedge k)\Leftrightarrow p\in (j\wedge k)(\overline{p}')\Leftrightarrow p\in j(\overline{p}'\cap k(\overline{p}')\Leftrightarrow p\in \sigma(j)\wedge \sigma(k)
-    \]
-    para verificar que $\sigma$ es un $\wedge-$morfismo.
-\end{proof}
-
 En la Definición \ref{Definicion5.3.1} se introducen los núcleos espacialmente inducidos. El siguiente resultado nos da más información sobre ellos.
 
 \begin{lem}\label{Lema6.3.4}
     Para $\sigma$ definido como antes tenemos que $\sigma([E])=E^\Box$ para cada $E\in \mathcal{P}S$.
 \end{lem}
-
-\begin{proof}
-    Consideremos $E\in \mathcal{P}S$. Para cada $U\in \mathcal{O}S$ tenemos
-    \[
-    [E](U)\setminus U=(E\cup U)^\circ \setminus U\subseteq E^\Box.
-    \]
-    Así, $\sigma([E])=\bigcup\{[E](W)\setminus W\mid W\in \mathcal{O}S\}\subseteq E^\Box$ se cumple.\\
-
-    Para la otra contención, supongamos que $p\in E^\Box$. Así existe $U\in \mathcal{O}S$ tal que
-    \[
-    p\in U\cap \overline{p}'\subseteq E\subseteq \Rightarrow p\in U\subseteq E\cup \overline{p}'\Rightarrow p\in [E](\overline{p}').
-    \]
-    Por lo tanto $p\in [E](\overline{p}')\setminus \overline{p}'$, es decir, $p\in \sigma([E])$.
-\end{proof}
 
 Hasta este punto hemos mostrado que $\sigma$ es un $\wedge-$morfismo. Para verificar que es un morfismo de marcos basta con mostrar quien es su adjunto derecho.
 
@@ -1448,33 +1116,6 @@ Hasta este punto hemos mostrado que $\sigma$ es un $\wedge-$morfismo. Para verif
 forman un par adjunto. Además, $\sigma$ es un morfismo de marcos.
 \end{thm}
 
-\begin{proof}
-    Por la definición de adjunción, debemos verificar que $\sigma(j)\subseteq E\Leftrightarrow j\leq [E]$ se cumple para todo $j\in N\mathcal{O}S$ y $E\in \mathcal{O}^fS$.\\
-
-    Supongamos que $\sigma(j)\subseteq E$. Así, para cada $U\in \mathcal{O}S$ y $p\in S$ tenemos 
-    \[
-    \begin{split}
-        p\in j(U) &\Rightarrow  p\in (j(U)\setminus U)\;\mbox{ o }\; p\in U\\
-        & \Rightarrow p\in \sigma(J) \; \mbox{ o }\; p\in U\\
-        & \Rightarrow p\in E \;\mbox{ o }\; p\in U\\
-        & \Rightarrow p\in E\cup U=(E\cup U)^\circ.
-    \end{split}
-    \]
-    Por lo tanto $j(U)\subseteq [E](U)$, y al ser $U$ arbitrario se cumple que $j\leq [E]$.\\
-
-    Recíprocamente, supongamos que $j\leq [E]$. Entonces $\sigma(J)\subseteq \sigma([E])$. Por el Lema \ref{Lema6.3.4} sabemos que $\sigma([E])=E^\Box$ para todo $E\in \mathcal{P}S$. De aquí que $\sigma(j)\subseteq E^\Box\subseteq E$ que es lo que queríamos.\\
-
-    Por lo tanto $[ \_ ]$ es el adjunto derecho de $\sigma$.\\
-
-    Para ver que es un morfismo de marcos debemos recordar que cualquier función monótona con adjunto derecho respeta supremos arbitrarios. Resta verificar el comportamiento de $\sigma$ a través de los núcleos $\id$ y $tp$.
-    \[
-    \begin{split}
-    \sigma(\id)& =\bigcup\{\id(W)\setminus W\mid W\in \mathcal{O}S\}=\bigcup\{W\setminus W\mid W\in \mathcal{O}S\}=\emptyset\\
-    \sigma(\tp)& =\bigcup\{\tp(W)\setminus W\mid W\in \mathcal{O}S\}=\bigcup\{S\setminus W\mid W\in \mathcal{O}S\}=S.
-    \end{split}
-    \]
-\end{proof}
-
 Para terminar esta subsección retomamos lo dicho en el Lema \ref{Lema6.3.1} y verificamos que, así definido, $\sigma$ hace conmutar el diagrama de dicho resultado.
 
 \begin{lem}\label{Lema6.3.6}
@@ -1487,13 +1128,6 @@ Para terminar esta subsección retomamos lo dicho en el Lema \ref{Lema6.3.1} y v
 	\arrow["\sigma"', from=2-1, to=1-2]
 \end{tikzcd}\]
 \end{lem}
-
-\begin{proof}
-    Consideremos $U\in \mathcal{O}S$, entonces $(\sigma\circ \eta_{\mathcal{O}S})(U)=\sigma(u_U)$. Luego, para $V\in \mathcal{O}S$ se cumple que 
-    \[
-    \sigma(u_U(V))=\sigma(U\cup V)=\sigma((U\cup V)^\circ)=\sigma([U])=U^\Box=U.
-    \]
-\end{proof}
 
 \subsection{El espacio de puntos del ensamble}
 
@@ -1525,49 +1159,6 @@ A manera de notación, denotamos la composición inferior del diagrama por $\sig
     \end{enumerate}
 \end{lem}
 
-\begin{proof}
-    \begin{description}
-        \item[$1)\Rightarrow 2)$] Supongamos que $j$ es $\wedge-$irreducible. Verificaremos que $j$ es de la forma 
-        \[
-        j(x)= \left\{ \begin{array}{lcc} 1, & \mbox{ si } & x \nleq a \\ \\  a, & \mbox{ si } & x \leq a \end{array} \right.
-        \]
-        donde $a=j(0)$. Notemos que la anterior es la única manera posible en la que un núcleo puede tomar dos valores.\\
-
-        Sabemos que $u_x\wedge v_x=id\leq j$ se cumple para todo $x\in A$. Por lo tanto $u_x\leq j$ o $v_x\leq j$. Supongamos lo primero, es decir, para todo $y\in A$ $u_x(y)\leq j(y)$. De manera particular
-        \[
-        x=u_x(0)\leq j(0)=a\quad \mbox{ y }\quad j(x)=j(a)=a,
-        \]
-        pues $0\leq x$ y $a=j(0)\leq j(x)$. Observemos que esto ocurre cuando $x\leq a$.\\
-        Supongamos ahora que $x\nleq a$. Así $v_x\leq j$ y $10v_x(x)\leq j(x)$, es decir, $j(x)=1$. Por lo tanto, $j$ tiene la forma que requeríamos.
-
-        \item[$2)\Rightarrow 3)$] Supongamos que $j$ es $2-$valuado y consideremos $x\wedge y\leq a$ para algunos $x, y\in A$. Entonces
-        \[
-        j(x)\wedge j(y)\leq j(x\wedge y)\leq a
-        \]
-        por la forma de $j$. Como $j(x), j(y)\in \{a, 1\}$, entonces $j(x)=a$ o $j(y)=a$ y por lo tanto $x\leq a$ o $y\leq a$, nuevamente por la forma de $j$. Como $a=j(0)$ se cumple que $a\neq 1$ y así $a$ es $\wedge-$irreducible.\\
-
-        Ahora debemos probar que $w_a(x)=j(x)$, con $j$ definido como antes, siempre que $a$ es $\wedge-$irreducible. Supongamos que $x\leq a$ entonces 
-        \[
-        ((x\succ a)\succ a)=(1\succ a)=a.
-        \]
-
-        Si $x\nleq a$ entonces 
-        \[
-        (x\succ a)\wedge a=(x\succ a)\wedge ((x\succ a)\succ a))\leq a \quad\mbox{ y }\quad x\leq w_a(x)
-        \]
-        así $w_a(x)=((x\succ a)\succ a)\nleq a$. Como $a$ es $\wedge-$irreducible se debe cumplir que $(x\succ a)\leq a$. Por lo tanto $((x\succ a)\succ a)=1$, es decir,
-        \[
-        w_a(x)= \left\{ \begin{array}{lcc} 1, & \mbox{ si } & x \nleq a \\ \\  a, & \mbox{ si } & x \leq a \end{array} \right.
-        \]
-        
-        \item[$3)\Rightarrow 1)$]  Queremos probar que $w_a$ es $\wedge-$irreducible en $NA$ siempre que $a$ es $\wedge-$irreducible en $A$. Ya hemos demostrado que cuando $a$ es $\wedge-$irreducible, entonces $w_a$ es $2-$valuado. También sabes que si $k\wedge l\leq w_a$ entonces 
-        \[
-        k(a)\wedge l(a)\leq w_a(a)\Rightarrow k(a)\leq a \;\mbox{ o } \;l(a)\leq a\Rightarrow k\leq w_a\;\mbox{ o }\;l\leq w_a,
-        \]
-        es decir, $w_a$ es $\wedge-$irreducible en $NA$.
-    \end{description}
-\end{proof}
-
 Considerando $S=\pt A$ y $T=\pt NA$, lo anterior nos proporciona un par inverso de biyecciones entre $S$ y $T$, es decir
 
 \[\begin{tikzcd}
@@ -1586,42 +1177,6 @@ donde $\phi(p)=w_p$ y $\psi(m)=m(0)$. De esta manera, el espacio de puntos de $N
 	\arrow["\psi", shift left=3, from=1-2, to=1-1]
 \end{tikzcd}\]    
 \end{lem}
-
-\begin{proof}
-    Los conjuntos abiertos usuales de $S$ (los elementos de $\mathcal{O}S$) son de la forma
-    \[
-    U_A(x)=\{p\in S\mid x\nleq p\}
-    \]
-    para $x\in A$. Los abiertos de $T$ son de la forma 
-    \[
-    U_{NA}=\{m\in T\mid j\nleq m\}
-    \]
-    para $j\in NA$.\\
-
-    También sabemos que si $j\in NA$, entonces $j=\bigvee\{v_x\wedge u_{j(x)}\mid x\in A\}$. Por lo tanto, los conjuntos $U_{NA}(u_x)$ y $U_{NA}(v_x)$ con $x\in A$ forman una sub-base de $T$, ya que $U( \_ )$ es un morfismo de marcos.\\
-
-    Luego
-    \[
-    \begin{split}
-        \phi^{-1}(U_{NA}(u_x))=\psi (U_{NA}(u_x))&=\{\psi (m)\mid u_x\nleq m \in T\}\\
-        &=\{m(0)\mid u_x\nleq m\in T\}\\
-        &=\{p\mid x\nleq p\in S\}\\
-        &=U_A(x).
-    \end{split}
-    \]
-
-    Sabemos que $v_x\wedge u_x=\id\leq m$ y $v_x\vee u_x=\tp$ se cumple para todo $x\in A$ y $m\in T$. De esta manera se debe cumplir que $v_x\leq m$ o $u_x\leq m$. En otras palabras
-    \[
-    x\in U_{NA}(v_x)\Leftrightarrow m\notin U_{NA}(u_x)
-    \]
-    para cada $x\in A$ y $m\in T$. Así
-    \[
-    \phi^{-1}(U_{NA}(v_x))=\psi (U_{NA}(v_x))=\psi(U_{NA}(u_x)')=U_A(x)'
-    \]
-    pues $\psi$ es un morfismo biyectivo de marcos.\\
-
-    De manera similar tenemos que $\psi^{-1}(U_A(x))=U_{NA}(u_x)$ y $\psi^{-1}(U_A(x)')=U_{NA}(v_x)$. Por lo tanto los conjuntos $U_A(x)$ y $(U_A(x))'$ forman una sub-base para la topología inducida en $S$.Además, esta es la topología de Skula, $\mathcal{O}^fS$.
-\end{proof}
 
 \section{El Teorema de Hoffman-Mislove}
 
