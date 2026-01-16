@@ -2,91 +2,43 @@
 
 El desarrollo de esta investigación gira en torno de dos ejes principales: la teoría de marcos y la topología de un espacio. 
 Por tal motivo, en este capítulo nos encargamos de presentar toda la información necesaria para su desarrollo y comprensión.
-Para consultar información adicional de la que aquí mencionaremos, recomendamos consultar \cite{P.T.} o \cite{J.P.}. 
-Algunas de las cuestiones espaciales que aquí serán mencionadas pueden encontrarse también en \cite{R.S.}, \cite{R.S.2} y \cite{R.S.3}.\\
+Para consultar información adicional de la que aquí mencionaremos, recomendamos consultar \cite{Johnstone82} o \cite{PicadoPultr}. 
+Algunas de las cuestiones espaciales que aquí serán mencionadas pueden encontrarse también en \cite{sexton2003point}, \cite{sexton2006point} y \cite{sexton2006ordinal}.\\
 
-Algunos de los resultados que se muestran en este capítulo son muy conocidos, por tal motivo, los presentamos si prueba. 
+Algunos de los resultados que se muestran en este capítulo son muy conocidos, por tal motivo, los presentamos sin prueba. 
 Los que van acompañados de su demostración es porque consideramos que son más relevantes o simplemente porque no encontramos la prueba 
 en la literatura (por ejemplo, la Proposición \ref{fF}).
 
 \section{Teoría de marcos}\label{marcos}
 
-Trabajar con marcos, hasta cierto punto, es trabajar con estructura sencillas de definir, pues estos se construyen a partir de un caso particular de retículas. De esta manera, 
-lo ideal es comenzar con estructuras ordenadas.
-
-\begin{dfn}\label{Copo}
-Sea $S$ un conjunto. Un \emph{orden parcial} sobre $S$ es una relación binaria \emph{``$\leq$''} la cual es 
-\begin{enumerate}
-\item \emph{Reflexiva:} para todo $a\in S$, $a\leq a$,
-\item \emph{Transitiva:} si $a\leq b$ y $b\leq c$, entonces $a\leq c$,
-\item \emph{Antisimétrica:} si $a\leq b$ y $b\leq a$, entonces $a=b$. 
-\end{enumerate}
-Un \emph{conjunto parcialmente ordenado} (o \emph{copo} de manera abreviada), es un conjunto equipado de un orden parcial. Si en la definición solo se cumplen las condiciones 1 y 2, entonces tenemos un \emph{preorden parcial}.
-\end{dfn}
-
-\begin{dfn}\label{Supremo}
-Si $S$ es un copo y $A\subseteq S$. Decimos que un elemento $a\in S$ es un \emph{supremo} (la mínima cota superior), para $A$ y escribimos $a=\bigvee A$, si
-\begin{enumerate}
-\item $a$ es una cota superior de $A$; es decir, $s\leq a$ para todo $s\in A$
-\item si $b\in S$ satisface que $s\leq b$ para todo $s\in A$, entonces $a\leq b$.
-\end{enumerate}
-\end{dfn}
-
-Si $A$ es $\varnothing$, entonces utilizamos $0$ para denotar $\bigvee \varnothing$, donde $0$ es el elemento mínimo de $S$. De hecho, para cualesquiera dos elementos $a, b\in A$, podemos calcular $a\vee b$, es decir, ``$\vee$'' es una operación binaria. Además si para cualquier subconjunto finito $A$, $\vee$ y $0$ cumplen
-
-\begin{enumerate}
-    \item $a\vee a=a$,
-    \item $a\vee b= b\vee a$,
-    \item $a\vee (b\vee c)=(a\vee b) \vee c$,
-    \item $a\vee 0=a$,
-\end{enumerate}
-
-para cualesquiera $a,b,c\in A$, obtenemos un conjunto con la estructura $(S, \vee, 0)$ la cual se conoce como \emph{estructura de semiretícula} o a veces \emph{$\vee-$semiretícula}.\\
-
-De manera dual, en cualquier copo podemos considerar la noción de \emph{ínfimo}, (cota inferior más grande), definida invirtiendo todas las desigualdades de la Definición \ref{Supremo}. Así, escribimos $\bigwedge A$, $\wedge$ y $1$ para los análogos de $\bigvee A$, $\vee$ y $0$. Por lo tanto, obtenemos una  estructura $(S, \wedge, 1)$ que también es una semiretícula (o \emph{$\wedge-$semiretícula}).
-
-\begin{dfn}\label{Reticula}
-Una \emph{retícula} es un conjunto con dos operaciones binarias ($\vee$ y $\wedge$) y dos elementos distinguidos ($0$ y $1$) tal que $\vee$ (respectivamente $\wedge$) es asociativa, conmutativa, idempotente y tienen a $0$ (respectivamente 1) como elementos neutros.
-\end{dfn} 
-
-\begin{dfn}\label{Reticuladistributiva}
-Consideremos una retícula $(S, \leq, \vee, \wedge, 0, 1)$. Si esta  cumple las siguientes leyes distributivas
-\[
-a\wedge (b\vee c)=(a\wedge b)\vee (a\wedge c)\quad\mbox{ y }\quad a\vee (b\wedge c)=(a\vee b)\wedge (a\vee c)
-\]
-para todo $a, b, c\in S$. Entonces decimos $S$ es una \emph{retícula distributiva}.
-\end{dfn}
-
-\begin{dfn}\label{Semiretículacompleta}
-Decimos que una $\vee-$semiretícula es \emph{completa} si para cualquier subconjunto $A$ (no solo finito) existe $\bigvee A$. 
-\end{dfn}
+Como el título lo indica, esta sección está dedicada a presentar los conceptos básicos de la teoría de marcos. Como es usual, $\wedge$ y $\bigvee$ denotan las operaciones ínifimo finito y supremo arbitrario, respectivamente. 
+De manera alternativa, podemos consultar también \cite{Zaldivar2023}.
 
 \begin{dfn}\label{frm}
-Un \emph{marco} es una retícula completa $(S, \leq, \wedge, \bigvee, 0, 1)$ que cumple la siguiente ley distributiva, la cual se conoce como  \emph{ley distributiva para marcos} \emph{(\textbf{LDM})}, y dice lo siguiente:
-\[
+Un \emph{marco} es una retícula completa $(A, \leq, \wedge, \bigvee, 0, 1)$ que cumple la siguiente ley distributiva, la cual se conoce como  \emph{ley distributiva para marcos} \emph{(\textbf{LDM})}, y dice lo siguiente:
+\begin{equation}\label{LDM}
 x\wedge\bigvee Y=\bigvee\{x\wedge y\mid y\in Y\}
-\]
-para cualesquiera $x\in S$ y $Y\subseteq S$.
+\end{equation}
+para cualesquiera $x\in A$ y $Y\subseteq A$.
 \end{dfn}
 
-\begin{ej}\label{ejem1}
-Para todo espacio topológico $S$ se tienen dos familias de subconjuntos: los subconjuntos abiertos, que denotamos por $\mathcal{O}S$ y sus subconjuntos cerrados, denotados por $\mathcal{C}S$. De esta forma para cualquier $(S,\mathcal{O}S)$, $\mathcal{O}S$ tiene la estructura  de retícula completa $$(\mathcal{O}S, \subseteq, \cap,\bigcup, S,\emptyset).$$
-Además la familia de subconjuntos abiertos cumple la LDM. Es decir, $\mathcal{O}S$ es un marco.\\
+El ejemplo canónico de un marco proviene de la teoría de espacios topológicos. Para todo espacio topológico $S$ se tienen dos familias de subconjuntos: los subconjuntos abiertos, que denotamos por $\mathcal{O}S$ y sus subconjuntos cerrados, denotados por $\mathcal{C}S$. De esta forma para cualquier $(S,\mathcal{O}S)$, $\mathcal{O}S$ tiene la estructura 
+\[
+(\mathcal{O}S, \subseteq, \cap,\bigcup, S,\emptyset),
+\]
+y satiface \ref{LDM}, es decir, $\mathcal{O}S$ es un marco y se le conoce como el marco de abiertos de $S$.\\
 
-Consideremos $U\subseteq S$, denotamos por
+Si consideramos $U\subseteq S$, denotamos por
 
 \[
 U,\qquad U^-,\qquad U^\circ,
 \]
 como el complemento, la cerradura y el interior de $U$ en $S$, respectivamente.\\ 
 
-Como mencionamos en el ejemplo, $\mathcal{O}S$ es un marco, en la literatura a $\mathcal{O}S$ también se le conoce como el marco de abiertos de $S$ o como la retícula de conjuntos abiertos. Al ser $\mathcal{O}S$ una retícula, en ocasiones también se le denota por $\Omega(S)$. En estas notas aparecerán ambas notaciones para referirnos a los subconjuntos abiertos del espacio topológico $S$.\\
-
-Calcular ínfimos arbitrarios se puede realizar de la siguiente forma 
+Calcular ínfimos arbitrarios dentro de este marco se puede realizar de la siguiente forma 
 \[
 \bigwedge U=\left(\bigcap U\right)^\circ.
 \]
-\end{ej}
 
 \begin{dfn}\label{morf}
 Sean $A$ y $B$ dos marcos arbitrarios. Un \emph{morfismo de marcos} es una función $f\colon A\rightarrow B$ tal que para cualesquiera $a,b\in A$ y $X\subseteq A$ se cumple lo siguiente:
@@ -98,7 +50,7 @@ Sean $A$ y $B$ dos marcos arbitrarios. Un \emph{morfismo de marcos} es una funci
 \end{itemize}
 \end{dfn}
 
-Utilizando las Definiciones \ref{frm} y \ref{morf} podemos demostrar que la composición de morfismos de marcos es también un morfismo de marcos. Además, el morfismo identidad ($\id$) actúa como elemento neutro en la composición. Como consecuencia tenemos una categoría, la cual denotaremos por $\Frm$ y es conocida como la \emph{categoría de marcos}.
+Utilizando las Definiciones \ref{frm} y \ref{morf} se demostra que la composición de morfismos de marcos es también un morfismo de marcos. Además, el morfismo identidad ($\id$) actúa como elemento neutro en la composición. Como consecuencia tenemos una categoría, la cual denotaremos por $\Frm$ y es conocida como la \emph{categoría de marcos}.
 
 \begin{dfn}\label{adjder}
 Sea $f:A\to B$ una función monótona. El \emph{adjunto derecho de $f$} es una función monótona $f_*:B\to A$ tal que $f(a)\leq b\Leftrightarrow a\leq f_*(b)$ para cualesquiera $a\in A$ y $b\in B$. Denotamos a $f$ como $f^*$ y escribimos \emph{$f^*\dashv f_*$}
@@ -110,7 +62,7 @@ La relación que existe entre los morfismos de marcos y el adjunto de un morfism
 Todo morfismo de marcos tiene adjunto derecho
 \end{prop}
 
-Podemos construir la categoría opuesta a $\Frm$, esta recibe el nombre de \emph{categoría de locales}. Por la Proposición \ref{Adjuntoder} tenemos que para cualesquiera $A, B\in \Frm$, si
+La categoría opuesta a $\Frm$ recibe el nombre de \emph{categoría de locales} y se denota $\Loc=\Frm^{\op}$. Por la Proposición \ref{Adjuntoder} tenemos que para cualesquiera $A, B\in \Frm$, si
 \[
 f\colon A\rightarrow B \Longrightarrow f_*\colon B\rightarrow A
 \]
@@ -118,9 +70,9 @@ donde $f$ es un morfismo de marcos y $f_*$ es su adjunto derecho. Notemos que $f
 \[
 f\colon B\rightarrow A 
 \]
-tales que $f$ preserva los ínfimos y sus adjuntos izquierdos ($f^*$), son un morfismo de marcos. Así, invirtiendo la composición de los morfismos de marcos obtenemos la categoría $\Loc=\Frm^{\op}$.\\
+tal que $f$ preserva ínfimos arbitrarios y su adjuntos izquierdo ($f^*$), es un morfismo de marcos.\\
 
-Existe una adjunción entre $\Frm$ y $\Top$ (la categoría de espacios topológicos)
+La herramienta fundamental que relaciona a las categorías $\Frm$ y $\Top$ es la adjunción que existe entre ellas.
 
 \[\begin{tikzcd}
 	{\Top} \\
@@ -132,8 +84,7 @@ Existe una adjunción entre $\Frm$ y $\Top$ (la categoría de espacios topológi
 \end{tikzcd}\]
 donde $\pt$ se le conoce como el funtor de puntos y $\mathcal{O}$ como el funtor de abiertos. En la siguiente subsección mencionaremos de manera breve la construcción del funtor $\pt$.\\
 
-De esta manera $\mathcal{O}(f)\colon \mathcal{O}S\to \mathcal{O}T$ es un morfismo de marcos y $f$ es una función continua $f\colon T\to S$, donde $\mathcal{O}(f)[U]=f^{-1}[U]$ para $U\in \mathcal{O}S$.
-
+Las asignaciones entre objetos y flechas del funtor $\mathcal{O}$ se realiza de la siguiente manera: 
 \subsection{El espacio de puntos de un marco}\label{Epuntos}
 
 Sabemos que si $S$ es un espacio topológico, entonces la familia de todos los conjuntos abiertos, $\mathcal{O}S$, es un marco. Y la asignación $S\mapsto \mathcal{O}S$ está dada por un funtor contravariante.\\
