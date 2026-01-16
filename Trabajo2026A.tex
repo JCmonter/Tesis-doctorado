@@ -1,0 +1,119 @@
+\documentclass[12pt]{article}
+
+% --------------------
+% PAQUETES BÁSICOS
+% --------------------
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[utf8]{inputenc}      % Si usas pdflatex
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage[
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=blue,
+  urlcolor=blue
+]{hyperref}
+
+
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\pt}{pt}
+% --------------------
+% CONFIGURACIÓN
+% --------------------
+\geometry{margin=2.5cm}
+\onehalfspacing
+
+% --------------------
+% DATOS DEL DOCUMENTO
+% --------------------
+\title{Título del documento}
+\author{Nombre del autor}
+\date{\today}
+
+% --------------------
+% INICIO DEL DOCUMENTO
+% --------------------
+\begin{document}
+
+%\maketitle
+
+\section{Cosas para trabajar durante el periodo 2026 A}
+Para la mejor comprensión del presente documento, incluimos la notación básica que será manejada en los distintos puntos que 
+más adelante se enunciaran.\\
+
+Sea $A\in \Frm$ un marco, entonces $PA\subseteq NA$ denota el marco de parches, donde $NA$ denota el conjunto de todos los núcleos sobre $A$.\\
+
+Consideremos $\nabla(j)=\{a\in A\mid j(a)=1\}$. Se puede verificar que el anterior es un filtro y es conocido como filtro de admisibilidad. Usando los filtros de admisibilidad definimos la siguiente relación de equivalencia:
+\[
+j\sim k \iff \nabla(j)=\nabla(k).
+\] 
+donde $j, k\in NA$.\\
+
+Cada clase de equivalencia proporciona un bloque de elementos en $NA$. Cuando $F=\nabla(j)$ es un filtro abierto, este bloque tiene asociado un mayor y un menor elemento. Dicho bloque tiene la forma $[v_F, w_F]$ y lo llamamos intervalo de admisibilidad.\\
+
+Si $p\in \pt A$, entonces podemos asociarle un elemento $w_p\in \pt NA$ dado por 
+\[
+w_p(x)=\left\{
+	\begin{array}{lcc}
+1 & \mbox{ si } & x\nleq p\\
+\\
+p & \mbox{ si } & x\leq p
+\end{array}\right.
+\]
+Sabemos que $PA\subseteq NA$ y aplicando el funtor $\pt$ obtenemos $\pt NA\subseteq \pt PA$. Por lo tanto $w_p\in \pt PA$. De esta manera, para $p\in \pt A$ decimos que $p$ es un punto ajusto si $w_p$ es un núcleo ajustado.\\
+
+Por último, incluimos un breve resumen de algunas propiedades de separación en $\Frm$. Para cualesquiera $a\nleq b\in A$ tenemos que $A$ es:
+\begin{itemize}
+    \item \textbf{(H)} si $\exists\, c\in A$ tal que $c\nleq a$ y $\neg c\leq b$, con $a\neq 1$.
+    \item \textbf{(aju)} si $\exists\, x,y\in A$ tales que $x\vee a=1, y\nleq b$ y $x\wedge y\leq b$.
+    \item \textbf{(saju)} si $\exists\, c\in A$ tal que $c\vee a=1\neq c\vee b$.
+\end{itemize}
+
+\subsection{Lista de actividades}
+En la siguiente lista se presentan las principales actividades que realizaré durante el semestre 2026 periodo que abarca mi estancia del 6to semestre dentro del
+doctorado en ciencias en matemáticas.
+
+\begin{enumerate}
+
+\item Leer el artículo \cite{Arrieta2024LocalicSeparation} para caracterizar los $p\in \pt A$ que producen $w_p$ ajustados.
+\item Relacionar el ejemplo 12.1 de \cite{sexton2006point} y ver la relación que pueda existir con los marcos eficientes y los marcos $KC$.
+\item Para $A=[0,1]$ describir quienes son $^pS$ y $PA$, donde $^pS$ es el espacio de parches.
+\begin{itemize}
+\item En el ejemplo anterior, verificar que propiedades de separación cumple $PA$.
+\item Comprobar si $P[0,1]$ es eficiente pero no $KC$.
+\end{itemize}
+\item Caracterizar los marcos $KC$ por medio de los intervalos $[v_F, w_F]$.
+\item Si existe un ejemplo de marcos eficientes que no son $KC$, verificar que la clase de marcos $KC$ es cerrada bajo coproductos.
+\item Ver la relación que existe entre la propiedad $KC$ y $\mathbf{(H)}$.
+\item Definir las nociones libres de puntos de apilado y fuertemente apilado.
+\item Verificar si las nociones anteriores son conservativas o no.
+\item Teniendo las nociones libres de puntos de apilado y fuertemente apilado, analizar el comportamiento de marcos que cumplan las propiedades:
+\begin{itemize}
+    \item eficiente $+$ fuertemente apilado.
+    \item eficiente $+$ apilado.
+    \item $\mathbf{(saju)} +$ fuertemente apilado.
+    \item $\mathbf{(saju)} +$ apilado.
+    \item $\mathbf{(aju)} +$ fuertemente apilado.
+    \item $\mathbf{(aju)} +$ apilado.
+\end{itemize}
+\item En caso de que las nociones anteriores no sean conservativas, ver la relación que existe entre ellas y la propiedad $\mathbf{(H)}$.
+\item Leer el artículo \cite{BalmerGallauer2025PatchDensity} y dar versiones del Lema 2.6 y Teorema 2.8 para $^pS$ y $PA$.
+\end{enumerate}
+
+
+\bibliographystyle{amsalpha}
+\bibliography{research2}
+% --------------------
+% BIBLIOGRAFÍA (OPCIONAL)
+% --------------------
+% \begin{thebibliography}{9}
+% \bibitem{ref1}
+% Autor, \textit{Título del libro}, Editorial, Año.
+% \end{thebibliography}
+
+\end{document}
