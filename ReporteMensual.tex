@@ -18,10 +18,20 @@
   urlcolor=blue
 ]{hyperref}
 
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{dfn}[thm]{Definición}
+\newtheorem{lem}[thm]{Lema}
+\newtheorem{ej}[thm]{Ejemplo}
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{obs}[thm]{Observación}
+\newtheorem{con}[thm]{Conjetura}
+\newtheorem{prop}[thm]{Proposición}
 
 \DeclareMathOperator{\Frm}{Frm}
 \DeclareMathOperator{\Top}{Top}
 \DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\tp}{tp}
 % --------------------
 % CONFIGURACIÓN
 % --------------------
@@ -42,6 +52,126 @@
 
 \maketitle
 
+Si consideramos $A\in \Frm$, entonces $S=\pt A$ denota el espacio de $A$. Además, si $x\in A$
+\[
+U_A(x)=\{p\in S\mid x\nleq p\}
+\]
+es un abierto en $\mathcal{O}S$. Lo anterior proporciona el morfismo de marcos $U_A:A\to \mathcal{O}S$ definido por $x\mapsto U_A(x)$ el cual es suprayectivo y se le conoce como la reflexión espacial.
+De manera adicional, $U_A$ es un isomorfismo si y sólo si $A$ es espacial, es decir, $A\simeq \mathcal{O}S$ para algún $S\in \Top$.\\
+
+Sabemos que $j\colon A\to A$ es un núcleo en $A$ si es una función que infla, monótona, idempotente y que respeta ínfimos finitos. Para $a, x\in A$ podemos definir los núcleos conocidos
+\[
+u_a(x)=a\vee x, \quad v_a(x)=(a\succ x), \quad w_a(x)=((x\succ a)\succ a).
+\]
+
+Si $A=\mathcal{O}S$ y $E\subseteq S$ definimos la función
+\[
+[E](U)=(E\cup U)^{\circ}
+\]
+donde $U\in \mathcal{O}S$. La anterior resulta ser un núcleo en $\mathcal{O}S$ y se le conoce como \emph{núcleo espacialmente inducido}. De manera particular, recordado que la implicación en $\Top$ se calcula por $(W\succ U)=(W'\cup U)^\circ$ para cada $U, W\in \mathcal{O}S$ tenemos que 
+\[
+u_W=[W]\quad y \quad v_W=[W'].
+\] 
+
+Si a un núcleo espacialmente inducido le calculamos el complemento, obtenemos un operador sobre $\mathcal{C}S$, las diferencias que existen entre estos radican en que los últimos desinflan y respetan supremos finitos. Por ejemplo
+\[
+(v_{W'}(U))'=([W](U))'=((W\cup U)^{\circ})'=\overline{(W'\cap U')}=\partial_{W'}(U')
+\]
+donde al operador $\partial_{E'}$ se le denomina derivada sobre $\mathcal{C}S$.\\
+
+Decimos que $F\subseteq A$ es un filtro abierto si satisface:
+\begin{enumerate}
+\item $1\in F$,
+\item Si $x, y\in F$ entonces $x\wedge y\in F$,
+\item Si $x\in F$ y $x\leq y$ entonces $y\in F$. 
+\item Si $X\subseteq A$ es un conjunto dirigido y $\bigvee X\in F$ entonces existe $x\in X$ tal que $x\in F$.
+\end{enumerate}
+
+Denotamos por $A^\wedge$ al conjunto de todos los filtros abiertos en $A$. Decimos que $f_F$ es un núcleos ajustado si este tiene la forma
+\[
+f_F=\bigvee\{v_a\mid a\in F\}
+\]
+el cual es un núcleo en $A$. Tomando el supremo puntual obtenemos el prenúcleo
+\[
+f_F(x)=\dot{\bigvee}\{v_a\mid a\in F\}.
+\]
+
+Considerando $F\in A^\wedge$ e iterando sobre los ordinales construimos la cadena creciente de prenúcleos
+\[
+f_F^0=\id, \quad f_F^{\alpha+1}=f_F\circ f_F^{\alpha}, \quad f_F^{\lambda}=\bigvee\{f_F^{\beta}\mid \alpha<\lambda\}
+\]
+para cada ordinal $\alpha$ y cada ordinal límite $\lambda$. Finalmente, definimos 
+\[
+v_F=f_F^\infty
+\]
+como el núcleo ajustado asociado a $F$.\\
+
+Por el Teorema de Hofmann-Mislove-Johnstone tenemos una correspondencia biyectiva entre 
+\[
+Q\longleftrightarrow F\longleftrightarrow v_F
+\]
+donde $Q\in \mathcal{Q}S$, $F\in A^\wedge$ y $v_F$ el núcleo ajustado asociado a $F$.\\
+
+Si $A=\mathcal{O}S$, tenemos la siguiente relación entre filtros abiertos y compactos saturados 
+\[
+U\in F\iff Q\subseteq U
+\]
+y así el núcleo anterior tiene la forma $v_F=\bigcup\{[U']\mid U\in F\}$. Calculando su complemento obtenemos el operador
+\[
+\hat{Q}(X)=\bigcap\{\overline{(X\cap U)}\mid Q\subseteq U\}
+\]
+donde $X\in \mathcal{C}S$. Al anterior se le conoce como la $Q$-derivada.
+
+Similarmente a como construimos la sucesión creciente de prenúcleos, tenemos la siguiente sucesión decreciente de $Q$-derivadas
+\[
+Q(0)=S, \quad Q(\alpha+1)=\hat{Q}(Q(\alpha)), \quad Q(\lambda)=\bigcap\{Q(\alpha)\mid \alpha<\lambda\}.
+\]
+\section{Nociones de apilamiento}
+
+Los operadores definidos hasta ahora se relacionan por medio de las nociones de apilado y fuertemente apilado.
+
+\begin{dfn}\label{def:apilado}
+Consideremos $S\in\Top$.
+\begin{enumerate}
+  \item Un conjunto $Q\in \mathcal{Q}S$ es apilado si $\overline{Q}=Q(\infty)$ y es fuertemente apilado si $v_F=[Q']$.
+  \item El espacio $S$ es apilado o fuertemente apilado si cada $Q\in \mathcal{Q}S$ es apilado o fuertemente apilado, respectivamente.
+\end{enumerate}
+\end{dfn}
+
+La anterior es la noción sensible a puntos introducida por Sexton y Simmons en \cite{sexton2006ordinal} (Definición 6.1) y cumplen que fuertemente apilado implica apilado. Nosotros damos las nociones libres de puntos, es decir, las definiciones en $\Frm$.
+
+\begin{dfn}\label{def:apilado-marcos}
+Siguiendo la notación anterior, consideremos $A\in \Frm$ y $\mathcal{U}=U_A$. Decimos que $A$ es:
+\begin{enumerate}
+  \item apilado si $(\mathcal{U}_*([Q'])\mathcal{U})(0)=v_F(0)$.
+  \item fuertemente apilado si $\mathcal{U}_*([Q'])\mathcal{U}=v_F$.
+\end{enumerate}
+\end{dfn}
+
+Trivialmente tenemos que fuertemente apilado implica apilado. Nuestro objetivo es demostrar que las propiedades anteriores son conservativas, es decir, que un espacio $S$ es apilado (fuertemente apilado) si y sólo si su marco de abiertos $\mathcal{O}S$ es apilado (fuertemente apilado). 
+Antes de hacer esto necesitamos el siguiente lema auxiliar.
+
+\begin{lem}\label{lem:auxiliar}
+Si $A=\mathcal{O}S$ y $E\subseteq S$ se cumple que
+\[
+\mathcal{U}_*[E]\mathcal{U}=[E].
+\]
+\end{lem}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{prop}\label{apiladoconservativa}
+Las nociones de fuertemente apilado y apilado son conservativas.
+\end{prop}
+
+\begin{proof}
+
+\end{proof}
+
+\section{El marco $[0,1]$}
+
 \section{Actividades realizadas}
 Durante el presente periodo, se llevaron a cabo las siguientes actividades:
 \begin{enumerate}
@@ -49,4 +179,8 @@ Durante el presente periodo, se llevaron a cabo las siguientes actividades:
   \item Verificamos que las nociones anteriores son conservativas.
   \item 
 \end{enumerate}
+
+\bibliographystyle{amsalpha}
+\bibliography{research2}
+
 \end{document}
