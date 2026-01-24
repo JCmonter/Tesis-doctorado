@@ -13,9 +13,9 @@
 \usepackage{setspace}
 \usepackage[
   colorlinks=true,
-  linkcolor=black,
+  linkcolor=blue,
   citecolor=blue,
-  urlcolor=blue
+  urlcolor=red
 ]{hyperref}
 
 \newtheorem{thm}{Teorema}[section]
@@ -54,10 +54,11 @@
 
 Si consideramos $A\in \Frm$, entonces $S=\pt A$ denota el espacio de $A$. Además, si $x\in A$
 \[
-U_A(x)=\{p\in S\mid x\nleq p\}
+\mathcal{U}_A(x)=\{p\in S\mid x\nleq p\}
 \]
-es un abierto en $\mathcal{O}S$. Lo anterior proporciona el morfismo de marcos $U_A:A\to \mathcal{O}S$ definido por $x\mapsto U_A(x)$ el cual es suprayectivo y se le conoce como la reflexión espacial.
-De manera adicional, $U_A$ es un isomorfismo si y sólo si $A$ es espacial, es decir, $A\simeq \mathcal{O}S$ para algún $S\in \Top$.\\
+es un abierto en $\mathcal{O}S$. Lo anterior proporciona el morfismo de marcos $\mathcal{U}_A:A\to \mathcal{O}S$ definido por $x\mapsto \mathcal{U}_A(x)$ el cual es suprayectivo y se le conoce como la reflexión espacial.
+De manera adicional, $\mathcal{U}_A$ es un isomorfismo si y sólo si $A$ es espacial, es decir, $A\simeq \mathcal{O}S$ para algún $S\in \Top$. Además, podemos omitir el subíndice de la reflexión espacial si es claro cual
+es el marco con el que se está trabajando.\\
 
 Sabemos que $j\colon A\to A$ es un núcleo en $A$ si es una función que infla, monótona, idempotente y que respeta ínfimos finitos. Para $a, x\in A$ podemos definir los núcleos conocidos
 \[
@@ -73,11 +74,13 @@ donde $U\in \mathcal{O}S$. La anterior resulta ser un núcleo en $\mathcal{O}S$ 
 u_W=[W]\quad y \quad v_W=[W'].
 \] 
 
-Si a un núcleo espacialmente inducido le calculamos el complemento, obtenemos un operador sobre $\mathcal{C}S$, las diferencias que existen entre estos radican en que los últimos desinflan y respetan supremos finitos. Por ejemplo
-\[
+Si a un núcleo espacialmente inducido le calculamos el complemento, obtenemos un operador sobre $\mathcal{C}S$, 
+las diferencias que existen entre estos radican en que los últimos desinflan y respetan 
+supremos finitos. Por ejemplo
+\begin{equation}\label{eq:derivada}
 (v_{W'}(U))'=([W](U))'=((W\cup U)^{\circ})'=\overline{(W'\cap U')}=\partial_{W'}(U')
-\]
-donde al operador $\partial_{E'}$ se le denomina derivada sobre $\mathcal{C}S$.\\
+\end{equation}
+donde al operador $\partial_{E'}$ se le conoce como derivada sobre $\mathcal{C}S$.\\
 
 Decimos que $F\subseteq A$ es un filtro abierto si satisface:
 \begin{enumerate}
@@ -89,18 +92,25 @@ Decimos que $F\subseteq A$ es un filtro abierto si satisface:
 
 Denotamos por $A^\wedge$ al conjunto de todos los filtros abiertos en $A$. Decimos que $f_F$ es un núcleos ajustado si este tiene la forma
 \[
-f_F=\bigvee\{v_a\mid a\in F\}
+f=\bigvee\{v_a\mid a\in F\}
 \]
 el cual es un núcleo en $A$. Tomando el supremo puntual obtenemos el prenúcleo
-\[
-f_F(x)=\dot{\bigvee}\{v_a\mid a\in F\}.
-\]
+\begin{equation}\label{eq:prenucleo}
+f_F=\dot{\bigvee}\{v_a\mid a\in F\}.
+\end{equation}
 
 Considerando $F\in A^\wedge$ e iterando sobre los ordinales construimos la cadena creciente de prenúcleos
 \[
 f_F^0=\id, \quad f_F^{\alpha+1}=f_F\circ f_F^{\alpha}, \quad f_F^{\lambda}=\bigvee\{f_F^{\beta}\mid \alpha<\lambda\}
 \]
-para cada ordinal $\alpha$ y cada ordinal límite $\lambda$. Finalmente, definimos 
+para cada ordinal $\alpha$ y cada ordinal límite $\lambda$. 
+
+En el caso espacial, tenemos que el prenúcleo (\ref{eq:prenucleo}) tiene la forma
+\[
+f_F=\dot{\bigvee}\{[U']\mid U\in F\}.
+\]
+
+Finalmente, definimos 
 \[
 v_F=f_F^\infty
 \]
@@ -120,12 +130,19 @@ y así el núcleo anterior tiene la forma $v_F=\bigcup\{[U']\mid U\in F\}$. Calc
 \[
 \hat{Q}(X)=\bigcap\{\overline{(X\cap U)}\mid Q\subseteq U\}
 \]
-donde $X\in \mathcal{C}S$. Al anterior se le conoce como la $Q$-derivada.
+donde $X\in \mathcal{C}S$. Al anterior se le conoce como la $Q$-derivada.\\
 
 Similarmente a como construimos la sucesión creciente de prenúcleos, tenemos la siguiente sucesión decreciente de $Q$-derivadas
 \[
 Q(0)=S, \quad Q(\alpha+1)=\hat{Q}(Q(\alpha)), \quad Q(\lambda)=\bigcap\{Q(\alpha)\mid \alpha<\lambda\}.
 \]
+
+Siguiendo la idea mostrada en (\ref{eq:derivada}), podemos ver que la $Q$-derivada es el complemento del núcleo ajustado asociado al filtro abierto correspondiente a $Q$, es decir,
+\begin{equation}\label{eq:complemento}
+  Q(\alpha)(X)=(v_F^{\alpha}(X'))'
+\end{equation}
+donde $X\in \mathcal{C}S$.
+
 \section{Nociones de apilamiento}
 
 Los operadores definidos hasta ahora se relacionan por medio de las nociones de apilado y fuertemente apilado.
@@ -141,10 +158,10 @@ Consideremos $S\in\Top$.
 La anterior es la noción sensible a puntos introducida por Sexton y Simmons en \cite{sexton2006ordinal} (Definición 6.1) y cumplen que fuertemente apilado implica apilado. Nosotros damos las nociones libres de puntos, es decir, las definiciones en $\Frm$.
 
 \begin{dfn}\label{def:apilado-marcos}
-Siguiendo la notación anterior, consideremos $A\in \Frm$ y $\mathcal{U}=U_A$. Decimos que $A$ es:
+Siguiendo la notación anterior, consideremos $A\in \Frm$. Decimos que $A$ es:
 \begin{enumerate}
   \item apilado si $(\mathcal{U}_*([Q'])\mathcal{U})(0)=v_F(0)$.
-  \item fuertemente apilado si $\mathcal{U}_*([Q'])\mathcal{U}=v_F$.
+  \item fuertemente apilado si $\mathcal{U}_*[Q']\mathcal{U}=v_F$.
 \end{enumerate}
 \end{dfn}
 
@@ -159,7 +176,15 @@ Si $A=\mathcal{O}S$ y $E\subseteq S$ se cumple que
 \end{lem}
 
 \begin{proof}
-
+Como el marco $A$ es espacial se cumple que $\mathcal{U}$ es un isomorfismo. De aquí que si $U\in \mathcal{O}\pt A$ existe $V\in \pt A$ tal que $U=\mathcal{U}(V)$ y como $U\in \pt A$, se cumple que $U=V$. Luego
+\[
+\begin{split}
+(\mathcal{U}_*[E]\mathcal{U})(U)&=\mathcal{U}_*[E](\mathcal{U}(U))=\mathcal{U}_*([E](U))\\
+&=\mathcal{U}_*(E\cup U)^{\circ}=\bigcup\{W\in \mathcal{O}S\mid W\subseteq (E\cup U)^{\circ}\}\\
+&=(E\cup U)^{\circ}=[E](U).
+\end{split}
+\]
+Por lo tanto $\mathcal{U}_*[E]\mathcal{U}=[E]$.
 \end{proof}
 
 \begin{prop}\label{apiladoconservativa}
@@ -167,7 +192,29 @@ Las nociones de fuertemente apilado y apilado son conservativas.
 \end{prop}
 
 \begin{proof}
+Consideremos $S\in \Top$, $A=\mathcal{O}S$, $F\in A^\wedge$ y $Q\in \mathcal{Q}S$.\\
 
+Primero, supongamos que $S$ es fuertemente apilado. De aquí que $v_F=[Q']$ y por el Lema \ref{lem:auxiliar} tenemos que $\mathcal{U}_*[Q']\mathcal{U}=[Q']=v_F$. Por lo tanto $\mathcal{O}S$ es fuertemente apilado.\\
+
+Supongamos ahora que $S$ es apilado. Por lo anterior se cumple que 
+\[
+\overline{Q}=Q(\infty)(S)\Leftrightarrow \overline{Q}'=(Q(\infty)(S))'.
+\]
+
+Además, 
+\[
+\begin{split}
+(\mathcal{U}_*[Q']\mathcal{U})(\emptyset)&=\mathcal{U}_*([Q'](\{V\in \pt\mathcal{O}S\mid \emptyset \not\subseteq V\}))\\
+&=\mathcal{U}_*([Q'](\emptyset))=\mathcal{U}_*(Q')^{\circ}\\
+&=\bigcup\{W\in \mathcal{O}S\mid W\subseteq (Q')^\circ\}\\
+&=(Q')^{\circ}=\overline{Q}'.
+\end{split}
+\]
+Por (\ref{eq:complemento}) tenemos que $v_F(\emptyset)=(Q(\infty)(\emptyset'))'$. Por lo tanto 
+\[
+v_F(\emptyset)=(\mathcal{U}_*[Q']\mathcal{U})(\emptyset),
+\]
+es decir, $\mathcal{O}S$ es apilado.\\
 \end{proof}
 
 \section{El marco $[0,1]$}
