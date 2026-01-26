@@ -28,6 +28,7 @@
 \newtheorem{prop}[thm]{Proposición}
 
 \DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Ord}{Ord}
 \DeclareMathOperator{\Top}{Top}
 \DeclareMathOperator{\pt}{pt}
 \DeclareMathOperator{\id}{id}
@@ -126,22 +127,25 @@ Si $A=\mathcal{O}S$, tenemos la siguiente relación entre filtros abiertos y com
 \[
 U\in F\iff Q\subseteq U
 \]
-y así el núcleo anterior tiene la forma $v_F=\bigcup\{[U']\mid U\in F\}$. Calculando su complemento obtenemos el operador
+y así el prenúcleo (\ref{eq:prenucleo}) tiene la forma $f_F=\dot{\bigvee}\{[U']\mid Q\subseteq U\}$. Calculando su complemento obtenemos el operador
 \[
-\hat{Q}(X)=\bigcap\{\overline{(X\cap U)}\mid Q\subseteq U\}
+\partial_F(X)=\bigcap\{\overline{(X\cap U)}\mid Q\subseteq U\}
 \]
-donde $X\in \mathcal{C}S$. Al anterior se le conoce como la $Q$-derivada.\\
+donde $X\in \mathcal{C}S$ (ver Lema 6.1 de \cite{simmons2004vietoris}). Al anterior se le conoce como la $Q$-derivada.\\
 
 Similarmente a como construimos la sucesión creciente de prenúcleos, tenemos la siguiente sucesión decreciente de $Q$-derivadas
 \[
-Q(0)=S, \quad Q(\alpha+1)=\hat{Q}(Q(\alpha)), \quad Q(\lambda)=\bigcap\{Q(\alpha)\mid \alpha<\lambda\}.
+\partial_F^0=\tp, \quad \partial^{\alpha+1}_F=\partial_F(\partial_F^\alpha(S)), \quad \partial_F^\nabla=\bigcap\{\partial_F^\alpha\mid \alpha<\lambda\}.
 \]
 
-Siguiendo la idea mostrada en (\ref{eq:derivada}), podemos ver que la $Q$-derivada es el complemento del núcleo ajustado asociado al filtro abierto correspondiente a $Q$, es decir,
+De esta manera tenemos que 
 \begin{equation}\label{eq:complemento}
-  Q(\alpha)(X)=(v_F^{\alpha}(X'))'
+  \partial_F^\alpha(X)=\partial_F(\partial_F^{\alpha-1}(X))=(f_F(\partial_F^{\alpha-1}(X))')'=(f_F(f_F^{\alpha-1}(X')))'=(f_F^\alpha(X'))'
 \end{equation}
-donde $X\in \mathcal{C}S$.
+donde $X\in \mathcal{C}S$ y para todo $\alpha\in \Ord$. De manera particular,
+\[
+\partial_F^\infty(X)=(v_F(X'))'.
+\]
 
 \section{Nociones de apilamiento}
 
@@ -150,7 +154,7 @@ Los operadores definidos hasta ahora se relacionan por medio de las nociones de 
 \begin{dfn}\label{def:apilado}
 Consideremos $S\in\Top$.
 \begin{enumerate}
-  \item Un conjunto $Q\in \mathcal{Q}S$ es apilado si $\overline{Q}=Q(\infty)$ y es fuertemente apilado si $v_F=[Q']$.
+  \item Un conjunto $Q\in \mathcal{Q}S$ es apilado si $\overline{Q}=\partial_F^\infty(S)$ y es fuertemente apilado si $v_F=[Q']$.
   \item El espacio $S$ es apilado o fuertemente apilado si cada $Q\in \mathcal{Q}S$ es apilado o fuertemente apilado, respectivamente.
 \end{enumerate}
 \end{dfn}
