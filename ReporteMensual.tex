@@ -53,7 +53,7 @@
 
 \maketitle
 
-Si consideramos $A\in \Frm$, entonces $S=\pt A$ denota el espacio de $A$. Además, si $x\in A$
+Si consideramos $A\in \Frm$, entonces $S=\pt A$ denota el espacio de puntos de $A$. Además, si $x\in A$
 \[
 \mathcal{U}_A(x)=\{p\in S\mid x\nleq p\}
 \]
@@ -75,13 +75,13 @@ donde $U\in \mathcal{O}S$. La anterior resulta ser un núcleo en $\mathcal{O}S$ 
 u_W=[W]\quad y \quad v_W=[W'].
 \] 
 
-Si a un núcleo espacialmente inducido le calculamos el complemento, obtenemos un operador sobre $\mathcal{C}S$, 
+Si a un núcleo espacialmente inducido le calculamos su complemento dual, obtenemos un operador sobre $\mathcal{C}S$, 
 las diferencias que existen entre estos radican en que los últimos desinflan y respetan 
 supremos finitos. Por ejemplo
 \begin{equation}\label{eq:derivada}
-(v_{W'}(U))'=([W](U))'=((W\cup U)^{\circ})'=\overline{(W'\cap U')}=\partial_{W'}(U')
+(v_{W}(U))'=([W'](U))'=((W'\cup U)^{\circ})'=(((W\cap U')')^\circ)'=\overline{(W\cap U')}=\partial_{W}(U')
 \end{equation}
-donde al operador $\partial_{E'}$ se le conoce como derivada sobre $\mathcal{C}S$.\\
+donde la última igualdad es el operador $\partial_{W}\colon \mathcal{C}S\to \mathcal{C}S$ y es una derivada idempotente.\\
 
 Decimos que $F\subseteq A$ es un filtro abierto si satisface:
 \begin{enumerate}
@@ -91,61 +91,119 @@ Decimos que $F\subseteq A$ es un filtro abierto si satisface:
 \item Si $X\subseteq A$ es un conjunto dirigido y $\bigvee X\in F$ entonces existe $x\in X$ tal que $x\in F$.
 \end{enumerate}
 
-Denotamos por $A^\wedge$ al conjunto de todos los filtros abiertos en $A$. Decimos que $f_F$ es un núcleos ajustado si este tiene la forma
+Denotamos por $A^\wedge$ al conjunto de todos los filtros abiertos en $A$. Decimos que $f$ es un núcleos ajustado si este tiene la forma
 \[
 f=\bigvee\{v_a\mid a\in F\}
 \]
-el cual es un núcleo en $A$. Tomando el supremo puntual obtenemos el prenúcleo
+el cual es un núcleo en $A$. Tomando el supremo puntual obtenemos
 \begin{equation}\label{eq:prenucleo}
-f_F=\dot{\bigvee}\{v_a\mid a\in F\}.
+f_F=\dot{\bigvee}\{v_a\mid a\in F\}
 \end{equation}
+el cual resulta ser un prenúcleo en $A$, es decir, una función que infla, monótona y que preserva ínfimos finitos.\\
 
 Considerando $F\in A^\wedge$ e iterando sobre los ordinales construimos la cadena creciente de prenúcleos
 \[
 f_F^0=\id, \quad f_F^{\alpha+1}=f_F\circ f_F^{\alpha}, \quad f_F^{\lambda}=\bigvee\{f_F^{\beta}\mid \alpha<\lambda\}
 \]
-para cada ordinal $\alpha$ y cada ordinal límite $\lambda$. 
-
-En el caso espacial, tenemos que el prenúcleo (\ref{eq:prenucleo}) tiene la forma
+para cada ordinal $\alpha$ y cada ordinal límite $\lambda$. De manera usual, consideramos la cerradura idempotente 
 \[
-f_F=\dot{\bigvee}\{[U']\mid U\in F\}.
+f_F^\infty=v_F
+\]
+donde $v_F$ es el núcleo ajustado asociado a $F$.\\
+
+Si $A=\mathcal{O}S$, tenemos que el prenúcleo (\ref{eq:prenucleo}) tiene la forma
+\[
+f_F=\dot{\bigvee}\{[U']\mid U\in F\}
+\]
+y por el Teorema de Hofmann-Mislove-Johnstone obtenemos $f_F=\dot{\bigvee}\{[U']\mid Q\subseteq U\}$ donde $Q\in \mathcal{Q}S$ es el conjunto compacto saturado asociado a $F$.\\ 
+
+Calculando su complemento dual obtenemos el operador $\partial_F(X)=\bigcap\{\overline{(X\cap U)}\mid Q\subseteq U\}$
+donde $X\in \mathcal{C}S$. Por lo tanto, tenemos que 
+\begin{equation}\label{eq:complementodual}
+\partial_F(X)=f_F(X')'
+\end{equation} 
+y al prenúcleo $\partial_F$ se le conoce como la $Q$-derivada (ver Lema 6.1 de \cite{simmons2004vietoris}).\\
+
+Similarmente a como construimos la sucesión creciente de prenúcleos $f_F^\alpha$ tenemos la siguiente sucesión decreciente de $Q$-derivadas
+\[
+\partial_F^0=\id, \quad \partial^{\alpha+1}_F=\partial_F(\partial_F^\alpha), \quad \partial_F^\lambda=\bigcap\{\partial_F^\alpha\mid \alpha<\lambda\}.
 \]
 
-Finalmente, definimos 
-\[
-v_F=f_F^\infty
-\]
-como el núcleo ajustado asociado a $F$.\\
+La manera de relacionar ambas sucesiones se muestra en el siguiente lema.
 
-Por el Teorema de Hofmann-Mislove-Johnstone tenemos una correspondencia biyectiva entre 
-\[
-Q\longleftrightarrow F\longleftrightarrow v_F
-\]
-donde $Q\in \mathcal{Q}S$, $F\in A^\wedge$ y $v_F$ el núcleo ajustado asociado a $F$.\\
-
-Si $A=\mathcal{O}S$, tenemos la siguiente relación entre filtros abiertos y compactos saturados 
-\[
-U\in F\iff Q\subseteq U
-\]
-y así el prenúcleo (\ref{eq:prenucleo}) tiene la forma $f_F=\dot{\bigvee}\{[U']\mid Q\subseteq U\}$. Calculando su complemento obtenemos el operador
-\[
-\partial_F(X)=\bigcap\{\overline{(X\cap U)}\mid Q\subseteq U\}
-\]
-donde $X\in \mathcal{C}S$ (ver Lema 6.1 de \cite{simmons2004vietoris}). Al anterior se le conoce como la $Q$-derivada.\\
-
-Similarmente a como construimos la sucesión creciente de prenúcleos, tenemos la siguiente sucesión decreciente de $Q$-derivadas
-\[
-\partial_F^0=\tp, \quad \partial^{\alpha+1}_F=\partial_F(\partial_F^\alpha(S)), \quad \partial_F^\nabla=\bigcap\{\partial_F^\alpha\mid \alpha<\lambda\}.
-\]
-
-De esta manera tenemos que 
-\begin{equation}\label{eq:complemento}
-  \partial_F^\alpha(X)=\partial_F(\partial_F^{\alpha-1}(X))=(f_F(\partial_F^{\alpha-1}(X))')'=(f_F(f_F^{\alpha-1}(X')))'=(f_F^\alpha(X'))'
+\begin{lem}\label{inducciontransfinita}
+Para todo $\alpha\in \Ord$ y $X\in CS$, se cumple
+\begin{equation}\label{eq:induccion}
+\partial_F^\alpha(X)=\big(f_F^\alpha(X')\big)'\iff  \big(\partial_F^\alpha(X)\big)'=f_F^\alpha(X').
 \end{equation}
-donde $X\in \mathcal{C}S$ y para todo $\alpha\in \Ord$. De manera particular,
+\end{lem}
+
+\begin{proof}
+Procedemos por inducción transfinita sobre $\alpha\in \Ord$.
+
+\smallskip
+\noindent\textbf{Caso base $\alpha=0$.}
+Por definición, $\partial_F^0=\id$, es decir, $\partial_F^0(X)=X$ y $f_F^0=\id$, luego
 \[
-\partial_F^\infty(X)=(v_F(X'))'.
+\partial_F^0(X)=X=(X'')=\big(f_F^0(X')\big)'.
 \]
+
+\smallskip
+\noindent\textbf{Caso sucesor.}
+Supongamos que la afirmación es cierta para $\alpha$ y probemos para $\alpha+1$.
+Por definición de iteración,
+\[
+\partial_F^{\alpha+1}(X)=\partial_F\big(\partial_F^\alpha(X)\big).
+\]
+Además, por (\ref{eq:complementodual})
+\[
+\partial_F^{\alpha+1}(X)
+=(f_F((\partial_F^\alpha(X))'))'.
+\]
+Por hipótesis inducción, $\partial_F^\alpha(X)=\big(f_F^\alpha(X')\big)'$ y sustituyendo obtenemos
+\[
+\partial_F^{\alpha+1}(X)=(f_F(f_F^\alpha(X')))'=\big(f_F^{\alpha+1}(X')\big)'
+\]
+que es lo que queríamos.
+
+\smallskip
+\noindent\textbf{Caso límite.}
+Sea $\lambda$ un ordinal límite y supongamos que lo anterior se cumple para todo $\alpha<\lambda$.
+Por definición de la iteración,
+\[
+\partial_F^\lambda(X)=\bigcap_{\alpha<\lambda}\partial_F^\alpha(X).
+\]
+Por De Morgan,
+\[
+\big(\partial_F^\lambda(X)\big)'
+=\Big(\bigcap_{\alpha<\lambda}\partial_F^\alpha(X)\Big)'
+=\bigcup_{\alpha<\lambda}\big(\partial_F^\alpha(X)\big)'.
+\]
+Usando la hipótesis de inducción, para todo $\alpha<\lambda$,
+\[
+\big(\partial_F^\alpha(X)\big)'=f_F^\alpha(X'),
+\]
+Luego,
+\[
+\big(\partial_F^\lambda(X)\big)'=\bigcup_{\alpha<\lambda} f_F^\alpha(X')=f_F^\lambda(X').
+\]
+Por lo tanto,
+\[
+\big(\partial_F^\lambda(X)\big)'=f_F^\lambda(X'),
+\]
+es decir,
+\[
+\partial_F^\lambda(X)=\big(f_F^\lambda(X')\big)'.
+\]
+y obtenemos lo que queríamos.
+\end{proof}
+
+Un caso particular del lema anterior es cuando $\alpha=\infty$.
+\begin{cor}\label{cor:infinito}
+\begin{equation}\label{eq:infinito}
+\partial_F^\infty(X)=(v_F(X'))'.
+\end{equation}
+\end{cor}
 
 \section{Nociones de apilamiento}
 
@@ -202,7 +260,7 @@ Primero, supongamos que $S$ es fuertemente apilado. De aquí que $v_F=[Q']$ y po
 
 Supongamos ahora que $S$ es apilado. Por lo anterior se cumple que 
 \[
-\overline{Q}=Q(\infty)(S)\Leftrightarrow \overline{Q}'=(Q(\infty)(S))'.
+\overline{Q}=\partial_F^\infty(S)\iff \overline{Q}'=(\partial_F^{\infty}(S))'.
 \]
 
 Además, 
@@ -214,7 +272,7 @@ Además,
 &=(Q')^{\circ}=\overline{Q}'.
 \end{split}
 \]
-Por (\ref{eq:complemento}) tenemos que $v_F(\emptyset)=(Q(\infty)(\emptyset'))'$. Por lo tanto 
+Por el Corolario \ref{cor:infinito} tenemos que $v_F(\emptyset)=(\partial_F^\infty(\emptyset'))'$. Por lo tanto 
 \[
 v_F(\emptyset)=(\mathcal{U}_*[Q']\mathcal{U})(\emptyset),
 \]
