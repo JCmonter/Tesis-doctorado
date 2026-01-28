@@ -33,6 +33,7 @@
 \DeclareMathOperator{\pt}{pt}
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\tp}{tp}
+\DeclareMathOperator{\fd}{fd}
 % --------------------
 % CONFIGURACIÓN
 % --------------------
@@ -61,7 +62,10 @@ es un abierto en $\mathcal{O}S$. Lo anterior proporciona el morfismo de marcos $
 De manera adicional, $\mathcal{U}_A$ es un isomorfismo si y sólo si $A$ es espacial, es decir, $A\simeq \mathcal{O}S$ para algún $S\in \Top$. Además, podemos omitir el subíndice de la reflexión espacial si es claro cual
 es el marco con el que se está trabajando.\\
 
-Sabemos que $j\colon A\to A$ es un núcleo en $A$ si es una función que infla, monótona, idempotente y que respeta ínfimos finitos. Para $a, x\in A$ podemos definir los núcleos conocidos
+\section{Núcleos y derivadas}
+Sabemos que $j\colon A\to A$ es un núcleo en $A$ si es una función que infla, monótona, idempotente y que respeta ínfimos finitos. Si la anterior no cumple con la idempotencia, entonces al operador se le conoce como \emph{prenúcleo}.\\
+
+Para $a, x\in A$ podemos definir los núcleos conocidos
 \[
 u_a(x)=a\vee x, \quad v_a(x)=(a\succ x), \quad w_a(x)=((x\succ a)\succ a).
 \]
@@ -75,13 +79,29 @@ donde $U\in \mathcal{O}S$. La anterior resulta ser un núcleo en $\mathcal{O}S$ 
 u_W=[W]\quad y \quad v_W=[W'].
 \] 
 
-Si a un núcleo espacialmente inducido le calculamos su complemento dual, obtenemos un operador sobre $\mathcal{C}S$, 
-las diferencias que existen entre estos radican en que los últimos desinflan y respetan 
-supremos finitos. Por ejemplo
+Si a un núcleo espacialmente inducido le calculamos su complemento dual, obtenemos un operador sobre $\mathcal{C}S$. Dicho operador resulta ser una \emph{derivada idempotente}.
+
+\begin{dfn}\label{derivadaidempotente}
+Sea $S\in \Top$ y $\mathcal{C}S$ la colección de subconjuntos cerrados de $S$. Un operador $\partial\colon \mathcal{C}S\to \mathcal{C}S$ es una derivada si satisface:
+\begin{enumerate}
+\item Si $X\subseteq Y$ entonces $\partial(X)\subseteq \partial(Y)$,
+\item $\partial(X)\subseteq X$,
+\item $\partial(X\cup Y)=\partial(X)\cup \partial(Y)$
+\end{enumerate}
+para todo $X,Y\in \mathcal{C}S$. De manera adicional, decimos que la derivada es idempotente si $\partial^2=\partial$.
+\end{dfn}
+
+Tanto para núcleos como para derivadas, el orden se define puntualmente y considerando $\id$ el operador identidad, $\tp$ el operador constante $x\mapsto 1$ y $\fd$ el operador constante $x\mapsto 0$ obtenemos
+\[
+\id\leq j\leq \tp\quad \text{y}\quad \id\geq \partial\geq \fd
+\]
+para $j$ un núcleo y $\partial$ una derivada.\\
+
+Como mencionamos antes, si tomamos el núcleo $v_W=[W']$ y calculamos su complemento dual obtenemos
 \begin{equation}\label{eq:derivada}
-(v_{W}(U))'=([W'](U))'=((W'\cup U)^{\circ})'=(((W\cap U')')^\circ)'=\overline{(W\cap U')}=\partial_{W}(U')
+(v_{W}(U))'=([W'](U))'=((W'\cup U)^{\circ})'=(((W\cap U')')^\circ)'=\overline{(W\cap U')}=\partial_{W}(U').
 \end{equation}
-donde la última igualdad es el operador $\partial_{W}\colon \mathcal{C}S\to \mathcal{C}S$ y es una derivada idempotente.\\
+En este caso, la última proporciona el operador $\partial_{W}$ que es una derivada idempotente.\\
 
 Decimos que $F\subseteq A$ es un filtro abierto si satisface:
 \begin{enumerate}
@@ -91,23 +111,23 @@ Decimos que $F\subseteq A$ es un filtro abierto si satisface:
 \item Si $X\subseteq A$ es un conjunto dirigido y $\bigvee X\in F$ entonces existe $x\in X$ tal que $x\in F$.
 \end{enumerate}
 
-Denotamos por $A^\wedge$ al conjunto de todos los filtros abiertos en $A$. Decimos que $f$ es un núcleos ajustado si este tiene la forma
+Denotamos por $A^\wedge$ al conjunto de todos los filtros abiertos en $A$. Decimos que $f$ es un núcleo ajustado si este tiene la forma
 \[
 f=\bigvee\{v_a\mid a\in F\}
 \]
-el cual es un núcleo en $A$. Tomando el supremo puntual obtenemos
+y es un núcleo en $A$. Tomando el supremo puntual obtenemos
 \begin{equation}\label{eq:prenucleo}
 f_F=\dot{\bigvee}\{v_a\mid a\in F\}
 \end{equation}
-el cual resulta ser un prenúcleo en $A$, es decir, una función que infla, monótona y que preserva ínfimos finitos.\\
+el cual resulta ser un prenúcleo en $A$.\\
 
 Considerando $F\in A^\wedge$ e iterando sobre los ordinales construimos la cadena creciente de prenúcleos
 \[
 f_F^0=\id, \quad f_F^{\alpha+1}=f_F\circ f_F^{\alpha}, \quad f_F^{\lambda}=\bigvee\{f_F^{\beta}\mid \alpha<\lambda\}
 \]
-para cada ordinal $\alpha$ y cada ordinal límite $\lambda$. De manera usual, consideramos la cerradura idempotente 
+para cada ordinal $\alpha$ y cada ordinal límite $\lambda$. De manera usual, denotamos por $\infty$ al ordinal bajo el cual la sucesión se estabiliza, es decir, $f_F^{\infty+1}=f_F^\infty$. A este se le conoce como la cerradura idempotente y haciendo uso de el definimos
 \[
-f_F^\infty=v_F
+v_F=f_F^{\infty}.
 \]
 donde $v_F$ es el núcleo ajustado asociado a $F$.\\
 
@@ -115,14 +135,14 @@ Si $A=\mathcal{O}S$, tenemos que el prenúcleo (\ref{eq:prenucleo}) tiene la for
 \[
 f_F=\dot{\bigvee}\{[U']\mid U\in F\}
 \]
-y por el Teorema de Hofmann-Mislove-Johnstone obtenemos $f_F=\dot{\bigvee}\{[U']\mid Q\subseteq U\}$ donde $Q\in \mathcal{Q}S$ es el conjunto compacto saturado asociado a $F$.\\ 
+y por el Teorema de Hofmann-Mislove obtenemos $f_F=\dot{\bigvee}\{[U']\mid Q\subseteq U\}$ donde $Q\in \mathcal{Q}S$ es el conjunto compacto saturado asociado a $F$.\\ 
 
-Calculando su complemento dual obtenemos el operador $\partial_F(X)=\bigcap\{\overline{(X\cap U)}\mid Q\subseteq U\}$
+Calculando su complemento dual obtenemos la derivada $\partial_F(X)=\bigcap\{\overline{(X\cap U)}\mid Q\subseteq U\}$
 donde $X\in \mathcal{C}S$. Por lo tanto, tenemos que 
 \begin{equation}\label{eq:complementodual}
-\partial_F(X)=f_F(X')'
+\partial_F(X)=f_F(X')'.
 \end{equation} 
-y al prenúcleo $\partial_F$ se le conoce como la $Q$-derivada (ver Lema 6.1 de \cite{simmons2004vietoris}).\\
+Al operador $\partial_F$ se le conoce como la $Q$-derivada (ver Lema 6.1 de \cite{simmons2004vietoris}).\\
 
 Similarmente a como construimos la sucesión creciente de prenúcleos $f_F^\alpha$ tenemos la siguiente sucesión decreciente de $Q$-derivadas
 \[
@@ -134,7 +154,7 @@ La manera de relacionar ambas sucesiones se muestra en el siguiente lema.
 \begin{lem}\label{inducciontransfinita}
 Para todo $\alpha\in \Ord$ y $X\in CS$, se cumple
 \begin{equation}\label{eq:induccion}
-\partial_F^\alpha(X)=\big(f_F^\alpha(X')\big)'\iff  \big(\partial_F^\alpha(X)\big)'=f_F^\alpha(X').
+\partial_F^\alpha(X)=\big(f_F^\alpha(X')\big)'.
 \end{equation}
 \end{lem}
 
