@@ -1,5 +1,21 @@
 \documentclass{protocol_template}
 
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{dfn}[thm]{Definición}
+\newtheorem{lem}[thm]{Lema}
+\newtheorem{ej}[thm]{Ejemplo}
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{obs}[thm]{Observación}
+\newtheorem{con}[thm]{Conjetura}
+\newtheorem{prop}[thm]{Proposición}
+
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Ord}{Ord}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\tp}{tp}
+\DeclareMathOperator{\fd}{fd}
 
 \title{Modificaciones de parches y algunos axiomas de separación en la topología sin puntos}
 \author{Juan Carlos Monter Cortés}
@@ -19,7 +35,31 @@
 
 \section{Introducción}
 
-Se incluyen en esta parte antecedentes del tema. Contextualizar el área de estudio y mostrar el ``Estado del Arte".
+La construcción de parches introducida por Sexton en \cite{sexton2006point} busca dar una variante libre de puntos que se comporte de manera similar a lo que topológicamente se conoce como \emph{espacio de parches}. 
+De manera especifica, se busca imitar la propiedad de que un espacio topológico $S$ sea empaquetado. Lo anterior se cumple si y solo si  
+\[
+^pS=S,
+\]
+donde $^pS$ es el espacio de parches. Esto es traducido al lenguaje de marcos como la propiedad de que un marco $A$ sea \emph{parche trivial}. En otras palabras, un marco $A$ es parche trivial si
+\[
+A\simeq PA,
+\]
+donde $PA$ es conocido como el \emph{marco de parches}. Los autores de \cite{sexton2006point}, \cite{sexton2006ordinal} y \cite{sexton2003point} se encargan de caracterizar esta propiedad por medio de lo que ellos 
+definen como \emph{marcos eficientes}. Parte de las propiedades demostradas relacionan a los marcos eficientes con los axiomas clásicos de separación. 
+El siguiente teorema de un ejemplo de ello.
+
+\begin{thm}\label{Teorema1}
+    Un espacio $S$ que es $T_0$ tiene topología $1$-eficiente si y solo si $S$ es $T_2$. 
+\end{thm}
+
+En la actualidad, el estudio de los axiomas de separación es un área de interés dentro de los grupos de investigación sobre teoría de marcos. De manera similar a los axiomas para espacios topológicos, 
+los axiomas dentro de la categoría de marcos se relacionan de manera jerárquica, en este caso
+\[
+\mathbf{(reg)}\Rightarrow \mathbf{(fH)}\Rightarrow \mathbf{(H)}\Rightarrow T_1
+\]
+donde $\mathbf{(reg)}$ es la propiedad de ser \emph{regular}, $\mathbf{(fH)}$ es \emph{fuertemente Hausdorff} y $\mathbf{(H)}$ la de ser \emph{Hausdorff} (ver \cite{picado2021separation}). De esta manera resulta natural preguntarnos lo siguiente: 
+\emph{¿se puede incluir la propiedad de eficiencia en alguna parte de esta jerarquía?}.\\
+
 
 \section{Planteamiento del Problema}
 
@@ -58,7 +98,8 @@ Sustentación &  &  &  & & & & & \checkmark \\
 \end{table}
 
 \nocite{*}
-\bibliography{research2}
+\bibliography{references}
+%\bibliography{research2}
 \vspace{24pt} 
 
 %\textbf{Consideraciones a tener sobre las referencias.}
