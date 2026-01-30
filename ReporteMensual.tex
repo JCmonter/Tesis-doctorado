@@ -123,7 +123,7 @@ el cual resulta ser un prenúcleo en $A$.\\
 
 Considerando $F\in A^\wedge$ e iterando sobre los ordinales construimos la cadena creciente de prenúcleos
 \[
-f_F^0=\id, \quad f_F^{\alpha+1}=f_F\circ f_F^{\alpha}, \quad f_F^{\lambda}=\bigvee\{f_F^{\beta}\mid \alpha<\lambda\}
+f_F^0=\id, \quad f_F^{\alpha+1}=f_F\circ f_F^{\alpha}, \quad f_F^{\lambda}=\bigvee\{f_F^{\alpha}\mid \alpha<\lambda\}
 \]
 para cada ordinal $\alpha$ y cada ordinal límite $\lambda$. De manera usual, denotamos por $\infty$ al ordinal bajo el cual la sucesión se estabiliza, es decir, $f_F^{\infty+1}=f_F^\infty$. A este se le conoce como la cerradura idempotente y haciendo uso de el definimos
 \[
@@ -300,6 +300,52 @@ es decir, $\mathcal{O}S$ es apilado.\\
 \end{proof}
 
 \section{El marco $[0,1]$}
+
+Siguiendo la idea de mostrada en \cite{simmons2006regularity} (o de manera alternativa \cite{simmons2004vietoris}), consideremos el marco linealmente ordenado $A=[0,1]$. En este caso particular podemos hacer las siguientes observaciones:
+\begin{enumerate}
+\item La operación de implicación en $A$ para cualesquier $a,b\in A$ se calcula como
+\[
+(a\succ b)=\begin{cases}
+1 & \text{si } a\leq b,\\
+b & \text{si } a>b.
+\end{cases}
+\]
+\item Los núcleos distinguidos $u_a, v_a, w_a$ para $a\in A$ se calculan como
+\[
+u_a(x)=\max\{a, x\}, \quad v_a(x)=\begin{cases}
+1 & \text{si } x\geq a,\\
+a & \text{si } x<a,
+\end{cases} \quad\mbox{ y} \quad w_a(x)=\begin{cases}
+1 & \text{si } x>a,\\
+a & \text{si } x\leq a.
+\end{cases}
+\]
+\item Si $F\subseteq A$ es un filtro, entonces este siempre es admisible y tiene la forma
+\[
+F=\nabla(w_a)=(a, 1]\quad \mbox{ o }\quad F=\nabla(v_a)=[a, 1]
+\]
+para algún $a\in A$. De manera particular, $F\in A^\wedge$ si y solo si $F=(a, 1]$.
+\item Si $F\in A^\wedge$, el núcleo ajustado $v_F$ se calcula como
+\[
+v_F(x)=l_m(x)=\begin{cases}
+1 & \text{si } x> m,\\
+x & \text{si } x\leq m.
+\end{cases}
+\]
+donde $l_m=v_m\wedge w_m$ y $m=\bigwedge F$.
+\item Para $S=\pt A$, el espacio de puntos de $A$, se cumple que $S=[0,1)$ y los abietos en $\mathcal{O}S$ son de la forma
+\[
+\mathcal{U}_A(x)=\{p\in S\mid p<x\}=[0,x).
+\]
+\item El marco $A$ no es $T_1$ pues ningun $p\in S$ es máximo. Por lo tanto, $A$ no satisface alguna otra propiedad de separación en $\Frm$.
+\item Para $F\in A^\wedge$ el conjunto $Q\in \mathcal{Q}S$ asociado a  $F$ se calcula como $Q=[0,m]$ donde $m=\bigwedge F$.
+\end{enumerate}
+
+Todo lo anterior es un resumen de las principales caracteristicas del marco $[0,1]$. Lo que sigue es realizar el análisis de las construcciones de parches tanto de 
+$A$ como de $S$.
+
+\subsection{Análisis de las construcciones de parches}
+
 
 \section{Actividades realizadas}
 Durante el presente periodo, se llevaron a cabo las siguientes actividades:
