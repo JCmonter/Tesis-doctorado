@@ -11,6 +11,9 @@
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{geometry}
 \usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
 \usepackage[
   colorlinks=true,
   linkcolor=blue,
@@ -299,11 +302,14 @@ v_F(\emptyset)=(\mathcal{U}_*[Q']\mathcal{U})(\emptyset),
 es decir, $\mathcal{O}S$ es apilado.\\
 \end{proof}
 
+Nuestro siguiente paso será el verificar cual es el comportamiento de las nociones de apilamiento en conjunto con la eficiencia. 
+
 \section{El marco $[0,1]$}
 
-Siguiendo la idea de mostrada en \cite{simmons2006regularity} (o de manera alternativa \cite{simmons2004vietoris}), consideremos el marco linealmente ordenado $A=[0,1]$. En este caso particular podemos hacer las siguientes observaciones:
+Siguiendo la idea mostrada en \cite{simmons2006regularity} (o de manera alternativa \cite{simmons2004vietoris}), consideremos el marco linealmente ordenado $A=[0,1]$. 
+En este caso particular podemos hacer las siguientes observaciones:
 \begin{enumerate}
-\item La operación de implicación en $A$ para cualesquier $a,b\in A$ se calcula como
+\item Para cualesquiera $a,b\in A$ la implicación $(a\succ b)$ se calcula por
 \[
 (a\succ b)=\begin{cases}
 1 & \text{si } a\leq b,\\
@@ -312,7 +318,10 @@ b & \text{si } a>b.
 \]
 \item Los núcleos distinguidos $u_a, v_a, w_a$ para $a\in A$ se calculan como
 \[
-u_a(x)=\max\{a, x\}, \quad v_a(x)=\begin{cases}
+u_a(x)=\begin{cases}
+  x & \text{si }a\leq x,\\
+  a & \text{si }x< a,
+\end{cases}, \quad v_a(x)=\begin{cases}
 1 & \text{si } x\geq a,\\
 a & \text{si } x<a,
 \end{cases} \quad\mbox{ y} \quad w_a(x)=\begin{cases}
@@ -326,33 +335,127 @@ F=\nabla(w_a)=(a, 1]\quad \mbox{ o }\quad F=\nabla(v_a)=[a, 1]
 \]
 para algún $a\in A$. De manera particular, $F\in A^\wedge$ si y solo si $F=(a, 1]$.
 \item Si $F\in A^\wedge$, el núcleo ajustado $v_F$ se calcula como
-\[
+\begin{equation}\label{eq:lm}
 v_F(x)=l_m(x)=\begin{cases}
 1 & \text{si } x> m,\\
 x & \text{si } x\leq m.
 \end{cases}
-\]
+\end{equation}
 donde $l_m=v_m\wedge w_m$ y $m=\bigwedge F$.
-\item Para $S=\pt A$, el espacio de puntos de $A$, se cumple que $S=[0,1)$ y los abietos en $\mathcal{O}S$ son de la forma
+\item Para $S=\pt A$ se cumple que $S=[0,1)$ y los abiertos en $\mathcal{O}S$ son de la forma
 \[
 \mathcal{U}_A(x)=\{p\in S\mid p<x\}=[0,x).
 \]
-\item El marco $A$ no es $T_1$ pues ningun $p\in S$ es máximo. Por lo tanto, $A$ no satisface alguna otra propiedad de separación en $\Frm$.
-\item Para $F\in A^\wedge$ el conjunto $Q\in \mathcal{Q}S$ asociado a  $F$ se calcula como $Q=[0,m]$ donde $m=\bigwedge F$.
+\item El marco $A$ no es $T_1$ pues ningún $p\in S$ es máximo. Por lo tanto, $A$ no satisface alguna otra propiedad de separación en $\Frm$.
+\item Para $F\in A^\wedge$ el conjunto $Q\in \mathcal{Q}S$ asociado a  $F$ es de la forma $Q=[0,m]$ donde $m=\bigwedge F$.
+\item Se cumple que $[Q']=v_F$ y por lo tanto $S$ es fuertemente apilado.
+\item Ya que $[0, x)\in \mathcal{O}S$, entonces $[x, 1]\in \mathcal{C}S$. Como $Q=[0, m]\in \mathcal{Q}S$, tenemos que los subconjuntos compactos no son cerrados,
+es decir, $S$ no es empaquetado.
+\item $A$ no es eficiente.
+
 \end{enumerate}
 
-Todo lo anterior es un resumen de las principales caracteristicas del marco $[0,1]$. Lo que sigue es realizar el análisis de las construcciones de parches tanto de 
+Todo lo anterior es un resumen de las principales características del marco $[0,1]$. Lo que 
+sigue es realizar el análisis de las construcciones de parches tanto de 
 $A$ como de $S$.
 
 \subsection{Análisis de las construcciones de parches}
+Recordemos que para $A\in \Frm$ y $S\in \Top$ tenemos 
+\[
+\text{Pbase}=\{u_a\wedge v_F\mid a\in A, F\in A^\wedge\}\quad \text{y}\quad \text{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, Q\in \mathcal{Q}S\}
+\]
+donde Pbase genera al marco de parches de $A$ (denotado por $PA$) y pbase genera la topología del espacio de parches de $S$ (denotado por $^pS$). Por (\ref{eq:lm}) tenemos que 
+\[
+\text{Pbase}=\{u_a\wedge l_m\mid a\in [0,1], m\in [0,1)\}.
+\]
+Por lo tanto, si queremos conocer el comportamiento del marco $PA$ necesitamos saber la relación que existe entre $a$ y $m$.\\
 
+Para $x\in A$ tenemos que $(u_a\wedge l_m)(x)=u_a(x)\wedge l_m(x)$. Primero veamos la relación entre $x$ y $m$.
+\begin{description}
+\item[Caso 1:] Si $x<m$, entonces $(u_a\wedge l_m)(x)=u_a(x)\wedge x=x$.
+\item[Caso 2:] Si $x=m$, entonces $(u_a\wedge l_m)(x)=u_a(m)\wedge m=x$.
+\item[Caso 3:] Si $x>m$, entonces $(u_a\wedge l_m)(x)=u_a(x)\wedge 1=u_a(x)$.
+\end{description}
+Notemos que en los primeros 2 casos el valor de $a$ no afecta el resultado de la evaluación. Además $u_a\wedge l_m=\id$, es decir, los generadores básicos de la 
+Pbase son distinto a $\id$ cuando $m<x$. Ahora veamos la relación entre $a$ y $m$ en el tercer caso.
+\begin{description}
+\item[Caso 3.1:] Si $m<x<a$, entonces $(u_a\wedge l_m)(x)=a$.
+\item[Caso 3.2:] Si $m<a\leq x$, entonces $(u_a\wedge l_m)(x)=x$.
+\end{description}
+De esta manera, tenemos que la Pbase está conformada por
+\[
+\text{Pbase}=\begin{cases}
+  \{u_a\wedge l_m\} & \text{si } m<a,\\
+  \{\id\} & \text{en cualquier otro caso}.
+\end{cases}
+\]
+es decir, el marco $PA$ está codificado por los intervalos de la forma $(m, a)$, donde $m\in \pt A$ y $a\in A$.\\
+
+Queremos identificar si en nuestro ejemplo, $PA$ satisface alguna propiedad de separación. Para hacerlo, ocuparemos recordar información respecto a los parches.\\
+
+Si $A\in\Frm$ es un marco arbitrario y $S$ su espacio de puntos, podemos construir el siguiente diagrama conmutativo que relaciona ambas construcciones de parches.
+\[\begin{tikzcd}
+	A & PA & NA \\
+	{\mathcal{O}S} & {P\mathcal{O}S} & {N\mathcal{O}S} \\
+	& {\mathcal{O}^pS} & {\mathcal{O}^fS}
+	\arrow[from=1-1, to=1-2]
+	\arrow["{U_A}"', from=1-1, to=2-1]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow["{P(U_A)}", from=1-2, to=2-2]
+	\arrow["{N(U_A)}", from=1-3, to=2-3]
+	\arrow[from=2-1, to=2-2]
+	\arrow[hook, from=2-1, to=3-2]
+	\arrow[hook, from=2-2, to=2-3]
+	\arrow["\pi", from=2-2, to=3-2]
+	\arrow["\sigma", from=2-3, to=3-3]
+	\arrow[hook, from=3-2, to=3-3]
+\end{tikzcd}\]
+donde $\mathcal{O}^fS$ es la topología de Skula (o topología frontal) del espacio $S$. En \cite{sexton2006point} lo llaman el 
+\emph{diagrama del ensamble de parches} y más detalles sobre este también pueden ser encontrados
+en \cite{sexton2003point}.\\
+
+En nuestro caso, $U_A$ es un isomorfismo. Además, bajo $U_A$, la construcción de parches resulta ser funtorial y, por lo tanto,
+$PA\cong P\mathcal{O}S$. De manera similar, $NA\cong N\mathcal{O}S$.
+Para obtener más información sobre $P\mathcal{O}S$ y $N\mathcal{O}S$ podemos hacer uso de los siguientes resultados, el cual puede consultarse en \cite{AvilaBezhaniMorandiZaldivar2020}.
+
+\begin{prop}\label{Ensamble espacial}
+Sea $S$ un conjunto parcialmente ordenado.
+\begin{enumerate}
+  \item Si $S$ no tiene anticadenas infinitas, entonces $N\mathcal{O}S$ es espacial.
+  \item Si $S$ es totalmente ordenado, entonces $N\mathcal{O}S$ es espacial.
+\end{enumerate}
+\end{prop}
+
+Así, por la Proposición \ref{Ensamble espacial} tenemos que $N\mathcal{O}S$ es espacial y por lo tanto $N\mathcal{O}S\cong \mathcal{O}^fS$. Juntando toda esta información 
+el diagrama del ensamble de parches en nuestro caso particular queda como sigue.
+
+\[\begin{tikzcd}
+	A & PA & NA \\
+	{\mathcal{O}S} & {\mathcal{O}^pS} & {\mathcal{O}^fS}
+	\arrow[from=1-1, to=1-2]
+	\arrow["\cong"', from=1-1, to=2-1]
+	\arrow[from=1-2, to=1-3]
+	\arrow["\cong", from=1-2, to=2-2]
+	\arrow["\cong", from=1-3, to=2-3]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+\end{tikzcd}\]
+Por lo tanto, si queremos estudiar al marco $PA$ podemos estudiar a la topología de parches $\mathcal{O}^pS$. Recordemos que 
+\[
+\text{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, Q\in \mathcal{Q}S\}.
+\]
+y, en nuestro caso,
+\[
+\text{pbase}=\{[0, a)\cap [m, 1)\mid a\in [0,1], m\in [0,1)\}=\{(m,a)\}.
+\]
+Notemos que la anterior es la base para la topología usual en $[0,1)$  y al ser $^pS$ un espacio Hausdorff, $\mathcal{O}^pS\cong PA$ satisface $\mathbf{(H)}$. De manera adicional, $PA$ es un marco $KC$.\\
 
 \section{Actividades realizadas}
 Durante el presente periodo, se llevaron a cabo las siguientes actividades:
 \begin{enumerate}
   \item Definimos las nociones libres de puntos de apilado y fuertemente apilado.
   \item Verificamos que las nociones anteriores son conservativas.
-  \item 
+  \item Culminamos el análisis del marco $[0,1]$ y su construcción de parches.
 \end{enumerate}
 
 \bibliographystyle{amsalpha}
