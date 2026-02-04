@@ -40,13 +40,19 @@ De manera especifica, se busca imitar la propiedad de que un espacio topológico
 \[
 ^pS=S,
 \]
-donde $^pS$ es el espacio de parches. Esto es traducido al lenguaje de marcos como la propiedad de que un marco $A$ sea \emph{parche trivial}. En otras palabras, un marco $A$ es parche trivial si
+donde $^pS$ es el espacio de parches de $S$. Esto es traducido al lenguaje de marcos como la propiedad de que un marco $A$ sea \emph{parche trivial}. En otras palabras, un marco $A$ es parche trivial si
 \[
 A\simeq PA,
 \]
 donde $PA$ es conocido como el \emph{marco de parches}. Los autores de \cite{sexton2006point}, \cite{sexton2006ordinal} y \cite{sexton2003point} se encargan de caracterizar esta propiedad por medio de lo que ellos 
-definen como \emph{marcos eficientes}. Parte de las propiedades demostradas relacionan a los marcos eficientes con los axiomas clásicos de separación. 
-El siguiente teorema de un ejemplo de ello.
+definen como \emph{marcos eficientes}. Ellos prueban que dicha propiedad genera un jerarquía estratificada sobre los ordinales, es decir, para $\alpha\in \Ord$
+se cumple que 
+\[
+1\text{-eficiente}\Rightarrow 2\text{-eficiente}\Rightarrow \dots \Rightarrow \alpha\text{-eficiente}\Rightarrow \alpha +1\text{-eficiente}\Rightarrow \dots
+\]
+
+Parte de las propiedades que aparecen en la literatura relacionan a los marcos eficientes con los axiomas clásicos de separación. 
+El siguiente teorema proporciona un ejemplo de ello.
 
 \begin{thm}\label{Teorema1}
     Un espacio $S$ que es $T_0$ tiene topología $1$-eficiente si y solo si $S$ es $T_2$. 
@@ -60,14 +66,37 @@ los axiomas dentro de la categoría de marcos se relacionan de manera jerárquic
 donde $\mathbf{(reg)}$ es la propiedad de ser \emph{regular}, $\mathbf{(fH)}$ es \emph{fuertemente Hausdorff} y $\mathbf{(H)}$ la de ser \emph{Hausdorff} (ver \cite{picado2021separation}). De esta manera resulta natural preguntarnos lo siguiente: 
 \emph{¿se puede incluir la propiedad de eficiencia en alguna parte de esta jerarquía?}.\\
 
+De manera adicional, se tiene la siguiente caracterización
+\[
+A\text{ es parche tivial}\iff A\text{ es eficiente}\iff S \text{ es empaquetado y apilado}.
+\]
 
+Con ello, resulta de nuestro interés estudiar a los marcos eficientes y conocer nociones en la teoría 
+de marcos que se relaciones con la propiedad de eficiencia, por ejemplo dar los análogos en marcos para 
+apilado.\\
+
+De la misma manera en la que Sexton introduce su noción de parches, existen distintos autores que han establecidos otras construcciones de parches. Todas 
+ellas motivadas por la idea original de Hochster \cite{hochster1969prime} y su construcción del espacio de parches. Algunos ejemplos de estas construcciones 
+pueden consultarse en \cite{escardo2001regular} y \cite{klinke2013yet}. Bajo ciertas condiciones, la construcción presentada por Escardo en \cite{escardo2001regular}
+termina siendo isomorfa a la de Sexton. La construcción de Klinke en \cite{klinke2013yet} puede considerarse como un caso más general con respecto a $PA$.\\
+
+Por lo tanto, debido a la relación que existe entre los marcos eficientes y los marcos parche trivial,
+el explorar la relación que existe entre la eficiencia y las diferentes construcciones podría proporcionar información 
+adicional en el estudio de dichos marcos.
+ 
 \section{Planteamiento del Problema}
+%Describe qué se quiere saber o resolver.
+Dado que la noción de eficiencia es introducida como una propiedad en marcos que es caracterizada a través de 
+propiedades topológicas, resultaría más general estudiar esta clase de marcos dentro de la misma categoría $\Frm$.\\
 
-Describe qué se quiere saber o resolver.
+De igual manera verificar si esta clase de marcos satisface las condiciones necesarias y suficientes como para ser
+considerados como una especie de axioma de separación.
+
+
 
 \section{Hipótesis}
+%Propone una posible respuesta al planteamiento del problema.
 
-Propone una posible respuesta al planteamiento del problema.
 
 \section{Objetivos}
 
@@ -97,7 +126,8 @@ Sustentación &  &  &  & & & & & \checkmark \\
 
 \end{table}
 
-\nocite{*}
+%\nocite{*}
+%\bibliographystyle{amsalpha}
 \bibliography{references}
 %\bibliography{research2}
 \vspace{24pt} 
