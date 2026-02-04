@@ -308,17 +308,20 @@ Nuestro siguiente paso será el verificar cual es el comportamiento de las nocio
 
 \section{El marco $[0,1]$}
 
-Siguiendo la idea mostrada en \cite{simmons2006regularity} (o de manera alternativa \cite{simmons2004vietoris}), consideremos el marco linealmente ordenado $A=[0,1]$. 
-En este caso particular podemos hacer las siguientes observaciones:
+Siguiendo la idea presentada en \cite{simmons2006regularity} (o, de manera alternativa, en \cite{simmons2004vietoris}), consideremos el marco linealmente ordenado 
+\[
+A=[0,1].
+\] 
+En este caso particular se cumplen las siguientes observaciones.
 \begin{enumerate}
-\item Para cualesquiera $a,b\in A$ la implicación $(a\succ b)$ se calcula por
+\item Para cualesquiera $a,b\in A$ la implicación $(a\succ b)$ se calcula mediante
 \[
 (a\succ b)=\begin{cases}
 1 & \text{si } a\leq b,\\
 b & \text{si } a>b.
 \end{cases}
 \]
-\item Los núcleos distinguidos $u_a, v_a, w_a$ para $a\in A$ se calculan como
+\item Los núcleos distinguidos $u_a, v_a, w_a$ están dados por
 \[
 u_a(x)=\begin{cases}
   x & \text{si }a\leq x,\\
@@ -326,17 +329,18 @@ u_a(x)=\begin{cases}
 \end{cases}, \quad v_a(x)=\begin{cases}
 1 & \text{si } x\geq a,\\
 a & \text{si } x<a,
-\end{cases} \quad\mbox{ y} \quad w_a(x)=\begin{cases}
+\end{cases} \quad w_a(x)=\begin{cases}
 1 & \text{si } x>a,\\
 a & \text{si } x\leq a.
 \end{cases}
 \]
-\item Si $F\subseteq A$ es un filtro, entonces este siempre es admisible y tiene la forma
+donde $a,x \in A$.
+\item Si $F\subseteq A$ es un filtro, entonces siempre es admisible y tiene la forma
 \[
-F=\nabla(w_a)=(a, 1]\quad \mbox{ o }\quad F=\nabla(v_a)=[a, 1]
+F=\nabla(w_a)=(a, 1]\quad \mbox{ o bien }\quad F=\nabla(v_a)=[a, 1]
 \]
-para algún $a\in A$. De manera particular, $F\in A^\wedge$ si y solo si $F=(a, 1]$.
-\item Si $F\in A^\wedge$, el núcleo ajustado $v_F$ se calcula como
+para algún $a\in A$. En particular, $F\in A^\wedge$ si y solo si $F=(a, 1]$.
+\item Si $F\in A^\wedge$, el núcleo ajustado asociado $v_F$ se calcula como
 \begin{equation}\label{eq:lm}
 v_F(x)=l_m(x)=\begin{cases}
 1 & \text{si } x> m,\\
@@ -348,18 +352,16 @@ donde $l_m=v_m\wedge w_m$ y $m=\bigwedge F$.
 \[
 \mathcal{U}_A(x)=\{p\in S\mid p<x\}=[0,x).
 \]
-\item El marco $A$ no es $T_1$ pues ningún $p\in S$ es máximo. Por lo tanto, $A$ no satisface alguna otra propiedad de separación en $\Frm$.
-\item Para $F\in A^\wedge$ el conjunto $Q\in \mathcal{Q}S$ asociado a  $F$ es de la forma $Q=[0,m]$ donde $m=\bigwedge F$.
-\item Se cumple que $[Q']=v_F$ y por lo tanto $S$ es fuertemente apilado.
-\item Ya que $[0, x)\in \mathcal{O}S$, entonces $[x, 1]\in \mathcal{C}S$. Como $Q=[0, m]\in \mathcal{Q}S$, tenemos que los subconjuntos compactos no son cerrados,
-es decir, $S$ no es empaquetado.
-\item $A$ no es eficiente.
+\item El marco $A$ no es $T_1$, pues ningún $p\in S$ es máximo. En consecuencia, $A$ no satisface ninguna propiedad de separación más fuerte en $\Frm$.
+\item Para $F\in A^\wedge$ el conjunto compacto saturado asociado $Q\in \mathcal{Q}S$ es de la forma $Q=[0,m]$, donde $m=\bigwedge F$.
+\item Se cumple que $[Q']=v_F$; por lo tanto, $S$ es fuertemente apilado.
+\item Como $[0, x)\in \mathcal{O}S$, se tiene que $[x, 1]\in \mathcal{C}S$. Dado que $Q=[0, m]\in \mathcal{Q}S$, concluimos que los subconjuntos compactos no son cerrados; es decir, $S$ no es empaquetado.
+\item El marco $A$ no es eficiente.
 
 \end{enumerate}
 
-Todo lo anterior es un resumen de las principales características del marco $[0,1]$. Lo que 
-sigue es realizar el análisis de las construcciones de parches tanto de 
-$A$ como de $S$.
+Todo lo anterior resume las principales características del marco $[0,1]$. En lo que sigue, realizaremos el análisis de las construcciones de parches tanto de 
+$A$ como de su espacio de puntos $S$.
 
 \subsection{Análisis de las construcciones de parches}
 Recordemos que para $A\in \Frm$ y $S\in \Top$ tenemos 
