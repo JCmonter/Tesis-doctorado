@@ -10,10 +10,13 @@
 \newtheorem{prop}[thm]{Proposición}
 
 \DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\CRing}{CRing}
 \DeclareMathOperator{\Ord}{Ord}
 \DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\pt}{pt}
 \DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\op}{op}
 \DeclareMathOperator{\tp}{tp}
 \DeclareMathOperator{\fd}{fd}
 
@@ -23,7 +26,7 @@
 
 %% usar solo si hay codirector. Si es más de un codirector, agregarlos separados por coma
 %\coadvisor{Grado y nombre completo del codirector, y del segundo codirector}  
-\date{ enero de 2026}
+\date{\today}
 
 \begin{document}
 
@@ -34,104 +37,173 @@
 %\end{center}
 
 \section{Introducción}
+La primera modificación de parches fue introducida por Hochster en \cite{hochster1969prime}. Su idea está motivada por el funtor 
+\[
+\Spec\colon \CRing^{\op}\to \Top
+\]
+el cual a cada anillo conmutativo con unidad $A$ le asigna el espacio topológico $S=\Spec(A)$. Debido a que esta asignación no siempre produce espacios $T_2$,
+Hochster propone una ``reparación'' del espacio $S$ mediante el funtor 
+\[
+^p\colon \Top\to \Top
+\]
+donde el espacio resultante $^pS$ es un espacio Hausdorff. Al espacio $^pS$ se le conoce como el \emph{espacio de parches} y cuando $S\in \Top$ es un espacio arbitrario, su espacio de parches 
+no necesariamente es Hausdorff.\\
 
-La construcción de parches introducida por Sexton en \cite{sexton2006point} busca dar una variante libre de puntos que se comporte de manera similar a lo que topológicamente se conoce como \emph{espacio de parches}. 
-De manera especifica, se busca imitar la propiedad de que un espacio topológico $S$ sea empaquetado. Lo anterior se cumple si y solo si  
+De manera análoga, la categoría $\Frm$ se relacionada con la categoría $\Top$ por medio de los funtores contravariantes
 \[
-^pS=S,
+\mathcal{O}\colon \Top\to \Frm\quad \text{y}\quad \pt\colon \Frm\to \Top
 \]
-donde $^pS$ es el espacio de parches de $S$. Esto es traducido al lenguaje de marcos como la propiedad de que un marco $A$ sea \emph{parche trivial}. En otras palabras, un marco $A$ es parche trivial si
+los cuales forman una adjunción entre ambas categorías. Esta adjunción constituye una herramienta fundamental en la teoría de marcos para trasladar nociones
+topológicas clásicas a sus variantes ``point-free''. Un ejemplo de ello son las modificaciones de parches introducidas por Escardó y Sexton (véase \cite{escardo2001regular,sexton2006point}).\\
+
+En particula, para cada $A\in \Frm$ se consideran los funtores
 \[
-A\simeq PA,
+M\colon \Frm\to \Frm\quad \text{y}\quad P\colon \Frm\to \Frm 
 \]
-donde $PA$ es conocido como el \emph{marco de parches}. Los autores de \cite{sexton2006point}, \cite{sexton2006ordinal} y \cite{sexton2003point} se encargan de caracterizar esta propiedad por medio de lo que ellos 
-definen como \emph{marcos eficientes}. Ellos prueban que dicha propiedad genera un jerarquía estratificada sobre los ordinales, es decir, para $\alpha\in \Ord$
+donde $MA$ es el \emph{parche continuo} y $PA$ es el \emph{marco de parches}. Ambas construcciones buscan capturar, dentro de $\Frm$, ciertos comportamiento característicos 
+del espacio de parches.\\
+
+Por ejemplo, para $S\in \Top$, si todo subconjunto compacto es cerrado, decimos que el espacio $S$ es \emph{empaquetado}, y un espacio se dice empaquetado si y solo si $^pS=S$.
+Esta noción se traduce al lenguaje de marcos diciendo que un marco $A$ es \emph{parche trivial} si
+\[
+A\cong PA.
+\]
+Los autores de \cite{sexton2006point,sexton2006ordinal,sexton2003point} caracterizan esta propiedad mediante lo que denominan \emph{marcos eficientes},
+mostrando además que da lugar a una jerarquía de propiedades indexada por ordinales, es decir, para $\alpha\in \Ord$
 se cumple que 
 \[
 1\text{-eficiente}\Rightarrow 2\text{-eficiente}\Rightarrow \dots \Rightarrow \alpha\text{-eficiente}\Rightarrow \alpha +1\text{-eficiente}\Rightarrow \dots
 \]
 
-Parte de las propiedades que aparecen en la literatura relacionan a los marcos eficientes con los axiomas clásicos de separación. 
-El siguiente teorema proporciona un ejemplo de ello.
+Parte de las propiedades que aparecen en la literatura relacionan a los marcos eficientes con los axiomas clásicos de separación. Por ejemplo,
 
 \begin{thm}\label{Teorema1}
     Un espacio $S$ que es $T_0$ tiene topología $1$-eficiente si y solo si $S$ es $T_2$. 
 \end{thm}
 
-En la actualidad, el estudio de los axiomas de separación es un área de interés dentro de los grupos de investigación sobre teoría de marcos. De manera similar a los axiomas para espacios topológicos, 
-los axiomas dentro de la categoría de marcos se relacionan de manera jerárquica, en este caso
+Asimismo, en teoría de marcos existen jerarquías de propiedades de separación del tipo
 \[
 \mathbf{(reg)}\Rightarrow \mathbf{(fH)}\Rightarrow \mathbf{(H)}\Rightarrow T_1
 \]
-donde $\mathbf{(reg)}$ es la propiedad de ser \emph{regular}, $\mathbf{(fH)}$ es \emph{fuertemente Hausdorff} y $\mathbf{(H)}$ la de ser \emph{Hausdorff} (ver \cite{picado2021separation}). De esta manera resulta natural preguntarnos lo siguiente: 
-\emph{¿se puede incluir la propiedad de eficiencia en alguna parte de esta jerarquía?}.\\
+(véase \cite{picado2021separation}). \\
 
-De manera adicional, se tiene la siguiente caracterización
+Adicionalmente, se cuenta con la caracterización:
 \[
 A\text{ es parche tivial}\iff A\text{ es eficiente}\iff S \text{ es empaquetado y apilado}.
 \]
 
-Con ello, resulta de nuestro interés estudiar a los marcos eficientes y conocer nociones en la teoría 
-de marcos que se relaciones con la propiedad de eficiencia, por ejemplo dar los análogos en marcos para 
-apilado.\\
+En \cite{sexton2006ordinal} se muestra que la noción de apilado se relaciona con la construcción del hiperespacio de Vietoris, mientras que en \cite{simmons2004vietoris} se presenta
+su versión en marcos, denominada $V$-modificación.\\
 
-De la misma manera en la que Sexton introduce su noción de parches, existen distintos autores que han establecidos otras construcciones de parches. Todas 
-ellas motivadas por la idea original de Hochster \cite{hochster1969prime} y su construcción del espacio de parches. Algunos ejemplos de estas construcciones 
-pueden consultarse en \cite{escardo2001regular} y \cite{klinke2013yet}. Bajo ciertas condiciones, la construcción presentada por Escardo en \cite{escardo2001regular}
-termina siendo isomorfa a la de Sexton. La construcción de Klinke en \cite{klinke2013yet} puede considerarse como un caso más general con respecto a $PA$.\\
+De manera complementaria, existen trabajos que analizan variantes y extensiones de las construcciones de parches en contextos particulares dentro de $\Frm$.
+Por ejemplo, \cite{klinke2013yet} estudia una construcción alternativa de parches para marcos continuos, mientras que Balmer y Gallauer \cite{BalmerGallauer2025PatchDensity}
+introducen nociones de densidad de parche en geometría tensor-triangular. Aunque estos desarrollos no están formulados directamente en términos de eficiencia,
+sugieren que las modificaciones de parches aparecen de manera natural en distintos escenarios.\\
 
-Por lo tanto, debido a la relación que existe entre los marcos eficientes y los marcos parche trivial,
-el explorar la relación que existe entre la eficiencia y las diferentes construcciones podría proporcionar información 
-adicional en el estudio de dichos marcos.
- 
+En este proyecto se propone profundizar en el estudio de los marcos eficientes a través de la construcción del marco de parches, analizando su relación con distintos axiomas 
+de separación en $\Frm$ y explorando su interacción con otras modificaciones de parches descritas en la literatura.
+
 \section{Planteamiento del Problema}
 %Describe qué se quiere saber o resolver.
-Dado que la noción de eficiencia es introducida como una propiedad en marcos que es caracterizada a través de 
-propiedades topológicas, resultaría más general estudiar esta clase de marcos dentro de la misma categoría $\Frm$.\\
+La noción de marco eficiente surge como una propiedad definida en la categoría $\Frm$ que, originalmente,
+es caracterizada mediante condiciones topológicas. En particular, la eficiencia se introduce como una condición necesaria y suficiente 
+para que ocurra la trivialidad del parche y se organiza en una jerarquía ordinal que exhibe una estrecha relación con axiomas clásicos 
+de separación.\\
 
-De igual manera verificar si esta clase de marcos satisface las condiciones necesarias y suficientes como para ser
-considerados como una especie de axioma de separación.
+Sin embargo, gran parte de los resultados existentes describen esta noción a partir de traducciones desde el contexto de espacios 
+topológicos, mientras que un análisis interno, puramente formulado dentro de la categoría $\Frm$, permanece incompleto. Esto motiva
+al estudio sistemático de los marcos eficientes como una clase de objetos definida en $\Frm$, independiente de referencias externas 
+a espacios.\\
 
+Por otro lado, aunque se conocen diversas jerarquías de axiomas de separación en teoría de marcos,
+no está completamente claro cuál es la posición exacta que ocupa la jerarquía de eficiencia dentro de estas cadenas de
+implicaciones, ni en que medida puede interpretarse por si solo como una familia de axiomas de separación.\\
 
+En consecuencia, el problema central    que se aborda en este proyecto es determinar como la construcción del marco de parches y
+la jerarquía de marcos eficientes se relacionan con los axiomas de separación en $\Frm$, así como identificar caracterizaciones internas
+de eficiencia que permitan comprender su naturaleza y alcance.
 
 \section{Hipótesis}
 %Propone una posible respuesta al planteamiento del problema.
+\textbf{Hipótesis general:}
 
+Es posible caracterizar la eficiencia de manera interna dentro de la categoría $\Frm$, y la jerarquía que esta clase 
+de marcos produce puede interpretarse como una familia de propiedades análogas a axiomas de separación.\\
+
+\textbf{Hipótesis especificas:}
+ \begin{enumerate}
+\item Existen caracterizaciones internas de los marcos eficientes formuladas únicamente en términos de la 
+estructura del marco principal y del marco de parches asociado.
+
+\item La jerarquía de marcos eficientes se puede insertar, total o parcialmente, dentro de las 
+jerarquías conocidas de axiomas de separación en $\Frm$.
+
+\item Las modificaciones de parches y otras construcciones relacionadas, como la $V$-modificación, inducen
+condiciones suficientes o necesarias para la eficiencia en marcos.
+\end{enumerate}
 
 \section{Objetivos}
+\textbf{Objetivo general:}
+
+Analizar la construcción del marco de parches y su relación con los marcos eficientes, con el fin de comprender su interacción con distintos axiomas de separación 
+en la categoría $\Frm$.\\
 
 %Los objetivos constituyen el propósito del trabajo a realizar y esto se puede dividir en dos partes: Objetivos Generales y Objetivos Particulares.
 
+\textbf{Objetivos específicos:}
+\begin{enumerate}
+\item Estudiar las modificaciones de parches y los axiomas de separación desde el enfoque de $\Frm$.
+\item Obtener caracterizaciones internas de marcos eficientes en términos de núcleos, sublocales o condiciones asociadas al marco de parches.
+\item Investigar la posición de la jerarquía de marcos eficientes dentro de las jerarquías conocidas de axiomas de separación en teoría de marcos.
+\item Analizar la relación entre la eficiencia y otras modificaciones de parches y la $V$-modificación.
+\item Desarrollar ejemplos y contraejemplos que ilustren las relaciones encontradas. 
+\end{enumerate}
 \section{Metodología}
 
 %En esta parte se describen las tareas que se van a realizar para llevar a cabo los objetivos planteados anteriormente, enfatizando en los procedimientos y en las herramientas que se van a utilizar.
-El plan de trabajo para la realización de este proyecto de investigación es el que se describe a continuación.\\
-\begin{table}[htbp]
-    \caption{Cronograma}
-    \centering
-    \begin{tabular}{ccccccccc}
-        \toprule
-        Semestre & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
-        \midrule
- Revisión de bibliografía  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  \\\hline
-Lectura de artículos  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  \\\hline
-Proponer conjeturas &  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & & \\\hline
-Probar resultados &  &  &  \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \\\hline
-Validación y rechazo de conjeturas &  &  &  \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \\\hline
-Redacción de artículos y otros documentos &  & \checkmark & \checkmark  & \checkmark  & \checkmark & \checkmark  & \checkmark & \checkmark \\\hline
-Desarrollar conclusiones &  &  &  & & & \checkmark & \checkmark & \checkmark \\\hline
-Sustentación &  &  &  & & & & & \checkmark \\
-        \bottomrule
-    \end{tabular}
 
+La investigación se desarrollará dentro del contexto de la matemática pura, específicamente en teoría de marcos y topología sin puntos. El trabajo será principalmente de carácter 
+analítico y deductivo, apoyado en el estudio crítico de literatura especializada y en el desarrollo de nuevas demostraciones.\\
+
+En una primera etapa se realizará una revisión sistemática de bibliografía relacionada con teoría general de marcos, axiomas de separación, el marco de parches y marcos eficientes, con el propósito de identificar 
+resultados fundamentales, técnicas recurrentes y problemas abiertos. De manera especifica se consultará \cite{PicadoPultr,Johnstone82, picado2021separation,sexton2003point,Zaldivar2023, simmonscollection, simmonsbasics}.\\ 
+
+Posteriormente, se estudiará con detalles de la construcción del marco de parches y del parche continuo, así como su formulación en términos de filtros, núcleos y sublocales, por ejemplo \cite{escardo2006compactly, escardo2001regular, sexton2006point, sexton2006ordinal, gierz2012compendium}. 
+A partir de este análisis se buscarán caracterizaciones internas de la eficiencia y de las diferentes nociones que se logren definir.\\
+
+En una etapa posterior se investigará la relación entre la jerarquía de marcos eficientes y los axiomas de separación en teoría de marcos, con el objetivo de determinar 
+posibles implicaciones, equivalencias o independencias.\\
+
+De manera complementaria, se analizará la interacción de la eficiencia y el marco de parches con otras modificaciones de parches, como la V-modificación,  se estudiarán ejemplos y contraejemplos que permitan ilustrar los fenómenos observados.
+Es esta parte, consultaremos \cite{klinke2013yet, simmons2004vietoris, johnstone2020vietoris, simmons2006fundamental, avila2020frame, simmons2006regularity}\\
+
+Finalmente, los resultados obtenidos se organizarán en un artículo y capítulos de tesis, y se someterán a discusión con especialistas del área mediante seminarios y estancias de investigación.\\
+
+A manera de resumen, el plan de trabajo para la realización de este proyecto de investigación es el que se describe a continuación.\\
+\begin{table}[htbp]
+\caption{Cronograma}
+\centering
+\begin{tabular}{lcccccccc}
+\toprule
+Actividad / Semestre & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+\midrule
+Revisión de bibliografía & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  \\
+Lectura de artículos & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  \\
+Proponer conjeturas &  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  \\
+Probar resultados &  &  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  \\
+Validación y rechazo de conjeturas &  &  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  \\
+Redacción de artículo y otros documentos &  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+Desarrollar conclusiones &  &  &  &  &  & \checkmark & \checkmark & \checkmark \\
+Sustentación &  &  &  &  &  &  &  & \checkmark \\
+\bottomrule
+\end{tabular}
 \end{table}
 
-%\nocite{*}
-%\bibliographystyle{amsalpha}
+
+\nocite{*}
+\bibliographystyle{alpha}
 \bibliography{references}
 %\bibliography{research2}
-\vspace{24pt} 
-
 %\textbf{Consideraciones a tener sobre las referencias.}
 %\begin{itemize}
 %    \item Se permitirán referencias clásicas fundamentales, aún cuando sean antiguas.

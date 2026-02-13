@@ -12,7 +12,7 @@
 \RequirePackage{url,colortbl,amsmath,amssymb,amsfonts,amsthm}
 \RequirePackage{graphicx} % Required for inserting images
 \RequirePackage{booktabs}
-\RequirePackage[authoryear]{natbib}
+\RequirePackage[numbers]{natbib}
 
 \makeatletter
 \newcommand{\advisor}[1]{\gdef\@advisor{#1}}
@@ -60,5 +60,3 @@
     \newpage
 }
 \makeatother
-
-\bibliographystyle{apalike}
