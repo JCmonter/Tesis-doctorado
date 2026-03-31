@@ -1,0 +1,183 @@
+\documentclass[12pt]{article}
+
+% --------------------
+% PAQUETES BÁSICOS
+% --------------------
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[utf8]{inputenc}      % Si usas pdflatex
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{booktabs}   
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=red
+]{hyperref}
+
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{dfn}[thm]{Definición}
+\newtheorem{lem}[thm]{Lema}
+\newtheorem{ej}[thm]{Ejemplo}
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{obs}[thm]{Observación}
+\newtheorem{con}[thm]{Conjetura}
+\newtheorem{prop}[thm]{Proposición}
+
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Ord}{Ord}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\tp}{tp}
+\DeclareMathOperator{\fd}{fd}
+% --------------------
+% CONFIGURACIÓN
+% --------------------
+\geometry{margin=2.5cm}
+\onehalfspacing
+
+% --------------------
+% DATOS DEL DOCUMENTO
+% --------------------
+\title{Reporte mensual de actividades}
+\date{1-marzo-2026 a 31-marzo-2026}
+\author{Juan Carlos Monter Cortés}
+
+% --------------------
+% INICIO DEL DOCUMENTO
+% --------------------
+\begin{document}
+
+\maketitle
+% \tableofcontents
+
+\section{Actividades realizadas}
+
+En \cite{sexton2006ordinal, simmons2004vietoris} prueban algunas propiedades que satisface un espacio topológico cuando este es apilado o fuertemente 
+apilado. Recordemos que en nuestro trabajo hemos definido los análogos de apilado y fuertemente apilado de la siguiente manera.
+
+\begin{dfn}\label{def:apilado-marcos}
+Sea $A\in \Frm$.
+\begin{enumerate}
+  \item Diremos que $A$ es fuertemente apilado si $\mathcal{U}_*[Q']\mathcal{U}=v_F$.
+  \item Diremos que $A$ es apilado $(\mathcal{U}_*([Q'])\mathcal{U})(0)=v_F(0)$.
+\end{enumerate}
+\end{dfn}
+
+Una pregunta natural que nos podríamos realizar con respecto a las definiciones anteriores es si los marcos apilados y fuertemente 
+apilados se comportan de manera similar a las definiciones originales en espacio.\\
+
+Por ejemplo, si un espacio $S$ es fuertemente apilado y $T_1$, para la par ($\nabla\in \mathcal{O}S^\wedge, Q\in \mathcal{Q}S$) se cumple que
+\begin{equation}\label{v=w}
+v_\nabla=w_\nabla,
+\end{equation}
+donde $v_\nabla$ y $w_\nabla$ son el menor y el mayor elemento del intervalo de admisibilidad correspondiente al filtro $\nabla$, respectivamente.\\
+
+De manera general, si consideramos $A\in \Frm$, $F\in A^\wedge$ y $S=\pt A$, el Teorema de Hofmann-Mislove proporciona los conjuntos 
+\[
+M=\{m\in A\setminus F\mid a\leq m\}\quad \text{y}\quad Q=S\setminus F
+\]
+y el intervalo de admisibilidad asociado a $F$ tiene la forma
+\[
+v_F\leq [Q']\leq w_F=[M'].
+\]
+
+Si $S$ es un espacio $T_1$, se cumple que $M=Q$ y el intervalo de admisibilidad es
+\[
+v_F\leq [Q']=[M'].
+\]
+
+Si $S$ es fuertemente apilado, se satiface que $v_F=[Q']$ y el intervalo de admisibilidad es
+\[
+v_F=[Q']\leq [M'].
+\]
+
+Por lo tanto, si $S$ es un espacio $T_1$ y fuertemente apilado, se cumple que $v_F=[Q']=[M']$, es decir, $v_F=w_F$.\\
+
+El análogo de la afirmación anterior para marcos es el siguiente. 
+
+\begin{prop}\label{fapiladoT1}
+Sean $A\in \Frm$ y $(F\in A^\wedge,Q \in \mathcal{Q}S, \nabla\in \mathcal{O}S^\wedge)$.
+Si $A$ es $T_1$ y fuertemente apilado, entonces
+\[
+v_F=w_F.
+\]
+\end{prop}
+
+\begin{proof}
+
+\end{proof}
+
+El Teorema 7.11 de \cite{simmons2004vietoris} sugiere probar el siguiente resultado.
+\begin{prop}\label{focales}
+Un marco $A$ es $T_1$ y apilado si y solo si $v_F(0)=w_F(0)$.
+\end{prop}
+
+\begin{proof}
+
+\end{proof}
+
+El Teorema 7.11 antes mencionado tiene relación con la construcción de la $V$-modificación de un espacio. Por tal motivo,
+resulta de nuestro interés probar ahora que ocurre en el contexto de la $V$-modificación de un marco. Por ejemplo, para
+\cite[Teorema 7.8]{sexton2006ordinal}, ¿podemos tener su análogo usando las respectivas construcciones en $\Frm$?\\
+
+Adicionalmente, el Teorema 6.2 a) de \cite{sexton2006ordinal} dice que si un espacio 
+si un espacio $S$ es $T_1$ y apilado, entonces $S$ es sobrio. Trasladando esta afirmación al contexto de marcos tenemos lo siguiente:\\
+
+\textbf{Afirmación:} Si un marco $A$ es $T_1$ y apilado, entonces $A$ es espacial.\\
+
+Dentro de las actividades realizadas durante este mes se encuentra el querer demostrar esta afirmación. 
+Para esto, hemos partido del hecho de que un marco es espacial si y solo si el morfismo reflexión espacial 
+$\mathcal{U}$ es inyectivo.\\
+
+Abordando lo anterior a manera de contradicción, consideramos $A\in\Frm$ un marco $T_1$ y apilado, y suponemos que $\mathcal{U}$ no es inyectivo. 
+Así, existen $a,b\in A$ con $a\nleq b$ tal que $\mathcal{U}(a)=\mathcal{U}(b)$, es decir,
+\[
+[\forall p\in \pt A](p\in \mathcal{U}(a) \iff p\in \mathcal{U}(b)).
+\]
+
+Alternativamente, si $M_a=\mathcal{U}(a)'$ y $M_b=\mathcal{U}(b)'$, tenemos que
+\[
+[\forall p\in \pt A](p\in M_a \iff p\in M_b).
+\]
+
+con esto, la prueba se reduce a exhibir un punto $p\in \pt A$ tal que
+\[
+a\nleq p \text{ y } b\leq p\quad o \quad a\leq p \text{ y } b\nleq p.
+\]
+
+Por la correspondencia entre puntos y filtros completamente primos, es suficiente mostrar que existe un filtro completamente primo $F$ tal que
+\[
+a\in F \text{ y } b\notin F \quad o \quad a\notin F \text{ y } b\in F.
+\]
+
+El enfoque anterior también se puede abordar a través del Teorema de Hofmann-Mislove. Si consideramos un par HM ($F\in A^\wedge, Q\in \mathcal{Q}S$), tenemos que 
+\[
+\begin{split}
+v_F(0)=(\mathcal{U}\circ [Q']\circ \mathcal{U})(0)&=\bigvee \{x\in A\mid [\forall q \in \pt A](q\in Q\Rightarrow x\leq q)\}.
+\end{split}
+\]
+
+De manera particular, si consideramos $p\in \pt A$ tenemos el par HM ($F_p, \uparrow p$), donde 
+\[
+F_p=\{x\in A\mid [q\in \pt a](q\leq p\Rightarrow x\nleq q)\}. 
+\]
+
+Como $A$ es $T_1$, se cumple que todo punto es máximo. Así,
+\[
+F_p=\{x\in A\mid x\leq p\}.
+\]
+
+\bibliographystyle{amsalpha}
+\bibliography{research2}
+
+
+\end{document}
