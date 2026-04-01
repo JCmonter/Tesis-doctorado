@@ -60,28 +60,49 @@
 % \tableofcontents
 
 \section{Actividades realizadas}
+Si consideramos $A\in \Frm$ y $S=\pt A$, el Teorema de Hofmann-Mislove-Johnstone proporciona una correspondencia biyectiva entre
+el conjunto de los filtros abiertos de $A$ ($A^\wedge$), el conjunto de los subconjuntos compactos saturados de $S$ ($\mathcal{Q}S$) y 
+la colección de núcleos ajustados de $A$.\\
+
+De esta manera, para $F\in A^\wedge$, se obtiene un conjunto $Q\in \mathcal{Q}S$. Al mismo tiempo, dicho conjunto corresponde a un filtro 
+abierto $\nabla \in \mathcal{O}S^\wedge$. Al par $(F, Q)$ lo llamaremos un \emph{par HM}, y de manera similar, ($F, Q, \nabla$) será una \emph{tripleta HM}.\\
+
+En particular, para $p\in \pt A$, se tiene que $\uparrow p\in \mathcal{Q}S$, y el filtro abierto correspondiente es
+\begin{equation}\label{filtro-p}
+F_p=\{x\in A\mid [q\in \pt A](q\leq p\Rightarrow x\nleq q)\}
+\end{equation}
+y el núcleo ajustado asociado a $F_p$ permite distinguir cuando un punto $q\in \pt A$ pertenece o no al filtro $F_p$. Esto es,
+\begin{equation}\label{nucleo-ajustado-p}
+v_{F_p}(q)=  \left\{ \begin{array}{lcc} 1, & \text{si}  &  q\in F_p\\ \\ q, & \text{si} & q\not\in F_p \end{array} \right..
+\end{equation}
+
+Otro núcleo de relevancia asociado a $p\in \pt A$ es el núcleo $w_p$. Para cada $x\in A$ se tiene que 
+\begin{equation}\label{nucleo-wp}
+w_p(x)=\left\{ \begin{array}{lcc} 1, & \text{si}  &  x\nleq p\\ \\ p, & \text{si} & x\leq p 
+\end{array} \right..
+\end{equation}
 
 En \cite{sexton2006ordinal, simmons2004vietoris} prueban algunas propiedades que satisface un espacio topológico cuando este es apilado o fuertemente 
 apilado. Recordemos que en nuestro trabajo hemos definido los análogos de apilado y fuertemente apilado de la siguiente manera.
 
 \begin{dfn}\label{def:apilado-marcos}
-Sea $A\in \Frm$.
+Sean $A\in \Frm$ y ($F\in A^\wedge, Q\in \mathcal{Q}S$) un par HM. Decimos que:
 \begin{enumerate}
-  \item Diremos que $A$ es fuertemente apilado si $\mathcal{U}_*[Q']\mathcal{U}=v_F$.
-  \item Diremos que $A$ es apilado $(\mathcal{U}_*([Q'])\mathcal{U})(0)=v_F(0)$.
+  \item $A$ es fuertemente apilado si $\mathcal{U}_*\circ[Q']\circ\mathcal{U}=v_F$.
+  \item $A$ es apilado $(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=v_F(0)$.
 \end{enumerate}
 \end{dfn}
 
 Una pregunta natural que nos podríamos realizar con respecto a las definiciones anteriores es si los marcos apilados y fuertemente 
 apilados se comportan de manera similar a las definiciones originales en espacio.\\
 
-Por ejemplo, si un espacio $S$ es fuertemente apilado y $T_1$, para la par ($\nabla\in \mathcal{O}S^\wedge, Q\in \mathcal{Q}S$) se cumple que
+Por ejemplo, si un espacio $S$ es fuertemente apilado y $T_1$, el par ($\nabla\in \mathcal{O}S^\wedge, Q\in \mathcal{Q}S$) cumple que
 \begin{equation}\label{v=w}
 v_\nabla=w_\nabla,
 \end{equation}
 donde $v_\nabla$ y $w_\nabla$ son el menor y el mayor elemento del intervalo de admisibilidad correspondiente al filtro $\nabla$, respectivamente.\\
 
-De manera general, si consideramos $A\in \Frm$, $F\in A^\wedge$ y $S=\pt A$, el Teorema de Hofmann-Mislove proporciona los conjuntos 
+De manera general, si consideramos $A\in \Frm$, $F\in A^\wedge$ y $S=\pt A$, el Teorema de Hofmann-Mislove proporciona los siguientes objetos
 \[
 M=\{m\in A\setminus F\mid a\leq m\}\quad \text{y}\quad Q=S\setminus F
 \]
@@ -95,17 +116,17 @@ Si $S$ es un espacio $T_1$, se cumple que $M=Q$ y el intervalo de admisibilidad 
 v_F\leq [Q']=[M'].
 \]
 
-Si $S$ es fuertemente apilado, se satiface que $v_F=[Q']$ y el intervalo de admisibilidad es
+Si $S$ es fuertemente apilado, se satisface que $v_F=[Q']$ y el intervalo de admisibilidad es
 \[
 v_F=[Q']\leq [M'].
 \]
 
 Por lo tanto, si $S$ es un espacio $T_1$ y fuertemente apilado, se cumple que $v_F=[Q']=[M']$, es decir, $v_F=w_F$.\\
 
-El análogo de la afirmación anterior para marcos es el siguiente. 
+El análogo de la igualdad \eqref{v=w} para marcos es el siguiente. 
 
 \begin{prop}\label{fapiladoT1}
-Sean $A\in \Frm$ y $(F\in A^\wedge,Q \in \mathcal{Q}S, \nabla\in \mathcal{O}S^\wedge)$.
+Sean $A\in \Frm$ y $(F\in A^\wedge,Q \in \mathcal{Q}S, \nabla\in \mathcal{O}S^\wedge)$ una tripleta HM.
 Si $A$ es $T_1$ y fuertemente apilado, entonces
 \[
 v_F=w_F.
@@ -113,28 +134,74 @@ v_F=w_F.
 \end{prop}
 
 \begin{proof}
+En general, para cualquier tripleta HM ($F, Q, \nabla$) se cumple que 
+\[
+v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}\quad \text{y}\quad w_F=\mathcal{U}_*\circ [M']\circ \mathcal{U}.
+\]
 
+Por fuertemente apilado tenemos la igualdad $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$. Luego, por $T_1$ tenemos que
+\[
+A\text{ es }T_1\Rightarrow \mathcal{O}S\text{ es }T_1\Rightarrow S \text{ es }T_1\Rightarrow M=Q.
+\]
+donde la primera implicación se sigue del hecho de que $T_1$ es una propiedad hereditaria y la segunda implicación se cumple porque $T_1$ es una propiedad conservativa. 
+Por lo tanto $v_F=w_F$.
 \end{proof}
 
 El Teorema 7.11 de \cite{simmons2004vietoris} sugiere probar el siguiente resultado.
+
 \begin{prop}\label{focales}
-Un marco $A$ es $T_1$ y apilado si y solo si $v_F(0)=w_F(0)$.
+Consideremos $A\in \Frm$ y ($F, Q$) cualquier par HM. $A$ es $T_1$ y apilado si y solo si $v_F(0)=w_F(0)$.
 \end{prop}
 
 \begin{proof}
+Por lo mencionado en la prueba de la proposición anterior, si $A$ es $T_1$ se cumple que $M=Q$ y por apilado tenemos que 
+\[
+v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=[Q'](0)=[M'](0)=w_F(0).
+\]
 
+Para la otra implicación, supongamos que $v_F(0)=w_F(0)$. Consideremos $p, q\in \pt A$ tales que $q\leq p$. De aquí que
+por \eqref{filtro-p} y \eqref{nucleo-ajustado-p} se cumple que $v_{F_p}(q)=q$. Además, como $0\leq q$, entonces
+\[
+q=v_{F_p}(q)\geq v_{F_p}(0)=w_{F_p}(0).
+\]
+
+\textbf{Afirmación:} Si consideramos $M=\{m\in A\setminus F_p\mid[\forall a\in A\setminus F_p] (a\leq m)\}$, entonces el núcleo
+\[
+w_{F_p}(x)=\bigwedge\{m\in M\mid x\leq m\}
+\]
+tiene la forma \eqref{nucleo-wp}.\\
+
+\textbf{Demostración de la afirmación:} Notemos que $A\setminus F_p=\{x\in A\mid x\leq p\}=\downarrow p$. De aquí que
+\[
+M=\{m\in \downarrow p\mid [\forall a\in \downarrow p](a\leq m)\}=\{p\}.
+\]
+
+Luego, $w_{F_p}(x)=\bigwedge\{p\mid x\leq p\}$, es decir, 
+\[
+w_{F_p}(x)=p \text{ si } x\leq p\quad \text{y}\quad w_{F_p}(x)=1 \text{ si } x\nleq p.
+\]
+
+Por lo tanto $w_{F_p}=w_p$.\\
+
+De aquí que $p=w_p(0)=w_{F_p}(0)\leq v_{F_p}(0)=q$. Por lo tanto, $p=q$ y todo punto es máximo, es decir, $A$ es $T_1$.\\
+
+Para ver que $A$ es apilado, recordemos que
+\[
+v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq w_F
+\]
+y por hipótesis $v_F(0)=w_F(0)$, es decir, $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=w_F(0)$, lo que implica que $A$ es apilado.
 \end{proof}
 
-El Teorema 7.11 antes mencionado tiene relación con la construcción de la $V$-modificación de un espacio. Por tal motivo,
-resulta de nuestro interés probar ahora que ocurre en el contexto de la $V$-modificación de un marco. Por ejemplo, para
+El Teorema 7.11 antes mencionado está relacionado con la construcción de la $V$-modificación de un espacio. Por tal motivo,
+resulta natural estudiar qué ocurre en el contexto de la $V$-modificación de un marco. Por ejemplo, para
 \cite[Teorema 7.8]{sexton2006ordinal}, ¿podemos tener su análogo usando las respectivas construcciones en $\Frm$?\\
 
-Adicionalmente, el Teorema 6.2 a) de \cite{sexton2006ordinal} dice que si un espacio 
-si un espacio $S$ es $T_1$ y apilado, entonces $S$ es sobrio. Trasladando esta afirmación al contexto de marcos tenemos lo siguiente:\\
+Adicionalmente, el Teorema 6.2 a) de \cite{sexton2006ordinal} dice que si un espacio $S$ es $T_1$ y apilado, 
+entonces $S$ es sobrio. Trasladando esta afirmación al contexto de marcos tenemos lo siguiente:\\
 
 \textbf{Afirmación:} Si un marco $A$ es $T_1$ y apilado, entonces $A$ es espacial.\\
 
-Dentro de las actividades realizadas durante este mes se encuentra el querer demostrar esta afirmación. 
+Dentro de las actividades realizadas durante este mes se encuentra el intento de demostrar esta afirmación.
 Para esto, hemos partido del hecho de que un marco es espacial si y solo si el morfismo reflexión espacial 
 $\mathcal{U}$ es inyectivo.\\
 
@@ -155,26 +222,23 @@ a\nleq p \text{ y } b\leq p\quad o \quad a\leq p \text{ y } b\nleq p.
 \]
 
 Por la correspondencia entre puntos y filtros completamente primos, es suficiente mostrar que existe un filtro completamente primo $F$ tal que
-\[
+\begin{equation}\label{condicion-filtro}
 a\in F \text{ y } b\notin F \quad o \quad a\notin F \text{ y } b\in F.
-\]
+\end{equation}
 
-El enfoque anterior también se puede abordar a través del Teorema de Hofmann-Mislove. Si consideramos un par HM ($F\in A^\wedge, Q\in \mathcal{Q}S$), tenemos que 
-\[
-\begin{split}
-v_F(0)=(\mathcal{U}\circ [Q']\circ \mathcal{U})(0)&=\bigvee \{x\in A\mid [\forall q \in \pt A](q\in Q\Rightarrow x\leq q)\}.
-\end{split}
-\]
-
-De manera particular, si consideramos $p\in \pt A$ tenemos el par HM ($F_p, \uparrow p$), donde 
+El enfoque anterior también se puede abordar a través del Teorema de Hofmann-Mislove. Si consideramos $p\in \pt A$ tenemos el par HM ($F_p, \uparrow p$), donde 
 \[
 F_p=\{x\in A\mid [q\in \pt a](q\leq p\Rightarrow x\nleq q)\}. 
 \]
 
 Como $A$ es $T_1$, se cumple que todo punto es máximo. Así,
 \[
-F_p=\{x\in A\mid x\leq p\}.
-\]
+F_p=\{x\in A\mid x\nleq p\}.
+\] 
+
+A diferencia del núcleo ajustado \eqref{nucleo-ajustado-p}, cuando $A$ es $T_1$ y apilado, $v_{F_p}$ permite distinguir cuando un 
+elemento $a\in A$ pertenece o no al filtro $F_p$. Esto sugiere una posible estrategia para obtener las condiciones mencionadas en \eqref{condicion-filtro}, 
+pero cuando $F_p\in A^\wedge$. Hasta el momento de redactar este documento, la afirmación aun no está demostrada.
 
 \bibliographystyle{amsalpha}
 \bibliography{research2}
