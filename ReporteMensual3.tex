@@ -64,14 +64,25 @@ Si consideramos $A\in \Frm$ y $S=\pt A$, el Teorema de Hofmann-Mislove-Johnstone
 el conjunto de los filtros abiertos de $A$ ($A^\wedge$), el conjunto de los subconjuntos compactos saturados de $S$ ($\mathcal{Q}S$) y 
 la colección de núcleos ajustados de $A$.\\
 
-De esta manera, para $F\in A^\wedge$, se obtiene un conjunto $Q\in \mathcal{Q}S$. Al mismo tiempo, dicho conjunto corresponde a un filtro 
-abierto $\nabla \in \mathcal{O}S^\wedge$. Al par $(F, Q)$ lo llamaremos un \emph{par HM}, y de manera similar, ($F, Q, \nabla$) será una \emph{tripleta HM}.\\
+De esta manera, para $F\in A^\wedge$, se obtiene un conjunto $Q\in \mathcal{Q}S$, donde $Q=S\setminus F$. Ahora, si tenemos $Q\in \mathcal{Q}S$, el filtro abierto $F$ tiene la forma
+\[
+F=\{x\in A\mid Q\subseteq \mathcal{U}(x)\}.
+\]
 
-En particular, para $p\in \pt A$, se tiene que $\uparrow p\in \mathcal{Q}S$, y el filtro abierto correspondiente es
+En el caso espacial, si tomamos $\nabla\in \mathcal{O}S^\wedge$, el compacto saturado es de la forma $Q=\bigcap \nabla$. Y de manera inversa, cosiderando $Q\in \mathcal{Q}S$,
+\[
+\nabla=\{U\in \mathcal{O}S\mid Q\subseteq U\}.
+\]
+ 
+Al par $(F, Q)$ lo llamaremos un \emph{par HM}, y de manera similar, ($F, Q, \nabla$) será una \emph{terna HM}.\\
+
+En particular, para $p\in \pt A$, tenemos el par HM ($F_p, \uparrow p$), donde $F_p$ tiene la forma
 \begin{equation}\label{filtro-p}
 F_p=\{x\in A\mid [q\in \pt A](q\leq p\Rightarrow x\nleq q)\}
 \end{equation}
-y el núcleo ajustado asociado a $F_p$ permite distinguir cuando un punto $q\in \pt A$ pertenece o no al filtro $F_p$. Esto es,
+y, al mismo tiempo, es un filtro completamente primo.\\
+ 
+El núcleo ajustado asociado a $F_p$ permite distinguir cuando un punto $q\in \pt A$ pertenece o no al filtro $F_p$. Esto es,
 \begin{equation}\label{nucleo-ajustado-p}
 v_{F_p}(q)=  \left\{ \begin{array}{lcc} 1, & \text{si}  &  q\in F_p\\ \\ q, & \text{si} & q\not\in F_p \end{array} \right..
 \end{equation}
@@ -193,8 +204,12 @@ y por hipótesis $v_F(0)=w_F(0)$, es decir, $v_F(0)=(\mathcal{U}_*\circ [Q']\cir
 \end{proof}
 
 El Teorema 7.11 antes mencionado está relacionado con la construcción de la $V$-modificación de un espacio. Por tal motivo,
-resulta natural estudiar qué ocurre en el contexto de la $V$-modificación de un marco. Por ejemplo, para
-\cite[Teorema 7.8]{sexton2006ordinal}, ¿podemos tener su análogo usando las respectivas construcciones en $\Frm$?\\
+resulta natural estudiar qué ocurre en el contexto de los $V$-puntos de un marco y su relación con las nociones de apilamiento. 
+Por ejemplo, para \cite[Teorema 7.8]{sexton2006ordinal}, ¿podemos tener su análogo usando las respectivas construcciones en $\Frm$?\\
+
+Para poder responder la pregunta anterior y ver otras posibles relaciones entre estas construcciones, resulta necesario estudiar con mayor profundidad 
+las referencias \cite{JohnstoneVietorisMonad, simmons2004vietoris} como parte de las actividades a realizar durante el próximo mes.\\
+
 
 Adicionalmente, el Teorema 6.2 a) de \cite{sexton2006ordinal} dice que si un espacio $S$ es $T_1$ y apilado, 
 entonces $S$ es sobrio. Trasladando esta afirmación al contexto de marcos tenemos lo siguiente:\\
@@ -202,43 +217,53 @@ entonces $S$ es sobrio. Trasladando esta afirmación al contexto de marcos tenem
 \textbf{Afirmación:} Si un marco $A$ es $T_1$ y apilado, entonces $A$ es espacial.\\
 
 Dentro de las actividades realizadas durante este mes se encuentra el intento de demostrar esta afirmación.
-Para esto, hemos partido del hecho de que un marco es espacial si y solo si el morfismo reflexión espacial 
-$\mathcal{U}$ es inyectivo.\\
-
-Abordando lo anterior a manera de contradicción, consideramos $A\in\Frm$ un marco $T_1$ y apilado, y suponemos que $\mathcal{U}$ no es inyectivo. 
-Así, existen $a,b\in A$ con $a\nleq b$ tal que $\mathcal{U}(a)=\mathcal{U}(b)$, es decir,
-\[
-[\forall p\in \pt A](p\in \mathcal{U}(a) \iff p\in \mathcal{U}(b)).
-\]
-
-Alternativamente, si $M_a=\mathcal{U}(a)'$ y $M_b=\mathcal{U}(b)'$, tenemos que
-\[
-[\forall p\in \pt A](p\in M_a \iff p\in M_b).
-\]
-
-con esto, la prueba se reduce a exhibir un punto $p\in \pt A$ tal que
-\[
-a\nleq p \text{ y } b\leq p\quad o \quad a\leq p \text{ y } b\nleq p.
-\]
-
-Por la correspondencia entre puntos y filtros completamente primos, es suficiente mostrar que existe un filtro completamente primo $F$ tal que
-\begin{equation}\label{condicion-filtro}
-a\in F \text{ y } b\notin F \quad o \quad a\notin F \text{ y } b\in F.
-\end{equation}
-
-El enfoque anterior también se puede abordar a través del Teorema de Hofmann-Mislove. Si consideramos $p\in \pt A$ tenemos el par HM ($F_p, \uparrow p$), donde 
-\[
-F_p=\{x\in A\mid [q\in \pt a](q\leq p\Rightarrow x\nleq q)\}. 
-\]
-
-Como $A$ es $T_1$, se cumple que todo punto es máximo. Así,
+Durante el análisis de este problema, se observó que, bajo las hipótesis de que $A$ es $T_1$
+y apilado, si $p\in \pt A$, entonces el filtro completamente primo $F_p$ tiene la forma
 \[
 F_p=\{x\in A\mid x\nleq p\}.
 \] 
+y el núcleo ajustado $v_{F_p}$ permite distinguir si un elemento del marco pertenece
+o no al filtro abierto $F_p$.\\
 
-A diferencia del núcleo ajustado \eqref{nucleo-ajustado-p}, cuando $A$ es $T_1$ y apilado, $v_{F_p}$ permite distinguir cuando un 
-elemento $a\in A$ pertenece o no al filtro $F_p$. Esto sugiere una posible estrategia para obtener las condiciones mencionadas en \eqref{condicion-filtro}, 
-pero cuando $F_p\in A^\wedge$. Hasta el momento de redactar este documento, la afirmación aun no está demostrada.
+Más precisamente, para $a \in A$, el valor de $v_{F_p}(a)$ refleja la pertenencia de $a$ a $F_p$,
+lo que sugiere que este núcleo codifica información relevante sobre la estructura del filtro
+en este contexto.\\
+
+Esta observación proporciona una posible vía para abordar la demostración de la espacialidad
+del marco. Sin embargo, hasta el momento de redactar este documento, la afirmación permanece
+como un problema abierto.
+%Abordando lo anterior a manera de contradicción, consideramos $A\in\Frm$ un marco $T_1$ y apilado, y suponemos que $\mathcal{U}$ no es inyectivo. 
+%Así, existen $a,b\in A$ con $a\nleq b$ tal que $\mathcal{U}(a)=\mathcal{U}(b)$, es decir,
+%\[
+%[\forall p\in \pt A](p\in \mathcal{U}(a) \iff p\in \mathcal{U}(b)).
+%\]
+
+%Alternativamente, si $M_a=\mathcal{U}(a)'$ y $M_b=\mathcal{U}(b)'$, tenemos que
+%\[
+%[\forall p\in \pt A](p\in M_a \iff p\in M_b).
+%\]
+
+%con esto, la prueba se reduce a exhibir un punto $p\in \pt A$ tal que
+%\[
+%a\nleq p \text{ y } b\leq p\quad o \quad a\leq p \text{ y } b\nleq p.
+%\]
+
+%Por la correspondencia entre puntos y filtros completamente primos, es suficiente mostrar que existe un filtro completamente primo $F$ tal que
+%\begin{equation}\label{condicion-filtro}
+%a\in F \text{ y } b\notin F \quad o \quad a\notin F \text{ y } b\in F.
+%\end{equation}
+
+%El enfoque anterior también se puede abordar a través del Teorema de Hofmann-Mislove. Si consideramos $p\in \pt A$ tenemos el par HM ($F_p, \uparrow p$), donde 
+%\[
+%F_p=\{x\in A\mid [q\in \pt a](q\leq p\Rightarrow x\nleq q)\}. 
+%\]
+
+%Como $A$ es $T_1$, se cumple que todo punto es máximo. Así,
+
+
+%A diferencia del núcleo ajustado \eqref{nucleo-ajustado-p}, cuando $A$ es $T_1$ y apilado, $v_{F_p}$ permite distinguir cuando un 
+%elemento $a\in A$ pertenece o no al filtro $F_p$. Esto sugiere una posible estrategia para obtener las condiciones mencionadas en \eqref{condicion-filtro}, 
+%pero cuando $F_p\in A^\wedge$. Hasta el momento de redactar este documento, la afirmación aun no está demostrada.
 
 \bibliographystyle{amsalpha}
 \bibliography{research2}
