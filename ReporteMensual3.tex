@@ -69,7 +69,7 @@ De esta manera, para $F\in A^\wedge$, se obtiene un conjunto $Q\in \mathcal{Q}S$
 F=\{x\in A\mid Q\subseteq \mathcal{U}(x)\}.
 \]
 
-En el caso espacial, si tomamos $\nabla\in \mathcal{O}S^\wedge$, el compacto saturado es de la forma $Q=\bigcap \nabla$. Y de manera inversa, cosiderando $Q\in \mathcal{Q}S$,
+En el caso espacial, si tomamos $\nabla\in \mathcal{O}S^\wedge$, el compacto saturado es de la forma $Q=\bigcap \nabla$ y, de manera inversa, cosiderando $Q\in \mathcal{Q}S$, el filtro asociado es
 \[
 \nabla=\{U\in \mathcal{O}S\mid Q\subseteq U\}.
 \]
@@ -113,11 +113,12 @@ v_\nabla=w_\nabla,
 \end{equation}
 donde $v_\nabla$ y $w_\nabla$ son el menor y el mayor elemento del intervalo de admisibilidad correspondiente al filtro $\nabla$, respectivamente.\\
 
-De manera general, si consideramos $A\in \Frm$, $F\in A^\wedge$ y $S=\pt A$, el Teorema de Hofmann-Mislove proporciona los siguientes objetos
+De manera general, si consideramos $A\in \Frm$, $F\in A^\wedge$ y $S=\pt A$, el Teorema de Hofmann-Mislove proporciona los siguientes conjuntos
 \[
-M=\{m\in A\setminus F\mid a\leq m\}\quad \text{y}\quad Q=S\setminus F
+M=\{m\in A\setminus F\mid a\leq m\},\qquad Q=S\setminus F
 \]
-y el intervalo de admisibilidad asociado a $F$ tiene la forma
+
+El intervalo de admisibilidad asociado a $F$ es
 \[
 v_F\leq [Q']\leq w_F=[M'].
 \]
@@ -127,7 +128,7 @@ Si $S$ es un espacio $T_1$, se cumple que $M=Q$ y el intervalo de admisibilidad 
 v_F\leq [Q']=[M'].
 \]
 
-Si $S$ es fuertemente apilado, se satisface que $v_F=[Q']$ y el intervalo de admisibilidad es
+Si $S$ es fuertemente apilado, se satisface que $v_F=[Q']$. Así, tenemos el intervalo
 \[
 v_F=[Q']\leq [M'].
 \]
@@ -137,7 +138,7 @@ Por lo tanto, si $S$ es un espacio $T_1$ y fuertemente apilado, se cumple que $v
 El análogo de la igualdad \eqref{v=w} para marcos es el siguiente. 
 
 \begin{prop}\label{fapiladoT1}
-Sean $A\in \Frm$ y $(F\in A^\wedge,Q \in \mathcal{Q}S, \nabla\in \mathcal{O}S^\wedge)$ una tripleta HM.
+Sean $A\in \Frm$ y $(F\in A^\wedge,Q \in \mathcal{Q}S, \nabla\in \mathcal{O}S^\wedge)$ una terna HM.
 Si $A$ es $T_1$ y fuertemente apilado, entonces
 \[
 v_F=w_F.
@@ -145,12 +146,12 @@ v_F=w_F.
 \end{prop}
 
 \begin{proof}
-En general, para cualquier tripleta HM ($F, Q, \nabla$) se cumple que 
+En general, para cualquier terna HM ($F, Q, \nabla$) se cumple que 
 \[
 v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}\quad \text{y}\quad w_F=\mathcal{U}_*\circ [M']\circ \mathcal{U}.
 \]
 
-Por fuertemente apilado tenemos la igualdad $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$. Luego, por $T_1$ tenemos que
+Por fuertemente apilado tenemos la igualdad $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$. Luego, por $T_1$ se cumple que
 \[
 A\text{ es }T_1\Rightarrow \mathcal{O}S\text{ es }T_1\Rightarrow S \text{ es }T_1\Rightarrow M=Q.
 \]
@@ -200,7 +201,7 @@ Para ver que $A$ es apilado, recordemos que
 \[
 v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq w_F
 \]
-y por hipótesis $v_F(0)=w_F(0)$, es decir, $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=w_F(0)$, lo que implica que $A$ es apilado.
+y por hipótesis $v_F(0)=w_F(0)$, es decir, $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=w_F(0)$. Por lo tanto, $A$ es apilado.
 \end{proof}
 
 El Teorema 7.11 antes mencionado está relacionado con la construcción de la $V$-modificación de un espacio. Por tal motivo,
