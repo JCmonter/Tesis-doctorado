@@ -1,0 +1,264 @@
+\documentclass[12pt]{article}
+
+% --------------------
+% PAQUETES BÁSICOS
+% --------------------
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[utf8]{inputenc}      % Si usas pdflatex
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{booktabs}   
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=red
+]{hyperref}
+
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{dfn}[thm]{Definición}
+\newtheorem{lem}[thm]{Lema}
+\newtheorem{ej}[thm]{Ejemplo}
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{obs}[thm]{Observación}
+\newtheorem{con}[thm]{Conjetura}
+\newtheorem{prop}[thm]{Proposición}
+
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Ord}{Ord}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Sp}{sp}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\tp}{tp}
+\DeclareMathOperator{\fd}{fd}
+% --------------------
+% CONFIGURACIÓN
+% --------------------
+\geometry{margin=2.5cm}
+\onehalfspacing
+
+% --------------------
+% DATOS DEL DOCUMENTO
+% --------------------
+\title{Reporte mensual de actividades}
+\date{1-abril-2026 a 30-abril-2026}
+\author{Juan Carlos Monter Cortés}
+
+% --------------------
+% INICIO DEL DOCUMENTO
+% --------------------
+\begin{document}
+
+\maketitle
+% \tableofcontents
+
+\section{Actividades realizadas}
+Si consideramos $A\in \Frm$ y $(F, Q, \nabla)$ una terna HM tenemos el diagrama
+\begin{equation}\label{Qlaxo}
+\begin{tikzcd}
+	A & A \\
+	{\mathcal{O}S} & {\mathcal{O}S}
+	\arrow["{v_F}", from=1-1, to=1-2]
+	\arrow["{\mathcal{U}}"', from=1-1, to=2-1]
+	\arrow["{\mathcal{U}}", from=1-2, to=2-2]
+	\arrow["{v_\nabla}"', from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation}
+y se cumple que $\mathcal{U}\circ v_F\leq v_\nabla \circ \mathcal{U}$, donde $v_F, v_\nabla$ son los núcleos ajustados a los filtros abiertos 
+$F, \nabla$, respectivamente, y $A_F$, $A_\nabla$ son los cocientes generados por estos núcleos. Queremos estudiar bajo qué condiciones el 
+diagrama \eqref{Qlaxo} es conmutativo, es decir, $\mathcal{U}\circ v_F=v_\nabla \circ \mathcal{U}$.\\
+
+En general, para cualquier terna $(F, Q, \nabla)$ se cumple que
+\[
+v_F\leq \mathcal{U}_*\circ v_\nabla\circ \mathcal{U}\leq \mathcal{U}_*\circ [Q']\circ\mathcal{U}
+\]
+
+Además, si $A$ es fuertemente apilado, entonces $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$ y por lo tanto, bajo fuertemente apilado, se cumple que 
+\[
+v_F=\mathcal{U}_*\circ v_\nabla\circ \mathcal{U}\Rightarrow \mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}
+\]
+donde la implicación es consecuencia de la formula de adjunción.\\
+
+Con esto hemos probado que si $A$ es fuertemente apilado, entonces el diagrama \eqref{Qlaxo} es conmutativo. El siguiente resultado nos menciona 
+bajo que condiciones tenemos la otra implicación.
+
+\begin{prop}\label{EficienteFapilado}
+  Si $A\in \Frm$ es eficiente y el diagrama 
+
+\[\begin{tikzcd}
+	A & A \\
+	{\mathcal{O}S} & {\mathcal{O}S}
+	\arrow["{v_F}", from=1-1, to=1-2]
+	\arrow["{\mathcal{U}}"', from=1-1, to=2-1]
+	\arrow["{\mathcal{U}}", from=1-2, to=2-2]
+	\arrow["{v_\nabla}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+conmuta, entonces $A$ es fuertemente apilado.
+\end{prop}
+
+\begin{proof}
+Sean $A\in\Frm$, $S=\pt A$ y $(F, Q)$ un par HM. Por hipótesis, $A$ es eficiente lo cual implica lo siguiente:
+\[
+A\text{ eficiente }\Rightarrow \mathcal{O}S\text{ eficiente }\Rightarrow S \text{ apilado y empaquetado.}
+\]
+De aquí que, por empaquetado, si $Q\in \mathcal{Q}S$, entonces $Q\in \mathcal{C}S$ y $Q'\in \mathcal{O}S$. Luego, al ser $S$ apilado tenemos que
+$\overline{Q}=\partial_\nabla^\infty(S)$, es decir, $Q'=v_\nabla(\emptyset)$ y al ser $\mathcal{O}S$ eficiente, $v_\nabla=u_{Q'}=[Q']$.\\
+  
+Además, si $v_\nabla\circ \mathcal{U}=\mathcal{U}\circ v_F$, entonces
+\[
+v_\nabla\circ \mathcal{U}\leq \mathcal{U}\circ v_F\quad \text{ y } \mathcal{U}\circ v_F\leq v_\nabla\circ \mathcal{U},
+\]
+es decir,
+\[
+[Q']\circ \mathcal{U}\leq \mathcal{U}\circ v_F\quad \text{ y } \mathcal{U}\circ v_F\leq [Q']\circ \mathcal{U}.
+\]
+Por propiedades del adjunto derecho 
+\[
+\mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq v_F\quad \text{ y } v_F\leq\mathcal{U}_*\circ [Q']\circ \mathcal{U}.
+\]
+Por lo tanto $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$, es decir, $A$ es fuertemente apilado.
+\end{proof}
+
+Un corolario que surge de la prueba anterior es el siguiente
+
+\begin{cor}
+Si $\mathcal{O}S$ es eficiente, entonces $S$ es fuertemente apilado.
+\end{cor}
+
+\begin{proof}
+Ya que $S$ es fuertemente apilado si y solo si $v_\nabla=[Q']$, la prueba se sigue del hecho de que 
+\[
+\mathcal{O}S \text{ eficiente } \Rightarrow S \text{ apilado y empaquetado}
+\] 
+\end{proof}
+
+Si tomamos $p\in \pt A$ y el par HM $(F_p, \uparrow p)$, se cumple que para 
+\[
+M=\{m\in A\setminus F_p\mid(\forall a\in A\setminus F_p) [a\leq m]\},
+\]
+el núcleo $w_{F_p}(x)=\bigwedge\{m\in M\mid x\leq m\}$ es $w_p(x)$.\\
+
+Para verificar lo anterior, notemos que $A\setminus F_p=\{x\in A\mid x\leq p\}=\downarrow p$. Luego,
+\[
+M=\{m\in \downarrow p\mid [\forall a\in \downarrow p](a\leq m)\}=\{p\}.
+\]
+
+De aquí que $w_{F_p}(x)=\bigwedge\{p\mid x\leq p\}$, es decir, 
+\begin{equation}\label{igualdadwF_p}
+w_{F_p}(x)= \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\nleq p\\ \\ 
+	p, & \text{si} & x\leq p 
+\end{array} \right.=w_p(x)
+\end{equation}
+para todo $x\in A$. Por lo tanto $w_{F_p}=w_p$.\\
+
+\begin{prop}\label{maximosenpt}
+Sea $A\in \Frm$ y $(F, Q)$ cualquier par HM. Si $v_F(0)=w_F(0)$, entonces todo punto de $A$ es máximo en $\pt A$.
+\end{prop}
+
+\begin{proof}
+Consideremos $p,q\in \pt A$ tales que $p\leq q$. Notemos que para $q\in \pt A$, tenemos el par HM $(F_q, \uparrow q)$, donde 
+\[
+F_q=\{x\in A\mid \uparrow q\subseteq \mathcal{U}(x)\}=\{x\in A\mid (\forall r\in \pt A)[r\leq q\Rightarrow x\nleq q]\}.
+\]
+
+Por hipótesis, $v_{F_q}(0)=w_{F_q}(0)$ y por \eqref{igualdadwF_p}
+\[
+q=w_q(0)=w_{F_q}(0)=v_{F_q}(0)\leq v_{F_q}(p)=p.
+\]
+Por lo tanto, $p=q$ y todo punto es máximo en $\pt A$.
+\end{proof}
+
+Recordemos que para el morfismo reflexión espacial $\mathcal{U}_A$ tenemos el núcleo $\Sp_A$ dado por
+\[
+\Sp_A(x)=\bigwedge\{p\in \pt A\mid x\leq p\}
+\]
+para $x\in A$. Combinando este hecho con lo mencionado en la Proposición \ref{maximosenpt} podemos caracterizar el colapso de 
+los intervalos de admisibilidad.
+
+\begin{prop}\label{v_F=w_F}
+Sean $A\in \Frm$ y $(F, Q)$ cualquier par HM. $A$ es fuertemente apilado y $T_1$ si y solo si $v_F=w_F$. 
+\end{prop}
+
+\begin{proof}
+Sabemos que para cualquier par HM $(F, Q)$ siempre se cumple que $v_F\leq w_F$. Por fuertemente apilado y por la Proposición \ref{igualdadwF} tenemos que
+\[
+v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}\quad \text{y}\quad w_F=\mathcal{U}_*\circ[M']\circ \mathcal{U},
+\]
+respectivamente. De aquí que
+\[
+\mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq\mathcal{U}_*\circ[M']\circ \mathcal{U},
+\]
+Como $A$ es $T_1$, se cumple que $S$ es $T_1$, entonces $Q=M$. Por lo tanto
+\[
+\mathcal{U}_*\circ [Q']\circ \mathcal{U}=\mathcal{U}_*\circ[M']\circ \mathcal{U},
+\]
+es decir, $v_F=w_F$.\\
+
+Para la otra implicación, supongamos que $v_F=w_F$ para todo par HM y veamos que $A$ es fuertemente apilado y $T_1$.\\
+
+Primero, consideremos $p\in \pt A$ y $a\in A$ tales que $p\leq a$. Como $v_F=w_F$, se cumple que $v_F(0)=w_F(0)$ para todo par HM y, por la Proposición \ref{maximosenpt}, $p$ es máximo en $\pt A$.
+
+De aquí que 
+\[
+p\leq a\leq \Sp(a)=\bigwedge\{q\in \pt A\mid a\leq q\}\leq q
+\]
+para algún $q\in \pt A$, pero $p$ es máximo, entonces $p\leq a\leq p$. Por lo tanto, $p=a$ y todo punto es máximo, es decir, $A$ es $T_1$.\\
+
+Para ver que $A$ es fuertemente apilado, recordemos que
+\[
+v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq w_F
+\]
+y por hipótesis $v_F=w_F$, es decir, $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}=w_F$. Por lo tanto, $A$ es fuertemente apilado.
+\end{proof}
+
+\begin{prop}\label{focales}
+Consideremos $A\in \Frm$ y ($F, Q$) cualquier par HM. $A$ es $T_1$ y apilado si y solo si $v_F(0)=w_F(0)$.
+\end{prop}
+
+\begin{proof}
+Si $A$ es $T_1$ se cumple que $M=Q$ y por apilado tenemos que 
+\[
+v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=(\mathcal{U}_*\circ[M']\circ \mathcal{U})(0)=w_F(0).
+\]
+
+Para la otra implicación, supongamos que $v_F(0)=w_F(0)$ para todo par HM y veamos que $A$ es $T_1$ y apilado. La prueba de que $A$ es $T_1$ es análoga a la 
+demostración de la Proposición \ref{v_F=w_F}, por lo que nos centraremos en demostrar que $A$ es apilado.\\
+
+Para ver que $A$ es apilado, recordemos que
+\[
+v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq w_F
+\]
+y por hipótesis $v_F(0)=w_F(0)$, es decir, $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=w_F(0)$. Por lo tanto, $A$ es apilado.
+\end{proof}
+
+Notemos que si para cada par HM $(F, Q)$ se cumple que $v_F(0)=w_F(0)$, entonces $A$ es apilado y todo punto es máximo en $\pt A$.
+En particular, para cada $q\in \pt A$, tenemos el par $(F_q, \uparrow q)$, donde 
+\[
+F_q=\{x\in A\mid x\nleq q\}
+\]
+es un filtro completamente primo.\\
+
+Por apilado, se cumple que $v_{F_q}(0)=q$. Además $v_{F_q}(q)=v_{F_q}(0)=0_{A_{F_q}}$. \\
+
+Si $S$ es $T_1$, $q$ es máximo en $A$, entonces $q$ es máximo en $A_F$.
+Por lo tanto, $A_F=\{q<1\}$.\\
+
+Ahora, $F_q=\nabla(v_{F_q})$ y $x\in F_q$ si y solo si $v_{F_q}(x)=1$. De esta manera, bajo las hipótesis anteriores, se cumple que 
+\[
+v_{F_q}(x)= \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\nleq q\\ \\ q, & \text{si} & x\leq q 
+\end{array} \right.=  \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\in F\\ \\ q, & \text{si} & x\not\in F \end{array} \right.=w_{F_q}(x).
+\]
+
+\bibliographystyle{amsalpha}
+\bibliography{research2}
+
+
+\end{document}
