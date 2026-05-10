@@ -61,6 +61,10 @@
 % \tableofcontents
 
 \section{Actividades realizadas}
+En \cite{simmons2004vietoris} y \cite{sexton2006ordinal} utilizan los espacios apilados y fuertemente apilados para estudiar la complejidad de los intervalos de admisibilidad. 
+De manera particular, analizan la relación de esta clase de espacios con la modificación de Vietoris y los $V$-puntos. Los resultados que se presentan en este reporte
+corresponden a las versiones libres de puntos de algunas de las caracterizaciones de los artículos anteriores.\\
+
 Si consideramos $A\in \Frm$ y $(F, Q, \nabla)$ una terna HM tenemos el diagrama
 \begin{equation}\label{Qlaxo}
 \begin{tikzcd}
@@ -81,14 +85,14 @@ En general, para cualquier terna $(F, Q, \nabla)$ se cumple que
 v_F\leq \mathcal{U}_*\circ v_\nabla\circ \mathcal{U}\leq \mathcal{U}_*\circ [Q']\circ\mathcal{U}
 \]
 
-Además, si $A$ es fuertemente apilado, entonces $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$ y por lo tanto, bajo fuertemente apilado, se cumple que 
+Además, si $A$ es fuertemente apilado, entonces $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$ y por lo tanto, si $A$ es fuertemente apilado, se cumple que 
 \[
 v_F=\mathcal{U}_*\circ v_\nabla\circ \mathcal{U}\Rightarrow \mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}
 \]
-donde la implicación es consecuencia de la formula del adjunto derecho.\\
+donde la implicación es consecuencia de la fórmula del adjunto derecho.\\
 
-Con esto hemos probado que si $A$ es fuertemente apilado, entonces el diagrama \eqref{Qlaxo} es conmutativo. El siguiente resultado nos menciona 
-bajo que condiciones tenemos la otra implicación.
+Con esto hemos probado que si $A$ es fuertemente apilado, entonces el diagrama \eqref{Qlaxo} es conmutativo. El siguiente resultado establece
+bajo qué condiciones tenemos que el recíproco es cierto.
 
 \begin{prop}\label{EficienteFapilado}
   Si $A\in \Frm$ es eficiente y el diagrama 
@@ -105,7 +109,7 @@ conmuta, entonces $A$ es fuertemente apilado.
 \end{prop}
 
 \begin{proof}
-Sean $A\in\Frm$, $S=\pt A$ y $(F, Q)$ un par HM. Por hipótesis, $A$ es eficiente lo cual implica lo siguiente:
+Sean $A\in\Frm$, $S=\pt A$ y $(F, Q)$ un par HM. Por hipótesis, $A$ es eficiente y por resultados previos tenemos las implicaciones
 \[
 A\text{ eficiente }\Rightarrow \mathcal{O}S\text{ eficiente }\Rightarrow S \text{ apilado y empaquetado.}
 \]
@@ -134,21 +138,24 @@ Si $\mathcal{O}S$ es eficiente, entonces $S$ es fuertemente apilado.
 \end{cor}
 
 \begin{proof}
-Ya que $S$ es fuertemente apilado si y solo si $v_\nabla=[Q']$, la prueba se sigue del hecho de que 
+Ya que $S$ es fuertemente apilado si y solo si $v_\nabla=[Q']$, el resultado se sigue del hecho de que 
 \[
 \mathcal{O}S \text{ eficiente } \Rightarrow S \text{ apilado y empaquetado}
 \] 
 \end{proof}
 
-Si tomamos $p\in \pt A$ y el par HM $(F_p, \uparrow p)$, se cumple que para 
+Si $F\in A^\wedge$, podemos construir el conjunto
 \[
-M=\{m\in A\setminus F_p\mid(\forall a\in A\setminus F_p) [a\leq m]\},
+M=\{m\in A\setminus F\mid a\leq m, \forall a\in A\setminus F\}.
 \]
-el núcleo $w_{F_p}(x)=\bigwedge\{m\in M\mid x\leq m\}$ es $w_p(x)$.\\
-
-Para verificar lo anterior, notemos que $A\setminus F_p=\{x\in A\mid x\leq p\}=\downarrow p$. Luego,
+De manera particular, si $p\in \pt A$, entonces para el par HM $(F_p, \uparrow p)$ el conjunto $M$ es de la forma
 \[
-M=\{m\in \downarrow p\mid [\forall a\in \downarrow p](a\leq m)\}=\{p\}.
+M=\{m\in A\setminus F_p\mid a\leq m, \forall a\in A\setminus F_p\}.
+\]
+
+Notemos que $A\setminus F_p=\{x\in A\mid x\leq p\}=\downarrow p$. Luego,
+\[
+M=\{m\in \downarrow p\mid a\leq m, \forall a\in \downarrow p\}=\{p\}.
 \]
 
 De aquí que $w_{F_p}(x)=\bigwedge\{p\mid x\leq p\}$, es decir, 
@@ -171,91 +178,90 @@ F_q=\{x\in A\mid \uparrow q\subseteq \mathcal{U}(x)\}=\{x\in A\mid (\forall r\in
 
 Por hipótesis, $v_{F_q}(0)=w_{F_q}(0)$ y por \eqref{igualdadwF_p}
 \[
-q=w_q(0)=w_{F_q}(0)=v_{F_q}(0)\leq v_{F_q}(p)=p.
+q=w_q(0)=w_{F_q}(0)=v_{F_q}(0)\leq v_{F_q}(p)=p,
 \]
-Por lo tanto, $p=q$ y todo punto es máximo en $\pt A$.
+donde la última igualdad es consecuencia de que $p\notin F_q$. Por lo tanto, $p=q$ y todo punto es máximo en $\pt A$.
 \end{proof}
 
 Recordemos que para el morfismo reflexión espacial $\mathcal{U}_A$ tenemos el núcleo $\Sp_A$ dado por
 \[
 \Sp_A(x)=\bigwedge\{p\in \pt A\mid x\leq p\}
 \]
-para $x\in A$. Combinando este hecho con lo mencionado en la Proposición \ref{maximosenpt} podemos caracterizar el colapso de 
+para $x\in A$. Combinando este hecho con lo mencionado en la Proposición \ref{maximosenpt} podemos dar información sobre el colapso de 
 los intervalos de admisibilidad.
 
-\begin{prop}\label{v_F=w_F}
-Sean $A\in \Frm$ y $(F, Q)$ cualquier par HM. $A$ es fuertemente apilado y $T_1$ si y solo si $v_F=w_F$. 
+\begin{prop}\label{focales}
+Para $A\in \Frm$ y $(F, Q)$ es cualquier par HM, se cumplen las siguientes afirmaciones:
+\begin{enumerate}
+\item Si $A$ es $T_1$ y apilado, entonces $v_F(0)=w_F(0)$.
+\item Si $v_F(0)=w_F(0)$, entonces $A$ es apilado.
+\item Si $v_F(0)=w_F(0)$ y el conjunto $Y=\{q\in \pt A\mid a\leq q\}$ es distinto de vacío para todo $a\in A$, entonces $A$ es $T_1$.
+\end{enumerate}
 \end{prop}
 
 \begin{proof}
-Sabemos que para cualquier par HM $(F, Q)$ siempre se cumple que $v_F\leq w_F$. Por fuertemente apilado y por la Proposición \ref{igualdadwF} tenemos que
-\[
-v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}\quad \text{y}\quad w_F=\mathcal{U}_*\circ[M']\circ \mathcal{U},
-\]
-respectivamente. De aquí que
-\[
-\mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq\mathcal{U}_*\circ[M']\circ \mathcal{U},
-\]
-Como $A$ es $T_1$, se cumple que $S$ es $T_1$, entonces $Q=M$. Por lo tanto
-\[
-\mathcal{U}_*\circ [Q']\circ \mathcal{U}=\mathcal{U}_*\circ[M']\circ \mathcal{U},
-\]
-es decir, $v_F=w_F$.\\
+	\mbox{}
 
-Para la otra implicación, supongamos que $v_F=w_F$ para todo par HM y veamos que $A$ es fuertemente apilado y $T_1$.\\
-
-Primero, consideremos $p\in \pt A$ y $a\in A$ tales que $p\leq a$. Como $v_F=w_F$, se cumple que $v_F(0)=w_F(0)$ para todo par HM y, por la Proposición \ref{maximosenpt}, $p$ es máximo en $\pt A$.
-
-De aquí que 
-\[
-p\leq a\leq \Sp(a)=\bigwedge\{q\in \pt A\mid a\leq q\}\leq q
-\]
-para algún $q\in \pt A$, pero $p$ es máximo, entonces $p\leq a\leq p$. Por lo tanto, $p=a$ y todo punto es máximo, es decir, $A$ es $T_1$.\\
-
-Para ver que $A$ es fuertemente apilado, recordemos que
-\[
-v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq w_F
-\]
-y por hipótesis $v_F=w_F$, es decir, $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}=w_F$. Por lo tanto, $A$ es fuertemente apilado.
+	\begin{enumerate}
+		\item Si $A$ es $T_1$, se cumple que
+		\[
+		\mathcal{O}S\text{ es }T_1\Rightarrow S\text{ es }T_1\Rightarrow Q=M
+		\]
+		y al ser $A$ apilado
+		\[
+		v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=(\mathcal{U}_*\circ[M']\circ \mathcal{U})(0)=w_F(0).
+		\]
+		\item Recordemos que para todo par HM se cumple 
+		\begin{equation}\label{interad}
+		v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq w_F
+		\end{equation}
+		y por hipótesis $v_F(0)=w_F(0)$, es decir, $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=w_F(0)$. Por lo tanto, $A$ es apilado.
+		\item Consideremos $p\in \pt A$ y $a\in A$ tales que $p\leq a$. Por hipótesis $\{q\in \pt A\mid a\leq q\}\neq \emptyset$. Luego 
+		\[
+		p\leq a\leq \Sp (a)=\bigwedge{q\in \pt A\mid a\leq q}\leq q
+		\]
+		para algún $q\in Y$. Así, $p\leq a\leq q$ y por la Proposición \ref{maximosenpt}, $p=q$. Por lo tanto, $p=a$ y todo punto es máximo en $A$, 
+		es decir, $A$ es $T_1$.
+	\end{enumerate}
 \end{proof}
 
-\begin{prop}\label{focales}
-Consideremos $A\in \Frm$ y ($F, Q$) cualquier par HM. $A$ es $T_1$ y apilado si y solo si $v_F(0)=w_F(0)$.
-\end{prop}
+Como consecuencia del resultado anterior tenemos el siguiente.
+
+\begin{cor}\label{vF=wF}
+Para $A\in \Frm$ y $(F, Q)$ es cualquier par HM, se cumplen las siguientes afirmaciones::
+\begin{enumerate}
+\item Si $A$ es $T_1$ y fuertemente apilado, entonces $v_F=w_F$.
+\item Si $v_F=w_F$, entonces $A$ es fuertemente apilado.
+\item Si $v_F=w_F$ y el conjunto $Y=\{q\in \pt A\mid a\leq q\}$ es distinto de vacío para todo $a\in A$, entonces $A$ es $T_1$.
+\end{enumerate}
+\end{cor}
 
 \begin{proof}
-Si $A$ es $T_1$ se cumple que $M=Q$ y por apilado tenemos que 
-\[
-v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=(\mathcal{U}_*\circ[M']\circ \mathcal{U})(0)=w_F(0).
-\]
+	\mbox{}
 
-Para la otra implicación, supongamos que $v_F(0)=w_F(0)$ para todo par HM y veamos que $A$ es $T_1$ y apilado. La prueba de que $A$ es $T_1$ es análoga a la 
-demostración de la Proposición \ref{v_F=w_F}, por lo que nos centraremos en demostrar que $A$ es apilado.\\
-
-Para ver que $A$ es apilado, recordemos que
-\[
-v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq w_F
-\]
-y por hipótesis $v_F(0)=w_F(0)$, es decir, $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=w_F(0)$. Por lo tanto, $A$ es apilado.
+	\begin{enumerate}
+	\item Si $A$ es fuertemente apilado $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$ y por $T_1$ se cumple que $Q=M$. Por lo tanto $v_F=w_F$.
+	\item Se sigue de \eqref{interad}.
+	\item Se sigue de la Proposición \ref{focales}.
+	\end{enumerate}
 \end{proof}
 
 Notemos que si para cada par HM $(F, Q)$ se cumple que $v_F(0)=w_F(0)$, entonces $A$ es apilado y todo punto es máximo en $\pt A$.
-En particular, para cada $q\in \pt A$, tenemos el par $(F_q, \uparrow q)$, donde 
+En particular, para cada $p\in \pt A$ y el par $(F_p, \uparrow p)$ se cumple que $v_{F_p}(0)=p$. Además $v_{F_p}(p)=v_{F_p}(0)=0_{A_{F_p}}$. \\
+
+Si $A$ es $T_1$, $p$ es máximo en $A$, entonces $p$ es máximo en $A_{F_p}$ y por lo tanto, $A_{F_p}=\{q, 1\}$.\\
+
+Ahora, $F_{F_p}=\nabla(v_{F_p})$ y $x\in F_p$ si y solo si $v_{F_p}(x)=1$. De esta manera, bajo las hipótesis anteriores, se cumple que 
 \[
-F_q=\{x\in A\mid x\nleq q\}
+v_{F_p}(x)= \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\nleq p\\ \\ p, & \text{si} & x\leq p 
+\end{array} \right.=  \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\in F_p\\ \\ p, & \text{si} & x\not\in F_p \end{array} \right.=w_{F_p}(x).
 \]
-es un filtro completamente primo.\\
 
-Por apilado, se cumple que $v_{F_q}(0)=q$. Además $v_{F_q}(q)=v_{F_q}(0)=0_{A_{F_q}}$. \\
+Por lo tanto, si $A$ es $T_1$ y apilado, entonces $v_{F_p}=w_{F_p}$ para cada $p\in \pt A$. Con esto en mente, podríamos preguntarnos si existe alguna manera de 
+recuperar la noción fuertemente apilado por medio de $T_1$ y apilado.\\
 
-Si $S$ es $T_1$, $q$ es máximo en $A$, entonces $q$ es máximo en $A_F$.
-Por lo tanto, $A_F=\{q<1\}$.\\
-
-Ahora, $F_q=\nabla(v_{F_q})$ y $x\in F_q$ si y solo si $v_{F_q}(x)=1$. De esta manera, bajo las hipótesis anteriores, se cumple que 
-\[
-v_{F_q}(x)= \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\nleq q\\ \\ q, & \text{si} & x\leq q 
-\end{array} \right.=  \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\in F\\ \\ q, & \text{si} & x\not\in F \end{array} \right.=w_{F_q}(x).
-\]
+Responder esto último y verificar si los diferentes resultados de \cite{simmons2004vietoris} y \cite{sexton2006ordinal} en los que aparecen las nociones de
+apilado y fuertemente apilado se comportan de manera similar cuando los trasladamos al contexto de marcos, son actividades que realizarán en las próximas semanas.
 
 \bibliographystyle{amsalpha}
 \bibliography{research2}
