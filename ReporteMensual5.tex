@@ -1,0 +1,102 @@
+\documentclass[12pt]{article}
+
+% --------------------
+% PAQUETES BÁSICOS
+% --------------------
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[utf8]{inputenc}      % Si usas pdflatex
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{booktabs}   
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=red
+]{hyperref}
+
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{dfn}[thm]{Definición}
+\newtheorem{lem}[thm]{Lema}
+\newtheorem{ej}[thm]{Ejemplo}
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{obs}[thm]{Observación}
+\newtheorem{con}[thm]{Conjetura}
+\newtheorem{prop}[thm]{Proposición}
+
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Fil}{Fil}
+\DeclareMathOperator{\Ord}{Ord}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Sp}{sp}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\tp}{tp}
+\DeclareMathOperator{\fd}{fd}
+% --------------------
+% CONFIGURACIÓN
+% --------------------
+\geometry{margin=2.5cm}
+\onehalfspacing
+
+% --------------------
+% DATOS DEL DOCUMENTO
+% --------------------
+\title{Reporte mensual de actividades}
+\date{1-abril-2026 a 30-abril-2026}
+\author{Juan Carlos Monter Cortés}
+
+% --------------------
+% INICIO DEL DOCUMENTO
+% --------------------
+\begin{document}
+
+\maketitle
+% \tableofcontents
+
+\section{Actividades realizadas}
+Uno de nuestros objetivos es demostrar que la siguiente afirmación es cierta.
+\[
+\text{\textbf{Afirmación:} Si } A\in \Frm \text{ es } T_1 \text{ y apilado, entonces } A \text{ es espacial.}
+\]
+Para realizarlo debemos verificar que el morfismo reflexión espacial es inyectivo, es decir, para $a, b\in A$ con $a\neq b$, se cumple que
+\[
+U(a)\nsubseteq U(b)\; \iff \; \exists\, p\in \pt(A) \text{ tal que } a\leq p \text{ y } b\nleq p.
+\]
+
+Notemos que para $a\nleq b$ como antes, se cumple que $\uparrow a$ es un filtro en $A$ y $\downarrow b$ es un ideal. Además, se cumple que 
+\[
+\uparrow a \cap \downarrow b = \emptyset.
+\]
+
+Denotamos por $\Fil(A)$ al conjunto de todos los filtros en $A$. Si consideremos el conjunto
+\[
+\mathcal{F}(a,b)=\{F\in \Fil(A)\mid a\in F\text{ y }b\notin F\},
+\]
+entonces por Lema de Zorn se cumple que existe un filtro maximal $\mathcal{M}\in \mathcal{F}(a,b)$. Ya que $\mathcal{M}\in \Fil(A)$, podemos construir el núcleo ajustado que admite a $\mathcal{M}$, esto es
+\[
+\mathcal{M}\subseteq \nabla(v_{\mathcal{M}})
+\]
+donde $v_\mathcal{M}$ es el núcleo ajustado. Dado que $v_\mathcal{M}\in NA$, tenemos el marco cociente $A_{v_{\mathcal{M}}}$ cuyo espacio de puntos está dado por
+\[
+\pt(A_{v_\mathcal{M}})=S\setminus \mathcal{M}
+\]
+para $S=\pt A$. Notemos que $S\setminus \mathcal{M}$ no es vacío, pues en caso contrario
+\[
+S\setminus \mathcal{M}=\emptyset\Rightarrow M\subseteq S
+\]
+lo cual es una contradicción ya que $\mathcal{M}$ es un filtro y $1\in \mathcal{M}$ y $1\notin S$. Como consecuencia, existe  $p\in S$ tal que $p\notin \mathcal{M}$.
+Luego, si $p\notin \mathcal{M}$, entonces $a\nleq p$, pues si $a\leq p$ eso implicaría que $p\in \mathcal{M}$. Lo cual no puede ocurrir.
+
+\bibliographystyle{amsalpha}
+\bibliography{research2}
+
+
+\end{document}
