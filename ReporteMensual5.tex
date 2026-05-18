@@ -68,12 +68,21 @@ Uno de nuestros objetivos es demostrar que la siguiente afirmación es cierta.
 \]
 Para realizarlo debemos verificar que el morfismo reflexión espacial es inyectivo, es decir, para $a, b\in A$ con $a\neq b$, se cumple que
 \[
-U(a)\nsubseteq U(b)\; \iff \; \exists\, p\in \pt(A) \text{ tal que } a\leq p \text{ y } b\nleq p.
+U(a)\nsubseteq U(b)\; \iff \; \exists\, p\in \pt A \text{ tal que } a\leq p \text{ y } b\nleq p.
+\]
+o equivalentemente, existe $p\in \pt A$ tal que $a\nleq p$ y $b\leq p$.\\
+
+Para los fines de la investigación que estamos realizando, no puede ocurrir que $S\pt A=\emptyset$.
+Por lo tanto, en nuestro caso siempre suponemos que $S\neq \emptyset$.\\
+
+Consideremos $S=\{p\}$ y supongamos que $A$ no es espacial, entonces 
+\[
+\exists\, a,b\in A\text{ con }a\nleq b \text{ tales que }a\nleq p \text{ y }b\nleq p.
 \]
 
 Notemos que para $a\nleq b$ como antes, se cumple que $\uparrow a$ es un filtro en $A$ y $\downarrow b$ es un ideal. Además, se cumple que 
 \[
-\uparrow a \cap \downarrow b = \emptyset.
+\uparrow a\, \cap \downarrow b = \emptyset.
 \]
 
 Denotamos por $\Fil(A)$ al conjunto de todos los filtros en $A$. Si consideremos el conjunto
@@ -92,9 +101,20 @@ para $S=\pt A$. Notemos que $S\setminus \mathcal{M}$ no es vacío, pues en caso 
 \[
 S\setminus \mathcal{M}=\emptyset\Rightarrow M\subseteq S
 \]
-lo cual es una contradicción ya que $\mathcal{M}$ es un filtro y $1\in \mathcal{M}$ y $1\notin S$. Como consecuencia, existe  $p\in S$ tal que $p\notin \mathcal{M}$.
-Luego, si $p\notin \mathcal{M}$, entonces $a\nleq p$, pues si $a\leq p$ eso implicaría que $p\in \mathcal{M}$. Lo cual no puede ocurrir.
+lo cual es una contradicción ya que $\mathcal{M}$ es un filtro y $1\in \mathcal{M}$ y $1\notin S$. En consecuencia, existe  $p\in S$ tal que $p\notin \mathcal{M}$.
+Luego, como $p\notin \mathcal{M}$, se cumple que $a\nleq p$, pues de lo contrario si $a\leq p$ eso implicaría que $p\in \mathcal{M}$ y sería una contradicción.\\
 
+Dado que $p\notin \mathcal{M}$, podemos construir el filtro generado por $\langle \mathcal{M}\cup \{p\}\rangle$ y por la maximalidad de $\mathcal{M}$, este filtro satisface que 
+\[
+b\in \langle\mathcal{M}\cup \{p\}\rangle \quad \text{y}\quad \exists\, m\in \mathcal{M} \text{ tal que }m\wedge p\leq b.
+\]
+
+Ya que $v_\mathcal{M}\in NA$, entonces $v_\mathcal{M}(m\wedge p)\leq v_\mathcal{M}(b)$ y por lo tanto $p\leq v_\mathcal{M}(b)$. Al ser $A$ un marco $T_1$, entonces
+\[
+p=v_\mathcal{M}(b)\quad \text{o}\quad v_\mathcal{M}(b)=1.
+\]
+
+De esta manera, si se cumple que $p=v_\mathcal{M}(b)$, entonces $a\nleq p$ y $b\leq p$, es decir, $A$ es espacial. Veamos que $v_\mathcal{M}(b)=1$ nos lleva a una contradicción.
 \bibliographystyle{amsalpha}
 \bibliography{research2}
 
