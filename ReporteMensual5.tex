@@ -50,7 +50,7 @@
 % DATOS DEL DOCUMENTO
 % --------------------
 \title{Reporte mensual de actividades}
-\date{1-abril-2026 a 30-abril-2026}
+\date{1-mayo-2026 a 31-mayo-2026}
 \author{Juan Carlos Monter Cortés}
 
 % --------------------
@@ -66,19 +66,14 @@ Uno de nuestros objetivos es demostrar que la siguiente afirmación es cierta.
 \[
 \text{\textbf{Afirmación:} Si } A\in \Frm \text{ es } T_1 \text{ y apilado, entonces } A \text{ es espacial.}
 \]
-Para realizarlo debemos verificar que el morfismo reflexión espacial es inyectivo, es decir, para $a, b\in A$ con $a\neq b$, se cumple que
+Para realizarlo debemos verificar que el morfismo reflexión espacial es inyectivo, es decir, para $a, b\in A$ con $a\nleq b$, se cumple que
 \[
 U(a)\nsubseteq U(b)\; \iff \; \exists\, p\in \pt A \text{ tal que } a\leq p \text{ y } b\nleq p.
 \]
-o equivalentemente, existe $p\in \pt A$ tal que $a\nleq p$ y $b\leq p$.\\
+o equivalentemente, existe $q\in \pt A$ tal que $a\nleq q$ y $b\leq q$.\\
 
-Para los fines de la investigación que estamos realizando, no puede ocurrir que $S\pt A=\emptyset$.
+Para los fines de la investigación que estamos realizando, no puede ocurrir que $S=\emptyset$, donde $S=\pt A$.
 Por lo tanto, en nuestro caso siempre suponemos que $S\neq \emptyset$.\\
-
-Consideremos $S=\{p\}$ y supongamos que $A$ no es espacial, entonces 
-\[
-\exists\, a,b\in A\text{ con }a\nleq b \text{ tales que }a\nleq p \text{ y }b\nleq p.
-\]
 
 Notemos que para $a\nleq b$ como antes, se cumple que $\uparrow a$ es un filtro en $A$ y $\downarrow b$ es un ideal. Además, se cumple que 
 \[
@@ -93,16 +88,31 @@ entonces por Lema de Zorn se cumple que existe un filtro maximal $\mathcal{M}\in
 \[
 \mathcal{M}\subseteq \nabla(v_{\mathcal{M}})
 \]
-donde $v_\mathcal{M}$ es el núcleo ajustado. Dado que $v_\mathcal{M}\in NA$, tenemos el marco cociente $A_{v_{\mathcal{M}}}$ cuyo espacio de puntos está dado por
+donde $v_\mathcal{M}$ es el núcleo ajustado. Dado que $v_\mathcal{M}\in NA$, tenemos el marco cociente $A_{v_{\mathcal{M}}}$ (y por fines de practicidad lo denotaremos por $A_\mathcal{M}$), cuyo espacio de puntos está dado por
 \[
-\pt(A_{v_\mathcal{M}})=S\setminus \mathcal{M}
+\pt(A_\mathcal{M})=S\setminus \mathcal{M}
 \]
-para $S=\pt A$. Notemos que $S\setminus \mathcal{M}$ no es vacío, pues en caso contrario
+
+Dado que $S\neq \emptyset$, entonces se debe cumplir que 
 \[
-S\setminus \mathcal{M}=\emptyset\Rightarrow M\subseteq S
+\pt(A_\mathcal{M})=\emptyset\quad \text{o}\quad \pt(A_\mathcal{M})\neq \emptyset.
 \]
-lo cual es una contradicción ya que $\mathcal{M}$ es un filtro y $1\in \mathcal{M}$ y $1\notin S$. En consecuencia, existe  $p\in S$ tal que $p\notin \mathcal{M}$.
-Luego, como $p\notin \mathcal{M}$, se cumple que $a\nleq p$, pues de lo contrario si $a\leq p$ eso implicaría que $p\in \mathcal{M}$ y sería una contradicción.\\
+
+Si $\pt(A_\mathcal{M})=\emptyset$, entonces $S\subseteq \mathcal{M}$, es decir, para todo $p\in S$, $p \in \mathcal{M}$. De aquí que $p\nleq b$, pues si ocurriera que $p\leq b$, entonces $b\in \mathcal{M}$ y sería una contradicción. \\
+
+Luego, como $\mathcal{M}\in \Fil(A)$, entonces $p\vee b\in\mathcal{M}$ y, al ser $A$ un marco $T_1$, se cumple que
+\[
+p\vee b=p\quad \text{o}\quad p\vee b=1  \iff b\leq p\quad \text{o}\quad b\nleq p.
+\]
+
+Por lo tanto, tenemos los siguientes escenarios:
+\[
+\text{1) } p\nleq b\;\text{ y }\; b\leq p, \qquad \text{2) } p\nleq b\; \text{ y }\;b\nleq p. 
+\]
+para todo $p\in S$.\\
+
+Si $\pt(A_\mathcal{M})\neq \emptyset$, existe  $p\in S$ tal que $p\notin \mathcal{M}$.
+Luego, como $p\notin \mathcal{M}$, se cumple que $a\nleq p$, pues de lo contrario, si $a\leq p$ eso implicaría que $p\in \mathcal{M}$ y sería una contradicción.\\
 
 Dado que $p\notin \mathcal{M}$, podemos construir el filtro generado por $\langle \mathcal{M}\cup \{p\}\rangle$ y por la maximalidad de $\mathcal{M}$, este filtro satisface que 
 \[
