@@ -7,6 +7,7 @@
 \usepackage[utf8]{inputenc}      % Si usas pdflatex
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage[authoryear]{natbib}
 
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{geometry}
@@ -62,7 +63,23 @@
 % \tableofcontents
 
 \section{Actividades realizadas}
-Uno de nuestros objetivos es demostrar que la siguiente afirmación es cierta.
+
+Las nociones espaciales de apilamiento aparecen por primera vez en \cite{sexton2003point} donde los autores relacionan estas propiedades con espacios cuya topología es eficiente.
+En \cite{simmons2004vietoris}, trabajan con la $V$-modificación, tanto de un espacio como de un marco, y verifican que la noción de apilado proporciona información sobre lo que ahí llaman
+el espacio de lentes de un espacio topológico. Por último, en \cite{sexton2006ordinal}, se muestra que hay una interacción entre la eficiecia, el apilamiento y la $V$-modificación de algunas 
+familias de subconjuntos de un espacio topológico.\\
+
+En este reporte presentamos las pruebas de algunos de los resultados análogos a los que se muestran en los artículos mencionados, pero en el contexto de marcos. Los resulatdos originales son los siguientes:
+\begin{itemize}
+\item \textbf{Teorema \cite[6.2]{sexton2006ordinal}:}
+  Sea $S\in \Top$. Si $S$ es $T_1$ y apilado, entonces $S$ es sobrio.
+
+\item \textbf{Teorema \cite[7.4]{sexton2006ordinal}:}
+Un espacio $S$ es $T_1$ y apilado si y solo si $S$ es sobrio y sus $V$-modificaciones $\mathcal{Q}S$ y $\mathcal{V}S$ son canónicamente homeomorfas.
+
+\end{itemize}
+
+El análogo del primer punto resulta ser
 \[
 \text{\textbf{Afirmación:} Si } A\in \Frm \text{ es } T_1 \text{ y apilado, entonces } A \text{ es espacial.}
 \]
@@ -123,8 +140,118 @@ Ya que $v_\mathcal{M}\in NA$, entonces $v_\mathcal{M}(m\wedge p)\leq v_\mathcal{
 p=v_\mathcal{M}(b)\quad \text{o}\quad v_\mathcal{M}(b)=1.
 \]
 
-De esta manera, si se cumple que $p=v_\mathcal{M}(b)$, entonces $a\nleq p$ y $b\leq p$, es decir, $A$ es espacial. Veamos que $v_\mathcal{M}(b)=1$ nos lleva a una contradicción.
-\bibliographystyle{amsalpha}
+De esta manera, si se cumple que $p=v_\mathcal{M}(b)$, entonces $a\nleq p$ y $b\leq p$, es decir, $A$ es espacial. Veamos que $v_\mathcal{M}(b)=1$ nos lleva a una contradicción.\\
+
+Para obtener el análogo del segundo punto necesitamos realizar las siguientes observaciones:
+\begin{enumerate}
+\item Consideramos a $A^\wedge$ como un espacio topológico donde los abiertos básicos de $\mathcal{O}(A^\wedge)$ están dados por 
+\[
+  D(x)=\{F\in A^\wedge\mid x\in F\}
+\]
+donde $x\in A$.
+\item Para $A\in \Frm$, podemos construir un marco $VA$ como en \cite{simmons2004vietoris}. Cada elemento en $\pt(VA)$ es de la forma
+\[
+(F, a), \quad \text{donde } F\in A^\wedge \text{ y }a\in [v_F(0), w_F(0)]. 
+\]
+\item Tenemos la función continua suprayectiva $\pi\colon \pt(VA)\to A^\wedge$, dada por la asignación
+\[
+(F,a)\mapsto F.
+\]
+\item Al aplicar aplicar el funtor $\mathcal{O}(-)$ a $\pi$ obtenemos el morfismo de marcos
+\[
+\mathcal{O}(\pi)=\pi^{-1}\colon \mathcal{O}(A^\wedge)\to \mathcal{O}(\pt(VA)).
+\]
+\item Los abiertos básicos en $\pt(VA)$ están dados por 
+\begin{equation}\label{fibra}
+(F,a)\in [-](x)\iff x\in F\quad \text{y}\quad (F,a)\in \langle -\rangle(x)\iff x\nleq a.
+\end{equation}
+En particular
+\begin{equation}\label{fibra2}
+a\in [F](x)\iff x\in F\quad \text{y}\quad a\in \langle F\rangle(x)\iff x\nleq a.
+\end{equation}
+\end{enumerate}
+
+Con todo lo anterior, podemos enunciar la siguiente proposición.
+
+\begin{prop}
+Sean $A, VA\in \Frm$ y $A^\wedge$ la familia de filtros abiertos de $A$. Las siguientes afirmaciones son ciertas:
+\begin{enumerate}
+\item Si $A$ es $T_1$ y apilado, entonces $\mathcal{O}(A^\wedge)\cong \mathcal{O}(\pt(VA))$ bajo la función continua $\pi$.
+\item Si $\mathcal{O}(A^\wedge)\cong \mathcal{O}(\pt(VA))$, entonces $A$ es apilado.
+\item Si $\mathcal{O}(A^\wedge)\cong \mathcal{O}(\pt(VA))$ y $A$ es espacial, entonces $A$ es $T_1$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+  $\mbox{}$
+\begin{enumerate}
+\item Supongamos que $A$ es $T_1$ y apilado, entonces para cada $F\in A^\wedge$ se cumple que 
+\[
+v_F(0)=w_F(0).
+\]
+Consideremos $(F,a), (G,b)\in \pt(VA)$ tales que $\pi(F,a)=F=\pi(G,a)=G$. Por $T_1$ y apilado se cumple que
+\[
+a=v_F(0)=v_G(0)=b.
+\]
+Por lo tanto $(F,a)=(G,b)$, es decir, $\pi$ es inyectiva. Al ser también supra, entonces $\pi$ es biyectiva.\\
+
+Debemos verificar que $\pi^{-1}\colon A^\wedge\to \pt(VA)$ es continua. Para ello recordemos que por \eqref{fibra}
+\[
+(F,a)\in [-](x)\iff x\in F\iff (F,a)\in \pi^{-1}(D(x))\iff \pi([-](x))=D(x).
+\]
+Para los otros abiertos básicos, por \eqref{fibra2} tenemos que
+\[
+a\notin \langle F\rangle(x)\iff x\leq a\iff v_F(x)\leq a.
+\]
+Por $T_1$ y apilado tenemos que $a=v_F(0)$ y así
+\[
+v_F(0)\notin \langle F\rangle(x)\iff x\leq v_F(0)\iff v_F(x)=v_F(0).
+\]
+Dado que $v_F(0)\neq 1$, tenemos que 
+\[
+v_F(0)\notin \langle F\rangle(x)\iff x\notin F
+\]
+o equivalentemente 
+\[
+a\in \langle F\rangle(x)\iff (F, a)\in \langle -\rangle(x)\iff x\in F. 
+\]
+Por lo tanto, $\pi(\langle -\rangle(x))=D(x)$ y $\pi^{-1}$ es una función continua. Así, $\pi$ es un homeomorfismo y se cumple que
+\[
+\mathcal{O}(A^\wedge)\cong\mathcal{O}(\pt(VA)).
+\]
+
+\item Supongamos que $\mathcal{O}(A^\wedge)\cong\mathcal{O}(\pt(VA))$ bajo $\mathcal{O}(\pi)=\pi^{-1}$. De aquí que, al ser $\pi^{-1}$ biyectiva, entonces $\pi$
+también lo es. Luego, si $F\in A^\wedge$, entonces $(F, v_F(0)), (F, w_F(0))\in \pt(VA)$ y así
+\[
+\pi(F, v_F(0))=F=\pi(F, w_F(0)).
+\]
+Por la inyectividad de $\pi$ tenemos que $v_F(0)=w_F(0)$ y por lo tanto $A$ es apilado.
+
+\item Supongamos que $\mathcal{O}(A^\wedge)\cong\mathcal{O}(\pt(VA))$ y $A$ espacial. Consideremos $a\in A$ y $p\in \pt A$ tales que $p\leq a$. Por la espacialidad tenemos que 
+\[
+a=\bigwedge\{q\in \pt A\mid a\leq q\}
+\]
+para todo $a\in A$. Además, por el inciso anterior tenemos que 
+\[
+\mathcal{O}(A^\wedge)\cong\mathcal{O}(\pt(VA))\Rightarrow v_F(0)=w_F(0)\Rightarrow \text{ todo punto es máximo en }\pt A.
+\]
+Luego,
+\[
+p\leq a=\bigwedge\{q\in \pt A\mid a\leq q\}\leq q=p.
+\]
+Por lo tanto $p=a$ y $A$ es $T_1$.
+\end{enumerate}
+\end{proof}
+
+Notemos que en  3) de la prueba anterior basta que
+\[
+Y=\{q\in \pt A\mid a\leq q\}\neq \emptyset
+\]
+para que el resultado sea cierto. De esta manera puede ser posible que los resultados en los cuales pedimos que $A$ sea espacial,
+basta con que $Y\neq \emptyset$. Esta es una tarea por investigar para los proximos reportes.
+
+\bibliographystyle{plainnat}
+%\bibliographystyle{amsalpha}
 \bibliography{research2}
 
 
