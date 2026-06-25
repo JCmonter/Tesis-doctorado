@@ -248,7 +248,24 @@ Notemos que en  3) de la prueba anterior basta que
 \mathcal{V}(a)=\{q\in \pt A\mid a\leq q\}\neq \emptyset
 \]
 para que el resultado sea cierto. De esta manera puede ser posible que los resultados en los cuales pedimos que $A$ sea espacial,
-basta con que $\mathcal{V}(a)\neq \emptyset$ con $a\in A$. Esta es una tarea por investigar para los proximos reportes.
+basta con que $\mathcal{V}(a)\neq \emptyset$ con $a\in A$. Esta es una tarea por investigar para los proximos reportes.\\
+
+Recordemos que para $(f\colon A\to B)\in \Frm$, $j\in NA$ y $k\in NB$, por las propiedades del funtor $N(-)$, se cumple que
+\[
+N(f)(j)=\bigvee\{u_{f(j(a))}\wedge v_{f(a)}\mid a\in A\}\in NA_j\quad\text{ y }\quad N(f)_*(k)=f_*\circ k\circ f\in NA,
+\]
+donde $f_*$ es el adjundo derecho de $f$. Siguiendo esta notación, denominamos a $N(f)(j)$ como un \emph{empuje} y a $N(f)_*(k)$ como un \emph{levantamiento}. 
+
+\begin{prop}
+Sean $A\in \Frm$ y $j\in NA$. Si $A$ es fuertemente apilado, entonces $A_j$ es fuertemente apilado.
+\end{prop}
+
+\begin{proof}
+Consideremos $S=\pt A$, $S_j=\pt A_j$ y sea $F\in A_j^{\wedge}$. Así, podemos obtener los siguientes:
+\[
+G=j_*(F),\quad Q=S_j\setminus F,\quad R=S\setminus G,
+\]
+donde $j_*$ es el adjunto derecho asociado al morfismo de marcos $j^*\colon A\to A_j$ y $x\in G$ si y solo si $j(x)\in F$. Considerando las reflexiones espaciales $\mathcal{U}\colon A\to \mathcal{O}S$ y $\mathcal{U}_j\colon A_j\to \mathcal{O}S_j$ tenemos le siguiente diagrama
 
 \[\begin{tikzcd}
 	&&&& A && {\mathcal{O}S} \\
@@ -259,53 +276,130 @@ basta con que $\mathcal{V}(a)\neq \emptyset$ con $a\in A$. Esta es una tarea por
 	\arrow["{\mathcal{U}}", from=1-5, to=1-7]
 	\arrow["{j^*}"'{pos=0.7}, from=1-5, to=3-5]
 	\arrow["sj", from=1-7, to=3-7]
-	\arrow["{v_{j_*F}}", from=3-1, to=1-5]
+	\arrow["{v_{G}}", from=3-1, to=1-5]
 	\arrow["{\mathcal{U}}", from=3-1, to=3-3]
 	\arrow["{j^*}"', from=3-1, to=5-1]
-	\arrow["{[Q']}"{pos=0.4}, from=3-3, to=1-7]
+	\arrow["{[R']}"{pos=0.4}, from=3-3, to=1-7]
 	\arrow["sj"{pos=0.6}, from=3-3, to=5-3]
 	\arrow["{\mathcal{U}_j}"', from=3-5, to=3-7]
 	\arrow["{v_F}"{pos=0.7}, from=5-1, to=3-5]
 	\arrow["{\mathcal{U}_j}"', from=5-1, to=5-3]
-	\arrow["{[Q_j']}"', from=5-3, to=3-7]
+	\arrow["{[Q']}"', from=5-3, to=3-7]
 \end{tikzcd}\]
+y usando los adjuntos derechos de $\mathcal{U}$ y $\mathcal{U}_j$ obtenemos
+\[
+v_F, \quad l=N(\mathcal{U}_j)_*([Q']),\quad m=N(j^*)(N(\mathcal{U})_*)([R']),\quad n=N(j^*)(N(\mathcal{U}_j\circ j^*)_*)([Q']) 
+\]
+son núcleos en $NA_j$. Veamos cual es la relación entre todos estos núcleos.\\
 
-\[\begin{tikzcd}
-	& A &&& A & \\
-	{A_j} && {\mathcal{O}S} & {A_j} && {\mathcal{O}S} \\
-	& {\mathcal{O}S_j} &&& {\mathcal{O}S_j}
-	\arrow["{v_{j_*F}}", from=1-2, to=1-5]
-	\arrow["{j^*}"', from=1-2, to=2-1]
-	\arrow["{\mathcal{U}}", from=1-2, to=2-3]
-	\arrow["{j^*}"', from=1-5, to=2-4]
-	\arrow["{\mathcal{U}}", from=1-5, to=2-6]
-	\arrow["{v_F}"'{pos=0.3}, shift left=2, from=2-1, to=2-4]
-	\arrow["{\mathcal{U}_j}"', from=2-1, to=3-2]
-	\arrow["{[Q']}"{pos=0.7}, shift right=2, from=2-3, to=2-6]
-	\arrow["sj", from=2-3, to=3-2]
-	\arrow["{\mathcal{U}_j}"', from=2-4, to=3-5]
-	\arrow["sj", from=2-6, to=3-5]
-	\arrow["{[Q_j']}"', from=3-2, to=3-5]
-\end{tikzcd}\]
+Primero, por construcción tenemos que $v_F\leq  N(\mathcal{U}_j)_*([Q'])$ y debemos verificar la otra desigualdad para que $A_j$ sea fuertemente apilado.\\
 
-\[\begin{tikzcd}
-	& A &&&& \\
-	{A_j} && {\mathcal{O}S} && A \\
-	& {\mathcal{O}S_j} && {A_j} && {\mathcal{O}S} \\
-	&&&& {\mathcal{O}S_j}
-	\arrow["{j^*}"', from=1-2, to=2-1]
-	\arrow["{\mathcal{U}}"', from=1-2, to=2-3]
-	\arrow["{v_{j_*F}}", from=1-2, to=2-5]
-	\arrow["{\mathcal{U}_j}"', from=2-1, to=3-2]
-	\arrow["{v_F}"'{pos=0.7}, from=2-1, to=3-4]
-	\arrow["sj"'{pos=0.3}, from=2-3, to=3-2]
-	\arrow["{[Q']}"{pos=0.3}, from=2-3, to=3-6]
-	\arrow["{j^*}"{pos=0.7}, from=2-5, to=3-4]
-	\arrow["{\mathcal{U}}", from=2-5, to=3-6]
-	\arrow["{[Q_j']}"', from=3-2, to=4-5]
-	\arrow["{\mathcal{U}_j}", from=3-4, to=4-5]
-	\arrow["sj", from=3-6, to=4-5]
-\end{tikzcd}\]
+Por hipótesis, se cumple que $v_G=N(\mathcal{U})_*([R'])$. Además, para $x\in A$, se cumple que $j(v_x)\leq v_{j(x)}$ y, por definición de los núcleos ajustados asociados a $F$ y $G$, 
+\begin{equation}\label{eq1}
+j\circ v_G\leq v_F.
+\end{equation}
+
+Además, para $(j\colon A\to A_j)\in\Frm$ 
+\[
+N(j^*)(v_G)=\bigvee\{u_{j(v_G(a))}\wedge v_{j(a)}\mid a\in A\}\quad \text{y}\quad v_F=\bigvee\{u_{v_F(a)}\wedge v_a\mid a\in A_j\}. 
+\]
+Notemos que, por \eqref{eq1}, tenemos $u_{j(v_G)}\leq u_{v_F}$ y por lo tanto 
+\begin{equation}\label{eq2}
+m\leq v_F. 
+\end{equation}
+
+Para $l$ y $n$ notemos que
+\[
+n=\bigvee\{u_{j^*(n(x))}\wedge v_{j^*(x)}\mid x\in A\}\quad \text{y}\quad l=\bigvee\{u_{l(x)}\wedge v_x\mid x\in A_j\},
+\]
+donde 
+\[
+j^*(n(x))=j^*((j_*\circ \mathcal{U}_{j*}\circ [Q']\circ U_j\circ j^*)(x))\quad \text{y}\quad l(x)=N(\mathcal{U}_j)_*([Q'])(x).
+\]
+
+Luego
+\[
+\begin{split}
+j^*(n(x))&=j^*(j_*(\bigvee\{a\in A\mid \mathcal{U}_j(a)\subseteq Q'\cup \mathcal{U}_j(j(x))\}))\\
+&= \bigvee\{a\in A\mid \mathcal{U}_j(a)\subseteq Q'\cup \mathcal{U}_j(j(x))\}
+\end{split}
+\]
+y ya que para $x\in A_j$ se cumple que $j(x)=x$, entonces
+\[
+l(x)=\bigvee\{a\in A\mid \mathcal{U}_j\subseteq Q'\cup \mathcal{U}_j(j(x))\}.
+\]
+Por lo tanto $j(n(x))=l(x)$.\\
+
+Desarrollando $m(x)$ tenemos
+\[
+m(x)=\bigvee\{u_{j^*(\mathcal{U}_*\circ [R']\circ\mathcal{U})(x)}\wedge v_{j^*(x)}\mid x\in A\}.
+\]
+
+Dado que $A_j\subseteq A$, se cumple que $Q=R\cap A_j$ y así
+\[
+m(x)=\bigvee\{u_{j^*(\mathcal{U}_*\circ [Q']\circ\mathcal{U})(x)}\wedge v_x\mid x\in A_j\}.
+\]
+
+Notemos que 
+\[
+\begin{split}
+j^*(\mathcal{U}_*\circ [Q']\circ\mathcal{U})(x)&= j^*(\bigvee\{a\in A\mid \mathcal{U}(a)\subseteq Q'\cup \mathcal{U}(x)\})\\
+&=\bigvee\{j^*(a)\in A_j\mid \mathcal{U}(j^*(a))\subseteq Q'\cup \mathcal{U}(x)\}
+\end{split}
+\]
+y como $x\in A_j$
+\[
+\begin{split}
+\mathcal{U}(j^*(a))\subseteq Q'\cup \mathcal{U}(j^*(x))&\iff \mathcal{U}(j^*(a))\cap S_j\subseteq (Q'\cup \mathcal{U}(j^*(x)))\cap S_j\\
+&\iff \mathcal{U}_j(j^*(a))\subseteq Q'\cup \mathcal{U}_j(j^*(x)),
+\end{split}
+\]
+es decir, 
+\[
+\begin{split}
+\bigvee\{j^*(a)\in A_j\mid \mathcal{U}(j^*(a))\subseteq Q'\cup \mathcal{U}(x)\}&=\bigvee\{j^*(a)\in A_j\mid \mathcal{U}_j(j^*(a))\subseteq Q'\cup \mathcal{U}_j(j^*(x))\}\\
+&=j^*(N(\mathcal{U}_j\circ j)_*)([Q']).
+\end{split}
+\]
+Por lo tanto 
+\[
+\bigvee\{u_{j^*(N(\mathcal{U}_j\circ j)_*)[Q'](x)}\wedge x\mid x\in A\}=m(x).
+\]
+Ya que $(N(\mathcal{U}_j\circ j)_*)([Q'])\leq j(N(\mathcal{U}_j\circ j)_*)([Q'])$ y por \eqref{eq2} 
+\[
+l\leq m\leq v_F\leq l
+\]
+y así $v_F=\mathcal{U}_{j*}\circ [Q']\circ \mathcal{U}_j$, es decir, $A_j$ es fuertemente apilado.
+\end{proof}
+
+\begin{cor}
+Sean $A\in \Frm$ y $j\in NA$. Si $A$ es fuertemente apilado, entonces $A_j$ es apilado. 
+\end{cor}
+
+\begin{proof}
+Por la proposición anterior, Si $A$ es fuertemente apilao, entonces $A_j$ es fuertemente apilado y esto implica que $A_j$ es apilado.
+\end{proof}
+
+\begin{prop}
+Si $A\in \Frm$ satisface $\mathbf{(H)}$, entonces $A$ es apilado.
+\end{prop}
+
+\begin{proof}
+A manera de contradicción, supongamos que $A$ satisface $\mathbf{(H)}$ y que no es apilado, es decir, existe $(F,Q)$ un par HM tal que
+\[
+(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)\nleq v_F(0).
+\]
+
+Si $1\neq (\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)$, entonces por $\mathcal{(H)}$ tenemos que existe $c\in A$ tal que
+\[
+c\nleq (\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)\quad\text{y}\quad \neg c\nleq v_F(0).
+\]
+
+Notemos que si $c\in F$, por construcción, tenemos que $\neg c\leq f_F(0)\leq v_F(0)$, es decir, 
+\[
+\neg c\nleq v_F(0)\Rightarrow c\notin F.
+\]
+\end{proof}
 
 \bibliographystyle{plainnat}
 %\bibliographystyle{amsalpha}
