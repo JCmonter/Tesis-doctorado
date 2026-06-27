@@ -8,7 +8,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[authoryear]{natbib}
-
+\usepackage{comment}
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{geometry}
 \usepackage{booktabs}   
@@ -65,84 +65,20 @@
 \section{Actividades realizadas}
 
 Las nociones espaciales de apilamiento aparecen por primera vez en \cite{sexton2003point} donde los autores relacionan estas propiedades con espacios cuya topología es eficiente.
-En \cite{simmons2004vietoris}, trabajan con la $V$-modificación, tanto de un espacio como de un marco, y verifican que la noción de apilado proporciona información sobre lo que ahí llaman
-el espacio de lentes de un espacio topológico. Por último, en \cite{sexton2006ordinal}, se muestra que hay una interacción entre la eficiecia, el apilamiento y la $V$-modificación de algunas 
+En \cite{simmons2004vietoris}, se estudia la $V$-modificación, tanto de un espacio como de un marco, y verifican que la noción de apilado proporciona información sobre lo que ahí llaman
+el espacio de lentes de un espacio topológico. Finalmente, en \cite{sexton2006ordinal}, se muestra que hay una interacción entre la eficiecia, el apilamiento y la $V$-modificación de algunas 
 familias de subconjuntos de un espacio topológico.\\
 
-En este reporte presentamos las pruebas de algunos de los resultados análogos a los que se muestran en los artículos mencionados, pero en el contexto de marcos. Los resulatdos originales son los siguientes:
+En este reporte presentamos los resultados análogos, pero en el contexto de marcos. Los resultados originales son los siguientes:
 \begin{itemize}
-\item \textbf{Teorema} \cite[6.2]{sexton2006ordinal}:
-  Sea $S\in \Top$. Si $S$ es $T_1$ y apilado, entonces $S$ es sobrio.
-
 \item \textbf{Teorema} \cite[7.4]{sexton2006ordinal}:
 Un espacio $S$ es $T_1$ y apilado si y solo si $S$ es sobrio y sus $V$-modificaciones $\mathcal{Q}S$ y $\mathcal{V}S$ son canónicamente homeomorfas.
 
+\item \textbf{Teorema} \cite[6.2]{sexton2006ordinal}:
+  Sea $S\in \Top$. Si $S$ es $T_1$ y apilado, entonces $S$ es sobrio.
 \end{itemize}
 
-El análogo del primer punto resulta ser
-\[
-\text{\textbf{Afirmación:} Si } A\in \Frm \text{ es } T_1 \text{ y apilado, entonces } A \text{ es espacial.}
-\]
-Para demostrarlo debemos verificar que el morfismo reflexión espacial es inyectivo, es decir, para $a, b\in A$ con $a\nleq b$, se cumple que
-\[
-U(a)\nsubseteq U(b)\; \iff \; \exists\, p\in \pt A \text{ tal que } a\nleq p \text{ y } b\leq p.
-\]
-
-Para los fines de la investigación que estamos realizando, no puede ocurrir que $S=\emptyset$, donde $S=\pt A$.
-Por lo tanto, en nuestro caso siempre suponemos que $S\neq \emptyset$.\\
-
-Notemos que para $a\nleq b$ como antes, se cumple que $\uparrow a$ es un filtro en $A$ y $\downarrow b$ es un ideal. Además, se cumple que 
-\[
-\uparrow a\, \cap \downarrow b = \emptyset.
-\]
-
-Denotamos por $\Fil(A)$ al conjunto de todos los filtros en $A$. Si consideremos el conjunto
-\[
-\mathcal{F}(a,b)=\{F\in \Fil(A)\mid a\in F\text{ y }b\notin F\},
-\]
-entonces por Lema de Zorn se cumple que existe un filtro máximo $\mathcal{M}\in \mathcal{F}(a,b)$. Ya que $\mathcal{M}\in \Fil(A)$, podemos construir el núcleo ajustado que admite a $\mathcal{M}$, esto es
-\[
-\mathcal{M}\subseteq \nabla(v_{\mathcal{M}})
-\]
-donde $v_\mathcal{M}$ es el núcleo ajustado. Dado que $v_\mathcal{M}\in NA$, tenemos el marco cociente $A_{v_{\mathcal{M}}}$ (y por fines de practicidad lo denotaremos por $A_\mathcal{M}$), cuyo espacio de puntos está dado por
-\[
-\pt(A_\mathcal{M})=S\setminus \mathcal{M}
-\]
-
-Considerando que $S\neq \emptyset$, debemos verificar que ocurre cuando 
-\[
-\pt(A_\mathcal{M})=\emptyset\quad \text{ y }\quad \pt(A_\mathcal{M})\neq \emptyset.
-\]
-
-Si $\pt(A_\mathcal{M})=\emptyset$, entonces $S\subseteq \mathcal{M}$, es decir, para todo $p\in S$, $p \in \mathcal{M}$. De aquí que $p\nleq b$, pues si ocurriera que $p\leq b$, entonces $b\in \mathcal{M}$ y sería una contradicción. \\
-
-Luego, como $\mathcal{M}\in \Fil(A)$, entonces $p\vee b\in\mathcal{M}$ y, al ser $A$ un marco $T_1$, se cumple que
-\[
-p\vee b=p\quad \text{o}\quad p\vee b=1  \iff b\leq p\quad \text{o}\quad b\nleq p.
-\]
-
-Por lo tanto, tenemos los siguientes escenarios:
-\[
-\text{1) } p\nleq b\;\text{ y }\; b\leq p, \qquad \text{2) } p\nleq b\; \text{ y }\;b\nleq p. 
-\]
-para todo $p\in S$.\\
-
-Si $\pt(A_\mathcal{M})\neq \emptyset$, existe  $p\in S$ tal que $p\notin \mathcal{M}$.
-Luego, como $p\notin \mathcal{M}$, se cumple que $a\nleq p$, pues de lo contrario, si $a\leq p$ eso implicaría que $p\in \mathcal{M}$ y sería una contradicción.\\
-
-Dado que $p\notin \mathcal{M}$, podemos construir el filtro generado por $\langle \mathcal{M}\cup \{p\}\rangle$ y por la maximalidad de $\mathcal{M}$, este filtro satisface que 
-\[
-b\in \langle\mathcal{M}\cup \{p\}\rangle \quad \text{y}\quad \exists\, m\in \mathcal{M} \text{ tal que }m\wedge p\leq b.
-\]
-
-Ya que $v_\mathcal{M}\in NA$, entonces $v_\mathcal{M}(m\wedge p)\leq v_\mathcal{M}(b)$ y por lo tanto $p\leq v_\mathcal{M}(b)$. Al ser $A$ un marco $T_1$, entonces
-\[
-p=v_\mathcal{M}(b)\quad \text{o}\quad v_\mathcal{M}(b)=1.
-\]
-
-De esta manera, si se cumple que $p=v_\mathcal{M}(b)$, entonces $a\nleq p$ y $b\leq p$, es decir, $A$ es espacial. Veamos que $v_\mathcal{M}(b)=1$ nos lleva a una contradicción.\\
-
-Para obtener el análogo del segundo punto necesitamos realizar las siguientes observaciones:
+Para demostrar el análogo del primer teorema necesitamos los siguientes hechos preliminares:
 \begin{enumerate}
 \item Consideramos a $A^\wedge$ como un espacio topológico donde los abiertos básicos de $\mathcal{O}(A^\wedge)$ están dados por 
 \[
@@ -157,7 +93,7 @@ donde $x\in A$.
 \[
 (F,a)\mapsto F.
 \]
-\item Al aplicar aplicar el funtor $\mathcal{O}(-)$ a $\pi$ obtenemos el morfismo de marcos
+\item Al aplicar el funtor $\mathcal{O}(-)$ a $\pi$ obtenemos el morfismo de marcos
 \[
 \mathcal{O}(\pi)=\pi^{-1}\colon \mathcal{O}(A^\wedge)\to \mathcal{O}(\pt(VA)).
 \]
@@ -177,8 +113,8 @@ Con todo lo anterior, podemos enunciar la siguiente proposición.
 Sean $A, VA\in \Frm$ y $A^\wedge$ la familia de filtros abiertos de $A$. Las siguientes afirmaciones son ciertas:
 \begin{enumerate}
 \item Si $A$ es $T_1$ y apilado, entonces $\mathcal{O}(A^\wedge)\cong \mathcal{O}(\pt(VA))$ bajo la función continua $\pi$.
-\item Si $\mathcal{O}(\pi)=\pi^{-1}$ induce que $\mathcal{O}(A^\wedge)\cong \mathcal{O}(\pt(VA))$, entonces $A$ es apilado.
-\item Si $\mathcal{O}(\pi)=\pi^{-1}$ induce que $\mathcal{O}(A^\wedge)\cong \mathcal{O}(\pt(VA))$ y $A$ es espacial, entonces $A$ es $T_1$.
+\item Si el morfismo $\mathcal{O}(\pi)=\pi^{-1}$ induce que $\mathcal{O}(A^\wedge)\cong \mathcal{O}(\pt(VA))$, entonces $A$ es apilado.
+\item Si el morfismo $\mathcal{O}(\pi)=\pi^{-1}$ induce que $\mathcal{O}(A^\wedge)\cong \mathcal{O}(\pt(VA))$ y $A$ es espacial, entonces $A$ es $T_1$.
 \end{enumerate}
 \end{prop}
 
@@ -193,9 +129,9 @@ Consideremos $(F,a), (G,b)\in \pt(VA)$ tales que $\pi(F,a)=F=\pi(G,a)=G$. Por $T
 \[
 a=v_F(0)=v_G(0)=b.
 \]
-Por lo tanto $(F,a)=(G,b)$, es decir, $\pi$ es inyectiva. Al ser también supra, entonces $\pi$ es biyectiva.\\
+Por lo tanto $(F,a)=(G,b)$, es decir, $\pi$ es inyectiva. Al ser también suprayectiva, entonces $\pi$ es biyectiva.\\
 
-Debemos verificar que $\pi^{-1}\colon A^\wedge\to \pt(VA)$ es continua. Para ello recordemos que por \eqref{fibra}
+Resta demostrar que $\pi^{-1}\colon A^\wedge\to \pt(VA)$ es continua. Para ello recordemos que por \eqref{fibra}
 \[
 (F,a)\in [-](x)\iff x\in F\iff (F,a)\in \pi^{-1}(D(x))\iff \pi([-](x))=D(x).
 \]
@@ -243,12 +179,25 @@ Por lo tanto $p=a$ y $A$ es $T_1$.
 \end{enumerate}
 \end{proof}
 
-Notemos que en  3) de la prueba anterior basta que
+Observése que en el inciso 3), basta suponer que
 \[
 \mathcal{V}(a)=\{q\in \pt A\mid a\leq q\}\neq \emptyset
 \]
-para que el resultado sea cierto. De esta manera puede ser posible que los resultados en los cuales pedimos que $A$ sea espacial,
-basta con que $\mathcal{V}(a)\neq \emptyset$ con $a\in A$. Esta es una tarea por investigar para los proximos reportes.\\
+para que el resultado sea cierto. De esta manera, podría ocurrir que los resultados en los cuales pedimos que $A$ sea espacial,
+basta con que $\mathcal{V}(a)\neq \emptyset$ con $a\in A$.\\
+
+Para el análogo del segundo punto mencionado al principio de este reporte, deberíamos verificar que
+\[
+\text{Si }A \text{ es }T_1 \text{ y apilado }\Rightarrow A \text{ es espacial}.
+\]
+
+Considerando lo antes mencionado con respecto al conjunto $\mathcal{V}(-)$, nuestra hipótesis es que en realidad, en el caso general se cumple lo siguiente
+\[
+\mathbf{\text{Afirmación:}} \text{ Existen marcos }T_1\text{ y apilados que no son espaciales.}
+\]
+
+La idea para construir el ejemplo de un marco que cumpla las condiciones anteriores se sigue de lo presentado en \cite{PasekaSmarda1992}. En este artículo exhiben una familia de marcos 
+Hausdorff, en el sentido de Johnstone y Shu-Hao, que no son espaciales. Para estudiar con mayor detalle los marcos apilados y fuertemente apilados, primero veremos como se comportan bajo cocientes.\\
 
 Recordemos que para $(f\colon A\to B)\in \Frm$, $j\in NA$ y $k\in NB$, por las propiedades del funtor $N(-)$, se cumple que
 \[
@@ -265,7 +214,7 @@ Consideremos $S=\pt A$, $S_j=\pt A_j$ y sea $F\in A_j^{\wedge}$. Así, podemos o
 \[
 G=j_*(F),\quad Q=S_j\setminus F,\quad R=S\setminus G,
 \]
-donde $j_*$ es el adjunto derecho asociado al morfismo de marcos $j^*\colon A\to A_j$ y $x\in G$ si y solo si $j(x)\in F$. Considerando las reflexiones espaciales $\mathcal{U}\colon A\to \mathcal{O}S$ y $\mathcal{U}_j\colon A_j\to \mathcal{O}S_j$ tenemos le siguiente diagrama
+donde $j_*$ es el adjunto derecho asociado al morfismo de marcos $j^*\colon A\to A_j$ y $x\in G$ si y solo si $j(x)\in F$. Considerando las reflexiones espaciales $\mathcal{U}\colon A\to \mathcal{O}S$ y $\mathcal{U}_j\colon A_j\to \mathcal{O}S_j$ tenemos el siguiente diagrama
 
 \[\begin{tikzcd}
 	&&&& A && {\mathcal{O}S} \\
@@ -290,9 +239,9 @@ y usando los adjuntos derechos de $\mathcal{U}$ y $\mathcal{U}_j$ obtenemos
 \[
 v_F, \quad l=N(\mathcal{U}_j)_*([Q']),\quad m=N(j^*)(N(\mathcal{U})_*)([R']),\quad n=N(j^*)(N(\mathcal{U}_j\circ j^*)_*)([Q']) 
 \]
-son núcleos en $NA_j$. Veamos cual es la relación entre todos estos núcleos.\\
+son núcleos en $NA_j$. Veamos cuál es la relación entre todos estos núcleos.\\
 
-Primero, por construcción tenemos que $v_F\leq  N(\mathcal{U}_j)_*([Q'])$ y debemos verificar la otra desigualdad para que $A_j$ sea fuertemente apilado.\\
+Primero, por construcción, tenemos que $v_F\leq  N(\mathcal{U}_j)_*([Q'])$ y debemos verificar la otra desigualdad para que $A_j$ sea fuertemente apilado.\\
 
 Por hipótesis, se cumple que $v_G=N(\mathcal{U})_*([R'])$. Además, para $x\in A$, se cumple que $j(v_x)\leq v_{j(x)}$ y, por definición de los núcleos ajustados asociados a $F$ y $G$, 
 \begin{equation}\label{eq1}
@@ -372,18 +321,25 @@ l\leq m\leq v_F\leq l
 y así $v_F=\mathcal{U}_{j*}\circ [Q']\circ \mathcal{U}_j$, es decir, $A_j$ es fuertemente apilado.
 \end{proof}
 
+Como todo marco fuertemente apilado es apilado, podemos afirmar lo siguiente.
+
 \begin{cor}
 Sean $A\in \Frm$ y $j\in NA$. Si $A$ es fuertemente apilado, entonces $A_j$ es apilado. 
 \end{cor}
 
 \begin{proof}
-Por la proposición anterior, Si $A$ es fuertemente apilao, entonces $A_j$ es fuertemente apilado y esto implica que $A_j$ es apilado.
+Por la proposición anterior, Si $A$ es fuertemente apilado, entonces $A_j$ es fuertemente apilado y esto implica que $A_j$ es apilado.
 \end{proof}
+
+Si $A$ es un marco Hausdorff, entonces $A$ es $T_1$. De esta manera, para poder utilizar el ejemplo de Paseka y Smarda basta que $\mathbf{(H)}$ implique apilado.
 
 \begin{prop}
 Si $A\in \Frm$ satisface $\mathbf{(H)}$, entonces $A$ es apilado.
 \end{prop}
 
+La demostración de este resultado se desarrollará en el siguiente reporte.
+
+\begin{comment}
 \begin{proof}
 A manera de contradicción, supongamos que $A$ satisface $\mathbf{(H)}$ y que no es apilado, es decir, existe $(F,Q)$ un par HM tal que
 \[
@@ -400,6 +356,68 @@ Notemos que si $c\in F$, por construcción, tenemos que $\neg c\leq f_F(0)\leq v
 \neg c\nleq v_F(0)\Rightarrow c\notin F.
 \]
 \end{proof}
+\[
+\text{\textbf{Afirmación:} Si } A\in \Frm \text{ es } T_1 \text{ y apilado, entonces } A \text{ es espacial.}
+\]
+Para demostrarlo debemos verificar que el morfismo reflexión espacial es inyectivo, es decir, para $a, b\in A$ con $a\nleq b$, se cumple que
+\[
+U(a)\nsubseteq U(b)\; \iff \; \exists\, p\in \pt A \text{ tal que } a\nleq p \text{ y } b\leq p.
+\]
+
+Para los fines de la investigación que estamos realizando, no puede ocurrir que $S=\emptyset$, donde $S=\pt A$.
+Por lo tanto, en nuestro caso siempre suponemos que $S\neq \emptyset$.\\
+
+Notemos que para $a\nleq b$ como antes, se cumple que $\uparrow a$ es un filtro en $A$ y $\downarrow b$ es un ideal. Además, se cumple que 
+\[
+\uparrow a\, \cap \downarrow b = \emptyset.
+\]
+
+Denotamos por $\Fil(A)$ al conjunto de todos los filtros en $A$. Si consideremos el conjunto
+\[
+\mathcal{F}(a,b)=\{F\in \Fil(A)\mid a\in F\text{ y }b\notin F\},
+\]
+entonces por Lema de Zorn se cumple que existe un filtro máximo $\mathcal{M}\in \mathcal{F}(a,b)$. Ya que $\mathcal{M}\in \Fil(A)$, podemos construir el núcleo ajustado que admite a $\mathcal{M}$, esto es
+\[
+\mathcal{M}\subseteq \nabla(v_{\mathcal{M}})
+\]
+donde $v_\mathcal{M}$ es el núcleo ajustado. Dado que $v_\mathcal{M}\in NA$, tenemos el marco cociente $A_{v_{\mathcal{M}}}$ (y por fines de practicidad lo denotaremos por $A_\mathcal{M}$), cuyo espacio de puntos está dado por
+\[
+\pt(A_\mathcal{M})=S\setminus \mathcal{M}
+\]
+
+Considerando que $S\neq \emptyset$, debemos verificar que ocurre cuando 
+\[
+\pt(A_\mathcal{M})=\emptyset\quad \text{ y }\quad \pt(A_\mathcal{M})\neq \emptyset.
+\]
+
+Si $\pt(A_\mathcal{M})=\emptyset$, entonces $S\subseteq \mathcal{M}$, es decir, para todo $p\in S$, $p \in \mathcal{M}$. De aquí que $p\nleq b$, pues si ocurriera que $p\leq b$, entonces $b\in \mathcal{M}$ y sería una contradicción. \\
+
+Luego, como $\mathcal{M}\in \Fil(A)$, entonces $p\vee b\in\mathcal{M}$ y, al ser $A$ un marco $T_1$, se cumple que
+\[
+p\vee b=p\quad \text{o}\quad p\vee b=1  \iff b\leq p\quad \text{o}\quad b\nleq p.
+\]
+
+Por lo tanto, tenemos los siguientes escenarios:
+\[
+\text{1) } p\nleq b\;\text{ y }\; b\leq p, \qquad \text{2) } p\nleq b\; \text{ y }\;b\nleq p. 
+\]
+para todo $p\in S$.\\
+
+Si $\pt(A_\mathcal{M})\neq \emptyset$, existe  $p\in S$ tal que $p\notin \mathcal{M}$.
+Luego, como $p\notin \mathcal{M}$, se cumple que $a\nleq p$, pues de lo contrario, si $a\leq p$ eso implicaría que $p\in \mathcal{M}$ y sería una contradicción.\\
+
+Dado que $p\notin \mathcal{M}$, podemos construir el filtro generado por $\langle \mathcal{M}\cup \{p\}\rangle$ y por la maximalidad de $\mathcal{M}$, este filtro satisface que 
+\[
+b\in \langle\mathcal{M}\cup \{p\}\rangle \quad \text{y}\quad \exists\, m\in \mathcal{M} \text{ tal que }m\wedge p\leq b.
+\]
+
+Ya que $v_\mathcal{M}\in NA$, entonces $v_\mathcal{M}(m\wedge p)\leq v_\mathcal{M}(b)$ y por lo tanto $p\leq v_\mathcal{M}(b)$. Al ser $A$ un marco $T_1$, entonces
+\[
+p=v_\mathcal{M}(b)\quad \text{o}\quad v_\mathcal{M}(b)=1.
+\]
+
+De esta manera, si se cumple que $p=v_\mathcal{M}(b)$, entonces $a\nleq p$ y $b\leq p$, es decir, $A$ es espacial. Veamos que $v_\mathcal{M}(b)=1$ nos lleva a una contradicción.\\
+\end{comment}
 
 \bibliographystyle{plainnat}
 %\bibliographystyle{amsalpha}
