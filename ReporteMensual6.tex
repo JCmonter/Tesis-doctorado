@@ -1,0 +1,285 @@
+\documentclass[12pt]{article}
+
+% --------------------
+% PAQUETES BÁSICOS
+% --------------------
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[utf8]{inputenc}      % Si usas pdflatex
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%\usepackage[authoryear]{natbib}
+\usepackage{comment}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{booktabs}   
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=red
+]{hyperref}
+
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{dfn}[thm]{Definición}
+\newtheorem{lem}[thm]{Lema}
+\newtheorem{ej}[thm]{Ejemplo}
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{obs}[thm]{Observación}
+\newtheorem{con}[thm]{Conjetura}
+\newtheorem{prop}[thm]{Proposición}
+
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Fil}{Fil}
+\DeclareMathOperator{\Ord}{Ord}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Sp}{sp}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\tp}{tp}
+\DeclareMathOperator{\fd}{fd}
+% --------------------
+% CONFIGURACIÓN
+% --------------------
+\geometry{margin=2.5cm}
+\onehalfspacing
+
+% --------------------
+% DATOS DEL DOCUMENTO
+% --------------------
+\title{Reporte mensual de actividades}
+\date{1-junio-2026 a 30-junio-2026}
+\author{Juan Carlos Monter Cortés}
+
+% --------------------
+% INICIO DEL DOCUMENTO
+% --------------------
+\begin{document}
+
+\maketitle
+% \tableofcontents
+
+\section{Actividades realizadas}
+
+Si consideramos $A\in \Frm$ y $j\in NA$, entonces $A_j$ es un cociente cerrado si $j=u_a$ para algún $a\in A$. Adicionalmente, $A_j$ es un cociente compacto si y solo si $\nabla(j)\in A^\wedge$. 
+Además, para $F=\nabla(j)$, se satisface que para todo $j\in [v_F, w_F]$, $A_j$ es compacto. Dentro de los objetivos de nuestra investigación se encuentra el estudiar aquellos núcleos que producen 
+cociente compactos y cerrados, es decir, aquellos $j\in [v_F, w_F]$ tales que $j=u_a$ para algún $a\in A$ y $F=\nabla(j)\in A^\wedge$. Para realizar dicho estudio, damos la siguiente definición.
+
+\begin{dfn}\label{KC}
+Decimos que $A\in \Frm$ es $KC$ si todo cociente compacto es cerrado.
+\end{dfn}
+
+En este reporte veremos cual es la relación de los marcos $KC$ con las nociones de apilamiento. De igual manera, veremos como apilado se relaciona 
+con la propiedad $\mathbf{(H)}$ en la categoría de marcos.\\
+
+En reportes anteriores, verificamos que cualquier terna HM $(F, Q, \nabla)$ se satisface que si $A$ es eficiente y $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$, entonces $A$ es fuertemente apilado.
+Haremos uso de este hecho para ver la relación de eficiente y $KC$. Antes de ello, necesitamos algunos resultados preliminares.
+
+\begin{lem}\label{Lema2.8y2.9}
+    Sea $A\in \Frm$ y $\alpha_A\colon \mathfrak{c}A\to A^\wedge$ la función definida por
+    \[
+    \alpha_A(c)=\{x\in A\mid c\vee x=1\}=\nabla(u_c).
+    \]
+    Lo siguiente se cumple:
+    \begin{enumerate}
+        \item $\alpha_A$ es un morfismo de premarcos.
+        \item Si $A$ es eficiente, $\alpha_A$ es sobreyectiva.
+    \end{enumerate}
+\end{lem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item Veamos primero que $\alpha_A$ preserva la estructura de un premarco.
+    \begin{enumerate}
+        \item Si $c\leq c'$,  entonces $\alpha_A(c)=\nabla(u_c)\subseteq \alpha_A(c')=\nabla(u_{c'})$.
+        \item Consideremos $1\in \mathfrak{c}A$, entonces 
+        \[
+        \alpha_A(1)=\nabla(\tp)=A,
+        \]
+        de aquí que, $\alpha_A$ preserva el mayor elemento.
+        \item Sean $c_1, c_2\in \mathfrak{c}A$ y $X\subseteq \mathfrak{c}A$ dirigido. De aquí que
+        \[
+        \begin{split}
+            \alpha_A(c_1\wedge c_2)&=\{x\in A\mid (c_1\wedge c_2)\vee x=1\}\\
+            &=\{x\in A\mid (c_1\vee x)\wedge (c_2\vee x)=1\}\\
+            &=\{x\in A\mid c_1\vee x=1 \mbox{ y }c_1\vee x=1\}\\
+            &=\nabla(u_{c_1})\cap \nabla(u_{c_2})\\
+            &=\alpha_A(c_1)\cap \alpha_A(c_2).
+        \end{split}
+        \]
+        y
+        \[
+        \begin{split}
+        \alpha_A(\bigvee X)&=\{x\in A\mid (\bigvee X)\vee x=1\}\\
+        &=\bigvee\{x\in A\mid x'\vee x=1, x'\in X\}\\
+        &=\bigvee \alpha_A[X],
+        \end{split}
+        \]
+        donde $\{x\in A\mid x'\vee x=1, x'\in X\}$ dirigido.
+        \end{enumerate}
+        \item Por último, notemos que para un marco eficiente, el morfismo $\alpha_A$ es suprayectivo ya que si $F=\nabla(j)\in A^\wedge$, entonces
+        \[
+        v_F=u_d
+        \]
+        donde $d=v_F(0)\in A$, es decir, $\alpha_A(d)=\nabla(u_d)=\nabla(v_F)=\nabla(j)$
+    \end{enumerate}
+\end{proof}
+
+\begin{cor}
+    Consideremos $c\in \mathfrak{c}A$ tal que $u_c$ es ajustado, entonces $\alpha_A$ es inyectiva. 
+\end{cor}
+
+\begin{proof}
+    Consideremos $\nabla(u_c)=\nabla(u_d)$, con $d\in \mathfrak{c}A$. De aquí que $\nabla(u_c)\subseteq \nabla(u_d)$ y $\nabla(u_c)\supseteq\nabla(u_d)$. Aplicando dos veces el Lema \ref{cn ajustado} tenemos que 
+    \[
+    u_c\leq u_d\quad\mbox{ y }\quad u_c\geq u_d.
+    \]
+    Por lo tanto, evaluando ambos núcleos en $0$ obtenemos $c=d$.
+\end{proof}
+
+Notemos que el morfismo $\alpha_A$ no siempre es suprayectivo, pero existen maneras de asegurar que esto ocurra.
+
+\begin{lem}\label{Lema2.7}
+    Para un marco eficiente y $c\in \mathfrak{c}A$ las siguientes son equivalentes
+    \begin{enumerate}
+        \item $\alpha_A$ es un isomorfismo.
+        \item Si $u_c\in \mathfrak{C}A$, $u_c$ es ajustado.
+        \item Para todo $c\in \mathfrak{c}A$ y $d, d'\in A_{u_c}$
+        \begin{equation}\label{saju}
+            d\leq d'\Leftrightarrow \nabla(u_d)\subseteq \nabla(u_{d'}).
+        \end{equation}
+    \end{enumerate}
+\end{lem}
+
+\begin{proof}
+\begin{description}
+        \item[$1)\Rightarrow 2)$] Si $c\in \mathfrak{c}A$, entonces $u_c\in NA$ y tomemos $F=\nabla(u_c)\in A^\wedge$. Sea $v_F$ el respectivo núcleo ajustado del bloque, es decir, $v_F\leq u_c$. Además, por la eficiencia $v_F=u_d$ y  $\nabla(u_d)=\nabla(u_c)$. Al ser $\alpha_A$ inyectiva, $d=c$. Por lo tanto $u_c$ es ajustado. 
+
+        \item[$2)\Rightarrow 3)$] Supongamos que $\nabla(u_c)\in A^\wedge$ y que $u_c$ es ajustado para $c\in \mathfrak{c}A$. Notemos que la implicación $\Rightarrow)$ de (\ref{saju}) siempre es cierta, pues si $d\leq d'$ y $d\vee e=1$, entonces $d'\vee e=1$. Así solo basta probar la otra implicación.\\
+
+        Queremos demostrar que $\nabla(u_d)\subseteq \nabla(u_{d'})$ implica que $d\leq d'$. Por el Lema \ref{cn ajustado}
+        \[
+        \nabla(u_d)\subseteq \nabla(u_{d'})\Leftrightarrow u_d\leq u_{d'}\Leftrightarrow d\leq d'.
+        \]
+
+        \item[$3)\Rightarrow 1)$] Si $A$ es un marco es eficiente, por el Lema \ref{Lema2.8y2.9}, se cumple que $\alpha_A$ es suprayectiva. Para la inyectividad, consideremos $\alpha_A(d)=\alpha_A(d')$, es decir, $\nabla(u_d)=\nabla(u_{d'})$. Luego, aplicando dos veces (\ref{saju}), se cumple que $d=d'$. Por lo tanto, $\alpha_A$ es inyectiva.
+    \end{description}
+\end{proof}
+
+Los siguientes resultados son consecuencias del Lema \ref{Lema2.7}.
+
+\begin{cor}
+        Para un marco $KC$ las siguientes son equivalentes
+    \begin{enumerate}
+        \item $\alpha_A$ es un isomorfismo.
+        \item Si $j\in \mathfrak{K}A$, $j$ es ajustado.
+        \item Para todo $c\in \mathfrak{c}A$ y $d, d'\in A_{u_c}$
+        \[
+            d\leq d'\Leftrightarrow \nabla(u_d)\subseteq \nabla(u_{d'}).
+        \]
+    \end{enumerate}
+\end{cor}
+
+\begin{cor}
+    Para todo $c\in \mathfrak{c}A$, $u_c$ es ajustado si y solo si $\alpha_A$ es isomorfismo y $A$ es eficiente.
+\end{cor}
+
+\begin{prop}
+Sea $A\in \Frm$. $A$ es $KC$ si y solo si $A$ es eficiente y $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$.
+\end{prop}
+
+\begin{proof}
+ $\mbox{}$
+ \begin{description}
+    \item[$\Rightarrow) $] Supongamos que $A$ es $KC$. Trivialmente, $KC$ implica eficiente y así, resta verificar que $KC$ implica que $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$ o equivalentemente, por propiedades del adjunto derecho,
+    \[
+    v_F=\mathcal{U}_*\circ v_\nabla\circ \mathcal{U}.
+    \]
+    
+    Si $A$ es $KC$, entonces para cualquier $F\in A\wedge$ se cumple que para todo $j\in [v_F, w_F]$, $j=u_a$ para algún $a\in A$. En particular,
+    \[
+    v_F=u_a,\quad\text{y}\quad \mathcal{U}_*\circ v_\nabla\circ \mathcal{U}=u_b
+    \]
+    donde $a, b\in A$.\\
+
+    Por construcción, siempre se cumple que $u_a\leq u_b$. Para ver la otra desigualdad notemos que 
+    \item[$\Leftarrow) $] Supongamos que $A$ es eficiente y $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$ para toda terna HM $(F, Q, \nabla)$. Primero, si $A$ es eficiente, 
+    entonces $A$ es $T_1$. Además, si $A$ es eficiente y $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$, entonces $A$ es fuertemente apilado. De aquí que $A$ es $T_1$ y fuertemente apilado.
+    Lo anterior implica que $v_F=w_F$ y, por la eficiencia, $v_F=u_d$, donde $d=v_F(0)$. Por lo tanto, para todo $j\in [v_F, w_F]$, $j=u_d$, es decir, $A$ es $KC$.
+ \end{description}
+\end{proof}
+
+\begin{prop}
+Si $A\in \Frm$ satisface $\mathbf{(H)}$, entonces $A$ es apilado.
+\end{prop}
+
+\begin{proof}
+Si $A$ satisface $\mathbf{(H)}$, entonces $A$ es $T_1$, es decir, para todo par HM se cumple que
+\[
+\mathcal{U}_*\circ [Q']\circ \mathcal{U}=w_F,
+\]
+es decir, $\mathcal{U}_*\circ [Q']\circ \mathcal{U}(0)=w_F(0)$ y dado que $w_F\neq \tp$, entonces $w_F(0)\neq 1$.\\
+
+Por consturcción se cumple que $v_F(0)\leq w_F(0)$ y así, debemos ver que se da la otra desigualdad para obtener que $A$ es apilado. A manera de contradicción, supongamos que 
+\[
+w_F(0)\nleq v_F(0).
+\]
+
+Como $1\neq w_F(0)\nleq  v_F(0)$, por $\mathbf{(H)}$, existe $c\in A$ tal que
+\[
+c\nleq w_F(0)\quad \text{y}\quad \neg c\nleq v_F(0).
+\]
+
+Si $\neg c\nleq v_F(0)$, entonces $c\notin F$, pues en caso contrario, si $c\in F$, se cumple que
+\[
+\neg c\leq f_F(0)=\bigvee\{v_a(0)\mid a\in F\}\leq v_F(0),
+\]
+lo cual es una contradicción a $\mathbf{(H)}$.\\ 
+
+Si $c\notin F$, entonces $c\in A\setminus F$ y por construcción existe $p\in M$ tal que $c\leq p$, donde 
+\[
+M=\{p\in A\setminus F\mid p\text{ es máximo}\}.
+\]
+
+De aquí que $p\nleq w_F(0)$. Luego,
+\[
+w_F(0)=\bigwedge\{p\in M\mid 0\leq p\}=\bigwedge M\leq p,
+\]
+es decir, $p\nleq w_F(0)\leq p$, lo cual es una contradicción. La contradicción viene de suponer que $w_F(0)\nleq v_F(0)$.
+Por lo tanto $w_F(0)=v_F(0)$ y $A$ es apilado. 
+\end{proof}
+
+Por el resultado anterior, y ya que $T_1$ y apilado son propiedades incomparables, tenemos la siguiente relación con la propiedad $\mathbf{(H)}$
+\[\begin{tikzcd}
+	& {\mathbf{(H)}} & \\
+	{\text{Apilado}} && {T_1}
+	\arrow[Rightarrow, from=1-2, to=2-1]
+	\arrow[Rightarrow, from=1-2, to=2-3]
+\end{tikzcd}\]
+
+Usaremos este hecho para exhibir un ejemplo de lo siguiente.
+
+\begin{thm}
+Existen marcos $T_1$ y apilados que no son espaciales.
+\end{thm}
+
+\begin{proof}
+Si consideramos $A\in \Frm$ tal que $A$ satisface $\mathbf{(H)}$, podemos construir el siguiente marco
+\[
+\widetilde{A}=\{(a,b)\mid a\in A, b\in \mathcal{B}(A)\},
+\]
+donde $\mathcal{B}(A)=\{b\in A\mid b=\neg \neg b\}$ y se conoce como la \emph{booleanización} de $A$.\\
+
+Además, si para $x\in A$, con $x$ máximo, se cumple que $\neg x=0$, entonces $\widetilde{A}$ satisface $\mathbf{(H)}$. En consecuencia, $\widetilde{A}$ es un marco $T_1$ y apilado, pero no es espacial.
+\end{proof}
+
+Para ver los detalles de la no espacialidad de $\widetilde{A}$, se puede consultar \cite{PasekaSmarda1992}.
+
+%\bibliographystyle{plainnat}
+\bibliographystyle{amsalpha}
+\bibliography{research2}
+
+\end{document}
