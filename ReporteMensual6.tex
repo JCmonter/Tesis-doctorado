@@ -51,7 +51,7 @@
 % DATOS DEL DOCUMENTO
 % --------------------
 \title{Reporte mensual de actividades}
-\date{1-junio-2026 a 30-junio-2026}
+\date{1-agosto-2026 a 31-agosto-2026}
 \author{Juan Carlos Monter Cortés}
 
 % --------------------
@@ -64,7 +64,7 @@
 
 \section{Actividades realizadas}
 
-Si consideramos $A\in \Frm$ y $j\in NA$, entonces $A_j$ es un cociente cerrado si $j=u_a$ para algún $a\in A$. Adicionalmente, $A_j$ es un cociente compacto si y solo si $\nabla(j)\in A^\wedge$. 
+Si consideramos $A\in \Frm$ y $j\in NA$, entonces $A_j$ es un cociente cerrado si $j=u_a$ para algún $a\in A$. Adicionalmente, $A_j$ es un cociente compacto si $\nabla(j)\in A^\wedge$. 
 Además, para $F=\nabla(j)$, se satisface que para todo $j\in [v_F, w_F]$, $A_j$ es compacto. Dentro de los objetivos de nuestra investigación se encuentra el estudiar aquellos núcleos que producen 
 cociente compactos y cerrados, es decir, aquellos $j\in [v_F, w_F]$ tales que $j=u_a$ para algún $a\in A$ y $F=\nabla(j)\in A^\wedge$. Para realizar dicho estudio, damos la siguiente definición.
 
@@ -72,10 +72,9 @@ cociente compactos y cerrados, es decir, aquellos $j\in [v_F, w_F]$ tales que $j
 Decimos que $A\in \Frm$ es $KC$ si todo cociente compacto es cerrado.
 \end{dfn}
 
-En este reporte veremos cual es la relación de los marcos $KC$ con las nociones de apilamiento. De igual manera, veremos como apilado se relaciona 
-con la propiedad $\mathbf{(H)}$ en la categoría de marcos.\\
+En este reporte veremos cual es la relación de los marcos $KC$ con las nociones de apilamiento.\\
 
-En reportes anteriores, verificamos que cualquier terna HM $(F, Q, \nabla)$ se satisface que si $A$ es eficiente y $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$, entonces $A$ es fuertemente apilado.
+Anteriormente, verificamos que para cualquier terna HM $(F, Q, \nabla)$ se satisface que si $A$ es eficiente y $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$, entonces $A$ es fuertemente apilado.
 Haremos uso de este hecho para ver la relación de eficiente y $KC$. Antes de ello, necesitamos algunos resultados preliminares.\\
 
 Primero, definimos el siguiente subconjunto de $A$
@@ -90,7 +89,7 @@ Notemos que a todo $a\in uA$ le asignamas un subconjunto $\nabla(u_a)\in A^\wedg
 
 Veamos que propiedades satisface dicha función.
 
-\begin{lem}
+\begin{lem}\label{lem:injetiva}
     Para $uA\subseteq A$ como antes, las siguientes afirmaciones se cumplen:
     \begin{enumerate}
         \item Si $A$ es eficiente, entonces $\alpha$ es suprayectiva.
@@ -127,7 +126,7 @@ $\mbox{ }$
 
 Dado que todo marco $KC$ es eficiente, podemos dar una versión del lema anterior involucrando los marcos $KC$.
 
-\begin{cor}
+\begin{cor}\label{cor:KC}
         Sean $A$ un marco $KC$ y $F\in A^\wedge$. $\alpha$ es biyectiva si y solo si para todo $j\in [v_F, w_F]$, $j$ es ajustado.
 \end{cor}
 
@@ -136,16 +135,16 @@ Supongamos que $A$ es $KC$ y sea $F\in A^\wedge$. Por definición, para todo $j\
 \end{proof}
 
 \begin{prop}\label{prop:KC}
-Sea $A\in \Frm$. $A$ es $KC$ si y solo si $A$ es eficiente y 
-\[
-\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}.
-\]
+Sea $A$ un marco. Si $A$ es eficiente y 
+\begin{equation}\label{eq:KC}
+\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U},
+\end{equation}
+entonces $A$ es $KC$.
 \end{prop}
 
 \begin{proof}
- $\mbox{}$
- \begin{description}
-    \item[$\Rightarrow) $] Supongamos que $A$ es $KC$. Trivialmente, $KC$ implica eficiente y así, resta verificar que $KC$ implica que $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$ o equivalentemente, por propiedades del adjunto derecho,
+\begin{comment}
+    Supongamos que $A$ es $KC$. Trivialmente, $KC$ implica eficiente y así, resta verificar que $KC$ implica que $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$ o equivalentemente, por propiedades del adjunto derecho,
     \[
     v_F=\mathcal{U}_*\circ v_\nabla\circ \mathcal{U}.
     \]
@@ -157,63 +156,105 @@ Sea $A\in \Frm$. $A$ es $KC$ si y solo si $A$ es eficiente y
     donde $d, a\in A$.\\
 
     Por construcción, siempre se cumple que $u_d\leq u_a$. Para ver la otra desigualdad verificamos que la función $\alpha$ es inyectiva. Notemos que $d\leq a$  
+\end{comment}
 
-
-    \item[$\Leftarrow) $] Supongamos que $A$ es eficiente y $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$ para toda terna HM $(F, Q, \nabla)$. Primero, si $A$ es eficiente, 
-    entonces $A$ es $T_1$. Además, si $A$ es eficiente y $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$, entonces $A$ es fuertemente apilado. De aquí que $A$ es $T_1$ y fuertemente apilado.
-    Lo anterior implica que $v_F=w_F$ y, por la eficiencia, $v_F=u_d$, donde $d=v_F(0)$. Por lo tanto, para todo $j\in [v_F, w_F]$, $j=u_d$, es decir, $A$ es $KC$.
- \end{description}
+Supongamos que $A$ es eficiente y $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$ para toda terna HM $(F, Q, \nabla)$. Primero, por la eficiencia, 
+$A$ es $T_1$. Además, si $A$ es eficiente y $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$, entonces $A$ es fuertemente apilado. De aquí que, al ser $A$ $T_1$ y fuertemente apilado, 
+se cumple que $v_F=w_F$ y, por la eficiencia, $v_F=u_d$, donde $d=v_F(0)$. Por lo tanto, para todo $j\in [v_F, w_F]$, $j=u_d$, es decir, $A$ es $KC$.
 \end{proof}
+
+Dado que $KC$ implica eficiente, debemos preguntarnos si $KC$ implica que \eqref{eq:KC}. Si lo anterior resulta ser cierto, entonces tendriamos la recíproca de la Proposición \ref{prop:KC}. 
+Parte de nuestro trabajo para las siguientes semanas será verificar si la Proposición \ref{lem:injetiva} y Corolario \ref{cor:KC} nos pueden ayudar a verificar si $KC$ implican \eqref{eq:KC}.\\
+
+Algunos de los reportes previos exploran la relación de las propiedades de apilamiento junto con la propiedad $T_1$ en marcos. Dado que en el caso espacial, 
+\[
+T_1+\text{ apilado}\Longrightarrow \text{sobrio},
+\]
+al llevar cada propiedad al caso de marcos, la implicación correspondiente es
+\[
+T_1+\text{ apilado}\Longrightarrow \text{espacial}.
+\]
+
+Hemos notado que las proposiciones analogas a las presentadas en \cite{sexton2006ordinal,simmons2004vietoris} donde se involucran $T_1$ y papilado, cuando las llevamos al caso de marcos, no implican espacialidad. 
+Por lo tanto, nos preguntamos lo siguiente:
+\[
+\text{¿Existen marcos } T_1 \text{ y apilados que no son espaciales?}
+\]
+
+Responder lo anterior ha sido una de las tareas que hemos realizado en los últimos días.\\
+
+En \cite{PasekaSmarda1992} proporcionan una familia de marcos que satisfacen la propiedad $\mathbf{(H)}$ y que no son espaciales. Por lo tanto, ya que 
+\[
+\mathbf{(H)}\Longrightarrow T_1,
+\]
+basta con ver que $\mathbf{(H)}$ implica apilado para responder la pregunta anterior.
 
 \begin{prop}
 Si $A\in \Frm$ satisface $\mathbf{(H)}$, entonces $A$ es apilado.
 \end{prop}
 
 \begin{proof}
-Si $A$ satisface $\mathbf{(H)}$, entonces $A$ es $T_1$, es decir, para todo par HM se cumple que
+Consideremos $A$ un marco y $(F, Q)$ un par HM. Notemos que si $A$ satisface $\mathbf{(H)}$, entonces $S=\pt A$ es $T_2$ y por lo tanto 
 \[
-\mathcal{U}_*\circ [Q']\circ \mathcal{U}=w_F,
+\mathcal{U}_*\circ[Q']\circ \mathcal{U}=w_F
 \]
-es decir, $\mathcal{U}_*\circ [Q']\circ \mathcal{U}(0)=w_F(0)$ y dado que $w_F\neq \tp$, entonces $w_F(0)\neq 1$.\\
+donde $w_F(x)=\bigwedge\{p\in Q\mid x\leq q\}$.
 
-Por consturcción se cumple que $v_F(0)\leq w_F(0)$ y así, debemos ver que se da la otra desigualdad para obtener que $A$ es apilado. A manera de contradicción, supongamos que 
+Debemos verificar que, para $s=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=\bigwedge Q$,
 \[
-w_F(0)\nleq v_F(0).
-\]
-
-Como $1\neq w_F(0)\nleq  v_F(0)$, por $\mathbf{(H)}$, existe $c\in A$ tal que
-\[
-c\nleq w_F(0)\quad \text{y}\quad \neg c\nleq v_F(0).
+s\leq v_F(0).
 \]
 
-Si $\neg c\nleq v_F(0)$, entonces $c\notin F$, pues en caso contrario, si $c\in F$, se cumple que
+A manera de contradicción, supongamos que $s\nleq v_F(0)$. Dado que $w_F\neq \tp$, $1\neq s$ y, por hipótesis, existe $c\in A$ tal que
 \[
-\neg c\leq f_F(0)=\bigvee\{v_a(0)\mid a\in F\}\leq v_F(0),
-\]
-lo cual es una contradicción a $\mathbf{(H)}$.\\ 
-
-Si $c\notin F$, entonces $c\in A\setminus F$ y por construcción existe $p\in M$ tal que $c\leq p$, donde 
-\[
-M=\{p\in A\setminus F\mid p\text{ es máximo}\}.
+1)\;c\nleq s\quad\text{y}\quad 2)\;\neg c\nleq v_F(0)
 \]
 
-De aquí que $p\nleq w_F(0)$. Luego,
+De 1), notemos que existe $r\in Q$ tal que $c\nleq r$, pues en caso contrario, si 
 \[
-w_F(0)=\bigwedge\{p\in M\mid 0\leq p\}=\bigwedge M\leq p,
+\forall r\in Q\text{ tal que }c\leq r\Rightarrow c\leq \bigwedge Q=s
 \]
-es decir, $p\nleq w_F(0)\leq p$, lo cual es una contradicción. La contradicción viene de suponer que $w_F(0)\nleq v_F(0)$.
-Por lo tanto $w_F(0)=v_F(0)$ y $A$ es apilado. 
+lo cual es una contradicción.\\
+
+Por 2), si $\neg c\nleq v_F(0)$, entonces $c\notin F$, pues si $c\in F$, 
+\[
+\neg c=v_c(0)\leq f_F(0)\leq v_F(0)
+\]
+lo cual sería una contradicción. Así, existe $q\in Q$ tal que $c\leq q$.\\
+
+Por lo tanto, de 1) y 2) obtenemos que existe $c\in A$ y $q, r\in Q$ tales que
+\[
+c\leq q \quad\text{y}\quad c\nleq r.
+\]
+
+Además, por $T_1$, $q\neq r$. Notemos que 
+\[
+r\vee q=r\vee c=1,
+\]
+entonces
+\[
+\neg r\leq c\leq q\quad \text{y}\quad \neg q\leq \neg c\leq r. 
+\]
+
+Por HM, sabemos que para todo $a\in F$ se satisface que 
+\[
+Q\subseteq \mathcal{U}(a)\iff [\forall p\in Q](a\nleq p),
+\]
+en particular $a\nleq q, r$, es decir, $a\vee q=a\vee r=1$. Por lo tanto,
+\[
+\neg q, \neg r\leq a 
+\]
+para todo $a\in F$. Luego, $(\neg q\vee \neg r)\leq a$ para todo $a\in F$.\\
+
+Consideremos $d=\neg q\vee \neg r$. De aquí que
+\[
+d\leq a\Rightarrow v_a\leq v_d\Rightarrow v_F\leq v_d.
+\]
+
+Evaluando en $0$ obtenemos que $v_F(0)\leq \neg d$.
 \end{proof}
 
-Por el resultado anterior, y ya que $T_1$ y apilado son propiedades incomparables, tenemos la siguiente relación con la propiedad $\mathbf{(H)}$
-\[\begin{tikzcd}
-	& {\mathbf{(H)}} & \\
-	{\text{Apilado}} && {T_1}
-	\arrow[Rightarrow, from=1-2, to=2-1]
-	\arrow[Rightarrow, from=1-2, to=2-3]
-\end{tikzcd}\]
-
-Usaremos este hecho para exhibir un ejemplo de lo siguiente.
+\begin{comment}
 
 \begin{thm}
 Existen marcos $T_1$ y apilados que no son espaciales.
@@ -230,6 +271,7 @@ Además, si para $x\in A$, con $x$ máximo, se cumple que $\neg x=0$, entonces $
 \end{proof}
 
 Para ver los detalles de la no espacialidad de $\widetilde{A}$, se puede consultar \cite{PasekaSmarda1992}.
+\end{comment}
 
 %\bibliographystyle{plainnat}
 \bibliographystyle{amsalpha}
