@@ -1,0 +1,219 @@
+\documentclass[12pt]{article}
+
+% --------------------
+% PAQUETES BÁSICOS
+% --------------------
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[utf8]{inputenc}      % Si usas pdflatex
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%\usepackage[authoryear]{natbib}
+\usepackage{comment}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{booktabs}   
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=red
+]{hyperref}
+
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{dfn}[thm]{Definición}
+\newtheorem{lem}[thm]{Lema}
+\newtheorem{ej}[thm]{Ejemplo}
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{obs}[thm]{Observación}
+\newtheorem{con}[thm]{Conjetura}
+\newtheorem{prop}[thm]{Proposición}
+
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Fil}{Fil}
+\DeclareMathOperator{\Ord}{Ord}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Sp}{sp}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\tp}{tp}
+\DeclareMathOperator{\fd}{fd}
+% --------------------
+% CONFIGURACIÓN
+% --------------------
+\geometry{margin=2.5cm}
+\onehalfspacing
+
+% --------------------
+% DATOS DEL DOCUMENTO
+% --------------------
+\title{Reporte mensual de actividades}
+\date{1-septiembre-2026 a 30-septiembre-2026}
+\author{Juan Carlos Monter Cortés}
+
+% --------------------
+% INICIO DEL DOCUMENTO
+% --------------------
+\begin{document}
+
+\maketitle
+% \tableofcontents
+
+\section{Actividades realizadas}
+
+Siguiendo lo presentado en \cite{sexton2003point}, para $A$ un marco, $F\in A^\wedge$ y $\alpha\in \Ord$ decimos que:
+\begin{itemize}
+    \item $F$ es $\alpha$-eficiente ($\alpha$-neat), si
+    \[
+    x\vee d=1,\quad \text{para toda }x\in F,
+    \]
+    donde 
+    \[
+    d=f_F^\alpha(0)\quad\text{y}\quad f_F=\dot{\bigvee}\{v_a\mid a\in F\}.
+    \]
+    \item $A$ es $\alpha$-eficiente si para todo $F\in A^\wedge$, $F$ es $\alpha$-eficiente.
+    \item $A$ es eficiente si es $\alpha$-eficiente para algún $\alpha$.
+\end{itemize}
+
+Adicionalmente, se puede verificar que $A$ es eficiente si se cumple que
+\[
+f_F^\infty=v_F=u_d, \quad\text{para todo }F\in A^\wedge \text{ y }d=v_F(0).
+\]
+
+También, sabemos que un marco $A$ es KC si para todo $F\in A^\wedge$ y $j\in NA$ tal que 
+\[
+j\in [v_F, w_F], \text{ existe } a\in A\text{ tal que } j=u_a.
+\]
+
+De esta manera, si $A$ es un marco KC y $F\in A^\wedge$, entonces $v_F=u_a$. Evaluando en 0, 
+\[
+v_F(0)=u_a(0)=a\quad\text{ y }\quad a=d.
+\]
+
+Por lo tanto, KC implica Eficiente.
+
+Tomando $S=\pt A$, tenemos la siguiente caracterización:
+\[
+A \text{ es eficiente }\iff S \text{ es empaquetado y apilado}.
+\]
+donde apilado es la noción espacial presentada en \cite{sexton2006ordinal}.
+
+Así, considerando lo presentado en reportes anteriores, podemos preguntarnos cuál es la relación de los marcos KC y los marcos eficientes con los marcos 
+apilados y fuertemente apilados. Lo anterior, es parte de los objetivos del presente reporte. Además, presentamos cómo la propiedad KC se relaciona con 
+la propiedad $\mathbf{(sfit)}$ y algunas de las consecuencias de la interacción entre ambas.
+
+\begin{prop}\label{KCSS}
+    Sean $A$ un marco y $(F,Q)$ un par HM. Si $A$ es KC, entonces las nociones de apilado y fuertemente apilado son equivalentes.
+\end{prop}
+
+\begin{proof}
+    Ya que KC implica $T_1$, para cualquier par HM $(F,Q)$ se satisface que 
+    \[
+    \mathcal{U}_*\circ [Q']\circ \mathcal{U}=w_F.
+    \]
+
+    Además, por la definición de KC, el intervalo de admisibilidad es de la forma
+    \[
+    [v_F=u_d, w_F=u_a],
+    \]
+    donde $d=v_F(0)$ y $a=w_F(0)$.
+
+    Por lo tanto, debemos probar que $u_d=u_a$. Así,
+    \begin{equation}\label{ud=ua}
+    \text{Fuertemente apilado }\iff u_d=u_a\iff a=d\iff v_F(0)=w_F(0)\iff \text{ Apilado}.
+    \end{equation}
+\end{proof}
+
+Recordemos que un espacio $S$ es empaquetado si para todo $Q\in\mathcal{Q}S$, $Q\in \mathcal{C}S$, donde $\mathcal{Q}S$ y $\mathcal{C}S$ son 
+las familias de subconjuntos compactos saturados y subconjuntos cerrados, respectivamente.
+
+Dado que KC implica eficiente y eficiente implica empaquetado, entonces 
+\[
+\text{KC}\Rightarrow \text{Empaquetado},
+\]
+es decir, para $S$ un espacio topológico, si $\mathcal{O}S$ es KC, el espacio $S$ es empaquetado.
+
+El reciproco de lo anterior no es cierto. De hecho, si consideramos un espacio empaquetado $S$, tenemos
+\[
+Q\in \mathcal{Q}S\Rightarrow Q'\in \mathcal{O}S.
+\]
+
+Luego, considerando $F\in \mathcal{O}S^\wedge$, el filtro abierto asociado a $Q$, se cumple que
+\[
+v_F\leq [Q']=u_{Q'}.
+\]
+y como empaquetado implica $T_1$, entonces $[Q']=w_F$.\\
+
+Por lo tanto, si $S$ es fuertemente apilado, $v_F=u_{Q'}=w_F$, es decir, 
+\[
+\mathcal{O}S \text{ es KC }\iff S\text{ es empaquetado y fuertemente apilado}.
+\]
+
+\begin{prop}
+    Si $A$ es un marco espacial, entonces las nociones KC y Eficiente son equivalentes.
+\end{prop}
+
+\begin{proof}
+    En reportes anteriores probamos que si $\mathcal{O}S$ es eficiente, entonces $S$ es fuertemente apilado. Además, 
+    por la Proposición \ref{KCSS},
+    \[
+    \begin{split}
+    \mathcal{O}S \text{ es KC }&\iff S\text{ es empaquetado y fuertemente apilado}\\
+    &\iff \mathcal{O}S\text{ es eficiente}.
+    \end{split}
+    \]
+\end{proof}
+
+El resultado anterior nos dice que, en el caso espacial, KC y Eficiente son en escencia la misma propiedad. Ahora, debemos
+preguntarnos si ocurre el mismo fenomeno para un marco arbitrario. Para poder responder esto, primero observamos la relación
+de KC y F. apilado.
+
+Recordemos que un marco $A$ es subajustado ($(\mathbf{sfit})$) si para cualesquiera $a,b\in A$, con $a\nleq b$, se cumple 
+\[
+\exists\, c\in A\text{ tal que }a\vee c=1\neq b\vee c.
+\]
+
+En \cite{simmons2006regularity,picado2021separation} caracterizan esta clase de marcos. Haciendo uso de ellos, 
+podemos afirmar lo siguiente.
+
+\begin{prop}\label{KCsfit}
+    Si $A$ es un marco KC y $\mathbf{(sfit)}$, entonces $A$ es fuertemente apilado.
+\end{prop}
+
+\begin{proof}
+    Dado que en los marcos KC todo cociente compacto es cerrado, debemos verificar que $u_d=u_a$. Por \eqref{ud=ua}, lo anterior 
+    es equivalente a verificar que $d=a$. Por hipótesis, $A$ es $\mathbf{(sfit)}$ y, por \cite[Teorema 3.5]{simmons2006regularity}, 
+    se cumple quue $d=a$. Por lo tanto, $A$ es fuertemente apilado.
+\end{proof}
+
+En \cite[Proposición 2.5.3]{picado2021separation} mencionan que si un marco es $T_1$ y $\mathbf{(sfit)}$, entonces este es espacial. Este hecho
+y el ejemplo presentado en el reporte anterior de un marco $T_1$ y fuertemente apilado que no es espacial, nos permite afirmar lo siguiente.
+
+\begin{prop}
+    Si un marco es KC, entonces no es $\mathbf{(sfit)}$
+\end{prop}
+
+\begin{proof}
+    A manera de contradicción, supongamos que KC implica $\mathbf{(sfit)}$. Así, por la Proposición \ref{KCsfit}, tenemos que $KC$ siempre implica fuertemente 
+    apilado. Luego, como fuertemente apilado implica apilado,
+    \[
+    KC\Rightarrow \text{ Apilado}+T_1\Rightarrow \text{ Espacial},
+    \]
+    lo cual es una contradicción, pues existen marcos $T_1$ y apilados que no son espaciales. 
+\end{proof}
+
+Observemos que si KC implica fuertemente apilado, se cumple que 
+\[
+[v_F, w_F]=\{u_d\}.
+\]
+
+Entonces, similarmente a como ocurre en el caso espacial, las nociones de KC y Eficiente son equivalentes para marcos abitrarios. Por lo tanto, dentro de las actividades 
+futuras se encuentra el verificar si existen marcos KC que no son fuertemente apilados.
+
+\bibliographystyle{amsalpha}
+\bibliography{research2}
+
+\end{document}
