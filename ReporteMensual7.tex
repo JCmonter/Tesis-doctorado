@@ -123,7 +123,12 @@ la propiedad $\mathbf{(sfit)}$ y algunas de las consecuencias de la interacción
 
     Por lo tanto, debemos probar que $u_d=u_a$. Así,
     \begin{equation}\label{ud=ua}
-    \text{Fuertemente apilado }\iff u_d=u_a\iff a=d\iff v_F(0)=w_F(0)\iff \text{ Apilado}.
+    \begin{split}
+    \text{Fuertemente apilado }&\iff u_d=u_a\\ 
+    &\iff a=d\\ 
+    &\iff v_F(0)=w_F(0)\\ 
+    &\iff \text{ Apilado}.
+    \end{split}
     \end{equation}
 \end{proof}
 
@@ -167,9 +172,9 @@ Por lo tanto, si $S$ es fuertemente apilado, $v_F=u_{Q'}=w_F$, es decir,
     \]
 \end{proof}
 
-El resultado anterior nos dice que, en el caso espacial, KC y Eficiente son en escencia la misma propiedad. Ahora, debemos
+El resultado anterior nos dice que, en el caso espacial, KC y Eficiente son en esencia la misma propiedad. Ahora, debemos
 preguntarnos si ocurre el mismo fenomeno para un marco arbitrario. Para poder responder esto, primero observamos la relación
-de KC y F. apilado.
+de KC y fuertemente apilado.
 
 Recordemos que un marco $A$ es subajustado ($(\mathbf{sfit})$) si para cualesquiera $a,b\in A$, con $a\nleq b$, se cumple 
 \[
@@ -197,12 +202,26 @@ y el ejemplo presentado en el reporte anterior de un marco $T_1$ y fuertemente a
 \end{prop}
 
 \begin{proof}
-    A manera de contradicción, supongamos que KC implica $\mathbf{(sfit)}$. Así, por la Proposición \ref{KCsfit}, tenemos que $KC$ siempre implica fuertemente 
-    apilado. Luego, como fuertemente apilado implica apilado,
+    A manera de contradicción, supongamos que KC implica $\mathbf{(sfit)}$. Dado que KC implica $T_1$, entonces
     \[
-    KC\Rightarrow \text{ Apilado}+T_1\Rightarrow \text{ Espacial},
+    \text{KC}\Rightarrow T_1+ \mathbf{(sfit)}\Rightarrow \text{ Espacial},
     \]
-    lo cual es una contradicción, pues existen marcos $T_1$ y apilados que no son espaciales. 
+    es decir, todos los marcos KC son espaciales.
+    
+    Lo anterior es una contradicción, pues el marco $A=B\times 2$, donde $B$ es un álgebra booleana completa sin átomos, es un marco 
+    KC. En efecto, en el reporte anterior verificamos que
+    \[
+    A^\wedge=\{A, F_p\},
+    \]
+    para $p\in \pt A$. 
+
+    Luego, dado que $A$ es $T_1$ y fuertemente apilado, se cumple que
+    \[
+    v_A=u_1=w_A\quad\text{y}\quad v_{F_p}=u_p=w_{F_p}.
+    \]
+
+    Por lo tanto, $A$ es KC, pero $A$ no es espacial. De esta manera, KC no implica $\mathbf{(sfit)}$.
+
 \end{proof}
 
 Observemos que si KC implica fuertemente apilado, se cumple que 
